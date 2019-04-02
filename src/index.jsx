@@ -1,10 +1,13 @@
 /* eslint-disable react/wrap-multilines */
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Routes from './routes';
 
 function App() {
   return (
-    <div>Hello World</div>
+    <div>
+      <Routes />
+    </div>
   );
 }
 
