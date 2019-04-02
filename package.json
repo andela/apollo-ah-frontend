@@ -1,0 +1,27 @@
+{
+  "name": "apollo-ah-frontend",
+  "version": "1.0.0",
+  "description": "Authors Haven - A Social platform for the creative at heart. =======",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andela/apollo-ah-frontend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/andela/apollo-ah-frontend/issues"
+  },
+  "homepage": "https://github.com/andela/apollo-ah-frontend#readme",
+  "dependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-redux": "^6.0.1",
+    "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0"
+  }
+}
