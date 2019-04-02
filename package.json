@@ -1,15 +1,25 @@
 {
-  "name": "authorshaven-react",
+  "name": "apollo-ah-frontend",
   "version": "1.0.0",
-  "description": "authorshaven frontend in react.js",
+  "description": "Authors Haven - A Social platform for the creative at heart. =======",
   "main": "index.jsx",
   "scripts": {
     "test": "jest",
-    "start": "webpack-dev-server --mode development --open",
+    "start": "webpack-dev-server",
+    "start:dev": "webpack-dev-server --config webpack.config.dev.js --open",
+    "start:prod": "webpack --config webpack.config.prod.js",
     "build": "webpack --mode production"
   },
-  "author": "Andela Simulations Programme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andela/apollo-ah-frontend.git"
+  },
+  "author": "Apollo-Ah",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/andela/apollo-ah-frontend/issues"
+  },
+  "homepage": "https://github.com/andela/apollo-ah-frontend#readme",
   "devDependencies": {
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.3.4",
