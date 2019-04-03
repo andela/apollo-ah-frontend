@@ -1,5 +1,5 @@
-import { ADD_DATA } from '../contants/action-types';
-import initialState from '../store/initial-state';
+import { ADD_DATA } from '../contants/actionTypes';
+import initialState from '../store/initialState';
 
 /**
  * This is a sample reducer function

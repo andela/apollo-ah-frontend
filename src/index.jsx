@@ -1,8 +1,8 @@
 /* eslint-disable react/wrap-multilines */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Routes from './routes';
 import { Provider } from 'react-redux';
+import Routes from './routes';
 import store from './store';
 
 function App() {
@@ -17,5 +17,5 @@ ReactDOM.render(
   <Provider store={store}>
     <App />
   </Provider>,
-  document.getElementById('root'),
+  document.getElementById('root')
 );

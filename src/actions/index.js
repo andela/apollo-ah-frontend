@@ -1,4 +1,4 @@
-import { ADD_DATA } from '../constants/action-types';
+import { ADD_DATA } from '../contants/actionTypes';
 
 /**
  * Dummy action
@@ -7,6 +7,6 @@ import { ADD_DATA } from '../constants/action-types';
  * @param {object} payload - Data payload
  * @returns {object}
  */
-export function addData(payload) {
+export default function addData(payload) {
   return { type: ADD_DATA, payload };
 }
