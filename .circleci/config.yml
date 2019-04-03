@@ -28,12 +28,6 @@ jobs:
             
       # install dependencies
       - run: npm install
-      - run:
-          name: Setup Code Climate test-reporter
-          command: |
-          # download test reporter as a static binary
-            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-            chmod +x ./cc-test-reporter
 
       - save_cache:
           paths:
@@ -41,12 +35,4 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       # run tests!
-      - run:
-          name: Run tests and coverage
-          command: |
-          # notify Code Climate of a pending test report using `before-build`
-            ./cc-test-reporter before-build
-            npm test -- --coverage
-          # upload test report to Code Climate using `after-build`
-            ./cc-test-reporter after-build --exit-code $?
-      
+      - run: npm test
