@@ -1,4 +1,4 @@
-import { ADD_DATA } from '../contants/actionTypes';
+import { ADD_DATA } from '../constants/actionTypes';
 import initialState from '../store/initialState';
 
 /**
