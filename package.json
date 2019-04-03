@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "coverage": "nyc report --reporter=text-lcov",
     "start": "webpack-dev-server",
-    "start:dev": "webpack-dev-server --config webpack.config.dev.js --open",
+    "start:dev": "webpack-dev-server --config webpack.config.dev.js",
     "start:prod": "webpack --config webpack.config.prod.js",
     "build": "webpack --mode production"
   },
@@ -52,6 +52,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.17",
     "@fortawesome/free-solid-svg-icons": "^5.8.1",
     "@fortawesome/react-fontawesome": "^0.1.4",
+    "axios": "^0.18.0",
     "classnames": "^2.2.6",
     "nyc": "^13.3.0",
     "prop-types": "^15.7.2",
