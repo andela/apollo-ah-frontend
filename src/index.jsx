@@ -1,13 +1,21 @@
+/* eslint-disable react/wrap-multilines */
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Routes from './routes';
 import { Provider } from 'react-redux';
 import store from './store';
 
-const App = () => <h1>Welcome To AuthorsHaven</h1>;
+function App() {
+  return (
+    <div>
+      <Routes />
+    </div>
+  );
+}
 
 ReactDOM.render(
   <Provider store={store}>
     <App />
   </Provider>,
-  document.getElementById('app'),
+  document.getElementById('root'),
 );
