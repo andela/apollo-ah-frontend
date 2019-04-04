@@ -32,7 +32,8 @@ jobs:
 
       - save_cache:
           paths:
-            - ~/.cache
+            - ~/.cache/Cypress
+            - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
       # run tests!
