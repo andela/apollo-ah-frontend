@@ -54,7 +54,7 @@ function ResetPassword(props) {
   };
 
   return (
-    <Modal clearMessage={() => setMessage(null)}>
+    <Modal clearMessage={() => setMessage(null)} title="Recover Password!">
       <p className="reset_password_paragraph">Enter the email address you used when you created your account. You will receive instructions to reset your password in your mail box.</p>
       <form>
         <div className="form-group">

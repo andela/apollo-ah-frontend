@@ -3,7 +3,7 @@
 import React from 'react';
 
 function Modal(props) {
-  const { clearMessage } = props;
+  const { clearMessage, title } = props;
   return (
     <div className="modal" id="myModal">
       <div className="modal-dialog">
@@ -13,7 +13,7 @@ function Modal(props) {
           </div>
           <div className="modal_body">
             <div className="modal_header">
-              <h4 className="modal_title">Recover Password!</h4>
+              <h4 className="modal_title">{title}</h4>
             </div>
             {props.children}
           </div>
@@ -24,3 +24,5 @@ function Modal(props) {
 }
 
 export default Modal;
+
+// Recover Password!
