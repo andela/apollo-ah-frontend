@@ -4,7 +4,7 @@
   "description": "Authors Haven - A Social platform for the creative at heart. =======",
   "main": "index.jsx",
   "scripts": {
-    "test": "jest",
+    "test": "jest & npm run start:dev & wait-on http://localhost:8092 & cypress run",
     "coverage": "nyc report --reporter=text-lcov",
     "start": "webpack-dev-server",
     "start:dev": "webpack-dev-server --config webpack.config.dev.js --open",
@@ -48,6 +48,7 @@
     "jest": "^24.6.0",
     "node-sass": "^4.11.0",
     "sass-loader": "^7.1.0",
+    "start-server-and-test": "^1.7.13",
     "style-loader": "^0.23.1",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.2.3",
@@ -70,6 +71,7 @@
     "react-router-dom": "^4.3.1",
     "react-scripts": "^2.1.8",
     "redux": "^4.0.1",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "wait-on": "^3.2.0"
   }
 }
