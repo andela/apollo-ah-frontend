@@ -25,10 +25,13 @@
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.3.4",
     "@babel/plugin-syntax-object-rest-spread": "^7.2.0",
+    "@babel/plugin-transform-runtime": "^7.4.3",
     "@babel/preset-env": "^7.3.4",
     "@babel/preset-react": "^7.0.0",
+    "@babel/runtime": "^7.4.3",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.5",
+    "babel-plugin-transform-async-to-generator": "^6.24.1",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "clean-webpack-plugin": "^1.0.1",
@@ -49,10 +52,12 @@
     "webpack-dev-server": "^3.2.1"
   },
   "dependencies": {
+    "@emotion/core": "^10.0.10",
     "@fortawesome/fontawesome-svg-core": "^1.2.17",
     "@fortawesome/free-solid-svg-icons": "^5.8.1",
     "@fortawesome/react-fontawesome": "^0.1.4",
     "axios": "^0.18.0",
+    "babel-runtime": "^6.26.0",
     "classnames": "^2.2.6",
     "nyc": "^13.3.0",
     "prop-types": "^15.7.2",
@@ -61,7 +66,9 @@
     "react-modal": "^3.8.1",
     "react-redux": "^6.0.1",
     "react-router-dom": "^4.3.1",
+    "react-spinners": "^0.5.3",
     "redux": "^4.0.1",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "validator": "^10.11.0"
   }
 }

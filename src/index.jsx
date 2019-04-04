@@ -3,6 +3,7 @@ import { Provider } from 'react-redux';
 import ReactDOM from 'react-dom';
 import Routes from './routes';
 import store from './store';
+import './styles/index.scss';
 
 function App() {
   return (

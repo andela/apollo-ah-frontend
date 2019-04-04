@@ -5,6 +5,9 @@
   ],
   "plugins": [
     "transform-class-properties",
-    "@babel/plugin-syntax-object-rest-spread"
+    ["@babel/transform-runtime", {
+      "regenerator": true
+    }],
+    "transform-async-to-generator"
   ]
 }

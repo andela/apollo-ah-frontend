@@ -1,3 +1,5 @@
+/* eslint-disable react/wrap-multilines */
+/* eslint-disable react/require-extension */
 import React from 'react';
 import ResetPassword from '../ResetPassword';
 
