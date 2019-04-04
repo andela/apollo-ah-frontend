@@ -4,7 +4,7 @@
   "description": "Authors Haven - A Social platform for the creative at heart. =======",
   "main": "index.jsx",
   "scripts": {
-    "test": "jest & npm run start:dev & wait-on http://localhost:8092 & cypress run",
+    "test": "jest & npm run start:dev & wait-on http://localhost:8092 & ./node_modules/.bin/cypress run",
     "coverage": "nyc report --reporter=text-lcov",
     "start": "webpack-dev-server",
     "start:dev": "webpack-dev-server --config webpack.config.dev.js --open",
