@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux';
-import sample from './sample';
+
+import { updateProfileReducer, loadingReducer } from './updateProfileReducer';
 
 export default combineReducers({
-  sample,
+  loading: loadingReducer,  
+  user: updateProfileReducer,
 });

@@ -1,0 +1,70 @@
+.form {
+	.form-control {
+		background-color: $color_wild_sand_approx;
+		border-style: none;
+		&:focus {
+			box-shadow: 0 0 0 0.2rem $color_purple_25_approx;
+		}
+	}
+	textarea {
+		&.form-control {
+			max-width: 100%;
+			min-width: 100%;
+			min-height: 120px;
+		}
+		&.textarea-sm {
+			min-height: auto;
+		}
+	}
+	.input-auto {
+		height: auto;
+	}
+}
+
+.form.error .form-control:invalid{
+	box-shadow: 0 0 0 1px $color_danger;
+}
+.form .form-control ~ span{
+	display: none;
+	margin-top: 3px;
+	font-size: 14px;
+	color: $color_danger;
+}
+.form.error .form-control:invalid ~ span{
+	display: inline-block;
+}
+.custom-control-label {
+	padding-left: 10px;
+	padding-top: 2px;
+}
+.custom-control-label::before {
+	border: 2px solid $color_purple_approx;
+	height: 20px;
+	width: 20px;
+}
+.custom-control-label::after {
+	background-size: 12px;
+	top: 6px;
+	left: -22px;
+}
+.custom-control-input {
+	&:focus {
+		~ .custom-control-label::before {
+			box-shadow: 0 0 0 0.2rem $color_purple_25_approx;
+			border-color: $color_purple_approx;
+		}
+		&:not(:checked) ~ .custom-control-label::before {
+			box-shadow: 0 0 0 0.2rem $color_purple_25_approx;
+			border-color: $color_purple_approx;
+		}
+	}
+	&:checked ~ .custom-control-label::before {
+		border-color: $color_purple_approx;
+		background-color: $color_purple_approx;
+		outline: none;
+	}
+}
+.form-borderless .form-control {
+	background-color: $white;
+	border-style: solid;
+}

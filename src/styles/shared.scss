@@ -1,0 +1,258 @@
+body {
+	font-family: $font_0;
+	font-weight: 400;
+	background-color: $color_desert_storm_approx;
+	color: $color_tundora_approx;
+}
+.bg-brand {
+	background-color: color_purple_approx;
+	color: $white;
+}
+#navbar {
+	background-color: $white;
+	//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+	box-shadow: 0 2px 2px $black_2;
+	.btn-cta {
+		padding: 10px 60px 10px 25px;
+		//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+		border-radius: 4px;
+		color: $white;
+		font-weight: 400;
+		font-size: 16px;
+		margin-right: 19px;
+		position: relative;
+		overflow: hidden;
+		text-transform: none;
+		margin-top: 10px;
+		margin-bottom: 10px;
+		max-width: 300px;
+		text-align: center;
+	}
+	.navbar-brand {
+		color: $color_violet_eggplant_approx;
+		font-weight: bold;
+		&:hover {
+			color: $color_violet_eggplant_approx;
+			font-weight: bold;
+		}
+	}
+	.dropdown-divider {
+		margin: 0 1px;
+	}
+	.navbar-toggler {
+		border: none;
+	}
+	.navbar-toggler-icon {
+		border-color: $red;
+	}
+	li a {
+		color: $color_tundora_approx;
+		text-transform: uppercase;
+		text-align: left;
+	}
+	.dropdown-menu a {
+		text-transform: none;
+		padding-top: 8px;
+		padding-bottom: 8px;
+		width: 230px;
+		border-left: 4px solid transparent;
+		//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+		transition: padding-left 300ms;
+		margin-bottom: 1px;
+		margin-top: 1px;
+		opacity: 0.8;
+		&:hover {
+			border-left-color: $color_pigment_indigo_approx;
+			background-color: $gallery;
+			padding-left: 20px;
+		}
+	}
+}
+.overlay {
+	position: relative;
+	overflow: hidden;
+}
+.btn-brand {
+	text-align: center;
+	padding: 12px 16px 12px 15px;
+	display: inline-block;
+	color: $white;
+	font-size: 16px;
+	background-color: $color_purple_approx;
+	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+	border-radius: 5px;
+	text-decoration: none;
+	//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+	transition: background 300ms;
+	//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+	box-shadow: 0 5px 4px $black_25;
+	&:hover {
+		color: $white;
+		background-color: $color_clairvoyant_approx;
+		text-decoration: none;
+	}
+}
+.overlay::before {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	content: "";
+	background-color: $black_49;
+}
+.relative {
+	position: relative;
+}
+.btn-secondary {
+	background-color: $color_pigment_indigo_32_approx;
+	color: $color_pigment_indigo_approx;
+	//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+	box-shadow: none;
+	border: none;
+}
+[onclick] {
+	cursor: pointer;
+}
+[onClick] {
+	cursor: pointer;
+}
+.transition {
+	//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+	transition: all 300ms ease;
+}
+.footer {
+	background-color: $color_shark_approx;
+	overflow: auto;
+	a {
+		color: $color_cloud_approx;
+		display: block;
+		padding: 8px 10px;
+		float: none;
+		&.terms {
+			opacity: 1;
+		}
+	}
+	div div {
+		text-align: center;
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+}
+.logo {
+	font-weight: bold;
+	font-size: 18px;
+}
+.main-body {
+	margin-top: 52px;
+}
+@media(min-width:992px) {
+	#navbar {
+		padding-top: 15px;
+		padding-bottom: 15px;
+		.btn-cta {
+			margin-bottom: 0;
+			margin-top: 0;
+		}
+	}
+	.main-body {
+		margin-top: 71px;
+	}
+}
+.link-surface {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 2;
+}
+@media(min-width:768px) {
+	.footer {
+		a.terms {
+			float: right;
+			opacity: 0.8;
+		}
+		div div {
+			text-align: left;
+			padding-top: 30px;
+			padding-bottom: 30px;
+		}
+	}
+}
+@media(min-width:450px) {
+	.footer a {
+		display: inline-block;
+	}
+}
+@media(min-width:576px) and(max-width:767px) {
+	.container {
+		max-width: 100%;
+	}
+}
+.wrapper {
+	padding-top: 50px;
+	padding-bottom: 60px;
+	header h1 {
+		font-size: 24px;
+		font-weight: bold;
+		text-transform: uppercase;
+		padding-bottom: 0;
+		padding-top: 0;
+		display: inline-block;
+	}
+}
+.navbar-logged {
+	.navbar-toggler {
+		display: none;
+	}
+	.nav-profile {
+		display: inline-block;
+	}
+}
+.page-header {
+	margin-top: 20px;
+	margin-bottom: 70px;
+	overflow: auto;
+}
+.btn-plain {
+	//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+	box-shadow: none;
+}
+.btn-condensed {
+	padding-top: 8px;
+	padding-bottom: 8px;
+}
+.btn-cta .fas {
+	position: absolute;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	width: 40px;
+	text-align: center;
+	padding-top: 15px;
+	font-size: 14px;
+	background-color: $color_violet_eggplant_approx;
+}
+.nav-profile img {
+	width: 40px;
+	height: 40px;
+	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+	border-radius: 100%;
+}
+.navbar .nav-profile {
+	display: none;
+}
+.view-changer .btn {
+	padding-top: 4px;
+	padding-bottom: 4px;
+	cursor: pointer;
+	&.active.focus {
+		//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+		box-shadow: none;
+	}
+}
+.btn-unfocused:focus {
+	//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+	box-shadow: none;
+}

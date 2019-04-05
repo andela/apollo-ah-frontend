@@ -17,7 +17,7 @@ module.exports = {
     publicPath: '/',
   },
   resolve: {
-    extensions: ['.jsx', '.js', '.json', '.css']
+    extensions: ['.jsx', '.js', '.json', '.scss', '.css']
   },
   module: {
     rules: [
@@ -32,9 +32,6 @@ module.exports = {
           { loader: 'style-loader' },
           {
             loader: 'css-loader',
-            options: {
-              modules: true,
-            },
           },
           {
             loader: 'sass-loader'
