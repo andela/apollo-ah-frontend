@@ -1,4 +1,5 @@
-import React, {Component} from 'react';
+/* eslint-disable react/prefer-stateless-function */
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import ProfileHeader from '../views/reuse/ProfileHeader';
@@ -9,29 +10,27 @@ import ProfileHeader from '../views/reuse/ProfileHeader';
  * @class ProfileHeaderContainer
  * @extends {Component}
  */
-   class ProfileHeaderContainer extends Component{
-    /**
-     *Creates an instance of ProfileHeaderContainer.
-     * @param {object} props The props object
-     * @memberof ProfileHeaderContainer
-     */
-    constructor(props){
-        super(props);
-    }
-    /**
+class ProfileHeaderContainer extends Component {
+  /**
      * The render method
      * @returns {array} The resulting JSX object
      * @memberof ProfileHeaderContainer
      */
-    render(){
-      const {activePage, profile}= this.props;
-        return(
-          <ProfileHeader activePage={activePage} profile={profile} />
-        );
-    }
+  render() {
+    const { activePage, profile } = this.props;
+    return (
+      <ProfileHeader activePage={activePage} profile={profile} />
+    );
+  }
 }
 ProfileHeaderContainer.propTypes = {
   activePage: PropTypes.string.isRequired,
+  profile: PropTypes.shape({
+    firstname: PropTypes.string.isRequired,
+    lastname: PropTypes.string.isRequired,
+    username: PropTypes.string.isRequired,
+    bio: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 const mapStateToProps = state => ({

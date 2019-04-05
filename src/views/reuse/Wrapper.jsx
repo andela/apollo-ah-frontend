@@ -8,17 +8,17 @@ import PropTypes from 'prop-types';
  * within this component.
  * @returns {array} The resulting JSX object
  */
-export default function Wrapper(props){
-  const {children} = props;
-    return(
-      <main className="main-body">
-        <section className="wrapper min-vh-100">
-          <div className="container">
-            {children}
-          </div>
-        </section>
-      </main>
-    );
+export default function Wrapper(props) {
+  const { children } = props;
+  return (
+    <main className="main-body">
+      <section className="wrapper min-vh-100">
+        <div className="container">
+          {children}
+        </div>
+      </section>
+    </main>
+  );
 }
 
 

@@ -3,5 +3,5 @@ export const PROFILE_PLACEHOLDER = 'https://res.cloudinary.com/demo/image/upload
 export const API_URL = 'https://apollo-ah-backend-staging.herokuapp.com/api/v1';
 
 export const MESSAGE = {
-    PROFILE_UPDATE_FAILED: 'There was a problem updating your profile',
+  PROFILE_UPDATE_FAILED: 'There was a problem updating your profile',
 };

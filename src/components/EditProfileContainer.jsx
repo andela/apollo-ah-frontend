@@ -1,11 +1,11 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { PropTypes } from 'prop-types';
 
 import EditProfile from '../views/EditProfile';
 import ProfileHeaderContainer from './ProfileHeaderContainer';
 import Wrapper from '../views/reuse/Wrapper';
-import {updateUserProfile} from '../actions/updateProfileAction';
-
+import { updateUserProfile } from '../actions/updateProfileAction';
 
 /**
  * Container component for the EditProfile view
@@ -13,44 +13,57 @@ import {updateUserProfile} from '../actions/updateProfileAction';
  * @class EditProfileContainer
  * @extends {Component}
  */
-  class EditProfileContainer extends Component{
-     /**
+class EditProfileContainer extends Component {
+  /**
      *Creates an instance of EditProfileContainer.
      * @param {object} props The props object
      * @memberof EditProfileContainer
      */
-    constructor(props){
-        super(props);
-        this.handleUpdateProfile = this.handleUpdateProfile.bind(this);
-    }
+  constructor(props) {
+    super(props);
+    this.handleUpdateProfile = this.handleUpdateProfile.bind(this);
+  }
 
-    handleUpdateProfile(event){
-      event.preventDefault();
-      const data = new FormData(event.target);
-      const {updateProfile} = this.props;
-      updateProfile(data);
-    }
-    
-     /**
+  handleUpdateProfile(event) {
+    event.preventDefault();
+    const data = new FormData(event.target);
+    const { updateProfile } = this.props;
+    updateProfile(data);
+  }
+
+  /**
      * The render method
      * @returns {array} The resulting JSX object
      * @memberof EditProfileContainer
      */
-    render(){
-      const {isLoading, profile, errorData} = this.props;
-        return (
-          <Wrapper>
-            <ProfileHeaderContainer activePage="PROFILE" />
-            <EditProfile 
-            handleUpdateProfile={this.handleUpdateProfile} 
-            isLoading={isLoading} 
-            profile={profile}
-            errorData={errorData}
-            />
-          </Wrapper>
-        );
-    }
+  render() {
+    const { isLoading, profile, errorData } = this.props;
+    return (
+      <Wrapper>
+        <ProfileHeaderContainer activePage="PROFILE" />
+        <EditProfile
+          handleUpdateProfile={this.handleUpdateProfile}
+          isLoading={isLoading}
+          profile={profile}
+          errorData={errorData}
+        />
+      </Wrapper>
+    );
+  }
 }
+
+EditProfileContainer.propTypes = {
+  updateProfile: PropTypes.func.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  profile: PropTypes.shape({
+    firstname: PropTypes.string.isRequired,
+    lastname: PropTypes.string.isRequired,
+    username: PropTypes.string.isRequired,
+    bio: PropTypes.string.isRequired,
+  }).isRequired,
+  errorData: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
+
 
 const mapStateToProps = state => ({
   isLoading: state.loading,
