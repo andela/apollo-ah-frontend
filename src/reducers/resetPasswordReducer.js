@@ -8,7 +8,6 @@ const initialState = {
   emailSuccess: false,
   confirmSuccess: false,
   updateSuccess: false,
-  error: null,
 };
 
 export default function resetPasswordReducer(state = initialState, action){
@@ -16,7 +15,7 @@ export default function resetPasswordReducer(state = initialState, action){
   case PASSWORD_RESET_REQUEST_SUCCESS:
     return { ...state, emailSuccess: true };
   case PASSWORD_RESET_REQUEST_FAILURE:
-    return { ...state, error: action.payload };
+    return state;
   default:
     return state;
   }

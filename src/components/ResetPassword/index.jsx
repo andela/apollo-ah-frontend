@@ -2,9 +2,15 @@
 import React, { useState, useRef } from 'react';
 import { connect } from 'react-redux';
 import { ClipLoader } from 'react-spinners';
-import Modal from '../Modal.js';
+import Modal from '../../views/Modal.js';
 import passwordResetRequest from '../../actions/resetPassword';
 
+
+/**
+ * Form for resetting password
+ * @param {object} props Component props
+ * @param {function} props.passwordResetRequest action creator function
+ */
 function ResetPassword(props) {
   const [userEmail, setUserEmail] = useState({
     email: null,

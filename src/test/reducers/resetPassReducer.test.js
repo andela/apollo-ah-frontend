@@ -7,7 +7,6 @@ describe('Reset password reducer: ', () => {
     emailSuccess: false,
     confirmSuccess: false,
     updateSuccess: false,
-    error: null,
   };
 
   it('should have the correct default state', () => {
@@ -26,6 +25,6 @@ describe('Reset password reducer: ', () => {
     expect(resetPasswordReducer(undefined, {
       type: types.PASSWORD_RESET_REQUEST_FAILURE,
       payload: 'error'
-    })).toEqual({ ...state, error: 'error' });
+    })).toEqual(state);
   });
 });

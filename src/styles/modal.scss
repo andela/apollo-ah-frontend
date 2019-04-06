@@ -2,8 +2,8 @@
   position: relative;
   display: -ms-flexbox;
   display: flex;
-  width: 661px;
-  height: 445px;
+  width: inherit;
+  height: fit-content;
   -ms-flex-direction: column;
   flex-direction: column;
   pointer-events: auto;
