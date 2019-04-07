@@ -8,6 +8,14 @@ import {
 
 const apiUrl = 'https://apollo-ah-backend-staging.herokuapp.com';
 
+/**
+ * reset password action creator
+ *
+ * @export
+ * @param string email - user's email address
+ * @returns {object}
+ */
+
 const passwordResetRequest = email => {
   return async (dispatch) => {
     try {

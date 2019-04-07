@@ -4,7 +4,8 @@
   "description": "Authors Haven - A Social platform for the creative at heart. =======",
   "main": "index.jsx",
   "scripts": {
-    "test": "jest",
+    "test": "jest & npm run start:dev & wait-on http://localhost:8092 & ./node_modules/.bin/cypress run",
+    "test:watch": "jest --watchAll",
     "coverage": "nyc report --reporter=text-lcov",
     "start": "webpack-dev-server",
     "start:dev": "webpack-dev-server --config webpack.config.dev.js",
@@ -30,12 +31,14 @@
     "@babel/preset-react": "^7.0.0",
     "@babel/runtime": "^7.4.3",
     "babel-eslint": "^10.0.1",
+    "babel-jest": "^24.6.0",
     "babel-loader": "^8.0.5",
     "babel-plugin-transform-async-to-generator": "^6.24.1",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "clean-webpack-plugin": "^1.0.1",
     "css-loader": "^2.1.1",
+    "cypress": "^3.2.0",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.11.2",
     "eslint": "^5.15.3",
@@ -49,6 +52,7 @@
     "jest": "^24.7.1",
     "node-sass": "^4.11.0",
     "sass-loader": "^7.1.0",
+    "start-server-and-test": "^1.7.13",
     "style-loader": "^0.23.1",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.2.3",
@@ -64,6 +68,9 @@
     "classnames": "^2.2.6",
     "expect": "^24.7.1",
     "moxios": "^0.4.0",
+    "dotenv": "^7.0.0",
+    "enzyme-to-json": "^3.3.5",
+    "fs": "^0.0.1-security",
     "nyc": "^13.3.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.3",
@@ -75,6 +82,8 @@
     "redux": "^4.0.1",
     "redux-mock-store": "^1.5.3",
     "redux-thunk": "^2.3.0",
-    "validator": "^10.11.0"
+    "validator": "^10.11.0",
+    "react-scripts": "^2.1.8",
+    "wait-on": "^3.2.0"
   }
 }

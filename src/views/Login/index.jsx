@@ -3,6 +3,11 @@
 import React from 'react';
 import ResetPassword from '../../components/ResetPassword';
 
+/**
+ * Login component
+ * @param {object} props Component props
+ */
+
 function Login(props) {
   return (
     <div>
