@@ -4,8 +4,8 @@ import { PropTypes } from 'prop-types';
 
 import EditProfile from '../views/EditProfile';
 import ProfileHeaderContainer from './ProfileHeaderContainer';
-import Wrapper from '../views/reuse/Wrapper';
-import { updateUserProfile } from '../actions/updateProfileAction';
+import { updateUserProfile } from '../actions/profileAction';
+import { UPDATING_PROFILE } from '../actions/actionTypes';
 
 /**
  * Container component for the EditProfile view
@@ -31,23 +31,17 @@ class EditProfileContainer extends Component {
     updateProfile(data);
   }
 
-  /**
-     * The render method
-     * @returns {array} The resulting JSX object
-     * @memberof EditProfileContainer
-     */
   render() {
-    const { isLoading, profile, errorData } = this.props;
+    const { isLoading, profile } = this.props;
     return (
-      <Wrapper>
+      <>
         <ProfileHeaderContainer activePage="PROFILE" />
         <EditProfile
           handleUpdateProfile={this.handleUpdateProfile}
           isLoading={isLoading}
           profile={profile}
-          errorData={errorData}
         />
-      </Wrapper>
+      </>
     );
   }
 }
@@ -60,18 +54,17 @@ EditProfileContainer.propTypes = {
     lastname: PropTypes.string.isRequired,
     username: PropTypes.string.isRequired,
     bio: PropTypes.string.isRequired,
+    errorData: PropTypes.arrayOf(PropTypes.object).isRequired,
   }).isRequired,
-  errorData: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 
 const mapStateToProps = state => ({
-  isLoading: state.loading,
+  isLoading: state.loading.updatingProfile,
   profile: state.user,
-  errorData: state.user.error,
 });
 
 const mapDispatchToProps = dispatch => ({
-  updateProfile: userData => dispatch(updateUserProfile(userData)),
+  updateProfile: userData => dispatch(updateUserProfile(UPDATING_PROFILE, userData)),
 });
 export default connect(mapStateToProps, mapDispatchToProps)(EditProfileContainer);

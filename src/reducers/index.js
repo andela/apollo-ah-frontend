@@ -1,8 +1,9 @@
 import { combineReducers } from 'redux';
 
-import { updateProfileReducer, loadingReducer } from './updateProfileReducer';
+import profileReducer from './profileReducer';
+import loadingReducer from './loadingReducer';
 
 export default combineReducers({
   loading: loadingReducer,
-  user: updateProfileReducer,
+  user: profileReducer,
 });

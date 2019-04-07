@@ -1,6 +1,7 @@
-/* eslint-disable react/wrap-multilines */
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
+
 
 const htmlPlugin = new HtmlWebPackPlugin({
   template: './public/index.html',
@@ -8,9 +9,11 @@ const htmlPlugin = new HtmlWebPackPlugin({
   title: 'Authors Haven',
 });
 
+const dotenvPlugin = new Dotenv();
+
 module.exports = {
   entry: './src/index.jsx',
-  plugins: [htmlPlugin],
+  plugins: [htmlPlugin, dotenvPlugin],
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',

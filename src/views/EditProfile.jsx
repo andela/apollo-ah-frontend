@@ -12,10 +12,10 @@ import { PropTypes } from 'prop-types';
  */
 const EditProfile = (props) => {
   const {
-    profile, handleUpdateProfile, isLoading, errorData,
+    profile, handleUpdateProfile, isLoading,
   } = props;
   const {
-    firstname, lastname, username, bio,
+    firstname, lastname, username, bio, errorData, image, token
   } = profile;
   return (
     <>
@@ -38,7 +38,7 @@ const EditProfile = (props) => {
           </div>
           <div className="form-group mb-4">
             <label htmlFor="bio" className="font-weight-bold">Bio</label>
-            <textarea className="form-control" id="bio" name="bio" value={bio} required />
+            <textarea className="form-control" id="bio" name="bio" required defaultValue={bio} />
             <span className="text-danger">Bio is required.</span>
           </div>
           <button type="submit" className="btn btn-brand btn-plain" disabled={isLoading}>
@@ -47,6 +47,8 @@ const EditProfile = (props) => {
             {isLoading && <span className="spinner-border text-light spinner-border-sm" />
                 }
           </button>
+          <input type="hidden" defaultValue={token} name="token" className="hidden" />
+          <input type="hidden" defaultValue={image} name="image" className="hidden" />
         </form>
       </div>
 
@@ -55,8 +57,6 @@ const EditProfile = (props) => {
 };
 
 EditProfile.propTypes = {
-  /** Use to show validator indicators on the form elements */
-  errorData: PropTypes.arrayOf(PropTypes.object),
   /** Called when the update profile button is clicked */
   handleUpdateProfile: PropTypes.func,
   /** Used to disable the update profile button while processing a request */
@@ -71,13 +71,18 @@ EditProfile.propTypes = {
     username: PropTypes.string,
     /** A short bio of the user */
     bio: PropTypes.string,
+    /** Use to show validator indicators on the form elements */
+    errorData: PropTypes.arrayOf(PropTypes.object),
+    /** The user profile image */
+    image: PropTypes.string.isRequired,
+    /** The authentication token */
+    token: PropTypes.string.isRequired,
   }).isRequired,
 };
 
 EditProfile.defaultProps = {
   isLoading: false,
-  errorData: [],
-  handleUpdateProfile: () => {},
+  handleUpdateProfile: f => f,
 };
 
 export default EditProfile;

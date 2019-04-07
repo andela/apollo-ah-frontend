@@ -1,5 +1,3 @@
-/* eslint-disable no-undef */
-/* eslint-disable react/jsx-filename-extension */
 import React from 'react';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
@@ -9,7 +7,6 @@ configure({ adapter: new Adapter() });
 
 describe('<Home>', () => {
   it('should have a p tag', () => {
-    // eslint-disable-next-line react/react-in-jsx-scope
     const wrapper = shallow(<HomePage />);
     expect(wrapper.find('p').exists()).toBe(true);
   });
