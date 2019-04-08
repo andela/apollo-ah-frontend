@@ -1,20 +1,36 @@
-import { GET_ARTICLES_SUCCESS, GET_ARTICLES_FAILURE } from './actionTypes';
-import http from '../services/http';
+import axios from 'axios';
+import typeGenerator from './actionTypeGenerator';
 
-export const ActionResponse = (actionTypes, articles) => ({
-  type: actionTypes,
-  payload: articles
+/**
+ * @description - articles response function
+ * @param {string} actionType - type of action
+ * @param {object} articles - articles returned
+ * @returns {object}
+ */
+
+export const articleAction = (type, payload) => ({
+  type: typeGenerator(type),
+  payload
 });
+
+/**
+ * @description Request to the API to get only 12 latest published articles
+ * @returns {object} dispatch object
+ */
 
 export const getArticles = () => async(dispatch) => {
   try {
-    const response = await http.get('/articles?size=12');
+    dispatch(articleAction('LOADING', 'started'));
+    const response = await axios.get(`${process.env.API_BASE_URL}/articles?size=12`);
     const { data: { data } } = response;
     if (response.status === 404) {
-      dispatch(ActionResponse(GET_ARTICLES_FAILURE, 'Article not found'));
+      dispatch(articleAction('GET_ARTICLES_FAILURE', 'Article not found'));
+      dispatch(articleAction('STOP_LOADING', 'stopped'));
     }
-    dispatch(ActionResponse(GET_ARTICLES_SUCCESS, data));
+    dispatch(articleAction('GET_ARTICLES_SUCCESS', data));
+    dispatch(articleAction('STOP_LOADING', 'stopped'));
   } catch (err) {
-    dispatch(err);
+    dispatch(articleAction('STOP_LOADING', 'stopped'));
+    dispatch(articleAction('SEVER_ERROR', err));
   }
 };

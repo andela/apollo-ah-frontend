@@ -2,6 +2,16 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
+/**
+ * @description - returns customized navigation bar for the app
+ * @param {props} categories - links to categories view
+ * @param {props} authors - links to authors view
+ * @param {props} bookmark - links to bookmark view
+ * @param {props} search - links to search view
+ * @param {props} write - links to write view
+ * @param {props} login - links to login view
+ * @return {JSX}
+ */
 const Navbar = ({ categories, authors, bookmark, search, write, login }) => {
   return (
     <nav
@@ -48,39 +58,39 @@ const Navbar = ({ categories, authors, bookmark, search, write, login }) => {
               >
                 <Link className="dropdown-item" to="/business">
                   Business
-            </Link>
+              </Link>
                 <div className="dropdown-divider" />
                 <Link className="dropdown-item" to="/entertainment">
                   Entertainment
-            </Link>
+              </Link>
                 <div className="dropdown-divider" />
                 <Link className="dropdown-item" to="/fashion">
                   Fashion
-            </Link>
+              </Link>
                 <div className="dropdown-divider" />
                 <Link className="dropdown-item" to="/food">
                   Food
-            </Link>
+              </Link>
                 <div className="dropdown-divider" />
                 <Link className="dropdown-item" to="/health">
                   Health
-            </Link>
+              </Link>
                 <div className="dropdown-divider" />
                 <Link className="dropdown-item" to="/history">
                   History
-            </Link>
+              </Link>
                 <div className="dropdown-divider" />
                 <Link className="dropdown-item" to="/technology">
                   Technology
-            </Link>
+              </Link>
                 <div className="dropdown-divider" />
                 <Link className="dropdown-item" to="/sports">
                   Sports
-            </Link>
+              </Link>
                 <div className="dropdown-divider" />
                 <Link className="dropdown-item" to="/others">
                   Others
-            </Link>
+              </Link>
               </div>
             </li>
             <li className="nav-item">
@@ -115,57 +125,6 @@ const Navbar = ({ categories, authors, bookmark, search, write, login }) => {
               </Link>
             </li>
           </ul>
-        </div>
-        <div className="dropdown nav-profile" data-pg-collapsed>
-          <button
-            className="btn dropdown-toggle"
-            type="button"
-            id="dropdownMenuButton"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
-            <img
-              className="nav-profile"
-              src="#"
-            />
-          </button>
-          <div
-            className="dropdown-menu dropdown-menu-right"
-            aria-labelledby="dropdownMenuButton"
-          >
-            <Link className="dropdown-item" to="#">
-              Write an articlLink
-        </Link>
-            <div className="dropdown-divider" />
-            <Link className="dropdown-item" to="/search-articles">
-              Search articles
-        </Link>
-            <div className="dropdown-divider" />
-            <Link className="dropdown-item" to="/dashboard">
-              My Dashboard
-        </Link>
-            <Link className="dropdown-item" to="/profile">
-              My Profile
-        </Link>
-            <Link className="dropdown-item" to="/bookmarks">
-              My Bookmarks
-        </Link>
-            <div className="dropdown-divider" />
-            <Link className="dropdown-item" to="/following">
-              Following
-        </Link>
-            <Link className="dropdown-item" to="/followers">
-              Followers
-        </Link>
-            <div className="dropdown-divider" />
-            <Link className="dropdown-item" to="/settings">
-              Settings
-        </Link>
-            <Link className="dropdown-item" to="/logout">
-              Logout
-        </Link>
-          </div>
         </div>
       </div>
     </nav>

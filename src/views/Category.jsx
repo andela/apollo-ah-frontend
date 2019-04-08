@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Technology from '../../public/images/categories/technology.jpg';
@@ -11,15 +11,21 @@ import Health from '../../public/images/categories/health.jpg';
 import History from '../../public/images/categories/history.jpg';
 import Entertainment from '../../public/images/categories/entertainment.jpg';
 
-
+/**
+ * @description - returns all articles category or selected articles category
+ * @param {props} begin - start of range of categories to select
+ * @param {props} end - end of range of categories to select
+ * @param {props} articlesCategory - all articles categories
+ * @return {JSX}
+ */
 const Category = ({begin, end, articlesCategory}) => {
   return (
-    <Fragment>
+    <>
       <div className="container">
         <div className="row">
           {articlesCategory && articlesCategory.slice(begin, end).map(({ category }, index) => {
             return <div className="col-md-4 col-sm-6" key={index}>
-              <Fragment>
+              <>
                 <div
                   className="category-item overlay category-item-technology"
                   style={{
@@ -33,25 +39,26 @@ const Category = ({begin, end, articlesCategory}) => {
                     category === 'History' ? `url(${History})` : `url(${Others})`
                   }}
                 >
-                <Link to="#" className="link-surface"/>
+                <Link to="/category" className="link-surface category-link">
                   <div className="relative">
                     <h4>{category}</h4>
                     <span>Explore Articles</span>
                   </div>
+                </Link>
                 </div>
-              </Fragment>
+              </>
             </div>;
           })}
         </div>
       </div>
-    </Fragment>
+    </>
   );
 };
 
 Category.propTypes = {
   begin: PropTypes.number,
   end: PropTypes.number,
-  articlesCategory: PropTypes.array.isRequired,
+  articlesCategory: PropTypes.array,
 };
 
 export default Category;

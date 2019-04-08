@@ -1,6 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+/**
+ * @description - returns the app footer
+ * @return {JSX}
+ */
 const Footer = () => {
   return (
     <footer className="footer">

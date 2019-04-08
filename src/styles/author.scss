@@ -1,6 +1,6 @@
 %extend_1 {
 	font-size: 13px;
-	color: $color_purple_approx;
+	color: $color_purple;
 	display: inline-block;
 	padding: 7px 50px;
 	border-radius: 50px;
@@ -28,14 +28,15 @@
 	}
 	h4 {
 		font-weight: bold;
-		color: $color_tundora_approx;
+		color: $color_tundora;
 		font-size: 17px;
 		margin-bottom: 6px;
 	}
 	p {
-		color: $color_mountain_mist_approx;
+		color: $color_mountain_mist;
 		font-weight: 100;
 		font-size: 14px;
+		height: 30px;
 	}
 	button {
 		@extend %extend_1;
@@ -44,17 +45,17 @@
 		}
 		&:hover {
 			transform: translateY(-2px);
-			color: $color_purple_approx;
+			color: $color_purple;
 			text-decoration: none;
-			box-shadow: 0 0 12px $color_purple_20_approx;
+			box-shadow: 0 0 12px $color_purple_20;
 		}
 		&.following {
-			background-color: $color_purple_approx;
+			background-color: $color_purple;
 			color: $white;
 		}
 	}
 	&.following button {
-		background-color: $color_purple_approx;
+		background-color: $color_purple;
 		color: $white;
 	}
 }

@@ -1,20 +1,40 @@
-import { GET_ARTICLES_CATEGORY_SUCCESS, GET_ARTICLES_CATEGORY_FAILURE } from './actionTypes';
-import http from '../services/http';
+import typeGenerator from './actionTypeGenerator';
+import axios from 'axios';
 
-export const ActionResponse = (actionType, category) => ({
-  type: actionType,
-  payload: category
+/**
+ * @description - articles categories response function
+ * @param {string} actionType - type of action
+ * @param {object} category - article category
+ * @returns {object}
+ */
+// export const categoryActionResponse = (actionType, category) => ({
+//   type: actionType,
+//   payload: category
+// });
+
+export const articleCategoryAction = (type, payload) => ({
+  type: typeGenerator(type),
+  payload
 });
 
+
+/**
+ * @description Request to the API to get only 6 articles categories
+ * @returns {object} dispatch object
+ */
 export const getArticlesCategory = () => async(dispatch) => {
   try {
-    const response = await http.get('/categories?size=6');
+    articleCategoryAction('LOADING', 'started');
+    const response = await axios.get(`${process.env.API_BASE_URL}/categories?size=6`);
     const { data: { data } } = response;
     if (response.status === 404) {
-      dispatch(ActionResponse(GET_ARTICLES_CATEGORY_FAILURE, 'Category not found'));
+      dispatch(articleCategoryAction('GET_ARTICLES_CATEGORY_FAILURE', 'Category not found'));
+      articleCategoryAction('STOP_LOADING', 'stopped');
     }
-    dispatch(ActionResponse(GET_ARTICLES_CATEGORY_SUCCESS, data));
+    dispatch(articleCategoryAction('GET_ARTICLES_CATEGORY_SUCCESS', data));
+    articleCategoryAction('STOP_LOADING', 'stopped');
   } catch (err) {
-    dispatch(err);
+    articleCategoryAction('STOP_LOADING', 'stopped');
+    dispatch(articleCategoryAction('SEVER_ERROR', err));
   }
 };

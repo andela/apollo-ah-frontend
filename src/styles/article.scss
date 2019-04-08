@@ -21,6 +21,7 @@
 	p {
 		font-size: 13px;
 		font-weight: 100;
+		height: 30px;
 	}
 	&.no-cover {
 		padding-top: 10px;
@@ -46,7 +47,7 @@
 	transition: all 100ms ease;
 }
 .article-category {
-	background-color: $color_purple_approx;
+	background-color: $color_purple;
 	color: $white;
 	font-size: 10px;
 	display: inline-block;
@@ -58,7 +59,7 @@
 }
 .article-author {
 	position: relative;
-	border-top: 1px solid $color_cloud_24_approx;
+	border-top: 1px solid $color_cloud_24;
 	padding-top: 10px;
 	z-index: 10;
 	img {
@@ -71,9 +72,9 @@
 	h6 {
 		font-size: 13px;
 		font-weight: bold;
-		color: $color_purple_approx;
+		color: $color_purple;
 		margin-top: 0;
-		margin-bottom: -5px;
+		margin-bottom: 5px;
 	}
 	div {
 		margin-left: 40px;
@@ -87,7 +88,7 @@
 	}
 	.fas {
 		float: right;
-		color: $color_pumice_90_approx;
+		color: $color_pumice_90;
 		position: relative;
 		right: -1px;
 		z-index: 40;
@@ -100,15 +101,15 @@
 	width: 5px;
 	height: 5px;
 	border-radius: 40px;
-	background-color: $color_purple_37_approx;
+	background-color: $color_purple_37;
 }
 .bookmarked {
 	.fas {
-		color: $color_purple_approx;
+		color: $color_purple;
 		animation: react 500ms ease;
 	}
 	&.fas {
-		color: $color_purple_approx;
+		color: $color_purple;
 		animation: react 500ms ease;
 	}
 }
