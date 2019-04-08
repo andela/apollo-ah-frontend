@@ -18,7 +18,7 @@ const socialLogin = payload => async dispatch => {
       return dispatch(globalError(response.data.errors));
     }
 
-    const { user } = response;
+    const { user } = response.data;
     localStorage.setItem('user', JSON.stringify(user));
     toastr.success(MESSAGE.SOCIAL_LOGIN_SUCCESS);
     return dispatch(globalAuthenticated(true));
