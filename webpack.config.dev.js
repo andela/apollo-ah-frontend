@@ -32,7 +32,7 @@ module.exports = {
   module: {
     rules: [
       {
-        loader: ['babel-loader', 'eslint-loader'],
+        loader: ['babel-loader'],
         test: /\.jsx?$/,
         exclude: /node_modules/,
       },

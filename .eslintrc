@@ -5,10 +5,10 @@
     "plugin:import/warnings",
     "airbnb"
   ],
-  "parser":"babel-eslint",
   "plugins": [
   "react"
   ],
+  "parser": "babel-eslint",
   "parserOptions": {
     "ecmaVersion": 6,
     "sourceType": "module",
