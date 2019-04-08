@@ -1,9 +1,10 @@
 import React from 'react';
+import SocialLogin from '../components/SocialLogin';
 
 function Login() {
   return (
     <div>
-      <p>Login page</p>
+      <SocialLogin />
     </div>
   );
 }

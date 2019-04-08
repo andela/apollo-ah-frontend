@@ -8,8 +8,9 @@
   "plugins": [
     "react"
   ],
+  "parser": "babel-eslint",
   "parserOptions": {
-    "ecmaVersion": 6,
+    "ecmaVersion": 2018,
     "sourceType": "module",
     "ecmaFeatures": {
       "jsx": true,
@@ -74,10 +75,14 @@
     "react/prefer-stateless-function": 0,
     "react/prop-types": 1,
     "react/react-in-jsx-scope": 1,
-    "react/require-extension": 1,
+    "react/require-extension": "off",
     "react/self-closing-comp": 1,
     "react/sort-comp": 1,
-    "react/wrap-multilines": 1
+    "react/wrap-multilines": "off",
+    "jsx-a11y/anchor-is-valid": [ "error", {
+      "components": [ "Link" ],
+      "specialLink": [ "to" ]
+    }]
   },
   "env": {
     "es6": true,
@@ -85,7 +90,8 @@
     "node": true,
     "jasmine": true,
     "jquery": true,
-    "mocha": true
+    "mocha": true,
+    "jest": true
   },
   "globals": {
     "window": true

@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ImageButton /> renders without crashing given the required props 1`] = `
+<button
+  className="btn"
+  onClick={[MockFunction]}
+  type="button"
+>
+  <img
+    alt="alt"
+    src="image.png"
+  />
+</button>
+`;

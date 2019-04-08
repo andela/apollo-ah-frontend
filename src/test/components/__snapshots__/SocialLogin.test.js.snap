@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SocialLogin /> renders without crashing given the required props 1`] = `
+<div
+  className="signup__socials__content"
+>
+  <div
+    className="signup__socials__icons"
+  >
+    <FacebookButton
+      handleResponse={[Function]}
+    />
+    <GoogleButton
+      handleResponse={[Function]}
+    />
+  </div>
+</div>
+`;

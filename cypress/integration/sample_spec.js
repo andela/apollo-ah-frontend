@@ -6,10 +6,7 @@ describe('Does not do much', () => {
   });
   it('should setup home page', () => {
     cy.visit(appUrl);
-    cy.contains('Hello');
-    cy.contains('Login').click();
-    cy.url()
-      .should('include', '/login');
+    cy.contains('Home');
   });
   
   it('should go to login page', () => {

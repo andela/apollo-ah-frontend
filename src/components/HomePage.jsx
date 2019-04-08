@@ -9,8 +9,8 @@ class HomePage extends React.Component {
   render() {
     return (
       <div>
-        <p>Hello World</p>
-        <a Link="/login" href="/login">Login </a>
+        <p>Home Page</p>
+        <Link to="/login">Login</Link>
       </div>
     );
   }

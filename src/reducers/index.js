@@ -1,6 +1,10 @@
 import { combineReducers } from 'redux';
-import sample from './sample';
+
+// Reducers
+import { reducer as toastr } from 'react-redux-toastr';
+import globalReducer from './globalReducer';
 
 export default combineReducers({
-  sample,
+  global: globalReducer,
+  toastr,
 });
