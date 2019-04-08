@@ -1,0 +1,29 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+const Footer = () => {
+  return (
+    <footer className="footer">
+      <div className="container">
+        <div>
+          <Link to="/" className="logo">
+            Authors Haven
+          </Link>
+          <Link to="/authors">Authors</Link>
+          <Link to="/categories">Categories</Link>
+          <Link to="/search">
+            <i className="fas fa-search" />
+            {' '}
+            Search
+          </Link>
+          <Link to="/login">Login</Link>
+          <Link to="/terms" className="pull-right terms">
+            Terms &amp; Conditions
+          </Link>
+        </div>
+      </div>
+    </footer>
+  );
+};
+ 
+export default Footer;

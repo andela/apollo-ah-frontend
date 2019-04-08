@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux';
-import sample from './sample';
+import articlesReducer from './articleReducer';
+import articlesCategoryReducer from './articleCategoryReducer';
 
 export default combineReducers({
-  sample,
+  articlesReducer,
+  articlesCategoryReducer,
 });

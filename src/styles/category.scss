@@ -1,0 +1,23 @@
+.category-item {
+	padding: 50px 20px;
+	text-align: center;
+	background-size: cover;
+	background-position: center center;
+	color: $white;
+	border-radius: 5px;
+	margin-bottom: 30px;
+	h4 {
+		font-weight: bold;
+		font-size: 26px;
+	}
+	div span {
+		display: inline-block;
+		font-size: 13px;
+		background-color: $white;
+		color: $color_rangoon_green_approx;
+		border-radius: 100px;
+		margin-top: 40px;
+		padding: 8px 25px;
+		text-decoration: none;
+	}
+}
