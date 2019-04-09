@@ -23,8 +23,9 @@ const socialLogin = payload => async dispatch => {
     toastr.success(MESSAGE.SOCIAL_LOGIN_SUCCESS);
     return dispatch(globalAuthenticated(true));
   } catch (error) {
+    const { response } = error;
     toastr.error(MESSAGE.SOCIAL_LOGIN_FAILURE);
-    return dispatch(globalError(error));
+    return dispatch(globalError(response.data.data));
   }
 };
 
