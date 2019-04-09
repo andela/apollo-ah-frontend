@@ -1,6 +1,6 @@
-
+const defaultFunc = () => {};
 export default class CloudinaryWidget {
-  constructor(callback, cropping = false) {
+  constructor(handleSuccess = defaultFunc, handleFailure = defaultFunc, cropping = false) {
     this.widget = window.cloudinary.createUploadWidget({
       cloudName: process.env.CLOUDINARY_CLOUD_NAME,
       uploadPreset: 'xdvl8frf',
@@ -31,10 +31,9 @@ export default class CloudinaryWidget {
       }
     }, (error, result) => {
       if (!error && result && result.event === 'success') {
-        if (callback) {
-          callback(result.info.secure_url);
-        }
+        return handleSuccess(result.info.secure_url);
       }
+      handleFailure();
     });
   }
 

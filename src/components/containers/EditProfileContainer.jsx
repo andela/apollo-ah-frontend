@@ -4,8 +4,8 @@ import { PropTypes } from 'prop-types';
 
 import EditProfile from '../views/EditProfile';
 import ProfileHeaderContainer from './ProfileHeaderContainer';
-import { updateUserProfile } from '../actions/profileAction';
-import { UPDATING_PROFILE } from '../actions/actionTypes';
+import { updateUserProfile } from '../../actions/profileAction';
+import { UPDATING_PROFILE } from '../../actions/actionTypes';
 
 /**
  * Container component for the EditProfile view
@@ -24,6 +24,11 @@ class EditProfileContainer extends Component {
     this.handleUpdateProfile = this.handleUpdateProfile.bind(this);
   }
 
+  /**
+   * Updates the user profile
+   * @param {object} event The event object
+   * @memberof EditProfileContainer
+   */
   handleUpdateProfile(event) {
     event.preventDefault();
     const data = new FormData(event.target);

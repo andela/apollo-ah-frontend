@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
-/* eslint-disable jsx-a11y/label-has-for */
 import React from 'react';
 import { PropTypes } from 'prop-types';
 
@@ -58,7 +56,7 @@ const EditProfile = (props) => {
 
 EditProfile.propTypes = {
   /** Called when the update profile button is clicked */
-  handleUpdateProfile: PropTypes.func,
+  handleUpdateProfile: PropTypes.func.isRequired,
   /** Used to disable the update profile button while processing a request */
   isLoading: PropTypes.bool,
   /** The user profile object */
@@ -82,7 +80,6 @@ EditProfile.propTypes = {
 
 EditProfile.defaultProps = {
   isLoading: false,
-  handleUpdateProfile: f => f,
 };
 
 export default EditProfile;

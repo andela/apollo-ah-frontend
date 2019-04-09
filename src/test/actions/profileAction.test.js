@@ -1,3 +1,4 @@
+import '@babel/polyfill';
 import moxios from 'moxios';
 import mockStore from '../utils/mockStore';
 import * as actions from '../../actions/profileAction';
@@ -9,6 +10,16 @@ const payload = {
   username: 'johnny',
   bio: 'I love writing',
   image: 'https://linktoimage.jpg'
+};
+
+const stubRequest = (response, status = 200) => {
+  moxios.wait(() => {
+    moxios.requests.mostRecent()
+      .respondWith({
+        status,
+        response,
+      });
+  });
 };
 
 describe('Action creators', () => {
@@ -48,13 +59,7 @@ describe('Action creators', () => {
       status: true
     };
 
-    moxios.wait(() => {
-      const request = moxios.requests.mostRecent();
-      request.respondWith({
-        status: 200,
-        response,
-      });
-    });
+    stubRequest(response);
 
     const expected = [
       {
@@ -84,13 +89,7 @@ describe('Action creators', () => {
       message: 'Profile updated successfully',
       status: true
     };
-    moxios.wait(() => {
-      const request = moxios.requests.mostRecent();
-      request.respondWith({
-        status: 200,
-        response,
-      });
-    });
+    stubRequest(response);
 
     const expected = [
       {
@@ -124,13 +123,8 @@ describe('Action creators', () => {
       message: 'Update was not successful',
       status: false
     };
-    moxios.wait(() => {
-      const request = moxios.requests.mostRecent();
-      request.respondWith({
-        status: 400,
-        response,
-      });
-    });
+
+    stubRequest(response, 400);
 
     const body = { ...payload, username: '' };
 
@@ -165,13 +159,8 @@ describe('Action creators', () => {
       message: 'Update was not successful',
       status: false
     };
-    moxios.wait(() => {
-      const request = moxios.requests.mostRecent();
-      request.respondWith({
-        status: 400,
-        response,
-      });
-    });
+
+    stubRequest(response, 400);
 
     const body = { ...payload, username: '' };
 
@@ -192,6 +181,73 @@ describe('Action creators', () => {
     const store = mockStore({ user: {} });
 
     return store.dispatch(actions.updateUserProfile(types.UPDATING_PROFILE_IMAGE, body))
+      .then(() => {
+        expect(store.getActions()).toEqual(expected);
+      });
+  });
+
+  it('should accept FormData object as parameter', () => {
+    const response = {
+      code: 201,
+      data: payload,
+      message: 'Profile updated successfully',
+      status: true
+    };
+    stubRequest(response);
+
+    const formData = new FormData();
+    formData.append('username', payload.username);
+    formData.append('firstname', payload.firstname);
+    formData.append('lastname', payload.lastname);
+    formData.append('image', payload.image);
+    formData.append('bio', payload.bio);
+
+    const expected = [
+      {
+        type: types.UPDATING_PROFILE_IMAGE,
+        status: true,
+      },
+      {
+        type: types.UPDATING_PROFILE_IMAGE,
+        status: false,
+      },
+      {
+        type: types.UPDATE_PROFILE_SUCCESS,
+        data: payload,
+      }
+    ];
+    const store = mockStore({ user: {} });
+
+    return store.dispatch(actions.updateUserProfile(types.UPDATING_PROFILE_IMAGE, formData))
+      .then(() => {
+        expect(store.getActions()).toEqual(expected);
+      });
+  });
+
+  it('should dispatch error message if there is no network connection or there was a server error', () => {
+    stubRequest(undefined);
+
+    const expected = [
+      {
+        type: types.UPDATING_PROFILE_IMAGE,
+        status: true,
+      },
+      {
+        type: types.UPDATING_PROFILE_IMAGE,
+        status: false,
+      },
+      {
+        type: types.UPDATING_PROFILE_IMAGE,
+        status: false,
+      },
+      {
+        type: types.UPDATE_PROFILE_FAILURE,
+        data: [{}],
+      }
+    ];
+    const store = mockStore({ user: {} });
+
+    return store.dispatch(actions.updateUserProfile(types.UPDATING_PROFILE_IMAGE, payload))
       .then(() => {
         expect(store.getActions()).toEqual(expected);
       });

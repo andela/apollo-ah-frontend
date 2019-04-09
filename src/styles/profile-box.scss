@@ -19,6 +19,25 @@
 	
 		border-radius: inherit;
 	}
+	.spinner-border{
+		position: absolute;
+		left: 47px;
+		top: 46px;
+		display: none;
+	}
+	&.overlay::before{
+		left:5px;
+		right:5px;
+		top: 5px;
+		bottom:5px;
+		border-radius: inherit;
+	}
+	&.overlay .change-image{
+		transform: scale(0);
+	}
+	&.overlay .spinner-border{
+		display: inline-block;
+	}
 }
 .profile-wrapper {
 	margin-top: 10px;

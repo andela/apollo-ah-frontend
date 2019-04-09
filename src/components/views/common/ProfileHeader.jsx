@@ -11,7 +11,12 @@ import PropTypes from 'prop-types';
  * @returns {array} The resulting JSX object
  */
 const ProfileHeader = (props) => {
-  const { profile, activePage, handleImageUpload } = props;
+  const {
+    profile,
+    activePage,
+    handleImageUpload,
+    isLoading
+  } = props;
   const {
     firstname, lastname, username, image,
   } = profile;
@@ -21,11 +26,12 @@ const ProfileHeader = (props) => {
         <h1>{`My ${activePage}`}</h1>
       </header>
       <div className="profile-box mt-n4">
-        <div className="d-inline-block relative profile-img-cover">
+        <div className={`d-inline-block relative profile-img-cover${isLoading ? ' overlay' : ''}`}>
+          <span className="spinner-border text-light align-middle" />
           <img src={image} className="img-thumbnail" alt={username} />
           {
                 activePage === 'PROFILE' && (
-                <button type="button" className="btn change-image" onClick={handleImageUpload}>
+                <button type="button" className="btn change-image transition" onClick={handleImageUpload}>
                   <i className="fas fa-camera" />
                 </button>
                 )}
@@ -49,10 +55,12 @@ const ProfileHeader = (props) => {
 };
 
 ProfileHeader.propTypes = {
+  /** Controls the state of the indicator and upload image icon */
+  isLoading: PropTypes.bool.isRequired,
   /** Used to hightlight the current page */
   activePage: PropTypes.oneOf(['DASHBOARD', 'SETTINGS', 'PROFILE']).isRequired,
   /** Gets called when the user clicks on the upload image button */
-  handleImageUpload: PropTypes.func,
+  handleImageUpload: PropTypes.func.isRequired,
   /** The user profile object */
   profile: PropTypes.shape({
     /** The firstname of the user */
@@ -64,10 +72,6 @@ ProfileHeader.propTypes = {
     /** A short bio of the user */
     image: PropTypes.string,
   }).isRequired,
-};
-
-ProfileHeader.defaultProps = {
-  handleImageUpload: f => f,
 };
 
 export default ProfileHeader;
