@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/destructuring-assignment */
 import React from 'react';
@@ -5,9 +7,14 @@ import React from 'react';
 function Modal(props) {
   const { clearMessage, title } = props;
   return (
-    <div className="modal" id="myModal">
+    <div className="modal" id="myModal" onClick={clearMessage}>
       <div className="modal-dialog">
-        <div className="modal_content">
+        <div
+          className="modal_content"
+          onClick={(event) => {
+            event.stopPropagation();
+            return clearMessage('modalContent');
+          }}>
           <div className="cancelTop">
             <button onClick={clearMessage} type="button" className="close" data-dismiss="modal">&times;</button>
           </div>

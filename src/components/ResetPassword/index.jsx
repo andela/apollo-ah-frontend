@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { ClipLoader } from 'react-spinners';
 import Modal from '../../views/Modal.js';
 import passwordResetRequest from '../../actions/resetPassword';
+import modalAction from '../../actions/modal';
 
 
 /**
@@ -12,65 +13,63 @@ import passwordResetRequest from '../../actions/resetPassword';
  * @param {function} props.passwordResetRequest action creator function
  */
 function ResetPassword(props) {
+  // local state for handling email gotten from the input field
   const [userEmail, setUserEmail] = useState({
     email: null,
   });
-  const [message, setMessage] = useState(null);
-  const [loader, setLoader] = useState(false);
-  const input = useRef(null);
 
+  // local state for adding a new css class to a div
+  const [inputIsValid, setInputIsValid] = useState('');
+  
+  // mutable object for an input
+  const input = useRef(null);
+  
+  // passing global state loading as props into variables
+  let { isLoading, message } = props;
+
+  // this is a function to update the email state
   const updateInput = event => {
+    setInputIsValid('validated');
     setUserEmail({ ...userEmail, [event.target.name]: event.target.value });
   };
 
+  // A function to clear the input field
   const clearInputs = () => {
     input.current.value = null;
     setUserEmail({ ...userEmail, email: null });
   };
 
-  const handleSubmit = () => {
-    setLoader(true);
-    setMessage(null);
-    props.passwordResetRequest(userEmail.email).then(res => {
-      setLoader(false);
-      clearInputs();
-      if (res.code === 400) {
-        setMessage(res.data[0].message);
-      }
-      if (res.code === 200) {
-        setMessage(res.message);
-      }
-    });
+  // A function that triggers the post request action
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    //calling the action creator to update the store
+    props.passwordResetRequest(userEmail.email);
   };
 
-  const validateUserData = (event) => {
-    event.preventDefault();
-    const fieldsArr = Object.entries(userEmail);
-    const errors = [];
-    fieldsArr.forEach(field => {
-      if (!field[1]) {
-        errors.push(`${field[0]} is required.`);
-      }
-    });
-    if (errors.length < 1) {
-      return handleSubmit(event);
-    } else {
-      setMessage(errors);
+  // A function that ensures that when modal is closed, content is lost
+  const clearModalState = (content) => {
+    // action to clear response message
+    props.modalAction();
+    if(content != 'modalContent'){
+      setInputIsValid('');
+      clearInputs();
     }
   };
 
   return (
-    <Modal clearMessage={() => setMessage(null)} title="Recover Password!">
+    <Modal clearMessage={clearModalState} title="Recover Password!">
       <p className="reset_password_paragraph">Enter the email address you used when you created your account. You will receive instructions to reset your password in your mail box.</p>
-      <form>
+      <form className={`reset-password-group ${inputIsValid}`}>
         <div className="form-group">
-          <input ref={input} type="email" className="reset_form_control" id="email" placeholder="Enter email" name="email" onChange={(event) => updateInput(event)} />
+          <input ref={input} type="email" className="reset_form_control btn-block" id="email" placeholder="Enter email" name="email" onChange={(event) => updateInput(event)} required />
+          <span className="input-danger mt-2">A valid email is required</span>
+          <button type="submit" className="reset_btn btn-block mt-3" onClick={(event => handleSubmit(event))}>Request reset link</button>
         </div>
-        <button type="submit" className="reset_btn" onClick={(event => validateUserData(event))}>Request reset link</button>
+        
       </form>
       <div>
         {
-          loader ?
+          isLoading ?
             (
               <div className="reset_spinner_box">
                 <ClipLoader
@@ -88,4 +87,9 @@ function ResetPassword(props) {
   );
 }
 
-export default connect(() => ({}), { passwordResetRequest })(ResetPassword);
+const mapStateToProps = state => ({
+  isLoading: state.resetPasswordReducer.isLoading,
+  message: state.resetPasswordReducer.responseData,
+});
+
+export default connect(mapStateToProps, { modalAction, passwordResetRequest })(ResetPassword);
