@@ -30,7 +30,6 @@ export class SocialLogin extends Component {
    */
   constructor() {
     super();
-    this.socialResponse = this.socialResponse.bind(this);
   }
 
   /**
