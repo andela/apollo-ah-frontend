@@ -15,10 +15,12 @@ function ResetPassword(props) {
   const [userEmail, setUserEmail] = useState({
     email: null,
   });
-  const [message, setMessage] = useState(null);
-  const [loader, setLoader] = useState(false);
-  const input = useRef(null);
 
+  const { isLoading } = props;
+
+  const [message, setMessage] = useState(null);
+  const input = useRef(null);
+  
   const updateInput = event => {
     setUserEmail({ ...userEmail, [event.target.name]: event.target.value });
   };
@@ -29,10 +31,8 @@ function ResetPassword(props) {
   };
 
   const handleSubmit = () => {
-    setLoader(true);
     setMessage(null);
     props.passwordResetRequest(userEmail.email).then(res => {
-      setLoader(false);
       clearInputs();
       if (res.code === 400) {
         setMessage(res.data[0].message);
@@ -70,7 +70,7 @@ function ResetPassword(props) {
       </form>
       <div>
         {
-          loader ?
+          isLoading ?
             (
               <div className="reset_spinner_box">
                 <ClipLoader
@@ -88,4 +88,8 @@ function ResetPassword(props) {
   );
 }
 
-export default connect(() => ({}), { passwordResetRequest })(ResetPassword);
+const mapStateToProps = state => ({
+  isLoading: state.resetPasswordReducer.isLoading,
+});
+
+export default connect(mapStateToProps, { passwordResetRequest })(ResetPassword);

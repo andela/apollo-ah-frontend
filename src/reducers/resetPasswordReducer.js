@@ -1,13 +1,11 @@
 import {
   PASSWORD_RESET_REQUEST_FAILURE,
   PASSWORD_RESET_REQUEST_SUCCESS,
+  PASSWORD_RESET_REQUEST,
 } from '../actions/actionTypes';
 
 const initialState = {
-  resetSuccess: false,
-  emailSuccess: false,
-  confirmSuccess: false,
-  updateSuccess: false,
+  isLoading: false,
 };
 
 /**
@@ -19,12 +17,14 @@ const initialState = {
  * @returns {object}
  */
 
-export default function resetPasswordReducer(state = initialState, action){
+export default function resetPasswordReducer(state = initialState, action = {}){
   switch (action.type) {
+  case PASSWORD_RESET_REQUEST:
+    return { ...state, isLoading: action.isLoading};
   case PASSWORD_RESET_REQUEST_SUCCESS:
-    return { ...state, emailSuccess: true };
+    return { ...state, isLoading: action.isLoading};
   case PASSWORD_RESET_REQUEST_FAILURE:
-    return state;
+    return { ...state, isLoading: action.isLoading};
   default:
     return state;
   }

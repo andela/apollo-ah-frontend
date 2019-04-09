@@ -21,10 +21,15 @@ describe('Reset password actions', () => {
     moxios.stubRequest(url, {
       status: 400,
     });
-    const expectedActions = [{ type: types.PASSWORD_RESET_REQUEST_FAILURE }];
+    const expectedActions = [
+      { 
+        type: types.PASSWORD_RESET_REQUEST_FAILURE,
+        isLoading: false,
+      }
+    ];
     const store = mockStore({});
-    await store.dispatch(passwordResetRequest(userData.email))
-      .then((res) => {
+    store.dispatch(passwordResetRequest(userData.email))
+      .then(() => {
         expect(store.getActions()).toEqual(expectedActions);
       });
     done();
@@ -35,10 +40,15 @@ describe('Reset password actions', () => {
     moxios.stubRequest(url, {
       status: 200,
     });
-    const expectedActions = [{ type: types.PASSWORD_RESET_REQUEST_SUCCESS }];
+    const expectedActions = [
+      { 
+        type: types.PASSWORD_RESET_REQUEST_SUCCESS,
+        isLoading: false
+      }
+    ];
     const store = mockStore({});
-    await store.dispatch(passwordResetRequest(userData))
-      .then((res) => {
+    store.dispatch(passwordResetRequest(userData))
+      .then(() => {
         expect(store.getActions()).toEqual(expectedActions);
       });
     done();

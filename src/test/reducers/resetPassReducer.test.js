@@ -3,10 +3,7 @@ import * as types from '../../actions/actionTypes';
 
 describe('Reset password reducer: ', () => {
   const state = {
-    resetSuccess: false,
-    emailSuccess: false,
-    confirmSuccess: false,
-    updateSuccess: false,
+    isLoading: false,
   };
 
   it('should have the correct default state', () => {
@@ -17,14 +14,15 @@ describe('Reset password reducer: ', () => {
 
   it('should update the reducer state when successful', () => {
     expect(resetPasswordReducer(undefined, {
-      type: types.PASSWORD_RESET_REQUEST_SUCCESS
-    })).toEqual({ ...state, emailSuccess: true });
+      type: types.PASSWORD_RESET_REQUEST_SUCCESS,
+      isLoading: false,
+    })).toEqual({ ...state, isLoading: false});
   });
 
   it('should update the reducer state when unsuccessful', () => {
     expect(resetPasswordReducer(undefined, {
       type: types.PASSWORD_RESET_REQUEST_FAILURE,
-      payload: 'error'
-    })).toEqual(state);
+      isLoading: false
+    })).toEqual({ ...state, isLoading: false});
   });
 });
