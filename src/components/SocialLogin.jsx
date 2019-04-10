@@ -21,16 +21,6 @@ export class SocialLogin extends Component {
     handleError: PropType.func.isRequired,
     isAuthenticated: PropType.bool.isRequired,
   }
-  
-  /**
-   * Creates an instance of SocialLogin.
-   * 
-   * @returns {void}
-   * @memberof SocialLogin
-   */
-  constructor() {
-    super();
-  }
 
   /**
    * Handles response from service provider
