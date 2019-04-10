@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { toastr } from 'react-redux-toastr';
+import { toast } from 'react-toastify';
 import { globalAuthenticated, globalError } from './globalActions';
 import { MESSAGE } from '../utils/constants';
 
@@ -20,11 +20,11 @@ const socialLogin = payload => async dispatch => {
 
     const { user } = response.data;
     localStorage.setItem('user', JSON.stringify(user));
-    toastr.success(MESSAGE.SOCIAL_LOGIN_SUCCESS);
+    toast.success(MESSAGE.SOCIAL_LOGIN_SUCCESS);
     return dispatch(globalAuthenticated(true));
   } catch (error) {
     const { response } = error;
-    toastr.error(MESSAGE.SOCIAL_LOGIN_FAILURE);
+    toast.error(MESSAGE.SOCIAL_LOGIN_FAILURE);
     return dispatch(globalError(response.data.data));
   }
 };

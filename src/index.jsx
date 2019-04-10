@@ -4,7 +4,7 @@ import '@babel/polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import ReduxToastr from 'react-redux-toastr';
+import { ToastContainer, Flip } from 'react-toastify';
 import Routes from './routes';
 import store from './store';
 
@@ -12,15 +12,13 @@ function App() {
   return (
     <Provider store={store}>
       <Routes />
-      <ReduxToastr
-        timeOut={4000}
-        newestOnTop
-        preventDuplicates
+      <ToastContainer
+        pauseOnFocusLoss={false}
+        transition={Flip}
+        className="toast-container"
+        toastClassName="default-toast"
+        autoClose={5000}
         position="top-right"
-        transitionIn="fadeIn"
-        transitionOut="fadeOut"
-        progressBar
-        closeOnToastrClick
       />
     </Provider>
   );

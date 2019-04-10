@@ -1,4 +1,4 @@
-import { toastr } from 'react-redux-toastr';
+import { toast } from 'react-toastify';
 import { splitName } from './helpers';
 import { MESSAGE } from './constants';
 
@@ -15,7 +15,7 @@ export default function loginGoogle(response, handleLogin, handleError) {
   if (!response.profileObj) {
     const errorMessage = MESSAGE.GOOGLE_FAILURE;
     if (response.error !== 'idpiframe_initialization_failed') {
-      toastr.error(errorMessage);
+      toast.error(errorMessage);
     }
     return handleError(errorMessage);
   }

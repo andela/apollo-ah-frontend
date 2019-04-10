@@ -1,4 +1,4 @@
-import { toastr } from 'react-redux-toastr';
+import { toast } from 'react-toastify';
 import { splitName } from './helpers';
 import { MESSAGE } from './constants';
 
@@ -14,7 +14,7 @@ import { MESSAGE } from './constants';
 export default function loginFacebook(response, handleLogin, handleError) {
   if (!response.id) {
     const errorMessage = MESSAGE.FACEBOOK_FAILURE;
-    toastr.error(errorMessage);
+    toast.error(errorMessage);
     return handleError(errorMessage);
   }
   
