@@ -45,7 +45,7 @@ export class HomePage extends Component {
   }));
 
   /**
- * @description found uthors
+ * @description found authors
  * @param {object} rating - each authors article ratings
  * @return {array}
  */
