@@ -17,7 +17,7 @@ module.exports = {
     publicPath: '/',
   },
   resolve: {
-    extensions: ['.jsx', '.js', '.json', '.css']
+    extensions: ['.jsx', '.js', '.json', '.css'],
   },
   module: {
     rules: [
@@ -37,7 +37,7 @@ module.exports = {
             },
           },
           {
-            loader: 'sass-loader'
+            loader: 'sass-loader',
           }
         ],
         exclude: /node_modules/,

@@ -1,0 +1,144 @@
+@keyframes react {
+	from {
+		transform: scale(1.4,1.4);
+	}
+	to {
+		transform: scale(1,1);
+	}
+}
+.article {
+	overflow: hidden;
+	border-radius: 10px;
+	background-color: $white;
+	margin-bottom: 30px;
+	position: relative;
+	box-shadow: 0 0 3px $black_5;
+	h4 {
+		font-weight: bold;
+		font-size: 18px;
+		margin-bottom: 10px;
+	}
+	p {
+		font-size: 13px;
+		font-weight: 100;
+		height: 30px;
+	}
+	&.no-cover {
+		padding-top: 10px;
+		padding-bottom: 0;
+		.article-category {
+			margin-bottom: 20px;
+		}
+	}
+	&:hover .article-cover-img {
+		width: 110%;
+	}
+}
+.article-cover {
+	overflow: hidden;
+	height: 160px;
+}
+.article-cover-img {
+	width: 100%;
+	transition: width 1.5s;
+}
+.article-item {
+	padding: 10px 15px;
+	transition: all 100ms ease;
+}
+.article-category {
+	background-color: $color_purple;
+	color: $white;
+	font-size: 10px;
+	display: inline-block;
+	padding: 3px 20px;
+	border-radius: 70px;
+	text-transform: uppercase;
+	margin-bottom: 15px;
+	margin-top: 10px;
+}
+.article-author {
+	position: relative;
+	border-top: 1px solid $color_cloud_24;
+	padding-top: 10px;
+	z-index: 10;
+	img {
+		width: 30px;
+		height: 30px;
+		border-radius: 100%;
+		position: absolute;
+		left: 0;
+	}
+	h6 {
+		font-size: 13px;
+		font-weight: bold;
+		color: $color_purple;
+		margin-top: 0;
+		margin-bottom: 5px;
+	}
+	div {
+		margin-left: 40px;
+		margin-top: 4px;
+	}
+	span {
+		font-weight: 200;
+		color: $black_60;
+		font-size: 10px;
+		display: inline-block;
+	}
+	.fas {
+		float: right;
+		color: $color_pumice_90;
+		position: relative;
+		right: -1px;
+		z-index: 40;
+		padding: 4px;
+	}
+}
+.article-author-dot {
+	margin-left: 3px;
+	margin-right: 3px;
+	width: 5px;
+	height: 5px;
+	border-radius: 40px;
+	background-color: $color_purple_37;
+}
+.bookmarked {
+	.fas {
+		color: $color_purple;
+		animation: react 500ms ease;
+	}
+	&.fas {
+		color: $color_purple;
+		animation: react 500ms ease;
+	}
+}
+.list-view {
+	.article-cover {
+		width: 100px;
+		height: 100px;
+		position: absolute;
+		top: 15px;
+		left: 15px;
+		bottom: 15px;
+	}
+	.article-item {
+		margin-left: 120px;
+		padding-top: 15px;
+		p {
+			max-height: 40px;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+	}
+	.article-category {
+		display: none;
+	}
+	.article {
+		border-radius: 5px;
+	}
+}
+.no-cover .article-cover {
+	display: none;
+}

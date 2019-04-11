@@ -9,29 +9,17 @@ exports[`<SocialLogin /> renders without crashing given the required props 1`] =
   >
     <SocialButton
       altText=""
-      icon={
-        Object {
-          "process": [Function],
-        }
-      }
+      icon={Object {}}
       onClick={[Function]}
     />
     <SocialButton
       altText=""
-      icon={
-        Object {
-          "process": [Function],
-        }
-      }
+      icon={Object {}}
       onClick={[Function]}
     />
     <SocialButton
       altText=""
-      icon={
-        Object {
-          "process": [Function],
-        }
-      }
+      icon={Object {}}
       onClick={[Function]}
     />
   </div>

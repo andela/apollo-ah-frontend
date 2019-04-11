@@ -13,7 +13,7 @@ import { SocialLogin } from '../../components/SocialLogin';
  */
 function setup() {
   const props = {
-    socialLogin: jest.fn(),
+    handleLogin: jest.fn(),
     isAuthenticated: false,
   };
 
