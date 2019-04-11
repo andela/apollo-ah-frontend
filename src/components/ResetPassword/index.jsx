@@ -13,44 +13,44 @@ import modalAction from '../../actions/modal';
  * @param {function} props.passwordResetRequest action creator function
  */
 function ResetPassword(props) {
-  // local state for handling email gotten from the input field
+  /** local state for handling email gotten from the input field */
   const [userEmail, setUserEmail] = useState({
     email: null,
   });
 
-  // local state for adding a new css class to a div
+  /** local state for adding a new css class to a div */
   const [inputIsValid, setInputIsValid] = useState('');
-  
-  // mutable object for an input
+
+  /** mutable object for an input */
   const input = useRef(null);
-  
-  // passing global state loading as props into variables
+
+  /** passing global state loading as props into variables */
   let { isLoading, message } = props;
 
-  // this is a function to update the email state
+  /** this is a function to update the email state */
   const updateInput = event => {
     setInputIsValid('validated');
     setUserEmail({ ...userEmail, [event.target.name]: event.target.value });
   };
 
-  // A function to clear the input field
+  /** A function to clear the input field */
   const clearInputs = () => {
     input.current.value = null;
     setUserEmail({ ...userEmail, email: null });
   };
 
-  // A function that triggers the post request action
+  /** A function that triggers the post request action */
   const handleSubmit = async (event) => {
     event.preventDefault();
-    //calling the action creator to update the store
+    /** calling the action creator to update the store */
     props.passwordResetRequest(userEmail.email);
   };
 
-  // A function that ensures that when modal is closed, content is lost
+  /** A function that ensures that when modal is closed, content is lost*/
   const clearModalState = (content) => {
-    // action to clear response message
+    /** action to clear response message */
     props.modalAction();
-    if(content != 'modalContent'){
+    if (content != 'modalContent') {
       setInputIsValid('');
       clearInputs();
     }
@@ -65,7 +65,7 @@ function ResetPassword(props) {
           <span className="input-danger mt-2">A valid email is required</span>
           <button type="submit" className="reset_btn btn-block mt-3" onClick={(event => handleSubmit(event))}>Request reset link</button>
         </div>
-        
+
       </form>
       <div>
         {
