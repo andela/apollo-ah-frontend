@@ -2,9 +2,11 @@
 import React, { useState, useRef } from 'react';
 import { connect } from 'react-redux';
 import { ClipLoader } from 'react-spinners';
-import Modal from '../../views/Modal.js';
-import passwordResetRequest from '../../actions/resetPassword';
-import modalAction from '../../actions/modal';
+import { createStructuredSelector } from 'reselect';
+import * as selectors from '../selectors/resetPassword';
+import Modal from '../views/Modal';
+import passwordResetRequest from '../actions/resetPassword';
+import modalAction from '../actions/modal';
 
 
 /**
@@ -25,7 +27,7 @@ function ResetPassword(props) {
   const input = useRef(null);
 
   /** passing global state loading as props into variables */
-  let { isLoading, message } = props;
+  let { responseMessage, isLoading } = props;
 
   /** this is a function to update the email state */
   const updateInput = event => {
@@ -81,15 +83,17 @@ function ResetPassword(props) {
         }
       </div>
       {
-        message ? <div className="reset_alert_danger">{message}</div> : null
+        responseMessage ? <div className="reset_alert_danger">{responseMessage}</div> : null
       }
     </Modal>
   );
 }
 
-const mapStateToProps = state => ({
-  isLoading: state.resetPasswordReducer.isLoading,
-  message: state.resetPasswordReducer.responseData,
-});
+const mapStateToProps = createStructuredSelector(
+  {
+    isLoading: selectors.submitResetPassword,
+    responseMessage: selectors.getResponseMessage,
+  }
+);
 
 export default connect(mapStateToProps, { modalAction, passwordResetRequest })(ResetPassword);

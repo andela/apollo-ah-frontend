@@ -1,6 +1,7 @@
 import expect from 'expect';
 import moxios from 'moxios';
-import * as types from '../../actions/actionTypes';
+import * as actions from '../../actions/resetPassword';
+
 
 const payload = {
   email: 'fejiro.gospel@andela.com',
@@ -20,13 +21,21 @@ describe('Action creators', () => {
   it('should create an action to setLoading state', () => {
     const status = true;
     const expected = {
-      type: types.PASSWORD_RESET_REQUEST_LOADING,
-      isLoading: true,
-      responseData: false,
+      type: actions.resetPassword.loading,
+      loading: true,
+      data: false,
     };
     expect({
-      type: types.PASSWORD_RESET_REQUEST_LOADING,
-      isLoading: true,
-      responseData: false}).toEqual(expected);
+      type: actions.resetPassword.loading,
+      loading: true,
+      data: false}).toEqual(expected);
+  });
+  it('should create an action when successful', () => {
+    const expected = {
+      type: actions.resetPassword.success,
+      loading: false,
+      data: 'successful',
+    };
+    expect(actions.requestLoadingSuccess(false, 'successful')).toEqual(expected);
   });
 });

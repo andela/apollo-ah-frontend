@@ -1,31 +1,40 @@
 import resetPasswordReducer from '../../reducers/resetPasswordReducer';
-import * as types from '../../actions/actionTypes';
+import { resetPassword } from '../../actions/resetPassword';
+import { mockState } from '../setup';
+
+const testState = mockState;
 
 describe('Reset password reducer: ', () => {
-  const state = {
-    isLoading: false,
-    responseData: false
-  };
 
   it('should have the correct default state', () => {
     expect(resetPasswordReducer(undefined, {
       type: 'non-existent type'
-    })).toEqual(state);
+    })).toEqual(testState);
   });
 
   it('should update the reducer state when successful', () => {
-    expect(resetPasswordReducer(undefined, {
-      type: types.PASSWORD_RESET_REQUEST_SUCCESS,
-      isLoading: false,
-      responseData: 'data',
-    })).toEqual({ ...state, isLoading: false, responseData: 'data'});
+    const data = { ...testState.responseMessage };
+    const loading = { ...testState.isLoading};
+    const action = {
+      type: resetPassword.success,
+      loading,
+      data,
+    };
+    const result = resetPasswordReducer(testState, action);
+    const expected = { ...testState, isLoading: action.loading, responseMessage: action.data};
+    expect(result).toEqual(expected);
   });
 
   it('should update the reducer state when unsuccessful', () => {
-    expect(resetPasswordReducer(undefined, {
-      type: types.PASSWORD_RESET_REQUEST_FAILURE,
-      isLoading: false,
-      responseData: 'data',
-    })).toEqual({ ...state, isLoading: false, responseData: 'data'});
+    const data = { ...testState.responseMessage };
+    const loading = { ...testState.isLoading };
+    const action = {
+      type: resetPassword.failure,
+      loading,
+      data,
+    };
+    const result = resetPasswordReducer(testState, action);
+    const expected = { ...testState, isLoading: action.loading, responseMessage: action.data };
+    expect(result).toEqual(expected);
   });
-});
+ });
