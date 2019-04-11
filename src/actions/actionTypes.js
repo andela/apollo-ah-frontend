@@ -1,10 +1,18 @@
+import actionTypeCreator, { SYNC } from 'redux-action-types-creator';
+
 export const ADD_DATA = 'ADD_DATA'; // dummy constant
 
+const actionType = actionTypeCreator('APP');
 
-export const MODAL_RESET = 'MODAL_RESET';
-
-export const PASSWORD_RESET_REQUEST_LOADING = 'PASSWORD_RESET_REQUEST_LOADING';
-export const PASSWORD_RESET_REQUEST_SUCCESS = 'PASSWORD_RESET_REQUEST_SUCCESS';
-export const PASSWORD_RESET_REQUEST_FAILURE = 'PASSWORD_RESET_REQUEST_FAILURE';
+export const PASSWORD_RESET_TYPES = actionType({
+  PASSWORD: {
+    LOADING: SYNC,
+    SUCCESS: SYNC,
+    FAILURE: SYNC,
+  },
+  MODAL: {
+    RESET: SYNC,
+  }
+});
 
 export default {};

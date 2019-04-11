@@ -1,6 +1,4 @@
-import {
-  MODAL_RESET,
-} from './actionTypes';
+import { modalReset } from './actionCreators';
 
 /**
  * reset modal action creator
@@ -11,10 +9,7 @@ import {
 
 const modalAction = () => {
   return async (dispatch) => {
-    dispatch({
-      type: MODAL_RESET,
-      responseData: false,
-    });
+    dispatch(modalReset(false));
   };
 };
 

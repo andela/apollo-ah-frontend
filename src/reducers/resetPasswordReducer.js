@@ -1,9 +1,4 @@
-import {
-  PASSWORD_RESET_REQUEST_FAILURE,
-  PASSWORD_RESET_REQUEST_SUCCESS,
-  PASSWORD_RESET_REQUEST_LOADING,
-  MODAL_RESET,
-} from '../actions/actionTypes';
+import { PASSWORD_RESET_TYPES } from '../actions/actionTypes';
 
 const initialState = {
   isLoading: false,
@@ -21,13 +16,13 @@ const initialState = {
 
 export default function resetPasswordReducer(state = initialState, action = {}) {
   switch (action.type) {
-    case PASSWORD_RESET_REQUEST_LOADING:
+    case PASSWORD_RESET_TYPES.PASSWORD.LOADING:
       return { ...state, isLoading: action.isLoading, responseData: action.responseData };
-    case PASSWORD_RESET_REQUEST_SUCCESS:
+    case PASSWORD_RESET_TYPES.PASSWORD.SUCCESS:
       return { ...state, isLoading: action.isLoading, responseData: action.responseData };
-    case PASSWORD_RESET_REQUEST_FAILURE:
+    case PASSWORD_RESET_TYPES.PASSWORD.FAILURE:
       return { ...state, isLoading: action.isLoading, responseData: action.responseData };
-    case MODAL_RESET:
+    case PASSWORD_RESET_TYPES.MODAL.RESET:
       return { ...state, responseData: action.responseData };
     default:
       return state;

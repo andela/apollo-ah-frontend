@@ -1,5 +1,5 @@
 import resetPasswordReducer from '../../reducers/resetPasswordReducer';
-import * as types from '../../actions/actionTypes';
+import { PASSWORD_RESET_TYPES } from '../../actions/actionTypes';
 
 describe('Reset password reducer: ', () => {
   const state = {
@@ -15,7 +15,7 @@ describe('Reset password reducer: ', () => {
 
   it('should update the reducer state when successful', () => {
     expect(resetPasswordReducer(undefined, {
-      type: types.PASSWORD_RESET_REQUEST_SUCCESS,
+      type: PASSWORD_RESET_TYPES.PASSWORD.SUCCESS,
       isLoading: false,
       responseData: 'data',
     })).toEqual({ ...state, isLoading: false, responseData: 'data'});
@@ -23,7 +23,7 @@ describe('Reset password reducer: ', () => {
 
   it('should update the reducer state when unsuccessful', () => {
     expect(resetPasswordReducer(undefined, {
-      type: types.PASSWORD_RESET_REQUEST_FAILURE,
+      type: PASSWORD_RESET_TYPES.PASSWORD.FAILURE,
       isLoading: false,
       responseData: 'data',
     })).toEqual({ ...state, isLoading: false, responseData: 'data'});
