@@ -5,7 +5,7 @@
   "main": "index.jsx",
   "scripts": {
     "test": "jest & npm run start:dev & wait-on http://localhost:8092 & ./node_modules/.bin/cypress run",
-    "jest": "jest --watch",
+    "jest": "jest --watchAll",
     "coverage": "nyc report --reporter=text-lcov",
     "start": "webpack-dev-server",
     "start:dev": "webpack-dev-server --config webpack.config.dev.js --open",
@@ -82,6 +82,7 @@
     "react-toastify": "^5.0.0-rc.6",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
+    "reselect": "^4.0.0",
     "wait-on": "^3.2.0"
   }
 }

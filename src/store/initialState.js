@@ -1,21 +1,20 @@
 
 const initialState = {
-  loading: {
-    updatingProfile: false,
-    updatingProfileImage: false,
-  },
   user: {
     token: '',
-    id: 0,
-    username: '',
-    firstname: '',
-    lastname: '',
-    bio: '',
-    email: '',
-    image: '',
+    id: 5,
     isLoggedIn: false,
-    errorData: [],
-  }
+    profile: {
+      username: '',
+      firstname: '',
+      lastname: '',
+      bio: '',
+      email: '',
+      image: '',
+      loading: false,
+      errorData: [],
+    },
+  },
 };
 
 export default initialState;

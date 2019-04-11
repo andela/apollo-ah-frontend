@@ -1,43 +1,35 @@
 import '@babel/polyfill';
 import moxios from 'moxios';
-import mockStore from '../utils/mockStore';
 import * as actions from '../../actions/profileAction';
-import * as types from '../../actions/actionTypes';
+import { stubRequest, mockState, createMockStore } from '../setup';
 
-const payload = {
-  firstname: 'John',
-  lastname: 'Doe',
-  username: 'johnny',
-  bio: 'I love writing',
-  image: 'https://linktoimage.jpg'
-};
+const mockStore = createMockStore();
 
-const stubRequest = (response, status = 200) => {
-  moxios.wait(() => {
-    moxios.requests.mostRecent()
-      .respondWith({
-        status,
-        response,
-      });
-  });
-};
+const { profileTypes: types } = actions;
+const { profile: payload } = mockState.user;
 
 describe('Action creators', () => {
-  it('should create an action to setLoading state', () => {
+  it('should create an action to updating profile state', () => {
     const status = true;
     const expected = {
-      type: types.UPDATING_PROFILE,
+      type: types.loading,
       status,
     };
-    expect(actions.setIsLoading(types.UPDATING_PROFILE, status)).toEqual(expected);
+    expect(actions.updatingProfile(status)).toEqual(expected);
   });
-  it('should create an action to signal update status', () => {
-    const data = [];
+  it('should create an action when profile is successfully updated', () => {
     const expected = {
-      type: types.UPDATE_PROFILE_SUCCESS,
-      data,
+      type: types.success,
+      data: payload,
     };
-    expect(actions.signalUpdateStatus(types.UPDATE_PROFILE_SUCCESS, data)).toEqual(expected);
+    expect(actions.updateProfileSuccessful(payload)).toEqual(expected);
+  });
+  it('should create an action when profile could not be updateded', () => {
+    const expected = {
+      type: types.failure,
+      data: payload,
+    };
+    expect(actions.updateProfileFailure(payload)).toEqual(expected);
   });
 });
 
@@ -59,61 +51,26 @@ describe('Action creators', () => {
       status: true
     };
 
-    stubRequest(response);
+    stubRequest(moxios, response, 201);
 
     const expected = [
       {
-        type: types.UPDATING_PROFILE,
+        type: types.loading,
         status: true,
       },
       {
-        type: types.UPDATING_PROFILE,
-        status: false,
-      },
-      {
-        type: types.UPDATE_PROFILE_SUCCESS,
+        type: types.success,
         data: payload,
       }
     ];
     const store = mockStore({ user: {} });
 
-    return store.dispatch(actions.updateUserProfile(types.UPDATING_PROFILE, payload)).then(() => {
+    return store.dispatch(actions.updateUserProfile(payload)).then(() => {
       expect(store.getActions()).toEqual(expected);
     });
   });
 
-  it('should dispatch success message when updating user profile image is done', () => {
-    const response = {
-      code: 201,
-      data: payload,
-      message: 'Profile updated successfully',
-      status: true
-    };
-    stubRequest(response);
-
-    const expected = [
-      {
-        type: types.UPDATING_PROFILE_IMAGE,
-        status: true,
-      },
-      {
-        type: types.UPDATING_PROFILE_IMAGE,
-        status: false,
-      },
-      {
-        type: types.UPDATE_PROFILE_SUCCESS,
-        data: payload,
-      }
-    ];
-    const store = mockStore({ user: {} });
-
-    return store.dispatch(actions.updateUserProfile(types.UPDATING_PROFILE_IMAGE, payload))
-      .then(() => {
-        expect(store.getActions()).toEqual(expected);
-      });
-  });
-
-  it('should dispatch error message if server returns error when updating profile', () => {
+  it('should dispatch error message if server rejects the request', () => {
     const response = {
       code: 400,
       data: [{
@@ -124,132 +81,42 @@ describe('Action creators', () => {
       status: false
     };
 
-    stubRequest(response, 400);
-
-    const body = { ...payload, username: '' };
+    stubRequest(moxios, response, 400);
 
     const expected = [
       {
-        type: types.UPDATING_PROFILE,
+        type: types.loading,
         status: true,
       },
       {
-        type: types.UPDATING_PROFILE,
-        status: false,
-      },
-      {
-        type: types.UPDATE_PROFILE_FAILURE,
-        data: response.data,
+        type: types.failure,
+        data: [response.message, response.data],
       }
     ];
     const store = mockStore({ user: {} });
 
-    return store.dispatch(actions.updateUserProfile(types.UPDATING_PROFILE, body)).then(() => {
+    return store.dispatch(actions.updateUserProfile({ ...payload, username: '' })).then(() => {
       expect(store.getActions()).toEqual(expected);
     });
   });
 
-  it('should dispatch error message if server returns error when updating profile image', () => {
-    const response = {
-      code: 400,
-      data: [{
-        field: 'username',
-        message: 'Username is required',
-      }],
-      message: 'Update was not successful',
-      status: false
-    };
-
-    stubRequest(response, 400);
-
-    const body = { ...payload, username: '' };
+  it('should dispatch error message if there was a network error', () => {
+    stubRequest(moxios, undefined);
 
     const expected = [
       {
-        type: types.UPDATING_PROFILE_IMAGE,
+        type: types.loading,
         status: true,
       },
       {
-        type: types.UPDATING_PROFILE_IMAGE,
-        status: false,
-      },
-      {
-        type: types.UPDATE_PROFILE_FAILURE,
-        data: response.data,
+        type: types.failure,
+        data: ['Please check your network connection'],
       }
     ];
     const store = mockStore({ user: {} });
 
-    return store.dispatch(actions.updateUserProfile(types.UPDATING_PROFILE_IMAGE, body))
-      .then(() => {
-        expect(store.getActions()).toEqual(expected);
-      });
-  });
-
-  it('should accept FormData object as parameter', () => {
-    const response = {
-      code: 201,
-      data: payload,
-      message: 'Profile updated successfully',
-      status: true
-    };
-    stubRequest(response);
-
-    const formData = new FormData();
-    formData.append('username', payload.username);
-    formData.append('firstname', payload.firstname);
-    formData.append('lastname', payload.lastname);
-    formData.append('image', payload.image);
-    formData.append('bio', payload.bio);
-
-    const expected = [
-      {
-        type: types.UPDATING_PROFILE_IMAGE,
-        status: true,
-      },
-      {
-        type: types.UPDATING_PROFILE_IMAGE,
-        status: false,
-      },
-      {
-        type: types.UPDATE_PROFILE_SUCCESS,
-        data: payload,
-      }
-    ];
-    const store = mockStore({ user: {} });
-
-    return store.dispatch(actions.updateUserProfile(types.UPDATING_PROFILE_IMAGE, formData))
-      .then(() => {
-        expect(store.getActions()).toEqual(expected);
-      });
-  });
-
-  it('should dispatch error message if there is no network connection or there was a server error', () => {
-    stubRequest(undefined);
-
-    const expected = [
-      {
-        type: types.UPDATING_PROFILE_IMAGE,
-        status: true,
-      },
-      {
-        type: types.UPDATING_PROFILE_IMAGE,
-        status: false,
-      },
-      {
-        type: types.UPDATING_PROFILE_IMAGE,
-        status: false,
-      },
-      {
-        type: types.UPDATE_PROFILE_FAILURE,
-        data: [{}],
-      }
-    ];
-    const store = mockStore({ user: {} });
-
-    return store.dispatch(actions.updateUserProfile(types.UPDATING_PROFILE_IMAGE, payload))
-      .then(() => {
-        expect(store.getActions()).toEqual(expected);
-      });
+    return store.dispatch(actions.updateUserProfile(payload)).then(() => {
+      expect(store.getActions()).toEqual(expected);
+    });
   });
 });

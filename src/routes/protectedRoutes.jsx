@@ -1,11 +1,11 @@
 import React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 
-import Wrapper from '../components/views/common/Wrapper';
+import Wrapper from '../views/common/Wrapper';
 import isLoggedIn from '../utils/authenticate';
-import EditProfileContainer from '../components/containers/EditProfileContainer';
-import SettingsContainer from '../components/containers/SettingsContainer';
-import DashboardContainer from '../components/containers/DashboardContainer';
+import EditProfileContainer from '../components/EditProfileContainer';
+import SettingsContainer from '../components/SettingsContainer';
+import DashboardContainer from '../components/DashboardContainer';
 
 /**
  * Container component for protected pages

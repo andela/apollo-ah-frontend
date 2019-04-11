@@ -1,41 +1,58 @@
-import { toast } from 'react-toastify';
-import axios from 'axios';
-import formDataJSON from 'formdata-json';
-import { MESSAGE } from '../utils/constants';
-import { UPDATE_PROFILE_FAILURE, UPDATE_PROFILE_SUCCESS } from './actionTypes';
+import request from '../utils/requets';
+import typeGenerator from './typeGenerator';
 
-axios.defaults.baseURL = `${process.env.API_BASE_URL}/profiles`;
-axios.defaults.method = 'post';
-axios.defaults.timeout = 5000;
-axios.defaults.headers.post['Content-Type'] = 'multipart/form-data';
+export const profileTypes = typeGenerator('PROFILE');
 
-export const setIsLoading = (type, status) => ({ type, status, });
+/**
+ * Action generator that is dispatched when user is updating their profile
+ * @param {boolean} status The current status of the operation
+ * @returns {object} The action to dispatch
+ */
+export const updatingProfile = status => ({
+  type: profileTypes.loading,
+  status
+});
 
-export const signalUpdateStatus = (type, data) => ({ type, data, });
+/**
+ * Action generator that is dispatched when user successfully updates their profile
+ * @param {array} data The updated user profile
+ * @returns {object} The action to dispatch
+ */
+export const updateProfileSuccessful = data => ({
+  type: profileTypes.success,
+  data
+});
 
-export const updateUserProfile = (type, inputData) => async (dispatch) => {
-  const profile = inputData.username === undefined ? formDataJSON(inputData) : inputData;
-  dispatch(setIsLoading(type, true));
+/**
+ * Action generator that is dispatched if there was problem updating the user profile
+ * @param {array} data An array containing the list of error messages
+ * @returns {object} The action to dispatch
+ */
+export const updateProfileFailure = data => ({
+  type: profileTypes.failure,
+  data,
+});
 
-  try {
-    const response = await axios({ data: profile, headers: { Authorization: `Bearer ${profile.token}` } });
-    dispatch(setIsLoading(type, false));
-    const { data: result } = response;
-    const { data, message } = result;
-    toast.success(message);
-    dispatch(signalUpdateStatus(UPDATE_PROFILE_SUCCESS, data));
-  } catch (error) {
-    const { response } = error;
-    let message = 'Please check your network connection';
-    let result = [{}];
-    if (response) {
-      message = MESSAGE.PROFILE_UPDATE_FAILED;
-      result = response.data.data;
+/**
+ * The action that is called when the user attempts update their profile
+ * @param {object} payload The payload to send with the request
+ * @returns {Promise} The promise returned from the request
+ */
+export const updateUserProfile = payload => async (dispatch) => {
+  dispatch(updatingProfile(true));
+  return request({
+    route: 'profiles',
+    method: 'post',
+    payload,
+    token: payload.token
+  }).then((response) => {
+    dispatch(updateProfileSuccessful(response.data.data));
+  }).catch((error) => {
+    let errorData = ['Please check your network connection'];
+    if (error.response) {
+      const { message, data } = error.response.data;
+      errorData = [message, data];
     }
-    toast.error(message, {
-      hideProgressBar: true,
-    });
-    dispatch(setIsLoading(type, false));
-    dispatch(signalUpdateStatus(UPDATE_PROFILE_FAILURE, result));
-  }
+    dispatch(updateProfileFailure(errorData));
+  });
 };
