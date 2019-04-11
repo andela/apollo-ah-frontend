@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
 
 // Reducers
-import globalReducer from './globalReducer';
+import social from './socialReducer';
 
 export default combineReducers({
-  global: globalReducer,
+  social,
 });

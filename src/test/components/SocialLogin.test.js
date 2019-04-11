@@ -4,8 +4,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import { SocialLogin } from '../../components/SocialLogin';
-import FacebookButton from '../../views/common/FacebookButton';
-import GoogleButton from '../../views/common/GoogleButton';
+// import SocialButton from '../../views/common/SocialButton';
 
 /**
  * Wrapper for enzyme shallow component
@@ -14,8 +13,7 @@ import GoogleButton from '../../views/common/GoogleButton';
  */
 function setup() {
   const props = {
-    handleLogin: jest.fn(),
-    handleError: jest.fn(),
+    socialLogin: jest.fn(),
     isAuthenticated: false,
   };
 
@@ -29,12 +27,8 @@ describe('<SocialLogin />', () => {
     expect(toJson(enzymeWrapper)).toMatchSnapshot();
   });
 
-  it('should render FacebookButton', () => {
+  it('should render SocialButtons', () => {
     const { enzymeWrapper } = setup();
-    expect(enzymeWrapper.find(FacebookButton)).toHaveLength(1);
-  });
-  it('should render GoogleButton', () => {
-    const { enzymeWrapper } = setup();
-    expect(enzymeWrapper.find(GoogleButton)).toHaveLength(1);
+    expect(enzymeWrapper.find('SocialButton')).toHaveLength(3);
   });
 });

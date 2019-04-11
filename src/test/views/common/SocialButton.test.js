@@ -4,7 +4,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
-import ImageButton from '../../../views/common/ImageButton';
+import SocialButton from '../../../views/common/SocialButton';
 
 /**
  * Wrapper for enzyme shallow component
@@ -13,16 +13,16 @@ import ImageButton from '../../../views/common/ImageButton';
  */
 function setup() {
   const props = {
-    imgSrc: 'image.png',
+    icon: 'image.png',
     onClick: jest.fn(),
     altText: 'alt',
   };
 
-  const enzymeWrapper = shallow(<ImageButton {...props} />);
+  const enzymeWrapper = shallow(<SocialButton {...props} />);
   return { props, enzymeWrapper };
 }
 
-describe('<ImageButton />', () => {  
+describe('<SocialButton />', () => {  
   it('renders without crashing given the required props', () => {
     const { enzymeWrapper } = setup();
     expect(toJson(enzymeWrapper)).toMatchSnapshot();

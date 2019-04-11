@@ -1,32 +1,44 @@
-import axios from 'axios';
-import { toast } from 'react-toastify';
-import { globalAuthenticated, globalError } from './globalActions';
-import { MESSAGE } from '../utils/constants';
+import { authenticationType } from './actionTypes';
+import { verifyToken } from '../utils/helpers';
 
 /**
  * Social login action handler
  *
  * @export
- * @param {object} payload - The user payload object
+ * @param {object} token - The user token object
  * @returns {object} - Returns an actions object
  */
-const socialLogin = payload => async dispatch => {
+const socialLogin = token => dispatch => {
   try {
-    const apiUrl = `${process.env.API_BASE_URL}/auth/social`;
-    const response = await axios.post(apiUrl, { ...payload });
-    if (!response.data.user) {
-      return dispatch(globalError(response.data.errors));
-    }
-
-    const { user } = response.data;
-    localStorage.setItem('user', JSON.stringify(user));
-    toast.success(MESSAGE.SOCIAL_LOGIN_SUCCESS);
-    return dispatch(globalAuthenticated(true));
+    const payload = verifyToken(token);
+    payload.token = token;
+    localStorage.setItem('user', JSON.stringify(payload));
+    return dispatch(authenticationSuccess(true));
   } catch (error) {
-    const { response } = error;
-    toast.error(MESSAGE.SOCIAL_LOGIN_FAILURE);
-    return dispatch(globalError(response.data.data));
+    return dispatch(authenticationFailure(error.message));
   }
 };
+
+/**
+ * Triggers authentication success
+ *
+ * @param {boolean} isAuthenticated - The user authenticated state
+ * @returns {object} - Returns an action object
+ */
+export const authenticationSuccess = isAuthenticated => ({
+  type: authenticationType.success,
+  payload: { isAuthenticated }
+});
+
+/**
+ * Triggers authentication failure
+ *
+ * @param {boolean} isAuthenticated - The user authenticated state
+ * @returns {object} - Returns an action object
+ */
+export const authenticationFailure = error => ({
+  type: authenticationType.failure,
+  payload: { error }
+});
 
 export default socialLogin;

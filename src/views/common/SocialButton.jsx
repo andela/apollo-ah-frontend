@@ -7,20 +7,20 @@ import PropTypes from 'prop-types';
  * @param {object} props - The button props
  * @returns {JSX.Element} DOM element
  */
-const ImageButton = ({ imgSrc, onClick, altText }) => (
+const SocialButton = ({ icon, altText, onClick }) => (
   <button type="button" className="btn" onClick={onClick}>
-    <img src={imgSrc} alt={altText} />
+    <img src={icon} alt={altText} />
   </button>
 );
 
-ImageButton.propTypes = {
-  imgSrc: PropTypes.string.isRequired,
-  onClick: PropTypes.func.isRequired,
+SocialButton.propTypes = {
+  icon: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
   altText: PropTypes.string,
+  onClick: PropTypes.func.isRequired
 };
 
-ImageButton.defaultProps = {
+SocialButton.defaultProps = {
   altText: '',
 };
 
-export default ImageButton;
+export default SocialButton;

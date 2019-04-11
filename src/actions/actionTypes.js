@@ -1,4 +1,5 @@
-export const TRIGGER_AUTHENTICATED = 'TRIGGER_AUTHENTICATED';
-export const TRIGGER_ERROR = 'TRIGGER_ERROR';
+import typeGenerator from './typeGenerator';
+
+export const authenticationType = typeGenerator('AUTHENTICATION');
 
 export default {};

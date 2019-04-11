@@ -7,11 +7,32 @@ exports[`<SocialLogin /> renders without crashing given the required props 1`] =
   <div
     className="signup__socials__icons"
   >
-    <FacebookButton
-      handleResponse={[Function]}
+    <SocialButton
+      altText=""
+      icon={
+        Object {
+          "process": [Function],
+        }
+      }
+      onClick={[Function]}
     />
-    <GoogleButton
-      handleResponse={[Function]}
+    <SocialButton
+      altText=""
+      icon={
+        Object {
+          "process": [Function],
+        }
+      }
+      onClick={[Function]}
+    />
+    <SocialButton
+      altText=""
+      icon={
+        Object {
+          "process": [Function],
+        }
+      }
+      onClick={[Function]}
     />
   </div>
 </div>

@@ -3,10 +3,6 @@
  */
 const initialState = {
   articles: [],
-  global: {
-    isAuthenticated: false,
-    error: []
-  },
 };
 
 export default initialState;

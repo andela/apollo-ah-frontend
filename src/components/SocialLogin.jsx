@@ -2,12 +2,16 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropType from 'prop-types';
-
-import FacebookButton from '../views/common/FacebookButton';
-import GoogleButton from '../views/common/GoogleButton';
-import { loginFacebook, loginGoogle }  from '../utils';
+import { createStructuredSelector } from 'reselect';
+import { getIsAuthenticated } from '../selectors/authSelector';
 import socialLogin  from '../actions/socialAction';
-import { globalError } from '../actions/globalActions';
+import SocialButton from '../views/common/SocialButton';
+import { getUrlQuery } from '../utils/helpers';
+
+// Social Icons
+import facebookIcon from '../images/icons/facebook.svg';
+import googleIcon from '../images/icons/google.svg';
+import twitterIcon from '../images/icons/twitter.svg';
 
 /**
  * CLass representing Social Login (OAuth) Components
@@ -17,21 +21,22 @@ import { globalError } from '../actions/globalActions';
  */
 export class SocialLogin extends Component {
   static propTypes = {
-    handleLogin: PropType.func.isRequired,
-    handleError: PropType.func.isRequired,
     isAuthenticated: PropType.bool.isRequired,
+    socialLogin: PropType.func.isRequired,
   }
 
   /**
-   * Handles response from service provider
+   * Called immediately before mounting occurs
    *
-   * @param {object} response - The response from obtained facebook
-   * @param {Function} callback - Response handler
    * @returns {void}
+   * @memberof SocialLogin
    */
-  socialResponse(response, callback) {
-    const { handleLogin, handleError } = this.props;
-    callback(response, handleLogin, handleError);
+  componentWillMount() {
+    const { socialLogin } = this.props;
+    const token = getUrlQuery('token');
+    if (token) {
+      socialLogin(token);
+    }
   }
 
   /**
@@ -49,11 +54,17 @@ export class SocialLogin extends Component {
     return (
       <div className="signup__socials__content">
         <div className="signup__socials__icons">
-          <FacebookButton
-            handleResponse={(response) => this.socialResponse(response, loginFacebook)}
+          <SocialButton
+            icon={facebookIcon}
+            onClick={() => location.assign(process.env.FACEBOOK_AUTH_URL)}
           />
-          <GoogleButton
-            handleResponse={(response) => this.socialResponse(response, loginGoogle)}
+          <SocialButton
+            icon={googleIcon}
+            onClick={() => location.assign(process.env.GOOGLE_AUTH_URL)}
+          />
+          <SocialButton
+            icon={twitterIcon}
+            onClick={() => location.assign(process.env.TWITTER_AUTH_URL)}
           />
         </div>
       </div>
@@ -61,13 +72,12 @@ export class SocialLogin extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  isAuthenticated: state.global.isAuthenticated,
+const mapStateToProps = createStructuredSelector({
+  isAuthenticated: getIsAuthenticated,
 });
 
 const mapDispatchToProps = {
-  handleLogin: (payload) => socialLogin(payload),
-  handleError: (error) => globalError(error),
+  socialLogin: (payload) => socialLogin(payload),
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SocialLogin);

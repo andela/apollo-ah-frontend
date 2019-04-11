@@ -72,6 +72,7 @@
     "dotenv-webpack": "^1.7.0",
     "enzyme-to-json": "^3.3.5",
     "fs": "^0.0.1-security",
+    "jsonwebtoken": "^8.5.1",
     "nyc": "^13.3.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.3",
@@ -86,6 +87,7 @@
     "react-twitter-auth": "0.0.13",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
+    "reselect": "^4.0.0",
     "wait-on": "^3.2.0"
   }
 }
