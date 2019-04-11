@@ -4,13 +4,14 @@
   "description": "Authors Haven - A Social platform for the creative at heart. =======",
   "main": "index.jsx",
   "scripts": {
-    "test": "jest & npm run start:dev & wait-on http://localhost:8092 & ./node_modules/.bin/cypress run",
+    "test": "jest & npm run start:dev & wait-on http://localhost:8092 & ./node_modules/.bin/cypress run && npm run test:coverage",
+    "test:coverage": "jest --coverage --colors",
     "coverage": "nyc report --reporter=text-lcov",
+    "test:watch": "jest --watchAll",
     "start": "webpack-dev-server",
     "start:dev": "webpack-dev-server --config webpack.config.dev.js --open",
     "start:prod": "webpack --config webpack.config.prod.js",
-    "build": "webpack --mode production",
-    "test:watch": "jest --watchAll"
+    "build": "webpack --mode production"
   },
   "repository": {
     "type": "git",
@@ -54,6 +55,7 @@
     "jest-transform-stub": "^2.0.0",
     "moxios": "^0.4.0",
     "node-sass": "^4.11.0",
+    "redux-devtools-extension": "^2.13.8",
     "redux-mock-store": "^1.5.3",
     "sass-loader": "^7.1.0",
     "start-server-and-test": "^1.7.13",
@@ -63,6 +65,8 @@
     "webpack-dev-server": "^3.2.1"
   },
   "dependencies": {
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/runtime": "^7.4.3",
     "@fortawesome/fontawesome-svg-core": "^1.2.17",
     "@fortawesome/free-solid-svg-icons": "^5.8.1",
     "@fortawesome/react-fontawesome": "^0.1.4",
@@ -73,9 +77,11 @@
     "enzyme-to-json": "^3.3.5",
     "fs": "^0.0.1-security",
     "jsonwebtoken": "^8.5.1",
+    "keymirror": "^0.1.1",
     "nyc": "^13.3.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.3",
+    "react-content-loader": "^4.2.1",
     "react-dom": "^16.8.3",
     "react-facebook-login": "^4.1.1",
     "react-google-login": "^5.0.3",

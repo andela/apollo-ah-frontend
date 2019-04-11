@@ -5,8 +5,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { ToastContainer, Flip } from 'react-toastify';
-import Routes from './routes';
+import Routes from './routes/index.jsx';
 import store from './store';
+import './styles/index.scss';
 
 function App() {
   return (

@@ -1,12 +1,11 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import { shallow } from 'enzyme';
-import HomePage from '../../components/HomePage';
+import HomePage from '../../components/HomePage.jsx';
 
 describe('<Home>', () => {
   it('should have a p tag', () => {
-    // eslint-disable-next-line react/react-in-jsx-scope
-    // eslint-disable-next-line react/jsx-filename-extension
     const wrapper = shallow(<HomePage />);
-    expect(wrapper.find('p').exists()).toBe(true);
+    expect(wrapper.find('p').exists());
   });
 });

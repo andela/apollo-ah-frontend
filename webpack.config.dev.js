@@ -11,6 +11,8 @@ const htmlPlugin = new HtmlWebPackPlugin({
 });
 const dotenvPlugin = new Dotenv();
 
+const dotenvPlugin = new Dotenv();
+
 module.exports = {
   entry: './src/index.jsx',
   plugins: [htmlPlugin, dotenvPlugin],
@@ -20,12 +22,12 @@ module.exports = {
     publicPath: '/',
   },
   resolve: {
-    extensions: ['.jsx', '.js', '.json', '.css']
+    extensions: ['.jsx', '.js', '.json', '.scss', '.css']
   },
   module: {
     rules: [
       {
-        loader: ['babel-loader', 'eslint-loader'],
+        loader: ['babel-loader'],
         test: /\.jsx?$/,
         exclude: /node_modules/,
       },
@@ -35,9 +37,6 @@ module.exports = {
           { loader: 'style-loader' },
           {
             loader: 'css-loader',
-            options: {
-              modules: true,
-            },
           },
           {
             loader: 'sass-loader'
