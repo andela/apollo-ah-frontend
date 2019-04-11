@@ -1,6 +1,7 @@
 /* eslint-disable react/wrap-multilines */
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 const htmlPlugin = new HtmlWebPackPlugin({
   template: './public/index.html',
@@ -8,21 +9,23 @@ const htmlPlugin = new HtmlWebPackPlugin({
   title: 'Authors Haven',
 });
 
+const dotenvPlugin = new Dotenv();
+
 module.exports = {
   entry: './src/index.jsx',
-  plugins: [htmlPlugin],
+  plugins: [htmlPlugin, dotenvPlugin],
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
     publicPath: '/',
   },
   resolve: {
-    extensions: ['.jsx', '.js', '.json', '.css']
+    extensions: ['.jsx', '.js', '.json', '.scss', '.css']
   },
   module: {
     rules: [
       {
-        loader: ['babel-loader', 'eslint-loader'],
+        loader: ['babel-loader'],
         test: /\.jsx?$/,
         exclude: /node_modules/,
       },
@@ -32,9 +35,6 @@ module.exports = {
           { loader: 'style-loader' },
           {
             loader: 'css-loader',
-            options: {
-              modules: true,
-            },
           },
           {
             loader: 'sass-loader'
