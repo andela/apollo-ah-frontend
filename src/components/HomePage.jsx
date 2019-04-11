@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -6,6 +7,7 @@ class HomePage extends React.Component {
     super(props);
     this.state = {};
   }
+
   render() {
     return (
       <div>
