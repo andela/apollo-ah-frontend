@@ -4,6 +4,7 @@ import jwt from 'jsonwebtoken';
  * Extract a given url query value
  *
  * @param {string} param - The query string to search
+ * @returns {string} The query value
  */
 export const getUrlQuery = param => {
   const urlParams = new URLSearchParams(window.location.search);

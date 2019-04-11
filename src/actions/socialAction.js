@@ -33,7 +33,7 @@ export const authenticationSuccess = isAuthenticated => ({
 /**
  * Triggers authentication failure
  *
- * @param {boolean} isAuthenticated - The user authenticated state
+ * @param {boolean} error - The user authenticated state
  * @returns {object} - Returns an action object
  */
 export const authenticationFailure = error => ({

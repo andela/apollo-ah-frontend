@@ -22,7 +22,7 @@ import twitterIcon from '../images/icons/twitter.svg';
 export class SocialLogin extends Component {
   static propTypes = {
     isAuthenticated: PropType.bool.isRequired,
-    socialLogin: PropType.func.isRequired,
+    handleLogin: PropType.func.isRequired,
   }
 
   /**
@@ -32,10 +32,10 @@ export class SocialLogin extends Component {
    * @memberof SocialLogin
    */
   componentWillMount() {
-    const { socialLogin } = this.props;
+    const { handleLogin } = this.props;
     const token = getUrlQuery('token');
     if (token) {
-      socialLogin(token);
+      handleLogin(token);
     }
   }
 
@@ -77,7 +77,7 @@ const mapStateToProps = createStructuredSelector({
 });
 
 const mapDispatchToProps = {
-  socialLogin: (payload) => socialLogin(payload),
+  handleLogin: (payload) => socialLogin(payload),
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SocialLogin);
