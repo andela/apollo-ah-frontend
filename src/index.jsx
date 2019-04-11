@@ -1,9 +1,7 @@
-import '@babel/polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { ToastContainer, Flip } from 'react-toastify';
-
 import Routes from './routes';
 import store from './store';
 import './styles/index.scss';

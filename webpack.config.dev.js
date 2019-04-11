@@ -2,7 +2,6 @@ const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 
-
 const htmlPlugin = new HtmlWebPackPlugin({
   template: './public/index.html',
   filename: './index.html',
@@ -25,7 +24,7 @@ module.exports = {
   module: {
     rules: [
       {
-        loader: ['babel-loader', 'eslint-loader'],
+        loader: ['babel-loader'],
         test: /\.jsx?$/,
         exclude: /node_modules/,
       },

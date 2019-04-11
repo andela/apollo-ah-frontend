@@ -2,8 +2,6 @@ import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import HomePage from '../components/HomePage';
-import Signup from '../views/Signup';
-import Login from '../views/Login';
 import ProtectedRoutes from './protectedRoutes';
 
 function Routes() {
@@ -12,8 +10,6 @@ function Routes() {
       <>
         <Switch>
           <Route path="/" component={HomePage} exact />
-          <Route path="/login" component={Login} />
-          <Route path="/signup" component={Signup} />
           <Route path="/user" component={ProtectedRoutes} />
         </Switch>
       </>
