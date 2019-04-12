@@ -26,3 +26,7 @@ export const signUpUser = (userData) => async(dispatch) => {
     dispatch(signupAction('SIGNUP_ERROR', { errors: errors, loading: false } ));
   }
 };
+
+export const clearErrors = () => (dispatch) => {
+  dispatch(signupAction('CLEAR_ERRORS', null));
+};

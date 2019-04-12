@@ -2,7 +2,7 @@ import typeGenerator from '../actions/actionTypeGenerator';
 
 const initialState = {
   loading: false,
-  errors: []
+  errors: null
 };
 
 /**
@@ -17,6 +17,8 @@ export default (state = initialState, action ) => {
       return { loading: action.payload };
     case typeGenerator('SIGNUP_ERROR'):
       return { errors: action.payload.errors, loading: action.payload.loading };
+    case typeGenerator('CLEAR_ERRORS'):
+      return { errors: action.payload };
     default:
       return state;
   }
