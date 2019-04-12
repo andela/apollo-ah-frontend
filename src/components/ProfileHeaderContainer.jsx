@@ -27,12 +27,8 @@ class ProfileHeaderContainer extends Component {
      const payload = { ...profile, token, image };
      await updateProfile(payload);
      const { errorData } = this.props;
-     if (errorData.length === 0) {
-       toast.success('Your profile image has been updated.');
-     } else {
-       toast.error(errorData[0], {
-         hideProgressBar: true,
-       });
+     if (errorData.length !== 0) {
+       toast.error(errorData[0]);
      }
    }
 

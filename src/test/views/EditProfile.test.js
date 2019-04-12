@@ -13,6 +13,7 @@ describe('<EditProfile>', () => {
       isLoading={false}
       handleUpdateProfile={jest.fn()}
       profile={profile}
+      token="encoded"
       />
     );
     expect(wrapper).toMatchSnapshot();
@@ -24,6 +25,7 @@ describe('<EditProfile>', () => {
       isLoading
       handleUpdateProfile={jest.fn()}
       profile={profile}
+      token="encoded"
       />
     );
     expect(wrapper).toMatchSnapshot();

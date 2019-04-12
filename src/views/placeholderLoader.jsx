@@ -1,8 +1,8 @@
 import React from 'react';
-import Loader from './ContentLoader'
+import Loader from './ContentLoader';
 
 const PlaceholderLoader = () => (
-    <div className="container">
+  <div className="container">
     <div className="row">
       <Loader />
       <Loader />

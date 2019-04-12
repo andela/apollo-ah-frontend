@@ -1,9 +1,9 @@
 .form {
 	.form-control {
-		background-color: $color_wild_sand_approx;
+		background-color: $colorwildsand;
 		border-style: none;
 		&:focus {
-			box-shadow: 0 0 0 0.2rem $color_purple_25_approx;
+			box-shadow: 0 0 0 0.2rem $colorpurple25;
 		}
 	}
 	textarea {
@@ -22,13 +22,13 @@
 }
 
 .form.error .form-control:invalid{
-	box-shadow: 0 0 0 1px $color_danger;
+	box-shadow: 0 0 0 1px $colordanger;
 }
 .form .form-control ~ span{
 	display: none;
 	margin-top: 3px;
 	font-size: 14px;
-	color: $color_danger;
+	color: $colordanger;
 }
 .form.error .form-control:invalid ~ span{
 	display: inline-block;
@@ -38,7 +38,7 @@
 	padding-top: 2px;
 }
 .custom-control-label::before {
-	border: 2px solid $color_purple_approx;
+	border: 2px solid $colorpurple;
 	height: 20px;
 	width: 20px;
 }
@@ -50,17 +50,17 @@
 .custom-control-input {
 	&:focus {
 		~ .custom-control-label::before {
-			box-shadow: 0 0 0 0.2rem $color_purple_25_approx;
-			border-color: $color_purple_approx;
+			box-shadow: 0 0 0 0.2rem $colorpurple25;
+			border-color: $colorpurple;
 		}
 		&:not(:checked) ~ .custom-control-label::before {
-			box-shadow: 0 0 0 0.2rem $color_purple_25_approx;
-			border-color: $color_purple_approx;
+			box-shadow: 0 0 0 0.2rem $colorpurple25;
+			border-color: $colorpurple;
 		}
 	}
 	&:checked ~ .custom-control-label::before {
-		border-color: $color_purple_approx;
-		background-color: $color_purple_approx;
+		border-color: $colorpurple;
+		background-color: $colorpurple;
 		outline: none;
 	}
 }

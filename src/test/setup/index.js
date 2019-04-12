@@ -41,11 +41,11 @@ export const createMockStore = () => {
   return mockStore;
 };
 
-const setup = (component) => {
+const setup = (component, initailState = mockState) => {
   const mockStore = configMockStore([thunk]);
   configure({ adapter: new Adapter() });
   const connectedWrapper = mount(
-    <Provider store={mockStore(mockState)}>
+    <Provider store={mockStore(initailState)}>
       <BrowserRouter>
         {component}
       </BrowserRouter>

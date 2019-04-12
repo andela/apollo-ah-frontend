@@ -1,26 +1,33 @@
+/* eslint-disable react/jsx-no-duplicate-props */
+/* eslint-disable react/require-default-props */
+/* eslint-disable array-callback-return */
+/* eslint-disable react/no-access-state-in-setstate */
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable no-shadow */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import Navbar from '../views/Navbar.jsx';
-import Category from '../views/Category.jsx';
-import { getArticles, getArticlesCategory } from '../actions';
-import Articles from '../views/Articles.jsx';
-import Authors from '../views/Authors.jsx';
-import PlaceholderLoader from '../views/placeholderLoader.jsx';
+import Category from '../views/Category';
+import { getArticles } from '../actions/articleAction';
+import { getArticlesCategory } from '../actions/articleCategoryAction';
+import Articles from '../views/Articles';
+import Authors from '../views/Authors';
+import PlaceholderLoader from '../views/placeholderLoader';
 import { getAverageRatings, totalRatings } from '../utils/getAverageRatings';
-import Body from '../views/Body.jsx';
+import Body from '../views/Body';
 import finalRatings from '../utils/finalRatings';
 
 /**
  * @description - returns the home page view
  * @param {props} articles - all authors article
  * @param {props} articlesCategory - articles categories
- * @return {JSX} 
+ * @return {JSX}
  */
 export class HomePage extends Component {
   state = {
     fiveStarAuthors: [],
   }
+
   async componentDidMount() {
     const { getArticles, getArticlesCategory } = this.props;
     await Promise.all([getArticles(), getArticlesCategory()]);
@@ -40,7 +47,7 @@ export class HomePage extends Component {
  * @description set the state with start authors
  * @return {void}
  */
-  setAuthorsState = (rating) => (this.setState({
+  setAuthorsState = rating => (this.setState({
     fiveStarAuthors: [...this.state.fiveStarAuthors, rating],
   }));
 
@@ -49,9 +56,7 @@ export class HomePage extends Component {
  * @param {object} rating - each authors article ratings
  * @return {array}
  */
-  found = (rating) => (this.state.fiveStarAuthors.find(fiveStarAuthors => {
-    return rating.authorsId === fiveStarAuthors.authorsId;
-  }));
+  found = rating => (this.state.fiveStarAuthors.find(fiveStarAuthors => rating.authorsId === fiveStarAuthors.authorsId));
 
   /**
  * @description Gets the recommended authors
@@ -63,30 +68,26 @@ export class HomePage extends Component {
   }
 
   render() {
-    const { articles, articlesCategory, loadingArticles, loadingCategory } = this.props;
-    
-    articles.map(article => {
+    const {
+      articles, articlesCategory, loadingArticles, loadingCategory
+    } = this.props;
+
+    articles.map((article) => {
       this.recommendedAuthor(article);
     });
 
     return (
       <div>
-        <Navbar
-          categories={'Categories'}
-          authors={'Authors'}
-          bookmark={'Bookmarks'}
-          search={'Search'}
-          write={'Write an areticle'}
-          login={'Login'}
-        />
-      
-        {articles === 'Articles not found' ? <Body
+        {articles === 'Articles not found' ? (
+          <Body
           loadingCategory={loadingCategory}
           PlaceholderLoader={PlaceholderLoader}
           articlesCategory={articlesCategory}
           Category={Category}
-        /> :
-          <Body
+        />
+        )
+          : (
+            <Body
             loadingCategory={loadingCategory}
             PlaceholderLoader={PlaceholderLoader}
             Category={Category}
@@ -96,7 +97,8 @@ export class HomePage extends Component {
             articles={articles}
             Authors={Authors}
             fiveStarAuthors={this.state.fiveStarAuthors}
-          />}
+          />
+          )}
       </div>
     );
   }
@@ -118,4 +120,4 @@ const mapStateToProps = state => ({
   loadingCategory: state.articlesReducer.loading,
 });
 
-export default connect(mapStateToProps, { getArticles, getArticlesCategory })(HomePage); 
+export default connect(mapStateToProps, { getArticles, getArticlesCategory })(HomePage);

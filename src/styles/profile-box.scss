@@ -48,7 +48,7 @@
 	margin-bottom: 5px;
 }
 .profile-username {
-	color: $color_mountain_mist_approx;
+	color: $colormountainmist;
 	font-size: 17px;
 	font-weight: bold;
 }
@@ -58,23 +58,23 @@
 	display: inline-block;
 	font-weight: bold;
 	span {
-		color: $color_purple_approx;
+		color: $colorpurple;
 		margin-right: 5px;
 	}
 }
 .profile-footer {
-	border-top: 1px solid $color_alto_approx;
+	border-top: 1px solid $coloralto;
 	margin-top: 40px;
 	padding-left: 20px;
 	padding-right: 20px;
 	a {
-		color: $color_kimberly_approx;
+		color: $colorkimberly;
 		padding: 15px 6px;
 		font-size: 14px;
 		display: inline-block;
 		text-align: center;
 		&.active {
-			color: $color_purple_approx;
+			color: $colorpurple;
 			span::before {
 				content: "";
 				height: 3px;
@@ -82,7 +82,7 @@
 				left: 0;
 				right: 0;
 				bottom: -17px;
-				background-color: $color_purple_approx;
+				background-color: $colorpurple;
 			}
 		}
 	}
@@ -97,7 +97,7 @@
 .change-image {
 	position: absolute;
 	right: -6px;
-	background-color: $color_purple_approx;
+	background-color: $colorpurple;
 	color: $white;
 	border-radius: 100%;
 	width: 35px;
@@ -114,6 +114,6 @@
 	position: absolute;
 	right: 20px;
 	top: 35px;
-	color: $color_cloud_approx;
+	color: $colorcloud;
 	font-size: 28px;
 }

@@ -15,13 +15,13 @@ function App() {
         transition={Flip}
         className="toast-container"
         toastClassName="default-toast"
-        autoClose={5000}
+        autoClose={3000}
+        hideProgressBar
         position="top-right"
       />
     </>
   );
 }
-
 ReactDOM.render(
   <Provider store={store}>
     <App />
