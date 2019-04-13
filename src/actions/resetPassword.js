@@ -8,7 +8,8 @@ const apiUrl = process.env.API_BASE_URL;
 
 /**
  * Action generator that is dispatched when user starts operation
- * @param {boolean} status The current status of the operation
+ * @param {boolean} loading The current status of the operation
+ * @param {string} data The response message
  * @returns {object} The action to dispatch
  */
 export const requestLoading = (loading, data) => ({
@@ -19,7 +20,8 @@ export const requestLoading = (loading, data) => ({
 
 /**
  * Action generator that is dispatched when operation is successful
- * @param {array} data The updated user profile
+ * @param {boolean} loading The current status of the operation
+ * @param {string} data The response message
  * @returns {object} The action to dispatch
  */
 export const requestLoadingSuccess = (loading, data) => ({
@@ -30,7 +32,8 @@ export const requestLoadingSuccess = (loading, data) => ({
 
 /**
  * Action generator that is dispatched when operation fails
- * @param {array} data An array containing the list of error messages
+ * @param {boolean} loading The current status of the operation
+ * @param {string} data The response message
  * @returns {object} The action to dispatch
  */
 export const requestLoadingFailure = (loading, data) => ({

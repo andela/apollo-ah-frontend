@@ -5,6 +5,13 @@
 /* eslint-disable react/destructuring-assignment */
 import React from 'react';
 
+/**
+ * Modal component
+ * @param {object} props Component props
+ * @param {function} props.passwordResetRequest action creator function
+ * @returns {import('@babel/types').JSXAttribute}
+ */
+
 function Modal(props) {
   const { clearMessage, title } = props;
   return (

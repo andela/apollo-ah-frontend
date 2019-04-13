@@ -1,6 +1,6 @@
 import resetPasswordReducer from '../../reducers/resetPasswordReducer';
 import { resetPassword } from '../../actions/resetPassword';
-import { mockState } from '../setup';
+import { mockState } from '../setup/index.jsx';
 
 const testState = mockState;
 
