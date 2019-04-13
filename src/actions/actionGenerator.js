@@ -3,10 +3,10 @@
  * @param {string} name A unique identifier for the action type
  * @return {object} The generated action type
  */
-const actionCreator = name => ({
+const actionTypeGenerator = name => ({
   loading: `${name}_LOADING`,
   success: `${name}_SUCCESS`,
   failure: `${name}_FAILURE`,
 });
 
-export default actionCreator;
+export default actionTypeGenerator;

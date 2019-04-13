@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { ClipLoader } from 'react-spinners';
 import { createStructuredSelector } from 'reselect';
 import * as selectors from '../selectors/resetPassword';
-import Modal from '../views/Modal';
+import Modal from '../views/Modal.jsx';
 import passwordResetRequest from '../actions/resetPassword';
 import modalAction from '../actions/modal';
 

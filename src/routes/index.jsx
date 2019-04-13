@@ -1,9 +1,8 @@
 /* eslint-disable react/wrap-multilines */
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import HomePage from '../components/HomePage';
-import Signup from '../views/Signup';
-import Login from '../views/Login';
+import HomePage from '../components/HomePage.jsx';
+import Login from '../views/Login.jsx';
 
 function Routes() {
   return (
@@ -11,8 +10,7 @@ function Routes() {
       <div>
         <Switch>
           <Route path="/" component={HomePage} exact />
-          <Route path="/login" component={Login} />
-          <Route path="/signup" component={Signup} />
+          <Route path="/login" component={Login} exact />
         </Switch>
       </div>
     </BrowserRouter>

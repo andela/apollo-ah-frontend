@@ -1,7 +1,7 @@
 import axios from 'axios';
-import actionCreator from './actionGenerator';
+import actionTypeGenerator from './actionGenerator';
 
-export const resetPassword = actionCreator('RESET_PASSWORD');
+export const resetPassword = actionTypeGenerator('RESET_PASSWORD');
 
 
 const apiUrl = process.env.API_BASE_URL;

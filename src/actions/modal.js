@@ -1,6 +1,6 @@
-import actionCreator from './actionGenerator';
+import actionTypeGenerator from './actionGenerator';
 
-export const resetModal = actionCreator('RESET_MODAL');
+export const resetModal = actionTypeGenerator('RESET_MODAL');
 
 
 /**
