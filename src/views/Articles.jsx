@@ -35,7 +35,9 @@ const Articles = ({ articles }) => {
                   <img alt="article" src={article.User.Profile.image} />
                   <div>
                     <h6>{article.User.Profile.username}</h6>
-                    <span>{time(article)} {'ago'}</span>
+                    <span>
+                      {`${time(article)} ago`}
+                    </span>
                     <span className="article-author-dot" />
                     <span>{article.readTime}</span>
                     <i
@@ -50,10 +52,14 @@ const Articles = ({ articles }) => {
       </div>
     </div>
   );
-}
+};
 
 Articles.propTypes = {
   articles: PropTypes.array,
+};
+
+Articles.defaultProps = {
+  articles: [],
 };
 
 export default Articles;

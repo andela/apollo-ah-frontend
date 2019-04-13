@@ -7,6 +7,6 @@ import dateFn from 'date-fns';
  */
 const time = (article) => {
   return dateFn.distanceInWords(new Date(article.createdAt), new Date());
-}
+};
 
 export default time;
