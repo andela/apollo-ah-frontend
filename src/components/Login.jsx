@@ -56,7 +56,7 @@ export class Login extends React.Component {
   }
 
   /**
-   * 
+   * @todo - This can be done in a better way. 
    * @param {*} nextProps - The new props passed down from the redux store
    */
   componentWillReceiveProps(nextProps) {
