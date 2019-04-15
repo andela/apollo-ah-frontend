@@ -19,23 +19,25 @@ const stubRequest = (response, status = 200) => {
 
 describe('Action creators', () => {
   it('should create an action to setLoading state', () => {
-    const status = true;
     const expected = {
-      type: actions.resetPassword.loading,
-      loading: true,
-      data: false,
+      type: actions.resetPasswordType.loading,
     };
     expect({
-      type: actions.resetPassword.loading,
-      loading: true,
-      data: false}).toEqual(expected);
+      type: actions.resetPasswordType.loading,
+      }).toEqual(expected);
   });
   it('should create an action when successful', () => {
     const expected = {
-      type: actions.resetPassword.success,
-      loading: false,
-      data: 'successful',
+      type: actions.resetPasswordType.success,
+      message: 'successful',
     };
-    expect(actions.requestLoadingSuccess(false, 'successful')).toEqual(expected);
+    expect(actions.resetPasswordSuccess('successful')).toEqual(expected);
+  });
+  it('should create an action when failed', () => {
+    const expected = {
+      type: actions.resetPasswordType.failure,
+      message: 'failed',
+    };
+    expect(actions.resetPasswordFailure('failed')).toEqual(expected);
   });
 });

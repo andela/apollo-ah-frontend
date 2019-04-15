@@ -1,4 +1,4 @@
-import actionTypeGenerator from './actionGenerator';
+import actionTypeGenerator from './typeGenerator';
 
 export const resetModal = actionTypeGenerator('RESET_MODAL');
 
@@ -8,9 +8,8 @@ export const resetModal = actionTypeGenerator('RESET_MODAL');
  * @param {boolean} closeModal The current status of the operation
  * @returns {object} The action to dispatch
  */
-export const modalReset = closeModal => ({
+export const modalReset = () => ({
   type: resetModal.success,
-  closeModal
 });
 /**
  * reset modal action creator
@@ -21,7 +20,7 @@ export const modalReset = closeModal => ({
 
 const modalAction = () => {
   return async (dispatch) => {
-    dispatch(modalReset(false));
+    dispatch(modalReset());
   };
 };
 

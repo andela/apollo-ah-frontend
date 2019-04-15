@@ -1,6 +1,5 @@
-import typeGenerator from './actionTypeGenerator';
 import axios from 'axios';
-
+import typeGenerator from './actionTypeGenerator';
 /**
  * @description - articles categories response function
  * @param {string} actionType - type of action
@@ -18,7 +17,7 @@ export const articleCategoryAction = (type, payload) => ({
  * @description Request to the API to get only 6 articles categories
  * @returns {object} dispatch object
  */
-export const getArticlesCategory = () => async(dispatch) => {
+export const getArticlesCategory = () => async (dispatch) => {
   try {
     articleCategoryAction('LOADING', 'started');
     const response = await axios.get(`${process.env.API_BASE_URL}/categories?size=6`);

@@ -19,8 +19,22 @@ export const stubRequest = (moxios, response, status = 200) => {
 };
 
 export const mockState = {
-  isLoading: false,
-  responseMessage: false,
+  articles: [],
+  user: {
+    token: undefined,
+    isLoggedIn: false,
+    loginStatus: undefined,
+    message: undefined,
+    isLoading: false,
+    profile: {
+      username: '',
+      image: '',
+    },
+    resetPassword:{
+      laoding: false,
+      message: '',
+    }
+  },
 };
 
 export const createMockStore = () => {

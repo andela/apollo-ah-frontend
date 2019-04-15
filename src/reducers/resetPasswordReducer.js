@@ -1,9 +1,9 @@
-import { resetPassword } from '../actions/resetPassword';
+import { resetPasswordType } from '../actions/resetPassword';
 import { resetModal } from '../actions/modal';
 
 const initialState = {
-  isLoading: false,
-  responseMessage: false,
+  loading: false,
+  message: '',
 };
 
 /**
@@ -16,16 +16,32 @@ const initialState = {
  */
 
 export default function resetPasswordReducer(state = initialState, action = {}) {
-  switch (action.type) {
-    case resetPassword.loading:
-      return { ...state, isLoading: action.loading, responseMessage: action.data };
-    case resetPassword.success:
-      return { ...state, isLoading: action.loading, responseMessage: action.data };
-    case resetPassword.failure:
-      return { ...state, isLoading: action.loading, responseMessage: action.data };
+  const { type, message } = action;
+  switch (type) {
+    case resetPasswordType.loading:
+      return { ...state, loading: true, message };
+    case resetPasswordType.success:
+    case resetPasswordType.failure:
+      return { ...state, loading: false, message };
     case resetModal.success:
-      return { ...state, responseMessage: action.closeModal };
+      return { ...state, message: false };
     default:
       return state;
   }
 }
+
+
+// export default function resetPasswordReducer(state = initialState, action = {}) {
+//   const { type, message } = action;
+//   switch (type) {
+//     case resetPasswordType.loading:
+//       return { ...state, loading: true, message };
+//     case resetPasswordType.success:
+//     case resetPasswordType.failure:
+//       return { ...state, loading: false, message };
+//     case resetModal.success:
+//       return { ...state, responseMessage: action.closeModal };
+//     default:
+//       return state;
+//   }
+// }

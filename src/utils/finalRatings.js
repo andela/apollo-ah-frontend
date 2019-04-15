@@ -22,6 +22,6 @@ const finalRatings = (totalRatings, found, setAuthorsState) => {
       }
     }
   });
-}
+};
 
 export default finalRatings;

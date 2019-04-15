@@ -1,12 +1,18 @@
 import { combineReducers } from 'redux';
-import sample from './sample';
 import resetPasswordReducer from './resetPasswordReducer';
+import loginReducers from './loginReducers';
 import articlesReducer from './articleReducer';
 import articlesCategoryReducer from './articleCategoryReducer';
 
+/**
+ * @function combineReducers - the redux store combineReducers function
+ * @exports Object - The combination of reducers across the app
+ */
 export default combineReducers({
-  resetPasswordReducer,
-  sample,
+  user: combineReducers({
+    loginReducers,
+    resetPassword: resetPasswordReducer,
+  }),
   articlesReducer,
   articlesCategoryReducer,
 });

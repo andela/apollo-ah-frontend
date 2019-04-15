@@ -1,45 +1,37 @@
 import axios from 'axios';
-import actionTypeGenerator from './actionGenerator';
+import actionTypeGenerator from './typeGenerator';
 
-export const resetPassword = actionTypeGenerator('RESET_PASSWORD');
+export const resetPasswordType = actionTypeGenerator('RESET_PASSWORD');
 
 
 const apiUrl = process.env.API_BASE_URL;
 
 /**
- * Action generator that is dispatched when user starts operation
- * @param {boolean} loading The current status of the operation
- * @param {string} data The response message
+ * Action generator that is dispatched when user starts operatione
  * @returns {object} The action to dispatch
  */
-export const requestLoading = (loading, data) => ({
-  type: resetPassword.loading,
-  loading,
-  data
+export const resetPasswordLoading = () => ({
+  type: resetPasswordType.loading,
 });
 
 /**
  * Action generator that is dispatched when operation is successful
- * @param {boolean} loading The current status of the operation
- * @param {string} data The response message
+ * @param {string} message The response message
  * @returns {object} The action to dispatch
  */
-export const requestLoadingSuccess = (loading, data) => ({
-  type: resetPassword.success,
-  loading,
-  data
+export const resetPasswordSuccess = (message) => ({
+  type: resetPasswordType.success,
+  message
 });
 
 /**
  * Action generator that is dispatched when operation fails
- * @param {boolean} loading The current status of the operation
- * @param {string} data The response message
+ * @param {string} message The response message
  * @returns {object} The action to dispatch
  */
-export const requestLoadingFailure = (loading, data) => ({
-  type: resetPassword.failure,
-  loading,
-  data,
+export const resetPasswordFailure = (message) => ({
+  type: resetPasswordType.failure,
+  message,
 });
 
 /**
@@ -52,12 +44,12 @@ export const requestLoadingFailure = (loading, data) => ({
 
 const passwordResetRequest = email => {
   return async (dispatch) => {
-    dispatch(requestLoading(true, false));
+    dispatch(resetPasswordLoading());
     try {
       const { data } = await axios.post(`${apiUrl}/api/v1/users/forgot_password`, { email });
-      dispatch(requestLoadingSuccess(false, data.message));
+      dispatch(resetPasswordSuccess(data.message));
     } catch (error) {
-      dispatch(requestLoadingFailure(false, error.response.data.data[0].message));
+      dispatch(resetPasswordFailure(error.response.data.data[0].message));
     }
   };
 };
