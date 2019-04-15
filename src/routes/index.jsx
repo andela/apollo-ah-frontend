@@ -2,7 +2,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import HomePage from '../components/HomePage.jsx';
-import Signup from '../views/Signup.jsx';
+import SignupPage from '../views/SignupPage.jsx';
 
 function Routes() {
   return (
@@ -10,7 +10,7 @@ function Routes() {
       <div>
         <Switch>
           <Route path="/" component={HomePage} exact />
-          <Route path="/signup" component={Signup} />
+          <Route path="/signup" component={SignupPage} />
         </Switch>
       </div>
     </BrowserRouter>

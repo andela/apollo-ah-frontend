@@ -3,6 +3,10 @@
  */
 const initialState = {
   articles: [],
+  loading: false,
+  errors: null,
+  success: false,
+  token: null
 };
 
 export default initialState;

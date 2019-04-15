@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SignupPage Test Suite> <SignupPage> It should render succesfully 1`] = `ShallowWrapper {}`;

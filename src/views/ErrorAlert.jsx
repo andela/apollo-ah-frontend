@@ -1,5 +1,5 @@
 import React from 'react';
-
+import propTypes from 'prop-types';
 
 class ErrorAlert extends React.Component {
  
@@ -11,8 +11,8 @@ class ErrorAlert extends React.Component {
     }
     const { message } = this.props.message;
     return (
-      <div className="alert alert-warning alert-dismissible fade show" role="alert">
-        <strong>Holy guacamole!</strong> { message }
+      <div className="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Error!</strong> { message }
         <button type="button" className="close" data-dismiss="alert" aria-label="Close" onClick={this.props.close}>
           <span aria-hidden="true">&times;</span>
         </button>
@@ -20,5 +20,10 @@ class ErrorAlert extends React.Component {
     );
   }
 }
+
+ErrorAlert.propTypes = {
+  message: propTypes.object,
+  close: propTypes.func.isRequired
+};
 
 export default ErrorAlert;

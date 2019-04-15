@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import propTypes from 'prop-types'
-import { Link, withRouter } from 'react-router-dom';
-import { signUpUser, clearErrors } from '../actions/signupActions';
+import propTypes from 'prop-types';
+import { Link, withRouter, Redirect } from 'react-router-dom';
+import { signUpUser, clearErrors, addError } from '../actions/signupActions';
 import ErrorAlert from '../views/ErrorAlert.jsx';
 
 class Signup extends React.Component {
@@ -13,54 +13,115 @@ class Signup extends React.Component {
       username: ''
     },
   }
+  componentDidUpdate() {
+    console.log('updated');
+    if (this.props.success) {
+      console.log("SIGNED IN");
+      this.props.history.push('/');
+      return <Redirect to="/" />;
+    }
+  }
+
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log('yaay');  
     const userData = {
       email: this.state.data.email,
       password: this.state.data.password,
       username: this.state.data.username,
     };
-    this.props.signUpUser(userData);
+    if (this.handleValidation(userData)) {
+      this.props.signUpUser(userData);
+    }
+  }
+
+  handleValidation = (data) => {
+    let errors = [];
+    if(data.email == "") {
+      errors.push({message: "Email is required", field: "email"});
+      this.props.addError(errors);
+      return false;
+    }
+    if (data.username == "") {
+      errors.push({message: "A valid username is required", field: "username"});
+      this.props.addError(errors);
+      return false;
+    }
+    if ( data.password == "") {
+      errors.push({message: "A password is required", field: "password"});
+      this.props.addError(errors);
+      return false;
+    }
+    return true;
   }
 
   handleChange = (e) => {
     const data = { ...this.state.data };
     data[e.currentTarget.name] = e.currentTarget.value;
     this.setState({ data });
-   
   }; 
+
   handleErrorClose = (e) => {
-      console.log('closed');
       this.props.clearErrors();
   }
+
+
   render(){
     let message;
     if (this.props.errors) {
-      console.log('setting message...');
       message = this.props.errors[0];
+    } else {
+      message = null;
     }
-   
-    console.log(this.props);
-    // console.log(typeof this.props.errors);
     return (
-      <form className="form">
+      <form role="form" className="form p-sm-4 p-3 signup-form">
+        <h1>Register</h1>
+        <p className="signup-form-message">
+          If you already have an account?{' '}
+          <Link
+            to="/login"
+            className="d-inline-block transition"
+          >
+            Login here,
+          </Link>{' '}
+          else fill the form below to create an account.
+        </p>
         <ErrorAlert message={message} close={this.handleErrorClose}/>
-        <input name="email" type="email" onChange={this.handleChange} placeholder="Email"  className="form"/>
-        <input name="username" type="text" onChange={this.handleChange}  placeholder="Username"  className="form"/>
-        <input name="password" placeholder="Password" onChange={this.handleChange}  type="password" className="form"/>
-        <button onClick={this.handleSubmit}>Submit</button>
+        <div className="form-group mb-4">
+          <label htmlFor="email" className="font-weight-bold"> Email</label>
+          <input type="email" className="form-control text-lowercase" id="email" name="email" onChange={this.handleChange}  />
+        </div>
+        <div className="form-group mb-4">
+          <label htmlFor="fname" className="font-weight-bold">Username</label>
+          <input type="text" className="form-control" id="username" name="username" onChange={this.handleChange}  />
+        </div>
+        <div className="form-group mb-4">
+          <label htmlFor="password" className="font-weight-bold">Password</label>
+          <input type="password" className="form-control" id="password" name="password" onChange={this.handleChange}  />
+        </div>
+        <button onClick={this.handleSubmit}  type="submit" className="btn btn-brand w-100 btn-rectangle mt-1">
+          Join Authors Haven
+        </button>
+        <div className="social-grp">
+          <p>
+            By signing up you agree to accept and adhere to our{' '}
+            <a href="terms.html">terms and conditions</a>.
+          </p>
+        </div>
       </form>
     );
   }
 }
 Signup.propTypes = {
   signUpUser: propTypes.func.isRequired,
-  clearErrors: propTypes.func.isRequired
+  clearErrors: propTypes.func.isRequired,
+  addError: propTypes.func.isRequired,
+  errors: propTypes.array,
+  success: propTypes.bool
 };
 
 const mapStateToProps = state => ({
   loading: state.signupReducer.loading,
-  errors: state.signupReducer.errors
+  errors: state.signupReducer.errors,
+  success: state.signupReducer.success
 });
-export default connect(() => mapStateToProps, { signUpUser, clearErrors })(withRouter(Signup));
+export default connect(() => mapStateToProps, { signUpUser, clearErrors, addError })(withRouter(Signup));
