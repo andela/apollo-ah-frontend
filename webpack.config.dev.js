@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react/wrap-multilines */
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
@@ -27,7 +28,7 @@ module.exports = {
   module: {
     rules: [
       {
-        loader: ['babel-loader'],
+        loader: ['babel-loader', 'eslint-loader'],
         test: /\.jsx?$/,
         exclude: /node_modules/,
       },
@@ -42,7 +43,6 @@ module.exports = {
             loader: 'sass-loader'
           }
         ],
-        exclude: /node_modules/,
       },
       {
         test: /\.(png|svg|jpg|gif)$/,

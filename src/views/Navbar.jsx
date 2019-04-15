@@ -21,7 +21,7 @@ const Navbar = ({ categories, authors, bookmark, search, write, login }) => {
       <div className="container">
         <Link className="navbar-brand" to="/">
           Authors Haven
-          </Link>
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -50,7 +50,8 @@ const Navbar = ({ categories, authors, bookmark, search, write, login }) => {
                 aria-expanded="false"
               >
                 {" "}
-                {categories}{" "}
+                {categories}
+                {" "}
               </Link>
               <div
                 className="dropdown-menu"
@@ -58,44 +59,46 @@ const Navbar = ({ categories, authors, bookmark, search, write, login }) => {
               >
                 <Link className="dropdown-item" to="/business">
                   Business
-              </Link>
+                </Link>
                 <div className="dropdown-divider" />
                 <Link className="dropdown-item" to="/entertainment">
                   Entertainment
-              </Link>
+                </Link>
                 <div className="dropdown-divider" />
                 <Link className="dropdown-item" to="/fashion">
                   Fashion
-              </Link>
+                </Link>
                 <div className="dropdown-divider" />
                 <Link className="dropdown-item" to="/food">
                   Food
-              </Link>
+                </Link>
                 <div className="dropdown-divider" />
                 <Link className="dropdown-item" to="/health">
                   Health
-              </Link>
+                </Link>
                 <div className="dropdown-divider" />
                 <Link className="dropdown-item" to="/history">
                   History
-              </Link>
+                </Link>
                 <div className="dropdown-divider" />
                 <Link className="dropdown-item" to="/technology">
                   Technology
-              </Link>
+                </Link>
                 <div className="dropdown-divider" />
                 <Link className="dropdown-item" to="/sports">
                   Sports
-              </Link>
+                </Link>
                 <div className="dropdown-divider" />
                 <Link className="dropdown-item" to="/others">
                   Others
-              </Link>
+                </Link>
               </div>
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/authors">
-                {authors} <span className="sr-only">(current)</span>
+                {authors}
+                {' '}
+                <span className="sr-only">(current)</span>
               </Link>
             </li>
             <li className="nav-item" data-pg-collapsed>
@@ -105,7 +108,9 @@ const Navbar = ({ categories, authors, bookmark, search, write, login }) => {
             </li>
             <li className="nav-item" data-pg-collapsed>
               <Link className="nav-link" to="/search">
-                <i className="fas fa-search" /> {search}
+                <i className="fas fa-search" />
+                {' '}
+                {search}
               </Link>
             </li>
           </ul>
@@ -116,7 +121,8 @@ const Navbar = ({ categories, authors, bookmark, search, write, login }) => {
                 to="/write"
                 data-pg-collapsed
               >
-                <i className="fas fa-pen transition" />{write}
+                <i className="fas fa-pen transition" />
+                {write}
               </Link>
             </li>
             <li className="nav-item">
@@ -133,12 +139,21 @@ const Navbar = ({ categories, authors, bookmark, search, write, login }) => {
 
 
 Navbar.propTypes = {
-  categories:  PropTypes.string,
+  categories: PropTypes.string,
   authors: PropTypes.string,
   search: PropTypes.string,
   write: PropTypes.string,
   login: PropTypes.string,
   bookmark: PropTypes.string,
+};
+
+Navbar.defaultProps = {
+  categories: '',
+  authors: '',
+  search: '',
+  write: '',
+  login: '',
+  bookmark: ''
 };
 
 export default Navbar;
