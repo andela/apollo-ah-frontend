@@ -5,6 +5,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Tags from './ArticleTags';
 import { ArticleContext } from '../components/Article';
+import clapImage from '../images/clap.svg';
 
 function ArticleBody(props) {
   const { bookmarkArticle, bookmarked } = props;
@@ -60,7 +61,7 @@ function ArticleBody(props) {
           <div className="pg-empty-placeholder" />
           <div className="clap-grp">
             <span className="clap-icon">
-              <img src="assets/images/icons/clap.svg" alt="" />
+              <img src={clapImage} alt="" />
               40k claps
             </span>
             <div className="share-grp">
