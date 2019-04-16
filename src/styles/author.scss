@@ -1,0 +1,80 @@
+%extend_1 {
+	font-size: 13px;
+	color: $color_purple;
+	display: inline-block;
+	padding: 7px 50px;
+	border-radius: 50px;
+	box-shadow: 0 0 12px $black_9;
+	font-weight: 400;
+	margin-top: 40px;
+	margin-bottom: 20px;
+}
+
+.author {
+	padding: 20px;
+	position: relative;
+	overflow: hidden;
+	border-radius: 10px;
+	background-color: $white;
+	margin-bottom: 30px;
+	text-align: center;
+	box-shadow: 0 0 3px $black_5;
+	img {
+		width: 85px;
+		height: 85px;
+		border-top-left-radius: 100%;
+		border-radius: 100%;
+		margin-bottom: 25px;
+	}
+	h4 {
+		font-weight: bold;
+		color: $color_tundora;
+		font-size: 17px;
+		margin-bottom: 6px;
+	}
+	p {
+		color: $color_mountain_mist;
+		font-weight: 100;
+		font-size: 14px;
+		height: 30px;
+	}
+	button {
+		@extend %extend_1;
+		&:focus {
+			@extend %extend_1;
+		}
+		&:hover {
+			transform: translateY(-2px);
+			color: $color_purple;
+			text-decoration: none;
+			box-shadow: 0 0 12px $color_purple_20;
+		}
+		&.following {
+			background-color: $color_purple;
+			color: $white;
+		}
+	}
+	&.following button {
+		background-color: $color_purple;
+		color: $white;
+	}
+}
+.list-view {
+	.author {
+		border-radius: 5px;
+		img {
+			position: absolute;
+			left: 15px;
+			top: 15px;
+		}
+		button {
+			margin-top: 5px;
+			margin-bottom: 0;
+		}
+	}
+	.author-details {
+		text-align: left;
+		margin-left: 100px;
+		margin-top: 3px;
+	}
+}
