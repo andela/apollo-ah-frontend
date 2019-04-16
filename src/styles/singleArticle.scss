@@ -194,7 +194,9 @@
   background-color: $color_purple;
   color: $white;
 }
-
+.fa-bookmark{
+  color: $color_pumice_90;
+}
 .article__author{
   display: flex;
   align-items: center;
@@ -239,7 +241,7 @@
   .article__author{
     justify-content: space-between;
     .bookmark__div{
-    margin-left: unset;
+      margin-left: unset;
     }
   }
   

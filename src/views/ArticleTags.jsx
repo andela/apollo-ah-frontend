@@ -1,5 +1,8 @@
 import React from 'react';
 
+/**
+ * @returns {JSX} - The JSx representation of the article's tags
+ */
 function Tags() {
   return (
     <div className="single-tags text-center">

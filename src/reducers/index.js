@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import resetPasswordReducer from './resetPasswordReducer';
 import loginReducers from './loginReducers';
 import articlesReducer from './articleReducer';
 import articlesCategoryReducer from './articleCategoryReducer';
@@ -8,7 +9,10 @@ import articlesCategoryReducer from './articleCategoryReducer';
  * @exports Object - The combination of reducers across the app
  */
 export default combineReducers({
-  user: loginReducers,
+  user: combineReducers({
+    loginReducers,
+    resetPassword: resetPasswordReducer,
+  }),
   articlesReducer,
   articlesCategoryReducer,
 });

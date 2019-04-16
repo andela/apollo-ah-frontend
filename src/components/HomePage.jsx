@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-// import Navbar from '../views/Navbar';
+import Navbar from '../views/Navbar';
 import Category from '../views/Category';
 import { getArticles, getArticlesCategory } from '../actions';
 import Articles from '../views/Articles';

@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   background-color: #ffffff;
+  margin-top: 75px;
 }
 h3 {
   color: black;
@@ -50,6 +51,16 @@ h3 {
   border-color: transparent;
   outline: none;
   box-shadow: none;
+}
+.login__reset__btn {
+    color: gray;
+    font-size: 12px;
+    text-decoration: none;
+}
+.login__reset__btn:hover {
+    color: #66008C;
+    font-size: 12px;
+    text-decoration: none;
 }
 .login__socials__intro {
   margin: 20px 0 0;

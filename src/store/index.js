@@ -1,3 +1,5 @@
+/* eslint-disable react/wrap-multilines */
+/* eslint-disable react/require-extension */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
