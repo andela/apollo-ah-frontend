@@ -17,7 +17,11 @@ export const signUpUser = (userData) => async(dispatch) => {
     dispatch(signupAction(signupType.success, { loading: false, success: true, token: data.token }));
 
   } catch (err) {
-    const errors = err.response.data.data;
+    let errors;
+    errors = [{message: "A network error occurred", field: "network"}];
+    if (err.response) {
+      errors = err.response.data.data;
+    }
     dispatch(signupAction(signupType.error, { errors: errors, loading: false } ));
   }
 };

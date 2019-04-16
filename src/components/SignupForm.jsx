@@ -16,13 +16,6 @@ class Signup extends React.Component {
       username: ''
     },
   }
-  componentDidUpdate() {
-    const { success, history } = this.props;
-    if (success) {
-      history.push('/');
-      return <Redirect to="/" />;
-    }
-  }
 
   handleSubmit = (e) => {
     e.preventDefault();
@@ -72,6 +65,11 @@ class Signup extends React.Component {
 
 
   render(){
+    const { success, history } = this.props;
+    if (success) {
+      history.push('/');
+      return <Redirect to="/" />;
+    }
     let message;
     const { errors } = this.props;
     if (errors) {
