@@ -10,10 +10,14 @@ import { verifyToken } from '../utils/helpers';
  */
 const socialLogin = token => dispatch => {
   try {
-    const payload = verifyToken(token);
-    payload.token = token;
-    localStorage.setItem('user', JSON.stringify(payload));
-    return dispatch(authenticationSuccess(true));
+    const userData = verifyToken(token);
+    const payload = {
+      id: userData.id,
+      email: userData.email,
+      isLoggedIn: true,
+      token,
+    };
+    return dispatch(authenticationSuccess(payload));
   } catch (error) {
     return dispatch(authenticationFailure(error.message));
   }
@@ -25,9 +29,9 @@ const socialLogin = token => dispatch => {
  * @param {boolean} isAuthenticated - The user authenticated state
  * @returns {object} - Returns an action object
  */
-export const authenticationSuccess = isAuthenticated => ({
+export const authenticationSuccess = payload => ({
   type: authenticationType.success,
-  payload: { isAuthenticated }
+  payload,
 });
 
 /**

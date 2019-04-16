@@ -2,7 +2,6 @@
 import { combineReducers } from 'redux';
 
 // Reducers
-import social from './socialReducer';
 import loginReducers from './loginReducers';
 import articlesReducer from './articleReducer';
 import articlesCategoryReducer from './articleCategoryReducer';
@@ -12,7 +11,6 @@ import articlesCategoryReducer from './articleCategoryReducer';
  * @exports Object - The combination of reducers across the app
  */
 export default combineReducers({
-  social,
   user: loginReducers,
   articlesReducer,
   articlesCategoryReducer,

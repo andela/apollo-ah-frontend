@@ -4,7 +4,6 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import { SocialLogin } from '../../components/SocialLogin';
-// import SocialButton from '../../views/common/SocialButton';
 
 /**
  * Wrapper for enzyme shallow component
@@ -13,7 +12,7 @@ import { SocialLogin } from '../../components/SocialLogin';
  */
 function setup() {
   const props = {
-    socialLogin: jest.fn(),
+    handleLogin: jest.fn(),
     isAuthenticated: false,
   };
 

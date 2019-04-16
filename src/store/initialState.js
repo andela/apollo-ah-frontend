@@ -13,7 +13,7 @@ const initialState = {
       username: '',
       image: '',
     }
-  },
+  }
 };
 
 export default initialState;

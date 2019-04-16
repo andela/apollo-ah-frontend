@@ -1,6 +1,7 @@
+/* eslint-disable react/jsx-filename-extension */
 import React from 'react';
 import { shallow } from 'enzyme';
-import Navbar from '../../views/Navbar.jsx';
+import Navbar from '../../views/Navbar';
 
 describe('<Navbar Test Suite>', () => {
   describe('<Navbar>', () => {

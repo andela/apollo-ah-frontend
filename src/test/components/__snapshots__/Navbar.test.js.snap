@@ -1,3 +1,221 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Navbar Test Suite> <Navbar> It should render succesfully 1`] = `ShallowWrapper {}`;
+exports[`<Navbar Test Suite> <Navbar> It should render succesfully 1`] = `
+<nav
+  className="navbar navbar-expand-lg fixed-top navbar-light"
+  id="navbar"
+>
+  <div
+    className="container"
+  >
+    <Link
+      className="navbar-brand"
+      replace={false}
+      to="/"
+    >
+      Authors Haven
+    </Link>
+    <button
+      aria-controls="navbarTogglerDemo01"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+      className="navbar-toggler"
+      data-pg-collapsed={true}
+      data-target="#navbarToggler17"
+      data-toggle="collapse"
+      type="button"
+    >
+      <span
+        className="navbar-toggler-icon"
+      />
+    </button>
+    <div
+      className="collapse navbar-collapse"
+      data-pg-collapsed={true}
+      id="navbarToggler17"
+    >
+      <ul
+        className="navbar-nav mr-auto mt-2 mt-lg-0"
+      >
+        <li
+          className="nav-item dropdown"
+        >
+          <Link
+            aria-expanded="false"
+            aria-haspopup="true"
+            className="nav-link dropdown-toggle"
+            data-toggle="dropdown"
+            id="navbarDropdownMenuLink18"
+            replace={false}
+            to="/categories"
+          >
+             
+             
+          </Link>
+          <div
+            aria-labelledby="navbarDropdownMenuLink18"
+            className="dropdown-menu"
+          >
+            <Link
+              className="dropdown-item"
+              replace={false}
+              to="/business"
+            >
+              Business
+            </Link>
+            <div
+              className="dropdown-divider"
+            />
+            <Link
+              className="dropdown-item"
+              replace={false}
+              to="/entertainment"
+            >
+              Entertainment
+            </Link>
+            <div
+              className="dropdown-divider"
+            />
+            <Link
+              className="dropdown-item"
+              replace={false}
+              to="/fashion"
+            >
+              Fashion
+            </Link>
+            <div
+              className="dropdown-divider"
+            />
+            <Link
+              className="dropdown-item"
+              replace={false}
+              to="/food"
+            >
+              Food
+            </Link>
+            <div
+              className="dropdown-divider"
+            />
+            <Link
+              className="dropdown-item"
+              replace={false}
+              to="/health"
+            >
+              Health
+            </Link>
+            <div
+              className="dropdown-divider"
+            />
+            <Link
+              className="dropdown-item"
+              replace={false}
+              to="/history"
+            >
+              History
+            </Link>
+            <div
+              className="dropdown-divider"
+            />
+            <Link
+              className="dropdown-item"
+              replace={false}
+              to="/technology"
+            >
+              Technology
+            </Link>
+            <div
+              className="dropdown-divider"
+            />
+            <Link
+              className="dropdown-item"
+              replace={false}
+              to="/sports"
+            >
+              Sports
+            </Link>
+            <div
+              className="dropdown-divider"
+            />
+            <Link
+              className="dropdown-item"
+              replace={false}
+              to="/others"
+            >
+              Others
+            </Link>
+          </div>
+        </li>
+        <li
+          className="nav-item"
+        >
+          <Link
+            className="nav-link"
+            replace={false}
+            to="/authors"
+          >
+             
+            <span
+              className="sr-only"
+            >
+              (current)
+            </span>
+          </Link>
+        </li>
+        <li
+          className="nav-item"
+          data-pg-collapsed={true}
+        >
+          <Link
+            className="nav-link"
+            replace={false}
+            to="/bookmark"
+          />
+        </li>
+        <li
+          className="nav-item"
+          data-pg-collapsed={true}
+        >
+          <Link
+            className="nav-link"
+            replace={false}
+            to="/search"
+          >
+            <i
+              className="fas fa-search"
+            />
+             
+          </Link>
+        </li>
+      </ul>
+      <ul
+        className="navbar-nav mt-lg-0"
+      >
+        <li
+          className="nav-item"
+          data-pg-collapsed={true}
+        >
+          <Link
+            className="nav-link btn-cta transition btn-brand"
+            data-pg-collapsed={true}
+            replace={false}
+            to="/write"
+          >
+            <i
+              className="fas fa-pen transition"
+            />
+          </Link>
+        </li>
+        <li
+          className="nav-item"
+        >
+          <Link
+            className="nav-link"
+            replace={false}
+            to="/login"
+          />
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+`;

@@ -1,6 +1,5 @@
 /* eslint-disable react/jsx-filename-extension */
 import React from 'react';
-import 'jest';
 import { MemoryRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { shallow, mount } from 'enzyme';
@@ -82,7 +81,6 @@ describe('<HomePage Test Suite>', () => {
       expect(wrapper.instance().props.getArticles).toHaveBeenCalled();
       expect(wrapper.instance().props.getArticlesCategory).toHaveBeenCalled();
       wrapper.instance().averageRatings(props.articles[0]);
-      // expect(wrapper.instance().state.fiveStarAuthors.length).toBe(2);
     });
     it('It should render connected homepage succesfully', () => {
       const wrapper = mount(
@@ -94,7 +92,6 @@ describe('<HomePage Test Suite>', () => {
       );
       expect(wrapper).toBeDefined();
       expect(wrapper.length).toBe(1);
-      expect(wrapper).toMatchSnapshot();
       expect(wrapper.instance().state.storeState.articlesReducer).toEqual({
         articles: [],
         "error": "",

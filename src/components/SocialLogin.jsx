@@ -52,8 +52,8 @@ export class SocialLogin extends Component {
     }
     
     return (
-      <div className="signup__socials__content">
-        <div className="signup__socials__icons">
+      <div className="row login__socials__content">
+        <div className="login__socials__icons">
           <SocialButton
             icon={facebookIcon}
             onClick={() => location.assign(process.env.FACEBOOK_AUTH_URL)}

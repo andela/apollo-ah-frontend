@@ -1,6 +1,7 @@
+/* eslint-disable react/jsx-filename-extension */
 import React from 'react';
 import { shallow } from 'enzyme';
-import Articles from '../../views/Articles.jsx';
+import Articles from '../../views/Articles';
 
 const articleProps = [{
   id: 1,

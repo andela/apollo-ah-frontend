@@ -1,6 +1,8 @@
+/* eslint-disable react/jsx-filename-extension */
+/* eslint-disable import/newline-after-import */
 import React from 'react';
 import { shallow } from 'enzyme';
-import Authors from '../../views/Category.jsx';
+import Authors from '../../views/Category';
 const props = [{ 
     begin: 0,
     end: 6,

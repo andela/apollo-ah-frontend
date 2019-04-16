@@ -1,4 +1,3 @@
-import '@babel/polyfill';
 import mockAxios from 'axios';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';

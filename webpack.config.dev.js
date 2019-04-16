@@ -12,8 +12,6 @@ const htmlPlugin = new HtmlWebPackPlugin({
 });
 const dotenvPlugin = new Dotenv();
 
-const dotenvPlugin = new Dotenv();
-
 module.exports = {
   entry: './src/index.jsx',
   plugins: [htmlPlugin, dotenvPlugin],
