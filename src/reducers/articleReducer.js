@@ -1,4 +1,4 @@
-import typeGenerator from '../actions/actionTypeGenerator';
+import typeGenerator from '../actions/typeGenerator';
 
 const initialState = {
   articles: [],

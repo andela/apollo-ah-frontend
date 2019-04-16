@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link} from 'react-router-dom';
-import SignupForm from '../components/SignupForm.jsx';
+import SignupForm from '../components/SignupForm';
 
 class SignupPage extends React.Component {
  
