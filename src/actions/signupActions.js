@@ -3,6 +3,11 @@ import typeGenerator from './typeGenerator';
 
 export const signupType = typeGenerator('SIGNUP');
 
+/**
+ * This function returs an action with its type
+ * @param {String} type - auto genrated action type 
+ * @param {Object} data - data to be pased to store
+ */
 const signupAction = (type, data) => ({ type, data });
 
 /**

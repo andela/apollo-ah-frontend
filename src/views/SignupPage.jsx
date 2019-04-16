@@ -2,8 +2,14 @@ import React from 'react';
 import { Link} from 'react-router-dom';
 import SignupForm from '../components/SignupForm';
 
+/**
+ * @class SignupPage
+ */
 class SignupPage extends React.Component {
- 
+  /**
+   * 
+   * @returns {JSX} - Signup page
+   */
   render() {
     return (
       <main className="main-body">

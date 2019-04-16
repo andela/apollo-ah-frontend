@@ -8,6 +8,10 @@ import { Link, withRouter, Redirect } from 'react-router-dom';
 import { signUpUser, clearErrors, addError } from '../actions/signupActions';
 import ErrorAlert from '../views/ErrorAlert';
 
+/**
+ * @class Signup
+ * @extends { React }
+ */
 class Signup extends React.Component {
   state = {
     data: {

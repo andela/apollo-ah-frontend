@@ -2,6 +2,10 @@
 import React from 'react';
 import propTypes from 'prop-types';
 
+/**
+ * @class ErrorAlert
+ * @extends { React }
+ */
 class ErrorAlert extends React.Component {
  
   render() {
