@@ -1,9 +1,6 @@
 import React from 'react';
 import { configure, shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-import HomePage from '../../components/HomePage.jsx';
-
-configure({ adapter: new Adapter() });
+import HomePage from '../../components/HomePage';
 
 describe('<Home>', () => {
   it('should have a p tag', () => {

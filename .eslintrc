@@ -79,6 +79,7 @@
     "react/self-closing-comp": 1,
     "react/sort-comp": 1,
     "react/wrap-multilines": "off",
+    "react/jsx-filename-extension": "off" ,
     "jsx-a11y/anchor-is-valid": [
       "error",
       {

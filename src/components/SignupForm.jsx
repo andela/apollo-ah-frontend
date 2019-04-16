@@ -17,6 +17,10 @@ class Signup extends React.Component {
     },
   }
 
+  /**
+   * This function handles the onsubmit event. It triggers validation and sends data to the API
+   * @param {object} e - This is the event object
+   */
   handleSubmit = (e) => {
     e.preventDefault();
     const { signUpUser } = this.props;
@@ -31,6 +35,10 @@ class Signup extends React.Component {
     }
   }
 
+  /**
+   * This function validates data from the form
+   * @param {object} data - This is data gotten from the form
+   */
   handleValidation = (data) => {
     const { addError } = this.props;
     let errors = [];
@@ -52,18 +60,27 @@ class Signup extends React.Component {
     return true;
   }
 
+  /**
+   * This function updates the state, as the data in the forms change
+   *  @param {object} e - This is the event object
+   */
   handleChange = (e) => {
     const { data } = { ...this.state };
     data[e.currentTarget.name] = e.currentTarget.value;
     this.setState({ data });
   }; 
 
+  /**
+   * This function updates the errors in the store, it clears the current errors
+   */
   handleErrorClose = (e) => {
     const { clearErrors } = this.props;
     clearErrors();
   }
 
-
+  /**
+   * @returns {JSX} - returns the signup form
+   */
   render(){
     const { success, history } = this.props;
     if (success) {
@@ -113,7 +130,7 @@ class Signup extends React.Component {
             <div className="spinner-border" role="status">
               <span className="sr-only">Loading...</span>
             </div>
-) : 'Join Authors Haven'}
+          ) : 'Join Authors Haven'}
         </button>
         <div className="social-grp">
           <p>

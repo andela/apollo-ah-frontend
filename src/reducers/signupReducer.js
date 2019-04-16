@@ -1,12 +1,6 @@
-import typeGenerator from '../actions/actionTypeGenerator';
 import { signupType } from '../actions/signupActions';
+import initialState from '../store/initialState';
 
-const initialState = {
-  loading: false,
-  errors: null,
-  success: false,
-  token: null
-};
 
 /**
  * @description - signup reducer function
