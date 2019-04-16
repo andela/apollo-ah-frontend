@@ -28,7 +28,7 @@ function Routes() {
         />
         <Switch>
           <Route path="/" component={HomePage} exact />
-          <Route path="/login" component={Login} />
+          <Route path="/login" component={Login} exact />
           <Route path="*" component={NotFound} />
         </Switch>
         <Footer />

@@ -1,7 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { ToastContainer, Flip } from 'react-toastify';
+import ReactDOM from 'react-dom';
 import { PersistGate } from 'redux-persist/lib/integration/react';
 import Routes from './routes/index';
 import reduxStore from './store';

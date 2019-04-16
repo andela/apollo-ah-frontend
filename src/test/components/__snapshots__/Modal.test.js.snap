@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Modal /> should render <Modal/> component given the props 1`] = `
+<div
+  className="modal"
+  id="myModal"
+>
+  <div
+    className="modal-dialog"
+  >
+    <div
+      className="modal_content"
+      onClick={[Function]}
+    >
+      <div
+        className="cancelTop"
+      >
+        <button
+          className="close"
+          data-dismiss="modal"
+          type="button"
+        >
+          ×
+        </button>
+      </div>
+      <div
+        className="modal_body"
+      >
+        <div
+          className="modal_header"
+        >
+          <h4
+            className="modal_title"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
