@@ -25,7 +25,7 @@ class ErrorAlert extends React.Component {
 
 ErrorAlert.propTypes = {
   message: propTypes.object,
-  close: propTypes.func.isRequired
+  close: propTypes.func
 };
 
 export default ErrorAlert;
