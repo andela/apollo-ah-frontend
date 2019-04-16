@@ -23,12 +23,12 @@ function Routes() {
           authors="Authors"
           bookmark="Bookmarks"
           search="Search"
-          write="Write an areticle"
+          write="Write an article"
           login="Login"
         />
         <Switch>
           <Route path="/" component={HomePage} exact />
-          <Route path="/login" component={Login} />
+          <Route path="/login" component={Login} exact />
           <Route path="*" component={NotFound} />
         </Switch>
         <Footer />

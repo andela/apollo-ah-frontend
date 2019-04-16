@@ -1,31 +1,20 @@
 /* eslint-disable react/jsx-filename-extension */
 import '@babel/polyfill';
 import React from 'react';
-import { configure, mount } from 'enzyme';
-import { Provider } from 'react-redux';
-import configureStore from 'redux-mock-store';
-import { BrowserRouter as Router } from 'react-router-dom';
-import Adapter from 'enzyme-adapter-react-16';
-import initialState from '../../store/initialState';
-import { Login } from '../../components/Login';
+import setup from '../setup/index';
+import  ConnectedLogin from '../../components/Login';
 
-const { user } = initialState;
-const mockStore = configureStore();
-
-configure({ adapter: new Adapter() });
 // eslint-disable-next-line no-undef
 const mockFn = jest.fn();
 
+location = {
+  pathname: '',
+};
+
 describe('<UserForm />', () => {
-  const wrapper = mount(
-    <Provider store={mockStore(user)}>
-      <Router>
-        <Login location={{ pathname: '/login' }} />
-      </Router>
-    </Provider>
-  );
 
   it('should respond to input change and alter state (email) of component', () => {
+    const wrapper = setup(<ConnectedLogin location={location} />);
     const loginWrapper = wrapper.find('Login');
     wrapper.find('#email').simulate('change', { target: { name: 'email', value: 'wrestle@wwe.com' } });
     wrapper.update();
@@ -33,6 +22,7 @@ describe('<UserForm />', () => {
     expect(wrapper.find('#email').props().value).toBe('wrestle@wwe.com');
   });
   it('should respond to input change and alter state (password) of component', () => {
+    const wrapper = setup(<ConnectedLogin location={location} />);
     const loginWrapper = wrapper.find('Login');
     wrapper.find('#password').simulate('change', { target: { name: 'password', value: '12345' } });
     wrapper.update();
@@ -40,8 +30,14 @@ describe('<UserForm />', () => {
     expect(wrapper.find('#password').props().value).toBe('12345');
   });
   it('should submit form', () => {
+    const wrapper = setup(<ConnectedLogin location={location} />);
     const loginWrapper = wrapper.find('Login');
-    loginWrapper.find('form').simulate('submit', { preventDefault: mockFn });
+    loginWrapper.find('.login__input__section form').simulate('submit', { preventDefault: mockFn });
+    expect(mockFn).toHaveBeenCalled();
+  });
+  it('should submit form', () => {
+    const wrapper = setup(<ConnectedLogin location={location} />);
+    wrapper.find('#myModal form').simulate('submit', { preventDefault: mockFn });
     expect(mockFn).toHaveBeenCalled();
   });
 });

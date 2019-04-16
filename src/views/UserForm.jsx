@@ -4,6 +4,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import AlertMessage from './AlertMessage';
+import ResetPassword from '../components/ResetPassword';
 
 /**
  * @param {*} {props} - Props supplied to the component from the Login component
@@ -26,6 +27,7 @@ function UserForm(props) {
   const notification = message;
   return (
     <div className="background min-vh-100">
+      <ResetPassword />
       <div className="container-fluid">
         <div className="row">
           <div className="login">
@@ -65,6 +67,7 @@ function UserForm(props) {
                           type="email"
                           value={email}
                           className="form-control"
+                          autoComplete="true"
                           onChange={(e) => { handleChange(e); }}
                         />
                       </div>
@@ -72,13 +75,21 @@ function UserForm(props) {
                       <div className="login__input__field">
                         <div className="login__forgot-password">
                           <label htmlFor="password">Password</label>
-                          <a href="forgot.html">Forgot password</a>
+                          <button 
+                          type="button" 
+                          className="btn btn-link login__reset__btn " 
+                          data-toggle="modal" 
+                          data-target="#myModal"
+                          >
+                          Forgot password?
+                          </button>
                         </div>
                         <input
                           name="password"
                           id="password"
                           type="password"
                           value={password}
+                          autoComplete="true"
                           className="form-control"
                           onChange={
                             (e) => handleChange(e)
