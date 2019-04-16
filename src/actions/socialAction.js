@@ -26,7 +26,7 @@ const socialLogin = token => dispatch => {
 /**
  * Triggers authentication success
  *
- * @param {boolean} isAuthenticated - The user authenticated state
+ * @param {boolean} payload - The user payload state
  * @returns {object} - Returns an action object
  */
 export const authenticationSuccess = payload => ({
