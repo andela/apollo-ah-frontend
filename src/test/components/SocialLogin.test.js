@@ -28,6 +28,6 @@ describe('<SocialLogin />', () => {
 
   it('should render SocialButtons', () => {
     const { enzymeWrapper } = setup();
-    expect(enzymeWrapper.find('SocialButton')).toHaveLength(3);
+    expect(enzymeWrapper.find('SocialButton')).toHaveLength(2);
   });
 });

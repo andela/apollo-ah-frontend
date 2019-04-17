@@ -11,7 +11,7 @@ import { getUrlQuery } from '../utils/helpers';
 // Social Icons
 import facebookIcon from '../images/icons/facebook.svg';
 import googleIcon from '../images/icons/google.svg';
-import twitterIcon from '../images/icons/twitter.svg';
+// import twitterIcon from '../images/icons/twitter.svg';
 
 /**
  * CLass representing Social Login (OAuth) Components
@@ -62,10 +62,14 @@ export class SocialLogin extends Component {
             icon={googleIcon}
             onClick={() => location.assign(process.env.GOOGLE_AUTH_URL)}
           />
-          <SocialButton
-            icon={twitterIcon}
-            onClick={() => location.assign(process.env.TWITTER_AUTH_URL)}
-          />
+          {/**
+            * TODO: Requires more stress testing
+            *
+            <SocialButton
+              icon={twitterIcon}
+              onClick={() => location.assign(process.env.TWITTER_AUTH_URL)}
+            /> 
+          */}
         </div>
       </div>
     );
