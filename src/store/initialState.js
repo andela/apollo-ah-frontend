@@ -13,6 +13,10 @@ const initialState = {
       loading: false,
       errorData: [],
     },
+    resetPassword: {
+      loading: false,
+      message: '',
+    }
   },
 };
 

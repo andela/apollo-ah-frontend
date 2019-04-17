@@ -63,8 +63,8 @@ class EditProfileContainer extends Component {
 /** Proptype validation */
 EditProfileContainer.propTypes = {
   updateProfile: PropTypes.func.isRequired,
-  isLoading: PropTypes.bool.isRequired,
-  errorData: PropTypes.array.isRequired,
+  isLoading: PropTypes.bool,
+  errorData: PropTypes.array,
   token: PropTypes.string.isRequired,
   profile: PropTypes.object.isRequired,
 };
@@ -77,6 +77,11 @@ const mapStateToProps = createStructuredSelector(
     profile: selectors.getProfile,
   }
 );
+
+EditProfileContainer.defaultProps = {
+  isLoading: false,
+  errorData: []
+};
 
 const mapDispatchToProps = dispatch => ({
   updateProfile: payload => dispatch(updateUserProfile(payload)),

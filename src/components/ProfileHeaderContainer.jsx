@@ -59,12 +59,17 @@ class ProfileHeaderContainer extends Component {
 }
 ProfileHeaderContainer.propTypes = {
   activePage: PropTypes.string.isRequired,
-  isLoading: PropTypes.bool.isRequired,
+  isLoading: PropTypes.bool,
   updateProfile: PropTypes.func.isRequired,
   token: PropTypes.string.isRequired,
   profile: PropTypes.object.isRequired,
-  errorData: PropTypes.array.isRequired,
+  errorData: PropTypes.array,
   showLoader: PropTypes.func.isRequired,
+};
+
+ProfileHeaderContainer.defaultProps = {
+  isLoading: false,
+  errorData: []
 };
 
 const mapStateToProps = createStructuredSelector(

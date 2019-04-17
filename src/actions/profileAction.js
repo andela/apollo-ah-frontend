@@ -1,4 +1,4 @@
-import request from '../utils/requets';
+import request from '../utils/request';
 import typeGenerator from './typeGenerator';
 
 export const profileTypes = typeGenerator('PROFILE');

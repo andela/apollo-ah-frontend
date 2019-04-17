@@ -29,13 +29,11 @@ const EditProfile = ({
         <form className={`form p-sm-4 p-3 ${errorData.length !== 0 ? 'error' : ''}`} onSubmit={handleUpdateProfile} noValidate>
           <div className="form-group mb-4">
             <label htmlFor="fname" className="font-weight-bold">First Name</label>
-            <input type="text" className="form-control text-capitalize" id="fname" defaultValue={firstname} name="firstname" required />
-            <span className="text-danger">First name is required.</span>
+            <input type="text" className="form-control text-capitalize" id="fname" defaultValue={firstname} name="firstname" />
           </div>
           <div className="form-group mb-4">
             <label htmlFor="lname" className="font-weight-bold">Last Name</label>
-            <input type="text" className="form-control text-capitalize" id="lname" defaultValue={lastname} name="lastname" required />
-            <span className="text-danger">Last name is required.</span>
+            <input type="text" className="form-control text-capitalize" id="lname" defaultValue={lastname} name="lastname" />
           </div>
           <div className="form-group mb-4">
             <label htmlFor="fname" className="font-weight-bold">Username</label>
@@ -44,8 +42,7 @@ const EditProfile = ({
           </div>
           <div className="form-group mb-4">
             <label htmlFor="bio" className="font-weight-bold">Bio</label>
-            <textarea className="form-control" id="bio" name="bio" required defaultValue={bio} />
-            <span className="text-danger">Bio is required.</span>
+            <textarea className="form-control" id="bio" name="bio" defaultValue={bio} />
           </div>
           <button type="submit" className="btn btn-brand btn-plain" disabled={isLoading}>
               Update profile

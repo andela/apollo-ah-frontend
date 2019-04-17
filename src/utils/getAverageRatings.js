@@ -1,6 +1,5 @@
 /* eslint-disable array-callback-return */
 /* eslint-disable no-const-assign */
-/* eslint-disable import/no-mutable-exports */
 let sum = 0;
 let average = 0;
 let authorAndAverageRatings;

@@ -1,11 +1,11 @@
-/* eslint-disable import/no-named-as-default */
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-import HomePage from '../components/HomePage';
+import ConnectedHomePage from '../components/HomePage';
 import ProtectedRoutes from './protectedRoutes';
 import Footer from '../views/Footer';
 import Navbar from '../components/NavbarContainer';
+import ConnectedLogin from '../components/Login';
 
 /**
  * @function Routes - A JSX wrapper for all the app's routes
@@ -18,7 +18,8 @@ function Routes() {
       <>
         <Navbar />
         <Switch>
-          <Route path="/" component={HomePage} exact />
+          <Route path="/" component={ConnectedHomePage} exact />
+          <Route path="/login" component={ConnectedLogin} exact />
           <Route path="/user" component={ProtectedRoutes} />
         </Switch>
         <Footer />

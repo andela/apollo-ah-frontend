@@ -1,7 +1,7 @@
 import validator from 'validator';
 
 /**
- * 
+ *
  * @param {*} payload - An object containing an email and password
  * @returns {errorMessage} - A string containing the error message
  */

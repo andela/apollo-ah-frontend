@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React, { useState, useRef } from 'react';
 import { connect } from 'react-redux';
 import { ClipLoader } from 'react-spinners';
@@ -27,10 +26,10 @@ function ResetPassword(props) {
   const input = useRef(null);
 
   /** passing global state loading as props into variables */
-  let { message, isLoading } = props;
+  const { message, isLoading } = props;
 
   /** this is a function to update the email state */
-  const updateInput = event => {
+  const updateInput = (event) => {
     setInputIsValid('validated');
     setUserEmail({ ...userEmail, [event.target.name]: event.target.value });
   };
@@ -46,14 +45,13 @@ function ResetPassword(props) {
     event.preventDefault();
     /** calling the action creator to update the store */
     props.passwordResetRequest(userEmail.email);
-    
   };
 
-  /** A function that ensures that when modal is closed, content is lost*/
+  /** A function that ensures that when modal is closed, content is lost */
   const clearModalState = (content) => {
     /** action to clear response message */
     props.modalAction();
-    if (content != 'modalContent') {
+    if (content !== 'modalContent') {
       setInputIsValid('');
       clearInputs();
     }
@@ -64,7 +62,7 @@ function ResetPassword(props) {
       <p className="reset_password_paragraph">Enter the email address you used when you created your account. You will receive instructions to reset your password in your mail box.</p>
       <form className={`reset-password-group ${inputIsValid}`} onSubmit={(event => handleSubmit(event))}>
         <div className="form-group">
-          <input ref={input} type="email" autoComplete="true" className="reset_form_control btn-block" placeholder="Enter email" name="email" onChange={(event) => updateInput(event)} required />
+          <input ref={input} type="email" autoComplete="true" className="reset_form_control btn-block" placeholder="Enter email" name="email" onChange={event => updateInput(event)} required />
           <span className="input-danger mt-2">A valid email is required</span>
           <button type="submit" className="reset_btn btn-block mt-3">Request reset link</button>
         </div>
@@ -72,8 +70,8 @@ function ResetPassword(props) {
       </form>
       <div>
         {
-          isLoading &&
-            (
+          isLoading
+            && (
               <div className="reset_spinner_box">
                 <ClipLoader
                   size={40}

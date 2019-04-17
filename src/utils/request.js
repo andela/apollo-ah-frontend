@@ -1,9 +1,5 @@
 import axios from 'axios';
 
-axios.defaults.baseURL = `${process.env.API_BASE_URL}`;
-axios.defaults.timeout = 5000;
-axios.defaults.headers.post['Content-Type'] = 'multipart/form-data';
-
 /**
  * Helper function that configures axios requests
  * @param {object} config The configuration data.
@@ -30,7 +26,7 @@ const request = async (
   }
   return axios({
     data: payload,
-    url: route,
+    url: `${process.env.API_BASE_URL}/${route}`,
     method,
     headers
   });
