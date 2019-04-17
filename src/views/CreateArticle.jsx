@@ -5,13 +5,18 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable jsx-a11y/label-has-for */
 import React from 'react';
-import CKEditor from '@ckeditor/ckeditor5-react';
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import ReactQuill from 'react-quill';
 import { PropTypes } from 'prop-types';
 import TagsInput from './TagsInput';
 
 function CreateArticle(props) {
-  const { createArticleHandler, updateInputHandler, updateBodyHandler } = props;
+  const { 
+    updateInputHandler, 
+    updateBodyHandler,
+    imageUploadHandler,
+    submitHandler,
+    valueText,
+  } = props;
 
   const handleUpdate = (updatedTags) => {
     props.updateTagHandler(updatedTags);
@@ -28,7 +33,7 @@ function CreateArticle(props) {
           <h3>New Article</h3>
         </header>
         <div className="card mb-5">
-          <form className="form p-sm-4 p-3 form-borderless" onSubmit={createArticleHandler}>
+          <form className="form p-sm-4 p-3 form-borderless">
             <div className="form-group mb-4" data-pg-collapsed>
               <label htmlFor="title" className="font-weight-bold">Title</label>
               <input type="text" className="form-control text-capitalize" id="title" name="title" onChange={updateInputHandler} required />
@@ -39,22 +44,7 @@ function CreateArticle(props) {
             </div>
             <div className="form-group mb-4" data-pg-collapsed>
               <label htmlFor="description" className="font-weight-bold">Details</label>
-              <CKEditor
-                editor={ClassicEditor}
-                data="<p>Tell your story...</p>"
-                onInit={editor => {
-                  // You can store the "editor" and use when it is needed.
-                  console.log('Editor is ready to use!', editor);
-                }}
-
-                onChange={updateBodyHandler}
-                onBlur={editor => {
-                  console.log('Blur.', editor);
-                }}
-                onFocus={editor => {
-                  console.log('Focus.', editor);
-                }}
-              />
+              <ReactQuill value={valueText} onChange={updateBodyHandler} />
             </div>
             <div className="form-group mb-4" data-pg-collapsed>
               <label className="font-weight-bold" htmlFor="category">Category</label>
@@ -77,11 +67,10 @@ function CreateArticle(props) {
             </div>
             <div className="form-group mb-4">
               <div className="custom-file">
-                <input type="file" className="custom-file-input" id="custom-file1" />
-                <label className="custom-file-label" htmlFor="custom-file1">Upload cover image</label>
+                <button type="button" onClick={imageUploadHandler}>Upload cover image</button>
               </div>
             </div>
-            <button type="submit" style={{ backgroundColor: 'purple', color: 'white' }} className="btn btn-brand btn-plain mt-3">Publish article</button>
+            <button type="submit" onClick={submitHandler} style={{ backgroundColor: '#66008c', color: 'white' }} className="btn btn-brand btn-plain mt-3">Publish article</button>
           </form>
         </div>
       </div>
@@ -91,11 +80,15 @@ function CreateArticle(props) {
 
 CreateArticle.propTypes = {
   /** Called when the publish article button is clicked */
-  createArticleHandler: PropTypes.func.isRequired,
+  submitHandler: PropTypes.func.isRequired,
   /** watches for an input update */
   updateInputHandler: PropTypes.func.isRequired,
   /** watches for an input update */
   updateBodyHandler: PropTypes.func.isRequired,
+  /** watches for tag update */
+  updateTagHandler: PropTypes.func.isRequired,
+  /** handles image upload to cloudinary */
+  imageUploadHandler: PropTypes.func.isRequired,
 };
 
 export default CreateArticle;

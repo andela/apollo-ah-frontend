@@ -3,22 +3,29 @@
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
+const webpack = require('webpack');
 
 const htmlPlugin = new HtmlWebPackPlugin({
   template: './public/index.html',
   filename: './index.html',
   title: 'Authors Haven',
 });
-
 const dotenvPlugin = new Dotenv();
+const envLoaderPlugin = new webpack.DefinePlugin({
+  'process.env.APP_KEY': JSON.stringify(process.env.APP_KEY),
+  'process.env.FACEBOOK_AUTH_URL': JSON.stringify(process.env.FACEBOOK_AUTH_URL),
+  'process.env.GOOGLE_AUTH_URL': JSON.stringify(process.env.GOOGLE_AUTH_URL),
+  'process.env.TWITTER_AUTH_URL': JSON.stringify(process.env.TWITTER_AUTH_URL),
+  'process.env.API_BASE_URL': JSON.stringify(process.env.API_BASE_URL),
+});
 
 module.exports = {
   entry: './src/index.jsx',
-  plugins: [htmlPlugin, dotenvPlugin],
+  plugins: [htmlPlugin, dotenvPlugin, envLoaderPlugin],
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
-    publicPath: '/',
+    publicPath: './',
   },
   resolve: {
     extensions: ['.jsx', '.js', '.json', '.scss', '.css']
@@ -29,12 +36,6 @@ module.exports = {
         loader: ['babel-loader', 'eslint-loader'],
         test: /\.jsx?$/,
         exclude: /node_modules/,
-      },
-      {
-        test: /\.less$/,
-        loaders: [
-          'style', 'css', 'less'
-        ]
       },
       {
         test: /\.(s?css|sass)$/,

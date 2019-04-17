@@ -29,19 +29,3 @@ export default function resetPasswordReducer(state = initialState, action = {}) 
       return state;
   }
 }
-
-
-// export default function resetPasswordReducer(state = initialState, action = {}) {
-//   const { type, message } = action;
-//   switch (type) {
-//     case resetPasswordType.loading:
-//       return { ...state, loading: true, message };
-//     case resetPasswordType.success:
-//     case resetPasswordType.failure:
-//       return { ...state, loading: false, message };
-//     case resetModal.success:
-//       return { ...state, responseMessage: action.closeModal };
-//     default:
-//       return state;
-//   }
-// }

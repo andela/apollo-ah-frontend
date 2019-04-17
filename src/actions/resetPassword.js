@@ -7,7 +7,7 @@ export const resetPasswordType = actionTypeGenerator('RESET_PASSWORD');
 const apiUrl = process.env.API_BASE_URL;
 
 /**
- * Action generator that is dispatched when user starts operatione
+ * Action generator that is dispatched when user starts operation
  * @returns {object} The action to dispatch
  */
 export const resetPasswordLoading = () => ({

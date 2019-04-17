@@ -118,7 +118,7 @@ const Navbar = ({ categories, authors, bookmark, search, write, login }) => {
             <li className="nav-item" data-pg-collapsed>
               <Link
                 className="nav-link btn-cta transition btn-brand"
-                to="/write"
+                to="/users/create-articles"
                 data-pg-collapsed
               >
                 <i className="fas fa-pen transition" />
