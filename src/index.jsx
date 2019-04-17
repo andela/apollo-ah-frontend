@@ -2,8 +2,8 @@
 /* eslint-disable react/wrap-multilines */
 import '@babel/polyfill';
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
+import ReactDOM from 'react-dom';
 import { PersistGate } from 'redux-persist/lib/integration/react';
 import Routes from './routes/index';
 import reduxStore from './store';
