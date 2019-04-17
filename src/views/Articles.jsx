@@ -15,7 +15,7 @@ const Articles = ({ articles }) => {
         {articles.map(article => (
           <div key={article.id} className="col-lg-4 col-sm-6">
             <div className="article">
-              <Link to="/single-article" className="link-surface" />
+              <Link to={`article/${article.slug}`} className="link-surface" />
               <div className="article-cover">
                 <img
                   src={article.image}
