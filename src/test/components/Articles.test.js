@@ -11,7 +11,7 @@ const articleProps = [{
     category: 'Technology',
   },
   description: 'This is the article description',
-  User: {id: 8, Profile:{firstname: 'Andra', lastname: 'Collins', username: '@Andra'}},
+  User: { id: 8, Profile: { firstname: 'Andra', lastname: 'Collins', username: '@Andra' } },
 }];
 
 describe('<Articles Test Suite>', () => {

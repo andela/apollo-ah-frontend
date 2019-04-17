@@ -76,10 +76,10 @@ function UserForm(props) {
                       <div className="login__input__field">
                         <div className="login__forgot-password">
                           <label htmlFor="password">Password</label>
-                          <button 
-                          type="button" 
-                          className="btn btn-link login__reset__btn " 
-                          data-toggle="modal" 
+                          <button
+                          type="button"
+                          className="btn btn-link login__reset__btn "
+                          data-toggle="modal"
                           data-target="#myModal"
                           >
                           Forgot password?
@@ -93,7 +93,7 @@ function UserForm(props) {
                           autoComplete="true"
                           className="form-control"
                           onChange={
-                            (e) => handleChange(e)
+                            e => handleChange(e)
                           }
                         />
                       </div>

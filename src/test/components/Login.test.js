@@ -1,12 +1,10 @@
-/* eslint-disable react/jsx-filename-extension */
 import React from 'react';
 import setup from '../setup';
 import ConnectedLogin from '../../components/Login';
 
-// eslint-disable-next-line no-undef
 const mockFn = jest.fn();
 
-location = {
+const location = {
   pathname: '',
 };
 

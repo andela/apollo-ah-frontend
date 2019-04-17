@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-filename-extension */
 import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
@@ -59,7 +58,7 @@ const props = {
 
 describe('<HomePage Test Suite>', () => {
   describe('<HomePage>', () => {
-    it('It should render unconnected homepage succesfully', async () => {
+    it('It should render unconnected homepage succesfully', async (done) => {
       const spy = jest.spyOn(HomePage.prototype, 'componentDidMount');
       const wrapper = await shallow(<HomePage {...props} />);
       wrapper.setState({
@@ -81,6 +80,8 @@ describe('<HomePage Test Suite>', () => {
       expect(wrapper.instance().props.getArticles).toHaveBeenCalled();
       expect(wrapper.instance().props.getArticlesCategory).toHaveBeenCalled();
       wrapper.instance().averageRatings(props.articles[0]);
+      // expect(wrapper.instance().state.fiveStarAuthors.length).toBe(2);
+      done();
     });
     it('It should render connected homepage succesfully', () => {
       const wrapper = mount(
@@ -94,8 +95,8 @@ describe('<HomePage Test Suite>', () => {
       expect(wrapper.length).toBe(1);
       expect(wrapper.instance().state.storeState.articlesReducer).toEqual({
         articles: [],
-        "error": "",
-        "loading": "started",
+        error: '',
+        loading: 'started',
         page:
         {
           first: 1,

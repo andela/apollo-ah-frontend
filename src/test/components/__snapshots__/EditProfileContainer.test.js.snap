@@ -1,0 +1,309 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<EditProfileContainer> should render without crashing 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <BrowserRouter>
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "createHref": [Function],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <Connect(EditProfileContainer)
+        activePage="PROFILE"
+      >
+        <EditProfileContainer
+          activePage="PROFILE"
+          errorData={Array []}
+          isLoading={false}
+          profile={
+            Object {
+              "errorData": Array [],
+              "image": "",
+              "username": "",
+            }
+          }
+          token=""
+          updateProfile={[Function]}
+        >
+          <Connect(ProfileHeaderContainer)
+            activePage="PROFILE"
+          >
+            <ProfileHeaderContainer
+              activePage="PROFILE"
+              errorData={Array []}
+              isLoading={false}
+              profile={
+                Object {
+                  "errorData": Array [],
+                  "image": "",
+                  "username": "",
+                }
+              }
+              showLoader={[Function]}
+              token=""
+              updateProfile={[Function]}
+            >
+              <ProfileHeader
+                activePage="PROFILE"
+                handleImageUpload={[Function]}
+                isLoading={false}
+                profile={
+                  Object {
+                    "errorData": Array [],
+                    "image": "",
+                    "username": "",
+                  }
+                }
+              >
+                <header
+                  className="page-header"
+                >
+                  <h1>
+                    My PROFILE
+                  </h1>
+                </header>
+                <div
+                  className="profile-box mt-n4"
+                >
+                  <div
+                    className="d-inline-block relative profile-img-cover"
+                  >
+                    <span
+                      className="spinner-border text-light align-middle"
+                    />
+                    <img
+                      alt=""
+                      className="img-thumbnail"
+                      src=""
+                    />
+                    <button
+                      className="btn change-image transition"
+                      onClick={[Function]}
+                      type="button"
+                    >
+                      <i
+                        className="fas fa-camera"
+                      />
+                    </button>
+                  </div>
+                  <div
+                    className="profile-wrapper"
+                  >
+                    <h4
+                      className="profile-name text-capitalize"
+                    >
+                       
+                    </h4>
+                    <p
+                      className="profile-username"
+                    >
+                      @
+                    </p>
+                  </div>
+                  <div
+                    className="profile-footer"
+                  >
+                    <Link
+                      className="btn false"
+                      replace={false}
+                      to="dashboard"
+                    >
+                      <a
+                        className="btn false"
+                        href="/dashboard"
+                        onClick={[Function]}
+                      >
+                        <span
+                          className="relative"
+                        >
+                          Dashboard
+                        </span>
+                      </a>
+                    </Link>
+                    <Link
+                      className="btn active"
+                      replace={false}
+                      to="profile"
+                    >
+                      <a
+                        className="btn active"
+                        href="/profile"
+                        onClick={[Function]}
+                      >
+                        <span
+                          className="relative"
+                        >
+                          Edit profile
+                        </span>
+                      </a>
+                    </Link>
+                    <Link
+                      className="btn false"
+                      replace={false}
+                      to="settings"
+                    >
+                      <a
+                        className="btn false"
+                        href="/settings"
+                        onClick={[Function]}
+                      >
+                        <span
+                          className="relative"
+                        >
+                          Settings
+                        </span>
+                      </a>
+                    </Link>
+                  </div>
+                </div>
+              </ProfileHeader>
+            </ProfileHeaderContainer>
+          </Connect(ProfileHeaderContainer)>
+          <EditProfile
+            errorData={Array []}
+            handleUpdateProfile={[Function]}
+            isLoading={false}
+            profile={
+              Object {
+                "errorData": Array [],
+                "image": "",
+                "username": "",
+              }
+            }
+            token=""
+          >
+            <div
+              className="card mb-5 mt-4"
+            >
+              <form
+                className="form p-sm-4 p-3 "
+                noValidate={true}
+                onSubmit={[Function]}
+              >
+                <div
+                  className="form-group mb-4"
+                >
+                  <label
+                    className="font-weight-bold"
+                    htmlFor="fname"
+                  >
+                    First Name
+                  </label>
+                  <input
+                    className="form-control text-capitalize"
+                    id="fname"
+                    name="firstname"
+                    type="text"
+                  />
+                </div>
+                <div
+                  className="form-group mb-4"
+                >
+                  <label
+                    className="font-weight-bold"
+                    htmlFor="lname"
+                  >
+                    Last Name
+                  </label>
+                  <input
+                    className="form-control text-capitalize"
+                    id="lname"
+                    name="lastname"
+                    type="text"
+                  />
+                </div>
+                <div
+                  className="form-group mb-4"
+                >
+                  <label
+                    className="font-weight-bold"
+                    htmlFor="fname"
+                  >
+                    Username
+                  </label>
+                  <input
+                    className="form-control"
+                    defaultValue=""
+                    id="username"
+                    name="username"
+                    required={true}
+                    type="text"
+                  />
+                  <span
+                    className="text-danger"
+                  >
+                    Username is required.
+                  </span>
+                </div>
+                <div
+                  className="form-group mb-4"
+                >
+                  <label
+                    className="font-weight-bold"
+                    htmlFor="bio"
+                  >
+                    Bio
+                  </label>
+                  <textarea
+                    className="form-control"
+                    id="bio"
+                    name="bio"
+                  />
+                </div>
+                <button
+                  className="btn btn-brand btn-plain"
+                  disabled={false}
+                  type="submit"
+                >
+                  Update profile
+                   
+                </button>
+                <input
+                  className="hidden"
+                  defaultValue=""
+                  name="token"
+                  type="hidden"
+                />
+                <input
+                  className="hidden"
+                  defaultValue=""
+                  name="image"
+                  type="hidden"
+                />
+              </form>
+            </div>
+          </EditProfile>
+        </EditProfileContainer>
+      </Connect(EditProfileContainer)>
+    </Router>
+  </BrowserRouter>
+</Provider>
+`;

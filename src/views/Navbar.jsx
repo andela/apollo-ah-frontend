@@ -1,28 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import { PropTypes } from 'prop-types';
 
 /**
  * @description - returns customized navigation bar for the app
- * @param {props} categories - links to categories view
- * @param {props} authors - links to authors view
- * @param {props} bookmark - links to bookmark view
- * @param {props} search - links to search view
- * @param {props} write - links to write view
- * @param {props} login - links to login view
  * @return {JSX}
  */
-const Navbar = ({ categories, authors, bookmark, search, write, login }) => {
-  return (
-    <nav
-      className="navbar navbar-expand-lg fixed-top navbar-light"
+const Navbar = ({ isLoggedIn, profile }) => (
+  <nav
+      className={`navbar navbar-expand-lg fixed-top navbar-light ${isLoggedIn && 'navbar-logged'}`}
       id="navbar"
     >
-      <div className="container">
-        <Link className="navbar-brand" to="/">
+    <div className="container">
+      <Link className="navbar-brand" to="/">
           Authors Haven
-        </Link>
-        <button
+      </Link>
+      <button
           className="navbar-toggler"
           type="button"
           data-toggle="collapse"
@@ -30,18 +23,18 @@ const Navbar = ({ categories, authors, bookmark, search, write, login }) => {
           aria-controls="navbarTogglerDemo01"
           aria-expanded="false"
           aria-label="Toggle navigation"
-          data-pg-collapsed
+
         >
-          <span className="navbar-toggler-icon" />
-        </button>
-        <div
+        <span className="navbar-toggler-icon" />
+      </button>
+      <div
           className="collapse navbar-collapse"
           id="navbarToggler17"
-          data-pg-collapsed
+
         >
-          <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li className="nav-item dropdown">
-              <Link
+        <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
+          <li className="nav-item dropdown">
+            <Link
                 className="nav-link dropdown-toggle"
                 to="/categories"
                 id="navbarDropdownMenuLink18"
@@ -49,111 +42,157 @@ const Navbar = ({ categories, authors, bookmark, search, write, login }) => {
                 aria-haspopup="true"
                 aria-expanded="false"
               >
-                {" "}
-                {categories}
-                {" "}
-              </Link>
-              <div
+              Categories
+              {' '}
+            </Link>
+            <div
                 className="dropdown-menu"
                 aria-labelledby="navbarDropdownMenuLink18"
               >
-                <Link className="dropdown-item" to="/business">
+              <Link className="dropdown-item" to="/business">
                   Business
-                </Link>
-                <div className="dropdown-divider" />
-                <Link className="dropdown-item" to="/entertainment">
+              </Link>
+              <div className="dropdown-divider" />
+              <Link className="dropdown-item" to="/entertainment">
                   Entertainment
-                </Link>
-                <div className="dropdown-divider" />
-                <Link className="dropdown-item" to="/fashion">
+              </Link>
+              <div className="dropdown-divider" />
+              <Link className="dropdown-item" to="/fashion">
                   Fashion
-                </Link>
-                <div className="dropdown-divider" />
-                <Link className="dropdown-item" to="/food">
+              </Link>
+              <div className="dropdown-divider" />
+              <Link className="dropdown-item" to="/food">
                   Food
-                </Link>
-                <div className="dropdown-divider" />
-                <Link className="dropdown-item" to="/health">
+              </Link>
+              <div className="dropdown-divider" />
+              <Link className="dropdown-item" to="/health">
                   Health
-                </Link>
-                <div className="dropdown-divider" />
-                <Link className="dropdown-item" to="/history">
+              </Link>
+              <div className="dropdown-divider" />
+              <Link className="dropdown-item" to="/history">
                   History
-                </Link>
-                <div className="dropdown-divider" />
-                <Link className="dropdown-item" to="/technology">
+              </Link>
+              <div className="dropdown-divider" />
+              <Link className="dropdown-item" to="/technology">
                   Technology
-                </Link>
-                <div className="dropdown-divider" />
-                <Link className="dropdown-item" to="/sports">
+              </Link>
+              <div className="dropdown-divider" />
+              <Link className="dropdown-item" to="/sports">
                   Sports
-                </Link>
-                <div className="dropdown-divider" />
-                <Link className="dropdown-item" to="/others">
+              </Link>
+              <div className="dropdown-divider" />
+              <Link className="dropdown-item" to="/others">
                   Others
-                </Link>
-              </div>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/authors">
-                {authors}
-                {' '}
-                <span className="sr-only">(current)</span>
               </Link>
-            </li>
-            <li className="nav-item" data-pg-collapsed>
-              <Link className="nav-link" to="/bookmark">
-                {bookmark}
-              </Link>
-            </li>
-            <li className="nav-item" data-pg-collapsed>
-              <Link className="nav-link" to="/search">
-                <i className="fas fa-search" />
-                {' '}
-                {search}
-              </Link>
-            </li>
-          </ul>
-          <ul className="navbar-nav mt-lg-0">
-            <li className="nav-item" data-pg-collapsed>
-              <Link
+            </div>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="/authors">
+              Authors
+              {' '}
+              <span className="sr-only">(current)</span>
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="/user/bookmark">
+              Bookmarks
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="/search">
+              <i className="fas fa-search" />
+              {' '}
+              Search
+            </Link>
+          </li>
+        </ul>
+        <ul className="navbar-nav mt-lg-0">
+          <li className="nav-item">
+            <Link
                 className="nav-link btn-cta transition btn-brand"
-                to="/write"
-                data-pg-collapsed
+                to="/user/create-article"
               >
-                <i className="fas fa-pen transition" />
-                {write}
-              </Link>
-            </li>
+              <i className="fas fa-pen transition" />
+              Write an article
+            </Link>
+          </li>
+          {
+            !isLoggedIn
+            && (
             <li className="nav-item">
               <Link className="nav-link" to="/login">
-                {login}
+              Login
               </Link>
             </li>
-          </ul>
+            )
+          }
+        </ul>
+      </div>
+      {
+     isLoggedIn
+    && (
+      <div className="dropdown nav-profile">
+        <button
+    className="btn dropdown-toggle"
+    type="button"
+    id="dropdownMenuButton"
+    data-toggle="dropdown"
+    aria-haspopup="true"
+    aria-expanded="false"
+  >
+          <img
+        alt={profile.username}
+      className="nav-profile"
+      src={profile.image}
+    />
+        </button>
+        <div
+    className="dropdown-menu dropdown-menu-right"
+    aria-labelledby="dropdownMenuButton"
+  >
+          <Link className="dropdown-item" to="/user/create-article">
+      Write an article
+          </Link>
+          <div className="dropdown-divider" />
+          <Link className="dropdown-item" to="/search">
+      Search articles
+          </Link>
+          <div className="dropdown-divider" />
+          <Link className="dropdown-item" to="/user/dashboard">
+      My Dashboard
+          </Link>
+          <Link className="dropdown-item" to="/user/profile">
+      My Profile
+          </Link>
+          <Link className="dropdown-item" to="/user/bookmarks">
+      My Bookmarks
+          </Link>
+          <div className="dropdown-divider" />
+          <Link className="dropdown-item" to="/user/following">
+      Following
+          </Link>
+          <Link className="dropdown-item" to="/user/followers">
+      Followers
+          </Link>
+          <div className="dropdown-divider" />
+          <Link className="dropdown-item" to="/user/settings">
+      Settings
+          </Link>
+          <Link className="dropdown-item" to="/login">
+      Logout
+          </Link>
         </div>
       </div>
-    </nav>
-  );
-};
 
+    )
+  }
+    </div>
+  </nav>
+);
 
 Navbar.propTypes = {
-  categories: PropTypes.string,
-  authors: PropTypes.string,
-  search: PropTypes.string,
-  write: PropTypes.string,
-  login: PropTypes.string,
-  bookmark: PropTypes.string,
-};
-
-Navbar.defaultProps = {
-  categories: '',
-  authors: '',
-  search: '',
-  write: '',
-  login: '',
-  bookmark: ''
+  isLoggedIn: PropTypes.bool.isRequired,
+  profile: PropTypes.object.isRequired,
 };
 
 export default Navbar;

@@ -1,21 +1,6 @@
 import expect from 'expect';
-import moxios from 'moxios';
 import * as actions from '../../actions/resetPassword';
 
-
-const payload = {
-  email: 'fejiro.gospel@andela.com',
-};
-
-const stubRequest = (response, status = 200) => {
-  moxios.wait(() => {
-    moxios.requests.mostRecent()
-      .respondWith({
-        status,
-        response,
-      });
-  });
-};
 
 describe('Action creators', () => {
   it('should create an action to setLoading state', () => {
@@ -24,7 +9,7 @@ describe('Action creators', () => {
     };
     expect({
       type: actions.resetPasswordType.loading,
-      }).toEqual(expected);
+    }).toEqual(expected);
   });
   it('should create an action when successful', () => {
     const expected = {

@@ -1,0 +1,70 @@
+.form {
+	.form-control {
+		background-color: $colorwildsand;
+		border-style: none;
+		&:focus {
+			box-shadow: 0 0 0 0.2rem $colorpurple25;
+		}
+	}
+	textarea {
+		&.form-control {
+			max-width: 100%;
+			min-width: 100%;
+			min-height: 120px;
+		}
+		&.textarea-sm {
+			min-height: auto;
+		}
+	}
+	.input-auto {
+		height: auto;
+	}
+}
+
+.form.error .form-control:invalid{
+	box-shadow: 0 0 0 1px $colordanger;
+}
+.form .form-control ~ span{
+	display: none;
+	margin-top: 3px;
+	font-size: 14px;
+	color: $colordanger;
+}
+.form.error .form-control:invalid ~ span{
+	display: inline-block;
+}
+.custom-control-label {
+	padding-left: 10px;
+	padding-top: 2px;
+}
+.custom-control-label::before {
+	border: 2px solid $colorpurple;
+	height: 20px;
+	width: 20px;
+}
+.custom-control-label::after {
+	background-size: 12px;
+	top: 6px;
+	left: -22px;
+}
+.custom-control-input {
+	&:focus {
+		~ .custom-control-label::before {
+			box-shadow: 0 0 0 0.2rem $colorpurple25;
+			border-color: $colorpurple;
+		}
+		&:not(:checked) ~ .custom-control-label::before {
+			box-shadow: 0 0 0 0.2rem $colorpurple25;
+			border-color: $colorpurple;
+		}
+	}
+	&:checked ~ .custom-control-label::before {
+		border-color: $colorpurple;
+		background-color: $colorpurple;
+		outline: none;
+	}
+}
+.form-borderless .form-control {
+	background-color: $white;
+	border-style: solid;
+}

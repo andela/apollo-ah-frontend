@@ -2,7 +2,7 @@
 
 exports[`<Navbar Test Suite> <Navbar> It should render succesfully 1`] = `
 <nav
-  className="navbar navbar-expand-lg fixed-top navbar-light"
+  className="navbar navbar-expand-lg fixed-top navbar-light false"
   id="navbar"
 >
   <div
@@ -20,7 +20,6 @@ exports[`<Navbar Test Suite> <Navbar> It should render succesfully 1`] = `
       aria-expanded="false"
       aria-label="Toggle navigation"
       className="navbar-toggler"
-      data-pg-collapsed={true}
       data-target="#navbarToggler17"
       data-toggle="collapse"
       type="button"
@@ -31,7 +30,6 @@ exports[`<Navbar Test Suite> <Navbar> It should render succesfully 1`] = `
     </button>
     <div
       className="collapse navbar-collapse"
-      data-pg-collapsed={true}
       id="navbarToggler17"
     >
       <ul
@@ -49,7 +47,7 @@ exports[`<Navbar Test Suite> <Navbar> It should render succesfully 1`] = `
             replace={false}
             to="/categories"
           >
-             
+            Categories
              
           </Link>
           <div
@@ -153,6 +151,7 @@ exports[`<Navbar Test Suite> <Navbar> It should render succesfully 1`] = `
             replace={false}
             to="/authors"
           >
+            Authors
              
             <span
               className="sr-only"
@@ -163,17 +162,17 @@ exports[`<Navbar Test Suite> <Navbar> It should render succesfully 1`] = `
         </li>
         <li
           className="nav-item"
-          data-pg-collapsed={true}
         >
           <Link
             className="nav-link"
             replace={false}
-            to="/bookmark"
-          />
+            to="/user/bookmark"
+          >
+            Bookmarks
+          </Link>
         </li>
         <li
           className="nav-item"
-          data-pg-collapsed={true}
         >
           <Link
             className="nav-link"
@@ -184,6 +183,7 @@ exports[`<Navbar Test Suite> <Navbar> It should render succesfully 1`] = `
               className="fas fa-search"
             />
              
+            Search
           </Link>
         </li>
       </ul>
@@ -192,17 +192,16 @@ exports[`<Navbar Test Suite> <Navbar> It should render succesfully 1`] = `
       >
         <li
           className="nav-item"
-          data-pg-collapsed={true}
         >
           <Link
             className="nav-link btn-cta transition btn-brand"
-            data-pg-collapsed={true}
             replace={false}
-            to="/write"
+            to="/user/create-article"
           >
             <i
               className="fas fa-pen transition"
             />
+            Write an article
           </Link>
         </li>
         <li
@@ -212,7 +211,9 @@ exports[`<Navbar Test Suite> <Navbar> It should render succesfully 1`] = `
             className="nav-link"
             replace={false}
             to="/login"
-          />
+          >
+            Login
+          </Link>
         </li>
       </ul>
     </div>

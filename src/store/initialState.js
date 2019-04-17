@@ -1,17 +1,21 @@
-/**
- * Object containing the app's initial state
- */
 const initialState = {
-  articles: [],
   user: {
-    token: undefined,
+    token: '',
+    id: 5,
     isLoggedIn: false,
-    loginStatus: undefined,
-    message: undefined,
-    isLoading: false,
     profile: {
       username: '',
+      firstname: '',
+      lastname: '',
+      bio: '',
+      email: '',
       image: '',
+      loading: false,
+      errorData: [],
+    },
+    resetPassword: {
+      loading: false,
+      message: '',
     }
   }
 };

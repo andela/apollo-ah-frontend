@@ -3,32 +3,34 @@ import { loginType } from '../actions/loginActions';
 import { authenticationType } from '../actions/actionTypes';
 
 /**
- * 
+ *
  * @param {*} state - The initial user state
  * @param {*} action - The action payload
- * @returns {Object} - The current user state 
+ * @returns {Object} - The current user state
  */
 const LoginReducer = (state = initialState.user, action) => {
-  switch (action.type) {
+  const { type, data } = action;
+  switch (type) {
     case loginType.success:
       return {
         ...state,
-        token: action.data,
+        token: data.token,
         isLoggedIn: true,
         loginStatus: true,
         message: 'Your login was successful',
         isLoading: false,
+        profile: data.profile,
       };
     case loginType.loading:
       return {
         ...state,
-        isLoading: action.status,
+        isLoading: data,
       };
     case loginType.failure:
       return {
         ...state,
         token: undefined,
-        message: action.data,
+        message: data,
         isLoading: false,
         isLoggedIn: false,
         loginStatus: false,

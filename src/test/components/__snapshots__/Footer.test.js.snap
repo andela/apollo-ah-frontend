@@ -38,12 +38,6 @@ exports[`<Footer Test Suite> <Footer> It should render succesfully 1`] = `
         Search
       </Link>
       <Link
-        replace={false}
-        to="/login"
-      >
-        Login
-      </Link>
-      <Link
         className="pull-right terms"
         replace={false}
         to="/terms"
