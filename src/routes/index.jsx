@@ -34,7 +34,7 @@ function Routes() {
           <Route path="/article/:slug" component={Article} />
           <Route path="*" component={NotFound} />
         </Switch>
-        {/* <Footer /> */}
+        <Footer />
       </div>
     </BrowserRouter>
   );
