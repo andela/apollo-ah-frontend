@@ -41,7 +41,8 @@
   margin-bottom: 65px;
 }
 
-.modal .close {
+.cancelTop{
+  .close {
   padding: 0;
   background-color: transparent;
   border: 0;
@@ -60,9 +61,12 @@
   text-shadow: 0 1px 0 #fff;
   opacity: .5;
   outline-color: none;
+  }
 }
 
-.close:focus, .close:active {
+.cancelTop{
+  .close:focus, .close:active {
   outline: none !important;
   box-shadow: none !important;
+}
 }
