@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 const appUrl = 'http://localhost:8080';
 describe('Does not do much', () => {
-  it('Does not do much', () => {
+  it.only('Does not do much', () => {
     expect(true).to.equal(true);
   });
   it('should setup home page', () => {
