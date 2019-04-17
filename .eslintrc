@@ -50,7 +50,6 @@
           "controlComponents": [],
           "depth": 3
         }],
-        "jsx-a11y/label-has-for": 0,
         "jsx-quotes": 1,
         "react/display-name": [1, { "ignoreTranspilerName": false }],
         "react/forbid-prop-types": [1, { "forbid": ["any"] }],
@@ -87,6 +86,8 @@
         "class-methods-use-this": 0,
         "react/prop-types": 1,
         "react/react-in-jsx-scope": 1,
+        "react/require-default-props":"off",
+        "jsx-a11y/label-has-for":"off",
         "react/require-extension": 0,
         "react/self-closing-comp": 1,
         "react/sort-comp": 1,
