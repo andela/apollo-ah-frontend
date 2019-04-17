@@ -1,0 +1,248 @@
+//@extend-elements
+//original selectors
+//.page-item.active .page-link, .page-link.active
+%extend_1 {
+  background-color: $color_purple;
+  color: $white;
+  border-color: $color_mercury_approx;
+}
+.page-link {
+  color: $color_tundora;
+  width: 45px;
+  height: 45px;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  padding-top: 10px;
+  &.active {
+      @extend %extend_1;
+  }
+  &:hover {
+      color: $color_purple;
+  }
+}
+.single-hero {
+  height: 230px;
+  background-position: center center;
+  background-size: cover;
+  margin-bottom: 40px;
+}
+.signle-title {
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 1.1em;
+}
+.single-body {
+  margin-top: 20px;
+  margin-bottom: 30px;
+  white-space: pre-line;
+  p {
+    font-size: 18px;
+    font-weight: 300;
+    margin-bottom: 25px;
+    margin-top: 25px;
+  }
+}
+.single-container {
+  max-width: 992px;
+  margin: 60px auto 50px;
+}
+.single-author-container {
+  .article-author {
+    border: none;
+  }
+  img {
+    width: 50px;
+    height: 50px;
+  }
+  div div {
+    margin-left: 60px;
+    margin-top: 10px;
+  }
+}
+// .single-sub {
+// }
+.single-tags {
+  margin-top: 40px;
+  margin-bottom: 20px;
+  width: 100%;
+  .badge {
+    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+    border-radius: 23px;
+    font-size: 15px;
+    display: inline-block;
+    padding: 15px;
+    background-color: $color_solitude_approx;
+    margin-right: 5px;
+    font-weight: normal;
+    margin-bottom: 10px;
+  }
+}
+.clap-grp {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-bottom: 40px;
+  border-top: 1px solid $color_cloud;
+  border-bottom: 1px solid $color_cloud;
+  margin-top: 50px;
+}
+.clap-icon {
+  font-size: 14px;
+  font-weight: bold;
+  img {
+      margin-right: 5px;
+      width: 38px;
+  }
+}
+.share-grp {
+  float: right;
+  position: relative;
+  a {
+    display: inline-block;
+    padding: 0 5px 1px 6px;
+    font-size: 18px;
+    position: relative;
+    top: 7px;
+  }
+}
+.single-article-author {
+  margin-bottom: 30px;
+  margin-top: -20px;
+  padding-right: 20px;
+  p {
+    max-width: 500px;
+  }
+  button {
+    color: $color_purple;
+    //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+    box-shadow: 0 0 3px $black_20;
+    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+    border-radius: 50px;
+    padding: 5px 20px;
+  }
+  .following {
+    background-color: $color_purple;
+    color: $white;
+  }
+}
+.comment-grp {
+  margin-bottom: 50px;
+  margin-top: 0;
+  border-top: 1px solid $black_20;
+  padding-top: 30px;
+  .article-author {
+    &:first-child {
+      border: none;
+    }
+    p {
+      max-width: 700px;
+    }
+  }
+  h4 {
+    margin-bottom: 15px;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  form {
+    margin-top: 30px;
+    .form-control {
+      vertical-align: middle;
+      height: 65px;
+      padding-left: 20px;
+      padding-right: 60px;
+    }
+    button {
+      position: absolute;
+      right: 0;
+      top: 0;
+      background-color: transparent;
+      color: $color_tundora;
+      bottom: 0;
+      width: 60px;
+    }
+  }
+  .form-group {
+    position: relative;
+  }
+}
+.loadmore-grp {
+  margin-top: 30px;
+  border-top: 1px solid $black_20;
+  padding-top: 30px;
+}
+.single-suggested-grp {
+  background-color: $color_gray_nurse_approx;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  h4 {
+    font-weight: bold;
+    margin-bottom: 50px;
+  }
+}
+@media(min-width:450px) {
+  .single-hero {
+    height: 400px;
+  }
+}
+.page-item.active {
+  background-color: $color_gallery_approx;
+  .page-link {
+    @extend %extend_1;
+  }
+}
+.following .single-article-author button {
+  background-color: $color_purple;
+  color: $white;
+}
+.fa-bookmark{
+  color: $color_pumice_90;
+}
+.article__author{
+  display: flex;
+  align-items: center;
+  .bookmark__div{
+    margin-left: 30px;
+    font-size: 20px;
+    .bookmarked{
+      color: $color_violet_eggplant
+    }
+  }
+}
+.single__author__container{
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+.author__profile--mini{
+  display: inherit;
+  margin-left: unset;
+  img{
+    border-radius: 100%;
+    height: 50px;
+    width: 50px;
+  }
+  .div{
+    margin-left: unset;
+  }
+  h6{
+    margin-bottom: unset;
+  }
+  .author__profile--details{
+    margin-left: 10px;
+    span{
+      font-size: 14px;
+    }
+    .details--break{
+      display: block;
+    }
+  }
+  
+}
+@media only screen and (min-device-width: 500px){
+  .article__author{
+    justify-content: space-between;
+    .bookmark__div{
+      margin-left: unset;
+    }
+  }
+  
+}
