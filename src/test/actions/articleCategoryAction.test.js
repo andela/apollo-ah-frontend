@@ -1,20 +1,17 @@
-import moxios from 'moxios';
-import * as actions from '../../actions/articleCategoryAction';
+import configureMockStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
+import * as actions from '../../actions';
+import mockAxios from '../../__mocks__/axios';
 import mockCategories from '../../__mocks__/getCategoriesMock';
-import { stubRequest, createMockStore } from '../setup';
 
-const mockStore = createMockStore();
+const middlewares = [thunk];
+const mockStore = configureMockStore(middlewares);
 
 describe('articleCategoryAction test suite', () => {
-  beforeEach(() => {
-    moxios.install();
-  });
-
-  afterEach(() => {
-    moxios.uninstall();
-  });
   it('creates GET_ARTICLES_CATEGORY_SUCCESS after successfuly fetching categories', () => {
-    stubRequest(moxios, { ...mockCategories });
+    mockAxios.get.mockImplementationOnce(() => Promise.resolve({
+      data: { ...mockCategories }
+    }));
 
     const expectedActions = [
       { type: 'GET_ARTICLES_CATEGORY_SUCCESS' },
@@ -27,14 +24,12 @@ describe('articleCategoryAction test suite', () => {
     });
   });
   it('returns nothing if there is an error', () => {
-    stubRequest(moxios, { ...mockCategories });
+    mockAxios.get.mockImplementationOnce(() => Promise.reject({}));
 
-    const expectedActions = [
-      {
-        type: 'GET_ARTICLES_CATEGORY_SUCCESS',
-        payload: undefined
-      }
-    ];
+    const expectedActions = [{
+      payload: {},
+      type: 'SEVER_ERROR',
+    }];
 
     const store = mockStore();
 

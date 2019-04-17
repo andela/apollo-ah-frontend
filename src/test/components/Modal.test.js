@@ -12,4 +12,4 @@ describe('<Modal />', () => {
     const container = shallow(<Modal />);
     expect(container).toMatchSnapshot();
   });
-}); 
+});

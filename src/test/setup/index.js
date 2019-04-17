@@ -8,30 +8,24 @@ import thunk from 'redux-thunk';
 import configMockStore from 'redux-mock-store';
 import { BrowserRouter } from 'react-router-dom';
 
-export const stubRequest = (moxios, response, status = 200) => {
-  moxios.wait(() => {
-    moxios.requests.mostRecent()
-      .respondWith({
-        status,
-        response,
-      });
-  });
-};
 
 export const mockState = {
+  articles: [],
   user: {
-    id: 1,
-    token: 'encoded',
-    isLoggedIn: true,
+    token: '',
+    isLoggedIn: false,
+    loginStatus: false,
+    message: '',
+    isLoading: false,
     profile: {
-      firstname: 'John',
-      lastname: 'Doe',
-      bio: 'I love writing',
-      username: 'johnny',
-      image: 'http://linktoimage.jpg',
+      username: '',
+      image: '',
       errorData: [],
-      loading: false,
     },
+    resetPassword: {
+      laoding: false,
+      message: '',
+    }
   },
 };
 

@@ -1,5 +1,3 @@
-/* eslint-disable array-callback-return */
-/* eslint-disable no-const-assign */
 let sum = 0;
 let average = 0;
 let authorAndAverageRatings;
@@ -19,6 +17,7 @@ export const getAverageRatings = (article) => {
       authorsId: article.User.id,
     };
     tempRatings.push(authorAndAverageRatings);
-    totalRatings = totalRatings.concat(tempRatings);
+    totalRatings.concat(tempRatings);
+    return rating;
   });
 };

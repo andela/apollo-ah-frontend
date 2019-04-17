@@ -1,9 +1,11 @@
 import '@babel/polyfill';
-import moxios from 'moxios';
 import * as actions from '../../actions/profileAction';
-import { stubRequest, mockState, createMockStore } from '../setup';
+import { mockState, createMockStore } from '../setup';
+import request from '../../utils/request';
 
 const mockStore = createMockStore();
+
+jest.mock('../../utils/request');
 
 const { profileTypes: types } = actions;
 const { profile: payload } = mockState.user;
@@ -35,14 +37,6 @@ describe('Action creators', () => {
 
 
 describe('Action creators', () => {
-  beforeEach(() => {
-    moxios.install();
-  });
-
-  afterEach(() => {
-    moxios.uninstall();
-  });
-
   it('should dispatch success message when updating user profile is done', () => {
     const response = {
       code: 201,
@@ -51,7 +45,7 @@ describe('Action creators', () => {
       status: true
     };
 
-    stubRequest(moxios, response, 201);
+    request.mockResolvedValue({ data: { data: response.data } });
 
     const expected = [
       {
@@ -81,7 +75,7 @@ describe('Action creators', () => {
       status: false
     };
 
-    stubRequest(moxios, response, 400);
+    request.mockRejectedValue({ response: { data: { ...response } } });
 
     const expected = [
       {
@@ -101,7 +95,7 @@ describe('Action creators', () => {
   });
 
   it('should dispatch error message if there was a network error', () => {
-    stubRequest(moxios, undefined);
+    request.mockRejectedValue({});
 
     const expected = [
       {
