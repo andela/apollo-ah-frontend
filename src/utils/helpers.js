@@ -6,7 +6,7 @@ import jwt from 'jsonwebtoken';
  * @param {string} param - The query string to search
  * @returns {string} The query value
  */
-export const getUrlQuery = param => {
+export const getUrlQuery = (param) => {
   const urlParams = new URLSearchParams(window.location.search);
   return urlParams.get(param);
 };
