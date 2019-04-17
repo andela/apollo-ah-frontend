@@ -30,8 +30,6 @@ function Routes() {
         />
         <Switch>
           <Route path="/" component={HomePage} exact />
-          <Route path="/login" component={Login} exact />
-          <Route path="/article" component={SocialShare} exact />
           <Route path="/login" component={Login} />
           <Route path="/article/:slug" component={Article} />
           <Route path="*" component={NotFound} />
