@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Tags from './ArticleTags';
 import clapImage from '../images/clap.svg';
+import SocailShare from '../components/SocialShare';
 /**
  *
  * @param {*} props - The props passed from the parent Article component
@@ -48,11 +49,11 @@ function ArticleBody(props) {
           40k claps
         </span>
         <div className="share-grp">
-          <a href="you" className="text-danger"><i className="fas fa-envelope" /></a>
-          <a href="you" className="text-primary"><i className="fab fa-facebook-square" /></a>
-          <a href="you" className="text-white"><i className="fab fa-twitter-square text-info" /></a>
           <a href="you" className="text-muted"><i className="fas fa-bookmark" /></a>
           <a href="you" className="text-muted"><i className="fas fa-ellipsis-h" /></a>
+        </div>
+        <div className="share-grp">
+          <SocailShare />
         </div>
       </div>
       <div className="single-author-container single-article-author">
