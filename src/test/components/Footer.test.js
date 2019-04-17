@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Footer from '../../views/Footer.jsx';
+import Footer from '../../views/Footer';
 
 describe('<Footer Test Suite>', () => {
   describe('<Footer>', () => {

@@ -12,7 +12,7 @@
 	background-color: $white;
 	margin-bottom: 30px;
 	position: relative;
-	box-shadow: 0 0 3px $black_5;
+	box-shadow: 0 0 3px $black5;
 	h4 {
 		font-weight: bold;
 		font-size: 18px;
@@ -47,7 +47,7 @@
 	transition: all 100ms ease;
 }
 .article-category {
-	background-color: $color_purple;
+	background-color: $colorpurple;
 	color: $white;
 	font-size: 10px;
 	display: inline-block;
@@ -59,7 +59,7 @@
 }
 .article-author {
 	position: relative;
-	border-top: 1px solid $color_cloud_24;
+	border-top: 1px solid $colorcloud24;
 	padding-top: 10px;
 	z-index: 10;
 	img {
@@ -72,7 +72,7 @@
 	h6 {
 		font-size: 13px;
 		font-weight: bold;
-		color: $color_purple;
+		color: $colorpurple;
 		margin-top: 0;
 		margin-bottom: 5px;
 	}
@@ -82,13 +82,13 @@
 	}
 	span {
 		font-weight: 200;
-		color: $black_60;
+		color: $black60;
 		font-size: 10px;
 		display: inline-block;
 	}
 	.fas {
 		float: right;
-		color: $color_pumice_90;
+		color: $colorpumice90;
 		position: relative;
 		right: -1px;
 		z-index: 40;
@@ -101,15 +101,15 @@
 	width: 5px;
 	height: 5px;
 	border-radius: 40px;
-	background-color: $color_purple_37;
+	background-color: $colorpurple37;
 }
 .bookmarked {
 	.fas {
-		color: $color_purple;
+		color: $colorpurple;
 		animation: react 500ms ease;
 	}
 	&.fas {
-		color: $color_purple;
+		color: $colorpurple;
 		animation: react 500ms ease;
 	}
 }

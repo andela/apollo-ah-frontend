@@ -9,13 +9,14 @@ import PropTypes from 'prop-types';
  * @param {props} follow - follow feature
  * @return {JSX}
  */
-const Authors = ({ authors, begin, end, follow }) => {
-  return (
-    <div className="container">
-      <div className="row">
-        {
-          authors.length > 0 ?
-            authors.slice(begin, end).map((author, index) => {
+const Authors = ({
+  authors, begin, end, follow
+}) => (
+  <div className="container">
+    <div className="row">
+      {
+          authors.length > 0
+            ? authors.slice(begin, end).map((author) => {
               const { firstname, lastname } = author.authorsProfile;
               return (
                 <div className="col-sm-6 col-lg-4" key={author.id}>
@@ -37,10 +38,9 @@ const Authors = ({ authors, begin, end, follow }) => {
               );
             }) : ''
         }
-      </div>
     </div>
-  );
-};
+  </div>
+);
 
 Authors.propTypes = {
   authors: PropTypes.array,

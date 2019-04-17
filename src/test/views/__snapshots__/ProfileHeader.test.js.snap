@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ProfileHeader> should highlight settings tab if settings page is selected 1`] = `ShallowWrapper {}`;
+
+exports[`<ProfileHeader> should render upload image button on edit profile page 1`] = `ShallowWrapper {}`;
+
+exports[`<ProfileHeader> should render without crashing 1`] = `ShallowWrapper {}`;

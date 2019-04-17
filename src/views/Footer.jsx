@@ -5,29 +5,26 @@ import { Link } from 'react-router-dom';
  * @description - returns the app footer
  * @return {JSX}
  */
-const Footer = () => {
-  return (
-    <footer className="footer">
-      <div className="container">
-        <div>
-          <Link to="/" className="logo">
+const Footer = () => (
+  <footer className="footer">
+    <div className="container">
+      <div>
+        <Link to="/" className="logo">
             Authors Haven
-          </Link>
-          <Link to="/authors">Authors</Link>
-          <Link to="/categories">Categories</Link>
-          <Link to="/search">
-            <i className="fas fa-search" />
-            {' '}
+        </Link>
+        <Link to="/authors">Authors</Link>
+        <Link to="/categories">Categories</Link>
+        <Link to="/search">
+          <i className="fas fa-search" />
+          {' '}
             Search
-          </Link>
-          <Link to="/login">Login</Link>
-          <Link to="/terms" className="pull-right terms">
+        </Link>
+        <Link to="/terms" className="pull-right terms">
             Terms &amp; Conditions
-          </Link>
-        </div>
+        </Link>
       </div>
-    </footer>
-  );
-};
- 
+    </div>
+  </footer>
+);
+
 export default Footer;
