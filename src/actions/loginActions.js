@@ -1,11 +1,11 @@
-/* eslint-disable react/require-extension */
 import axios from 'axios';
 import typeGenerator from './typeGenerator';
-import { API_URL } from '../utils/constants';
+import decodeToken from '../utils/decodeToken';
+
 
 export const loginType = typeGenerator('LOG_IN_USER');
 
-const loading = (type, status) => ({ type, status });
+const loading = status => ({ type: loginType.loading, data: status });
 const loginProcess = (type, data) => ({ type, data });
 
 /**
@@ -13,16 +13,20 @@ const loginProcess = (type, data) => ({ type, data });
  * @param {*} payload - The dispatch payload. receives user email and password
  * @param {*} dispatch - the redux store dispatch function
 */
-const userLogin = payload => async dispatch => {
-
+const userLogin = payload => async (dispatch) => {
   try {
-    dispatch(loading(loginType.loading, true));
-    const result = await axios.post(`${API_URL}/users/login`, { ...payload });
+    dispatch(loading(true));
+    const result = await axios.post(`${process.env.API_BASE_URL}/users/login`, { ...payload });
     const { token } = await result.data;
-    return dispatch(loginProcess(loginType.success, token));
+    const profile = decodeToken(token);
+    return dispatch(loginProcess(loginType.success, { token, profile }));
   } catch (error) {
-    const { message } = error.response.data;
-    return dispatch(loginProcess(loginType.failure, message));
+    let errorMessage = 'Please check your network connection';
+    if (error.response) {
+      const { message } = error.response.data;
+      errorMessage = message;
+    }
+    return dispatch(loginProcess(loginType.failure, errorMessage));
   }
 };
 

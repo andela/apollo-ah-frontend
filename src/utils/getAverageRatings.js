@@ -1,13 +1,12 @@
-/* eslint-disable import/no-mutable-exports */
 let sum = 0;
 let average = 0;
 let authorAndAverageRatings;
 const tempRatings = [];
-export let totalRatings = [];
+export const totalRatings = [];
 
 export const getAverageRatings = (article) => {
-  article.ratings.map(rating => {
-    sum = sum + rating.stars;
+  article.ratings.map((rating) => {
+    sum += rating.stars;
     average = sum / article.ratings.length;
     sum = 0;
     authorAndAverageRatings = {
@@ -18,6 +17,7 @@ export const getAverageRatings = (article) => {
       authorsId: article.User.id,
     };
     tempRatings.push(authorAndAverageRatings);
-    totalRatings = totalRatings.concat(tempRatings);
+    totalRatings.concat(tempRatings);
+    return rating;
   });
 };

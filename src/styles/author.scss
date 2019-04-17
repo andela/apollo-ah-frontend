@@ -1,10 +1,10 @@
-%extend_1 {
+%extend1 {
 	font-size: 13px;
-	color: $color_purple;
+	color: $colorpurple;
 	display: inline-block;
 	padding: 7px 50px;
 	border-radius: 50px;
-	box-shadow: 0 0 12px $black_9;
+	box-shadow: 0 0 12px $black9;
 	font-weight: 400;
 	margin-top: 40px;
 	margin-bottom: 20px;
@@ -18,7 +18,7 @@
 	background-color: $white;
 	margin-bottom: 30px;
 	text-align: center;
-	box-shadow: 0 0 3px $black_5;
+	box-shadow: 0 0 3px $black5;
 	img {
 		width: 85px;
 		height: 85px;
@@ -28,34 +28,34 @@
 	}
 	h4 {
 		font-weight: bold;
-		color: $color_tundora;
+		color: $colortundora;
 		font-size: 17px;
 		margin-bottom: 6px;
 	}
 	p {
-		color: $color_mountain_mist;
+		color: $colormountainmist;
 		font-weight: 100;
 		font-size: 14px;
 		height: 30px;
 	}
 	button {
-		@extend %extend_1;
+		@extend %extend1;
 		&:focus {
-			@extend %extend_1;
+			@extend %extend1;
 		}
 		&:hover {
 			transform: translateY(-2px);
-			color: $color_purple;
+			color: $colorpurple;
 			text-decoration: none;
-			box-shadow: 0 0 12px $color_purple_20;
+			box-shadow: 0 0 12px $colorpurple20;
 		}
 		&.following {
-			background-color: $color_purple;
+			background-color: $colorpurple;
 			color: $white;
 		}
 	}
 	&.following button {
-		background-color: $color_purple;
+		background-color: $colorpurple;
 		color: $white;
 	}
 }

@@ -1,8 +1,8 @@
+/* eslint-disable array-callback-return */
 /* eslint-disable no-shadow */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import Navbar from '../views/Navbar';
 import Category from '../views/Category';
 import { getArticles, getArticlesCategory } from '../actions';
 import Articles from '../views/Articles';
@@ -42,8 +42,8 @@ export class HomePage extends Component {
  * @description set the state with start authors
  * @return {void}
  */
-  setAuthorsState = rating => {
-    this.setState(prevState => {
+  setAuthorsState = (rating) => {
+    this.setState((prevState) => {
       prevState.fiveStarAuthors.concat(rating);
     });
   };
@@ -53,7 +53,7 @@ export class HomePage extends Component {
  * @param {object} rating - each authors article ratings
  * @return {array}
  */
-  found = rating => {
+  found = (rating) => {
     const { fiveStarAuthors } = this.state;
     (fiveStarAuthors.find(fiveStarAuthors => rating.authorsId === fiveStarAuthors.authorsId));
   };
@@ -100,7 +100,7 @@ export class HomePage extends Component {
               Authors={Authors}
               fiveStarAuthors={fiveStarAuthors}
             />
-          )
+        )
         }
       </div>
     );

@@ -1,5 +1,5 @@
 const finalRatings = (totalRatings, found, setAuthorsState) => {
-  totalRatings.map(async rating => {
+  totalRatings.map(async (rating) => {
     if (rating.averageRatings === 5) {
       if (!found(rating)) {
         await setAuthorsState(rating);
