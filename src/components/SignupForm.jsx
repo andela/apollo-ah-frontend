@@ -1,6 +1,3 @@
-/* eslint-disable react/require-default-props */
-/* eslint-disable jsx-a11y/label-has-for */
-/* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
 import { connect } from 'react-redux';
 import propTypes from 'prop-types';
@@ -51,12 +48,12 @@ class Signup extends React.Component {
       addError(errors);
       return false;
     }
-    if (data.username == "") {
+    if (data.username == "" || data.username) {
       errors.push({message: "A valid username is required", field: "username"});
       addError(errors);
       return false;
     }
-    if ( data.password == "") {
+    if ( data.password == "" || data.password) {
       errors.push({message: "A password is required", field: "password"});
       addError(errors);
       return false;
@@ -70,7 +67,7 @@ class Signup extends React.Component {
    */
   handleChange = (e) => {
     const { data } = { ...this.state };
-    data[e.currentTarget.name] = e.currentTarget.value;
+    data[e.currentTarget.name] = e.currentTarget.value; 
     this.setState({ data });
   }; 
 
@@ -86,13 +83,12 @@ class Signup extends React.Component {
    * @returns {JSX} - returns the signup form
    */
   render(){
-    const { success, history } = this.props;
+    const { success, history, errors } = this.props;
     if (success) {
       history.push('/');
       return <Redirect to="/" />;
     }
     let message;
-    const { errors } = this.props;
     if (errors) {
       message = errors[0];
     } else {

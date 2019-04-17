@@ -3,7 +3,9 @@ import { Link} from 'react-router-dom';
 import SignupForm from '../components/SignupForm';
 
 /**
- * @class SignupPage
+ *This represents the actual signup page on the web
+ *@class SignupPage
+ *@extends {React.Component}
  */
 class SignupPage extends React.Component {
   /**
