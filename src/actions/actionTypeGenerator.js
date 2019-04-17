@@ -1,3 +1,3 @@
-const typeGenerator = type => type
+const typeGenerator = type => type;
 
 export default typeGenerator;

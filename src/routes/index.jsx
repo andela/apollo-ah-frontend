@@ -7,6 +7,11 @@ import ProtectedRoutes from './protectedRoutes';
 import Footer from '../views/Footer';
 import Navbar from '../components/NavbarContainer';
 
+/**
+ * @function Routes - A JSX wrapper for all the app's routes
+ * @returns {BrowserRouter} - The combination of all the routes in the app
+ * @exports Routes
+ */
 function Routes() {
   return (
     <BrowserRouter>

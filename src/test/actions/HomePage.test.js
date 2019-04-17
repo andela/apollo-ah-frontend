@@ -1,10 +1,13 @@
 /* eslint-disable react/jsx-filename-extension */
 import React from 'react';
 import 'jest';
-import { shallow } from 'enzyme';
+import { MemoryRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { shallow, mount } from 'enzyme';
+import reduxStore from '../../store';
 import ConnectedHomePage, { HomePage } from '../../components/HomePage';
-import setup from '../setup';
 
+const { store } = reduxStore;
 const props = {
   getArticles: jest.fn(),
   getArticlesCategory: jest.fn(),
@@ -82,7 +85,13 @@ describe.skip('<HomePage Test Suite>', () => {
       // expect(wrapper.instance().state.fiveStarAuthors.length).toBe(2);
     });
     it('It should render connected homepage succesfully', () => {
-      const wrapper = setup(<ConnectedHomePage {...props} />);
+      const wrapper = mount(
+        <Provider store={store}>
+          <MemoryRouter>
+            <ConnectedHomePage {...props} />
+          </MemoryRouter>
+        </Provider>
+      );
       expect(wrapper).toBeDefined();
       expect(wrapper.length).toBe(1);
       expect(wrapper).toMatchSnapshot();

@@ -30,19 +30,17 @@ const Articles = ({ articles }) => (
                 {
                     article.description.length <= 50 ? article.description.substring(0, 50) : `${article.description.substring(0, 50)}...`
                   }
-              </p>
-              <div className="article-author">
-                <img alt="article" src={article.User.Profile.image} />
-                <div>
-                  <h6>{article.User.Profile.username}</h6>
-                  <span>
-                    {time(article)}
-                    {' '}
-                    {'ago'}
-                  </span>
-                  <span className="article-author-dot" />
-                  <span>{article.readTime}</span>
-                  <i
+                </p>
+                <div className="article-author">
+                  <img alt="article" src={article.User.Profile.image} />
+                  <div>
+                    <h6>{article.User.Profile.username}</h6>
+                    <span>
+                      {`${time(article)} ago`}
+                    </span>
+                    <span className="article-author-dot" />
+                    <span>{article.readTime}</span>
+                    <i
                       className="fas fa-bookmark transition"
                     />
                 </div>
@@ -52,11 +50,15 @@ const Articles = ({ articles }) => (
         </div>
       ))}
     </div>
-  </div>
-);
+  );
+};
 
 Articles.propTypes = {
   articles: PropTypes.array,
+};
+
+Articles.defaultProps = {
+  articles: [],
 };
 
 export default Articles;

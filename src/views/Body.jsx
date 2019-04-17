@@ -2,6 +2,7 @@
 /* eslint-disable no-nested-ternary */
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Proptypes from 'prop-types';
 import FooterImage from '../../public/images/background/Image.png';
 
 /**
@@ -24,7 +25,7 @@ const Body = ({
   articlesCategory,
   loadingArticles,
   Articles,
-  articles,
+  allArticles,
   Authors,
   fiveStarAuthors,
 }) => (
@@ -36,10 +37,11 @@ const Body = ({
           <p>
               Join a community of like-minded authors to foster
               inspiration and innovation by leveraging the modern web.
-          </p>
-          <Link className="btn-brand" to="/signup">
+            </p>
+            <Link className="btn-brand" to="/signup">
               Get Started
-          </Link>
+            </Link>
+          </div>
         </div>
       </div>
     </section>
@@ -53,52 +55,53 @@ const Body = ({
                 className="btn-brand btn-secondary transition"
               >
                 More &gt;&gt;
-            </Link>
+              </Link>
               Browse by Category
-          </h3>
+            </h3>
+          </div>
         </div>
       </div>
       {loadingCategory === 'started' ? <PlaceholderLoader /> : <Category begin={0} end={6} articlesCategory={articlesCategory} />}
 
     </section>
 
-    {Articles ? (
-      <section>
-        <div className="heading">
-          <div className="container">
-            <h3>
-              <Link
-                to="/search"
-                className="btn-brand btn-secondary transition"
-              >
-                More &gt;&gt;
-              </Link>
-              Recently Published
-            </h3>
+      {Articles ? (
+        <section>
+          <div className="heading">
+            <div className="container">
+              <h3>
+                <Link
+                  to="/search"
+                  className="btn-brand btn-secondary transition"
+                >
+                  More &gt;&gt;
+                </Link>
+                Recently Published
+              </h3>
+            </div>
           </div>
-        </div>
-        {loadingArticles === 'started' ? <PlaceholderLoader /> : <Articles articles={articles} />}
-      </section>
-    ) : ''}
+          {loadingArticles === 'started' ? <PlaceholderLoader /> : <Articles articles={allArticles} />}
+        </section>
+      ) : ''}
 
-    {Authors ? (
-      <section>
-        <div className="heading">
-          <div className="container">
-            <h3>
-              <Link
-                to="authors.html"
-                className="btn-brand btn-secondary transition"
-              >
-                More &gt;&gt;
-              </Link>
-              Recommended Authors
-            </h3>
+      {Authors ? (
+        <section>
+          <div className="heading">
+            <div className="container">
+              <h3>
+                <Link
+                  to="authors.html"
+                  className="btn-brand btn-secondary transition"
+                >
+                  More &gt;&gt;
+                </Link>
+                Recommended Authors
+              </h3>
+            </div>
           </div>
-        </div>
-        {loadingArticles === 'started' ? <PlaceholderLoader /> : Authors ? <Authors authors={fiveStarAuthors} begin={0} end={6} /> : ''}
-      </section>
-    ) : ''}
+          {loadingArticles === 'started' ? <PlaceholderLoader /> : Authors ? <Authors authors={fiveStarAuthors} begin={0} end={6} /> : ''}
+        </section>
+      ) : ''}
 
 
     <section className="cta">
@@ -116,16 +119,41 @@ const Body = ({
                   With tools to make every part of your process more human
                   and a support team excited to help you, getting started
                   with inbound has never been easier.
-              </p>
-              <Link to="/signup" className="btn-brand">
+                </p>
+                <Link to="/signup" className="btn-brand">
                   Start Writing
-              </Link>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-  </main>
-);
+      </section>
+    </main>
+  );
+};
+
+Body.propTypes = {
+  loadingCategory: Proptypes.string,
+  PlaceholderLoader: Proptypes.func,
+  Category: Proptypes.func,
+  articlesCategory: Proptypes.array,
+  loadingArticles: Proptypes.string,
+  Articles: Proptypes.func,
+  allArticles: Proptypes.array,
+  Authors: Proptypes.func,
+  fiveStarAuthors: Proptypes.array,
+};
+
+Body.defaultProps = {
+  loadingCategory: '',
+  PlaceholderLoader: f => f,
+  Category: f => f,
+  articlesCategory: [],
+  loadingArticles: Proptypes.string,
+  Articles: f => f,
+  allArticles: Proptypes.array,
+  Authors: f => f,
+  fiveStarAuthors: [],
+};
 
 export default Body;

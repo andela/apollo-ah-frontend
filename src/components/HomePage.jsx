@@ -1,15 +1,10 @@
-/* eslint-disable react/jsx-no-duplicate-props */
-/* eslint-disable react/require-default-props */
-/* eslint-disable array-callback-return */
-/* eslint-disable react/no-access-state-in-setstate */
-/* eslint-disable react/destructuring-assignment */
 /* eslint-disable no-shadow */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import Navbar from '../views/Navbar';
 import Category from '../views/Category';
-import { getArticles } from '../actions/articleAction';
-import { getArticlesCategory } from '../actions/articleCategoryAction';
+import { getArticles, getArticlesCategory } from '../actions';
 import Articles from '../views/Articles';
 import Authors from '../views/Authors';
 import PlaceholderLoader from '../views/placeholderLoader';
@@ -47,16 +42,21 @@ export class HomePage extends Component {
  * @description set the state with start authors
  * @return {void}
  */
-  setAuthorsState = rating => (this.setState({
-    fiveStarAuthors: [...this.state.fiveStarAuthors, rating],
-  }));
+  setAuthorsState = (rating) => {
+    this.setState((prevState) => {
+      prevState.fiveStarAuthors.concat(rating);
+    });
+  };
 
   /**
  * @description found authors
  * @param {object} rating - each authors article ratings
  * @return {array}
  */
-  found = rating => (this.state.fiveStarAuthors.find(fiveStarAuthors => rating.authorsId === fiveStarAuthors.authorsId));
+  found = (rating) => {
+    const { fiveStarAuthors } = this.state;
+    (fiveStarAuthors.find(fiveStarAuthors => rating.authorsId === fiveStarAuthors.authorsId));
+  };
 
   /**
  * @description Gets the recommended authors
@@ -72,6 +72,8 @@ export class HomePage extends Component {
       articles, articlesCategory, loadingArticles, loadingCategory
     } = this.props;
 
+    const { fiveStarAuthors } = this.state;
+
     articles.map((article) => {
       this.recommendedAuthor(article);
     });
@@ -80,25 +82,26 @@ export class HomePage extends Component {
       <div>
         {articles === 'Articles not found' ? (
           <Body
-          loadingCategory={loadingCategory}
-          PlaceholderLoader={PlaceholderLoader}
-          articlesCategory={articlesCategory}
-          Category={Category}
-        />
-        )
-          : (
-            <Body
             loadingCategory={loadingCategory}
             PlaceholderLoader={PlaceholderLoader}
-            Category={Category}
             articlesCategory={articlesCategory}
-            loadingArticles={loadingArticles}
-            Articles={Articles}
-            articles={articles}
-            Authors={Authors}
-            fiveStarAuthors={this.state.fiveStarAuthors}
+            Category={Category}
           />
-          )}
+        ) : (
+            // eslint-disable-next-line react/jsx-indent
+            <Body
+              loadingCategory={loadingCategory}
+              PlaceholderLoader={PlaceholderLoader}
+              Category={Category}
+              articlesCategory={articlesCategory}
+              loadingArticles={loadingArticles}
+              Articles={Articles}
+              allArticles={articles}
+              Authors={Authors}
+              fiveStarAuthors={fiveStarAuthors}
+            />
+        )
+        }
       </div>
     );
   }
@@ -111,6 +114,15 @@ HomePage.propTypes = {
   articlesCategory: PropTypes.array,
   loadingArticles: PropTypes.string,
   loadingCategory: PropTypes.string,
+};
+
+HomePage.defaultProps = {
+  getArticles: f => f,
+  articles: [],
+  getArticlesCategory: f => f,
+  articlesCategory: [],
+  loadingArticles: '',
+  loadingCategory: '',
 };
 
 const mapStateToProps = state => ({

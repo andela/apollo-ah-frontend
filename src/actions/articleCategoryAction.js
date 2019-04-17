@@ -1,16 +1,11 @@
 import axios from 'axios';
 import typeGenerator from './actionTypeGenerator';
-
 /**
  * @description - articles categories response function
  * @param {string} actionType - type of action
  * @param {object} category - article category
  * @returns {object}
  */
-// export const categoryActionResponse = (actionType, category) => ({
-//   type: actionType,
-//   payload: category
-// });
 
 export const articleCategoryAction = (type, payload) => ({
   type: typeGenerator(type),

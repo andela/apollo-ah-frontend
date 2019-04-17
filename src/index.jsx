@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { ToastContainer, Flip } from 'react-toastify';
 import Routes from './routes';
