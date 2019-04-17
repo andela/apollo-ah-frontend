@@ -5,10 +5,9 @@
   "main": "index.jsx",
   "scripts": {
     "jest": "jest --watchAll",
-    "test": "jest & npm run start:dev & wait-on http://localhost:8092 & ./node_modules/.bin/cypress run && npm run test:coverage",
-    "test:coverage": "jest --coverage --colors",
-    "test:cypress": "jest & npm run start:dev & wait-on http://localhost:8092 & ./node_modules/.bin/cypress run && npm run test:coverage",
+    "test": "jest --coverage --colors",
     "test:watch": "jest --watchAll",
+    "test:cypress": "jest & npm run start:dev & wait-on http://localhost:8092 & ./node_modules/.bin/cypress run && npm run test:coverage",
     "coverage": "nyc report --reporter=text-lcov",
     "start": "webpack-dev-server",
     "start:dev": "webpack-dev-server --config webpack.config.dev.js",
