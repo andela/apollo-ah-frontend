@@ -8,7 +8,7 @@ import Login from '../components/Login';
 import NotFound from '../views/NotFound';
 import Nav from '../views/Navbar';
 import Footer from '../views/Footer';
-
+import SocialShare from '../components/SocialShare';
 /**
  * @function Routes - A JSX wrapper for all the app's routes
  * @returns {BrowserRouter} - The combination of all the routes in the app
@@ -29,9 +29,10 @@ function Routes() {
         <Switch>
           <Route path="/" component={HomePage} exact />
           <Route path="/login" component={Login} exact />
-          <Route path="*" component={NotFound} />
+          <Route path="/article" component={SocialShare} exact />
+          {/* <Route path="*" component={NotFound} /> */}
         </Switch>
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </BrowserRouter>
   );
