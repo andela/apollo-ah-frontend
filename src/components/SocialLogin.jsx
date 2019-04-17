@@ -1,10 +1,11 @@
+/* eslint-disable react/jsx-no-bind */
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropType from 'prop-types';
 import { createStructuredSelector } from 'reselect';
 import { getIsAuthenticated } from '../selectors/authSelector';
-import socialLogin  from '../actions/socialAction';
+import socialLogin from '../actions/socialAction';
 import SocialButton from '../views/common/SocialButton';
 import { getUrlQuery } from '../utils/helpers';
 
@@ -40,6 +41,17 @@ export class SocialLogin extends Component {
   }
 
   /**
+   * Navigate to the given provider url
+   *
+   * @param {string} url - The provider url
+   * @returns {void}
+   * @memberof SocialLogin
+   */
+  provider(url) {
+    return window.location.assign(url);
+  }
+
+  /**
    * React render function
    *
    * @returns {JSX.Element} - DOM element
@@ -50,17 +62,17 @@ export class SocialLogin extends Component {
     if (isAuthenticated) { // redirect the user if authenticated
       return <Redirect to="/" />;
     }
-    
+
     return (
       <div className="row login__socials__content">
         <div className="login__socials__icons">
           <SocialButton
             icon={facebookIcon}
-            onClick={() => location.assign(process.env.FACEBOOK_AUTH_URL)}
+            onClick={() => this.provider(process.env.FACEBOOK_AUTH_URL)}
           />
           <SocialButton
             icon={googleIcon}
-            onClick={() => location.assign(process.env.GOOGLE_AUTH_URL)}
+            onClick={() => this.provider(process.env.GOOGLE_AUTH_URL)}
           />
           {/**
             * TODO: Requires more stress testing
@@ -68,7 +80,7 @@ export class SocialLogin extends Component {
             <SocialButton
               icon={twitterIcon}
               onClick={() => location.assign(process.env.TWITTER_AUTH_URL)}
-            /> 
+            />
           */}
         </div>
       </div>
@@ -81,7 +93,7 @@ const mapStateToProps = createStructuredSelector({
 });
 
 const mapDispatchToProps = {
-  handleLogin: (payload) => socialLogin(payload),
+  handleLogin: payload => socialLogin(payload),
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SocialLogin);

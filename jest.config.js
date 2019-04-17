@@ -12,7 +12,7 @@ module.exports = {
   coverageDirectory: 'coverage',
 
   snapshotSerializers: [
-    "enzyme-to-json/serializer"
+    'enzyme-to-json/serializer'
   ],
 
   // An array of file extensions your modules use

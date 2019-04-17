@@ -20,7 +20,7 @@ function setup() {
   return { props, enzymeWrapper };
 }
 
-describe('<SocialLogin />', () => {  
+describe('<SocialLogin />', () => {
   it('renders without crashing given the required props', () => {
     const { enzymeWrapper } = setup();
     expect(toJson(enzymeWrapper)).toMatchSnapshot();
