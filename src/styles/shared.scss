@@ -1,8 +1,8 @@
 body {
-	font-family: $font_0;
+	font-family: $font0;
 	font-weight: 400;
-	background-color: $color_desert_storm;
-	color: $color_tundora;
+	background-color: $colordesertstorm;
+	color: $colortundora;
 }
 .btn {
 	background-color: $color_purple;
@@ -25,13 +25,13 @@ color: $white;
 	color: #999595;
 }
 .bg-brand {
-	background-color: color_purple;
+	background-color: colorpurple;
 	color: $white;
 }
 #navbar {
 	background-color: $white;
 
-	box-shadow: 0 2px 2px $black_2;
+	box-shadow: 0 2px 2px $black2;
 	.btn-cta {
 		padding: 10px 60px 10px 25px;
 		border-radius: 4px;
@@ -48,10 +48,10 @@ color: $white;
 		text-align: center;
 	}
 	.navbar-brand {
-		color: $color_violet_eggplant;
+		color: $colorvioleteggplant;
 		font-weight: bold;
 		&:hover {
-			color: $color_violet_eggplant;
+			color: $colorvioleteggplant;
 			font-weight: bold;
 		}
 	}
@@ -65,7 +65,7 @@ color: $white;
 		border-color: $red;
 	}
 	li a {
-		color: $color_tundora;
+		color: $colortundora;
 		text-transform: uppercase;
 		text-align: left;
 	}
@@ -80,7 +80,7 @@ color: $white;
 		margin-top: 1px;
 		opacity: 0.8;
 		&:hover {
-			border-left-color: $color_pigment_indigo;
+			border-left-color: $colorpigmentindigo;
 			background-color: $gallery;
 			padding-left: 20px;
 		}
@@ -96,15 +96,15 @@ color: $white;
 	display: inline-block;
 	color: $white;
 	font-size: 16px;
-	background-color: $color_purple;
+	background-color: $colorpurple;
 	border-radius: 5px;
 	text-decoration: none;
-	transition: background 300ms;
+	transition: background-color 300ms;
 
-	box-shadow: 0 5px 4px $black_25;
+	box-shadow: 0 5px 4px $black25;
 	&:hover {
 		color: $white;
-		background-color: $color_clairvoyant;
+		background-color: $colorclairvoyant;
 		text-decoration: none;
 	}
 }
@@ -115,14 +115,14 @@ color: $white;
 	top: 0;
 	bottom: 0;
 	content: "";
-	background-color: $black_49;
+	background-color: $black49;
 }
 .relative {
 	position: relative;
 }
 .btn-secondary {
-	background-color: $color_pigment_indigo_32;
-	color: $color_pigment_indigo;
+	background-color: $colorpigmentindigo32;
+	color: $colorpigmentindigo;
 
 	box-shadow: none;
 	border: none;
@@ -137,10 +137,10 @@ color: $white;
 	transition: all 300ms ease;
 }
 .footer {
-	background-color: $color_shark;
+	background-color: $colorshark;
 	overflow: auto;
 	a {
-		color: $color_cloud;
+		color: $colorcloud;
 		display: block;
 		padding: 8px 10px;
 		float: none;
@@ -229,7 +229,7 @@ color: $white;
 		display: inline-block;
 	}
 }
-.navbar-logged {
+.navbar.navbar-logged {
 	.navbar-toggler {
 		display: none;
 	}
@@ -259,7 +259,7 @@ color: $white;
 	text-align: center;
 	padding-top: 15px;
 	font-size: 14px;
-	background-color: $color_violet_eggplant;
+	background-color: $colorvioleteggplant;
 }
 .nav-profile img {
 	width: 40px;
@@ -278,5 +278,9 @@ color: $white;
 	}
 }
 .btn-unfocused:focus {
+	box-shadow: none;
+}
+
+.btn:focus{
 	box-shadow: none;
 }

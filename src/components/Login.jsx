@@ -1,6 +1,4 @@
 /* eslint-disable no-shadow */
-/* eslint-disable jsx-a11y/label-has-for */
-/* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
@@ -21,7 +19,7 @@ export class Login extends React.Component {
    * @memberof Login
    */
   static propTypes = {
-    userLogin: PropTypes.func,
+    processLogin: PropTypes.func.isRequired,
     location: PropTypes.object.isRequired,
     message: PropTypes.string,
     loginStatus: PropTypes.string,
@@ -34,7 +32,6 @@ export class Login extends React.Component {
    * @object {user} - a default object
    */
   static defaultProps = {
-    userLogin: f => f,
     message: '',
     loginStatus: '',
     isLoading: false,
@@ -56,7 +53,7 @@ export class Login extends React.Component {
   }
 
   /**
-   * @todo - This can be done in a better way. 
+   * @todo - This can be done in a better way.
    * @param {*} nextProps - The new props passed down from the redux store
    */
   componentWillReceiveProps(nextProps) {
@@ -67,7 +64,7 @@ export class Login extends React.Component {
   }
 
   /**
-   * 
+   *
    * @param {*} nextProps - The new props passed down from the redux store
    * @returns {boolean} - The value that tells component to rerender or otherwise
    */
@@ -104,9 +101,9 @@ export class Login extends React.Component {
    * @memberof Login
    */
   handleLogin = () => {
-    const { userLogin } = this.props;
+    const { processLogin } = this.props;
     const { email, password } = this.state;
-    if (this.validateInput(email, password)) return userLogin({ email, password });
+    if (this.validateInput(email, password)) return processLogin({ email, password });
   };
 
   /**
@@ -124,7 +121,9 @@ export class Login extends React.Component {
    */
   render() {
     const { isLoading, location } = this.props;
-    const { email, password, message, status } = this.state;
+    const {
+      email, password, message, status
+    } = this.state;
     return (
       <UserForm
         handleChange={this.handleChange}
@@ -146,6 +145,7 @@ const mapStateToProps = createStructuredSelector({
   loginStatus: loginSelector.getLoginStatus,
   isLoading: loginSelector.getLoginIsLoading,
 });
-const mapDispatchToProps = { userLogin };
-
+const mapDispatchToProps = dispatch => ({
+  processLogin: payload => dispatch(userLogin(payload)),
+});
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

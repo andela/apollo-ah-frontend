@@ -3,9 +3,6 @@ import actionTypeGenerator from './typeGenerator';
 
 export const resetPasswordType = actionTypeGenerator('RESET_PASSWORD');
 
-
-const apiUrl = process.env.API_BASE_URL;
-
 /**
  * Action generator that is dispatched when user starts operatione
  * @returns {object} The action to dispatch
@@ -19,7 +16,7 @@ export const resetPasswordLoading = () => ({
  * @param {string} message The response message
  * @returns {object} The action to dispatch
  */
-export const resetPasswordSuccess = (message) => ({
+export const resetPasswordSuccess = message => ({
   type: resetPasswordType.success,
   message
 });
@@ -29,7 +26,7 @@ export const resetPasswordSuccess = (message) => ({
  * @param {string} message The response message
  * @returns {object} The action to dispatch
  */
-export const resetPasswordFailure = (message) => ({
+export const resetPasswordFailure = message => ({
   type: resetPasswordType.failure,
   message,
 });
@@ -42,16 +39,14 @@ export const resetPasswordFailure = (message) => ({
  * @returns {object}
  */
 
-const passwordResetRequest = email => {
-  return async (dispatch) => {
-    dispatch(resetPasswordLoading());
-    try {
-      const { data } = await axios.post(`${apiUrl}/api/v1/users/forgot_password`, { email });
-      dispatch(resetPasswordSuccess(data.message));
-    } catch (error) {
-      dispatch(resetPasswordFailure(error.response.data.data[0].message));
-    }
-  };
+const passwordResetRequest = email => async (dispatch) => {
+  dispatch(resetPasswordLoading());
+  try {
+    const { data } = await axios.post(`${process.env.API_BASE_URL}/users/forgot_password`, { email });
+    dispatch(resetPasswordSuccess(data.message));
+  } catch (error) {
+    dispatch(resetPasswordFailure(error.response.data.data[0].message));
+  }
 };
 
 export default passwordResetRequest;

@@ -1,10 +1,8 @@
-/* eslint-disable react/jsx-filename-extension */
 import '@babel/polyfill';
 import React from 'react';
-import setup from '../setup/index';
-import  ConnectedLogin from '../../components/Login';
+import setup from '../setup';
+import ConnectedLogin from '../../components/Login';
 
-// eslint-disable-next-line no-undef
 const mockFn = jest.fn();
 
 location = {
@@ -12,7 +10,6 @@ location = {
 };
 
 describe('<UserForm />', () => {
-
   it('should respond to input change and alter state (email) of component', () => {
     const wrapper = setup(<ConnectedLogin location={location} />);
     const loginWrapper = wrapper.find('Login');

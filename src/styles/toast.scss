@@ -1,0 +1,28 @@
+.toast-container{
+    max-width: 320px;
+    left: auto;
+    right: 10px;
+    top:75px;
+}
+.default-toast{
+    border-radius: 3px;
+    padding-left: 15px;
+}
+.Toastify__toast--info {
+    background: $colorinfo; 
+}
+.Toastify__toast--success {
+    background: $colorsuccess; 
+}
+.Toastify__toast--warning {
+    background: $colorwarning; 
+}
+.Toastify__toast--error {
+    background:$colorerror; 
+}
+
+.Toastify__toast {
+    font-family: $font0;
+    line-height: 1.3em;
+    font-size: 15px;
+}

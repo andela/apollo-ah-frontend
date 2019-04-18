@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<EditProfile> should render with errorData 1`] = `ShallowWrapper {}`;
+
+exports[`<EditProfile> should render withour crashing 1`] = `ShallowWrapper {}`;

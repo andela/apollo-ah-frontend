@@ -9,12 +9,12 @@ const mockStore = configureMockStore(middlewares);
 
 describe('articleCategoryAction test suite', () => {
   it('creates GET_ARTICLES_CATEGORY_SUCCESS after successfuly fetching categories', () => {
-    mockAxios.get.mockImplementationOnce(()=> Promise.resolve({
-      data: {...mockCategories}
+    mockAxios.get.mockImplementationOnce(() => Promise.resolve({
+      data: { ...mockCategories }
     }));
 
     const expectedActions = [
-      { type: 'GET_ARTICLES_CATEGORY_SUCCESS'},
+      { type: 'GET_ARTICLES_CATEGORY_SUCCESS' },
     ];
 
     const store = mockStore();
@@ -22,21 +22,19 @@ describe('articleCategoryAction test suite', () => {
     return store.dispatch(actions.getArticlesCategory()).then(() => {
       expect(store.getActions()).toEqual(expectedActions);
     });
-
   });
   it('returns nothing if there is an error', () => {
-    mockAxios.get.mockImplementationOnce(()=> Promise.reject({}));
+    mockAxios.get.mockImplementationOnce(() => Promise.reject({}));
 
     const expectedActions = [{
-      "payload": {},
-      "type": "SEVER_ERROR",
-      }];
+      payload: {},
+      type: 'SEVER_ERROR',
+    }];
 
     const store = mockStore();
 
     return store.dispatch(actions.getArticlesCategory()).then(() => {
       expect(store.getActions()).toEqual(expectedActions);
     });
-
   });
 });

@@ -3,12 +3,12 @@ import typeGenerator from '../actions/typeGenerator';
 const initialState = {
   articles: [],
   page: {
-    "first": 1,
-    "current": 1,
-    "last": 1,
-    "currentCount": 0,
-    "totalCount": 0,
-    "description": ""
+    first: 1,
+    current: 1,
+    last: 1,
+    currentCount: 0,
+    totalCount: 0,
+    description: ''
   },
   loading: '',
   error: ''
@@ -39,13 +39,13 @@ export default (state = initialState, action) => {
         articles: action.payload.articles,
         page: action.payload.page
       };
-      case typeGenerator('GET_ARTICLES_FAILURE'):
+    case typeGenerator('GET_ARTICLES_FAILURE'):
       return {
         ...state,
         loading: action.payload,
         articles: 'Articles not found'
       };
-      case typeGenerator('SERVER_ERROR'):
+    case typeGenerator('SERVER_ERROR'):
       return {
         ...state,
         loading: action.payload,

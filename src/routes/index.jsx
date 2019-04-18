@@ -8,9 +8,12 @@ import HomePage from '../components/HomePage';
 import SignupPage from '../views/SignupPage';
 import Login from '../components/Login';
 import NotFound from '../views/NotFound';
-import Nav from '../views/Navbar';
+import ProtectedRoutes from './protectedRoutes';
 import Footer from '../views/Footer';
+import Navbar from '../components/NavbarContainer';
+
 import Article from '../components/Article';
+
 
 /**
  * @function Routes - A JSX wrapper for all the app's routes
@@ -20,25 +23,18 @@ import Article from '../components/Article';
 function Routes() {
   return (
     <BrowserRouter>
-      <div>
-        <Nav
-          categories="Categories"
-          authors="Authors"
-          bookmark="Bookmarks"
-          search="Search"
-          write="Write an article"
-          login="Login"
-        />
+      <>
+        <Navbar />
         <Switch>
           <Route path="/" component={HomePage} exact />
           <Route path="/signup" component={SignupPage} />
           <Route path="/login" component={Login} />
-          <Route path="/login" component={Login} />
+          <Route path="/user" component={ProtectedRoutes} />
           <Route path="/article/:slug" component={Article} />
           <Route path="*" component={NotFound} />
         </Switch>
         <Footer />
-      </div>
+      </>
     </BrowserRouter>
   );
 }
