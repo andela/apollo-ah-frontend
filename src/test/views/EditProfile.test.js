@@ -19,10 +19,22 @@ describe('<EditProfile>', () => {
     expect(wrapper).toMatchSnapshot();
   });
   it('should render with errorData', () => {
-    mockState.user.errorData = [{}];
     const wrapper = shallow(
       <EditProfile
       isLoading
+      errorData={[{}]}
+      handleUpdateProfile={jest.fn()}
+      profile={profile}
+      token="encoded"
+      />
+    );
+    expect(wrapper).toMatchSnapshot();
+  });
+  it('should render with empty errorData', () => {
+    const wrapper = shallow(
+      <EditProfile
+      isLoading
+      errorData={[]}
       handleUpdateProfile={jest.fn()}
       profile={profile}
       token="encoded"
