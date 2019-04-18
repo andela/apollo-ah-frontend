@@ -1,4 +1,3 @@
-import '@babel/polyfill';
 import React from 'react';
 import setup from '../setup';
 import ConnectedLogin from '../../components/Login';

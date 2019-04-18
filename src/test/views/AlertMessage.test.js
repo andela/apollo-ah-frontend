@@ -1,9 +1,7 @@
 /* eslint-disable react/jsx-filename-extension */
 import React from 'react';
-import { configure, shallow } from 'enzyme';
-
+import { shallow } from 'enzyme';
 import AlertMessage from '../../views/AlertMessage';
-
 
 // eslint-disable-next-line no-undef
 const mockFn = jest.fn();

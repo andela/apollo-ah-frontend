@@ -1,4 +1,7 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import { combineReducers } from 'redux';
+
+// Reducers
 import reduceReducers from 'reduce-reducers';
 import resetPasswordReducer from './resetPasswordReducer';
 import loginReducers from './loginReducers';

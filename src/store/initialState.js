@@ -22,7 +22,7 @@ const initialState = {
       loading: false,
       message: '',
     }
-  },
+  }
 };
 
 export default initialState;
