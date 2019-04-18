@@ -1,4 +1,3 @@
-
 // From https://medium.freecodecamp.org/how-to-set-up-jest-enzyme-like-a-boss-8455a2bc6d56
 
 module.exports = {
@@ -11,6 +10,10 @@ module.exports = {
 
   // The directory where Jest should output its coverage files
   coverageDirectory: 'coverage',
+
+  snapshotSerializers: [
+    'enzyme-to-json/serializer'
+  ],
 
   // An array of file extensions your modules use
   moduleFileExtensions: ['js', 'json', 'jsx'],
