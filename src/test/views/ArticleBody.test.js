@@ -17,13 +17,11 @@ const props = {
 
 describe('<ArticleBody>', () => {
   it('should render without crashing when there are no tags', () => {
-    const wrapper = mount(
-      <ArticleTag
+    const wrapper = mount(<ArticleTag
         bookmarkArticle={props.bookmarkArticle}
         bookmarked={props.bookmarked}
         article={props.article}
-        />
-    );
+        />);
     expect(wrapper).toMatchSnapshot();
   });
   it('should render without crashing when there are tags', () => {
@@ -32,13 +30,11 @@ describe('<ArticleBody>', () => {
         tagName: 'tech',
       }
     ];
-    const wrapper = setup(
-      <ArticleTag
+    const wrapper = setup(<ArticleTag
         bookmarkArticle={props.bookmarkArticle}
         bookmarked={props.bookmarked}
         article={props.article}
-        />
-    );
+        />);
     expect(wrapper).toMatchSnapshot();
   });
 });

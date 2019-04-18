@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import ConnectedHomePage from '../components/HomePage';
-import ProtectedRoutes from './protectedRoutes';
+import ProtectedRoutes from './ProtectedRoutes';
 import Footer from '../views/Footer';
 import Navbar from '../components/NavbarContainer';
 import ConnectedLogin from '../components/Login';
