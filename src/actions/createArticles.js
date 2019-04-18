@@ -18,9 +18,9 @@ export const createArticleLoading = () => ({
  * @param {string} message The response message
  * @returns {object} The action to dispatch
  */
-export const createArticleSuccess = (message) => ({
+export const createArticleSuccess = message => ({
   type: createArticleType.success,
-  message
+  message,
 });
 
 /**
@@ -28,7 +28,7 @@ export const createArticleSuccess = (message) => ({
  * @param {string} message The response message
  * @returns {object} The action to dispatch
  */
-export const createArticleFailure = (message) => ({
+export const createArticleFailure = message => ({
   type: createArticleType.failure,
   message,
 });
@@ -41,21 +41,21 @@ export const createArticleFailure = (message) => ({
  * @returns {object}
  */
 
-const createArticle = requestData => {
-  return async (dispatch) => {
-    dispatch(createArticleLoading());
-    try {
-      const { data } = await axios.post(
-        `${apiUrl}/api/v1/articles`,
-        requestData.formData,
-        {
-          headers: { Authorization: `${requestData.token}` }
-        });
-      dispatch(createArticleSuccess(data.message));
-    } catch (error) {
-      dispatch(createArticleFailure(error.response.data.data[0].message));
-    }
-  };
+const createArticle = (props, requestData) => async (dispatch) => {
+  dispatch(createArticleLoading());
+  try {
+    const { data } = await axios.post(
+      `${apiUrl}/articles`,
+      requestData.formData,
+      {
+        headers: { Authorization: `Bearer ${requestData.token}` }
+      }
+    );
+    props.history.push(`/article/${data.data.slug}`);
+    dispatch(createArticleSuccess(data.message));
+  } catch (error) {
+    dispatch(createArticleFailure(error.response.data.message));
+  }
 };
 
 export default createArticle;

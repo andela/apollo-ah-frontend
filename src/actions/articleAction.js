@@ -18,7 +18,7 @@ export const articleAction = (type, payload) => ({
  * @returns {object} dispatch object
  */
 
-export const getArticles = () => async(dispatch) => {
+export const getArticles = () => async (dispatch) => {
   try {
     dispatch(articleAction('LOADING', 'started'));
     const response = await axios.get(`${process.env.API_BASE_URL}/articles?size=12`);

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 /* eslint-disable no-unused-vars */
 /* eslint-disable arrow-parens */
 /* eslint-disable react/jsx-no-bind */
@@ -29,7 +30,9 @@ function CreateArticleContainer(props) {
   });
 
   /** passing global state loading as props into variables */
-  let { message, isLoading, token } = props;
+  const {
+    message, isLoading, token,
+  } = props;
 
   let widget;
 
@@ -49,15 +52,13 @@ function CreateArticleContainer(props) {
     });
   };
 
-  const submitHandler = (event) => {
+  const submitHandler = async (event) => {
     event.preventDefault();
-     console.log('--->', formData);
-     const requestData = {
-       formData,
-       token,
-     };
-    //props.createArticleAction(formData);
-    props.createArticleAction(requestData);
+    const requestData = {
+      formData,
+      token,
+    };
+    await props.createArticleAction(props, requestData);
   };
 
   const cloudinaryUpdate = (imageUrl) => {
@@ -65,14 +66,10 @@ function CreateArticleContainer(props) {
   };
 
   const imageUploadHandler = () => {
-    // console.log('yo mama');
-    // const { showLoader } = this.props;
-    // showLoader(true);
     if (widget === undefined) {
       widget = new CloudinaryWidget(
-        cloudinaryUpdate, (error) => {
-        return (error);
-      }, false);
+        cloudinaryUpdate, (error) => (error), false
+      );
     }
     widget.open();
   };
@@ -88,14 +85,15 @@ function CreateArticleContainer(props) {
       imageUploadHandler={imageUploadHandler}
       submitHandler={submitHandler}
       valueText={formData.body}
+      isLoading={isLoading}
     />
   );
 }
 
 const mapStateToProps = createStructuredSelector(
   {
-    isLoading: selectors.getCreateArticleLoadingState,
-    message: selectors.getCreateArticleMessageState,
+    isLoading: selectors.getCreateArticleLoading,
+    message: selectors.getCreateArticleMessage,
     token: selectors.getUserToken,
   }
 );

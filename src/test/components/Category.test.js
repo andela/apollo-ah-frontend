@@ -1,19 +1,20 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Category from '../../views/Category.jsx';
-const props = [{ 
-    begin: 0,
-    end: 6,
-    articlesCategory: [{
-      id: 1,
-      category: 'Technology'
-    },{
-      id: 2,
-      category: 'Business'
-    },{
-      id: 3,
-      category: 'Sports'
-    }],
+import Category from '../../views/Category';
+
+const props = [{
+  begin: 0,
+  end: 6,
+  articlesCategory: [{
+    id: 1,
+    category: 'Technology'
+  }, {
+    id: 2,
+    category: 'Business'
+  }, {
+    id: 3,
+    category: 'Sports'
+  }],
 }];
 describe('<Category Test Suite>', () => {
   describe('<Category>', () => {

@@ -1,6 +1,5 @@
 import { createArticleType } from '../actions/createArticles';
 
-
 const initialState = {
   loading: false,
   message: '',
@@ -16,13 +15,17 @@ const initialState = {
  */
 
 export default function createArticleReducer(state = initialState, action = {}) {
-  const { type, message } = action;
+  const {
+    type, message
+  } = action;
   switch (type) {
     case createArticleType.loading:
-      return { ...state, loading: true, message };
+      return { ...state, loading: true };
     case createArticleType.success:
     case createArticleType.failure:
-      return { ...state, loading: false, message };
+      return {
+        ...state, loading: false, message,
+      };
     default:
       return state;
   }

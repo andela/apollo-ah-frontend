@@ -1,4 +1,4 @@
-const defaultFunc = () => {};
+const defaultFunc = () => { };
 const styles = {
   palette: {
     window: '#FFFFFF',

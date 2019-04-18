@@ -11,7 +11,7 @@ describe('Does not do much', () => {
     cy.url()
       .should('include', '/login');
   });
-  
+
   it('should go to login page', () => {
     cy.visit(appUrl);
     cy.contains('Login').click();

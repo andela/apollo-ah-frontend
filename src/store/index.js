@@ -1,6 +1,3 @@
-/* eslint-disable react/wrap-multilines */
-/* eslint-disable react/require-extension */
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
@@ -8,6 +5,7 @@ import { persistStore, persistReducer } from 'redux-persist';
 import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';
 import storage from 'redux-persist/lib/storage';
 import rootReducer from '../reducers';
+import initialState from './initialState';
 
 /**
  * @constant persistConfig - Persistence store configuration
@@ -23,7 +21,7 @@ const persistConfig = {
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
-const store = createStore(persistedReducer, composeWithDevTools(applyMiddleware(thunk)));
+const store = createStore(persistedReducer, initialState,
+  composeWithDevTools(applyMiddleware(thunk)));
 const persistor = persistStore(store);
 export default { persistor, store };
-

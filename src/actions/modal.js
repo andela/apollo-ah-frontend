@@ -18,10 +18,8 @@ export const modalReset = () => ({
  * @returns {object}
  */
 
-const modalAction = () => {
-  return async (dispatch) => {
-    dispatch(modalReset());
-  };
+const modalAction = () => async (dispatch) => {
+  dispatch(modalReset());
 };
 
 export default modalAction;
