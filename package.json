@@ -9,7 +9,6 @@
     "test:coverage": "jest --coverage --colors",
     "test:cypress": "jest & npm run start:dev & wait-on http://localhost:8092 & ./node_modules/.bin/cypress run && npm run test:coverage",
     "test:watch": "jest --watchAll",
-    "coverage": "nyc report --reporter=text-lcov",
     "start": "webpack-dev-server",
     "start:dev": "webpack-dev-server --config webpack.config.dev.js",
     "start:prod": "webpack --config webpack.config.prod.js",
