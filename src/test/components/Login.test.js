@@ -5,7 +5,7 @@ import ConnectedLogin from '../../components/Login';
 
 const mockFn = jest.fn();
 
-location = {
+const location = {
   pathname: '',
 };
 
