@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-filename-extension */
+/* eslint-disable import/newline-after-import */
 import React from 'react';
 import { shallow } from 'enzyme';
 import Category from '../../views/Category';
