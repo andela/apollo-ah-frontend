@@ -27,7 +27,7 @@ exports[`<ProtectedRoutes> should render without crashing 1`] = `
           "listen": [Function],
           "location": Object {
             "hash": "",
-            "key": "8tpglq",
+            "key": "sd82hx",
             "pathname": "/login",
             "search": "",
             "state": undefined,
