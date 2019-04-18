@@ -1,10 +1,3 @@
-/* eslint-disable no-unused-expressions */
-/* eslint-disable no-unused-vars */
-/* eslint-disable arrow-parens */
-/* eslint-disable react/jsx-no-bind */
-/* eslint-disable jsx-a11y/no-redundant-roles */
-/* eslint-disable jsx-a11y/label-has-associated-control */
-/* eslint-disable jsx-a11y/label-has-for */
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
@@ -20,62 +13,70 @@ import CloudinaryWidget from './common/CloudinaryWidget';
  * @param {function} props.createArticleAction action creator function
  */
 function CreateArticleContainer(props) {
-  const [formData, setFormData] = useState({
-    title: null,
-    description: null,
-    body: null,
-    categoryId: null,
-    tagList: [],
-    image: null,
-  });
-
   /** passing global state loading as props into variables */
   const {
     message, isLoading, token,
   } = props;
 
+  const [formData, setFormData] = useState({
+    title: '',
+    description: '',
+    body: '',
+    categoryId: '',
+    tagList: [],
+    image: '',
+  });
+
+  const [responseMessage, setResponseMessage] = useState(false);
+
   let widget;
 
-  const updateInputHandler = (event) => {
+  /** handling changes to form input */
+
+  function updateInputHandler(event) {
     setFormData({ ...formData, [event.target.name]: event.target.value });
-  };
+  }
 
-  const updateBodyHandler = (value) => {
+  /** handling changes to the article editor input */
+
+  function updateBodyHandler(value) {
     setFormData({ ...formData, body: value });
-  };
+  }
 
-  const updateTagHandler = (tags) => {
+  /** handling changes to the tags */
+  function updateTagHandler(tags) {
     const listOfTags = [];
-    tags.forEach(tag => {
+    tags.forEach((tag) => {
       listOfTags.push(tag.text);
       setFormData({ ...formData, tagList: listOfTags });
     });
-  };
+  }
 
-  const submitHandler = async (event) => {
+  /** handling the sumit event */
+  async function submitHandler(event) {
     event.preventDefault();
     const requestData = {
       formData,
       token,
     };
     await props.createArticleAction(props, requestData);
-  };
+    setResponseMessage({ ...responseMessage, message });
+  }
 
+  /** updating state with the cloudinary url */
   const cloudinaryUpdate = (imageUrl) => {
     setFormData({ ...formData, image: imageUrl });
   };
 
-  const imageUploadHandler = () => {
+  /** handling the cloudinary upload */
+  function imageUploadHandler() {
     if (widget === undefined) {
       widget = new CloudinaryWidget(
-        cloudinaryUpdate, (error) => (error), false
+        cloudinaryUpdate, error => (error), false
       );
     }
     widget.open();
-  };
-
-  console.log('--->', isLoading);
-  console.log('==->', message);
+  }
 
   return (
     <CreateArticle
@@ -86,6 +87,7 @@ function CreateArticleContainer(props) {
       submitHandler={submitHandler}
       valueText={formData.body}
       isLoading={isLoading}
+      responseMessage={responseMessage.message}
     />
   );
 }

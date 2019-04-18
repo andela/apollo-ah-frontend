@@ -44,7 +44,6 @@ class Article extends React.Component {
     const { match } = this.props;
     const { slug } = match.params;
     const result = await axios.get(`${process.env.API_BASE_URL}/articles/${slug}`);
-    console.log(result, '))>');
     this.setState({ article: result.data.data });
   }
 

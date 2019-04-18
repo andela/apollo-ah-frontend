@@ -1,12 +1,5 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable arrow-parens */
-/* eslint-disable react/jsx-no-bind */
-/* eslint-disable jsx-a11y/no-redundant-roles */
-/* eslint-disable jsx-a11y/label-has-associated-control */
-/* eslint-disable jsx-a11y/label-has-for */
 import React from 'react';
 import ReactQuill from 'react-quill';
-import { PropTypes } from 'prop-types';
 import TagsInput from './TagsInput';
 
 function CreateArticle(props) {
@@ -18,6 +11,12 @@ function CreateArticle(props) {
     valueText,
     isLoading,
   } = props;
+
+  let { responseMessage } = props;
+
+  if (responseMessage === 'title is not a string') {
+    responseMessage = 'title is required';
+  }
 
   const handleUpdate = (updatedTags) => {
     props.updateTagHandler(updatedTags);
@@ -71,15 +70,18 @@ function CreateArticle(props) {
             </div>
           </div>
           <button
-          type="submit"
-          onClick={submitHandler}
-          style={{ backgroundColor: '#66008c', color: 'white' }}
+            type="submit"
+            onClick={submitHandler}
+            style={{ backgroundColor: '#66008c', color: 'white' }}
             className="btn btn-brand btn-plain mt-3 create-article-btn"
           >
             {
               isLoading ? <div className="spinner-border text-light" /> : 'Publish article'
-          }
+            }
           </button>
+          {
+            responseMessage && <div className="alert alert-danger create-article-alert">{responseMessage}</div>
+          }
         </form>
       </div>
     </div>

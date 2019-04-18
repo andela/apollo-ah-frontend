@@ -2,7 +2,7 @@ import { createArticleType } from '../actions/createArticles';
 
 const initialState = {
   loading: false,
-  message: '',
+  message: false,
 };
 
 /**
@@ -20,7 +20,7 @@ export default function createArticleReducer(state = initialState, action = {}) 
   } = action;
   switch (type) {
     case createArticleType.loading:
-      return { ...state, loading: true };
+      return { ...state, loading: true, message: false };
     case createArticleType.success:
     case createArticleType.failure:
       return {

@@ -6,9 +6,11 @@ describe('Action creators', () => {
   it('should create an action to setLoading state', () => {
     const expected = {
       type: actions.createArticleType.loading,
+      message: false,
     };
     expect({
       type: actions.resetPasswordType.loading,
+      message: false,
     }).toEqual(expected);
   });
   it('should create an action when successful', () => {
