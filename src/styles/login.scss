@@ -88,22 +88,22 @@ h3 {
   font-size: 12px;
   color: #999595;
 }
-// .login__socials__content{
-//   margin: 20px 0;
-//   flex-direction: column;
-//   align-items: center;
-//   text-align: center;
-// }
-// .login__socials__icons{
-//   display: flex;
-//   width: 50%;
-//   justify-content: space-evenly;
-//   margin-bottom: 1rem;
-// }
-// .login__socials__icons img{
-//   height: 35px;
-//   width: 35px;
-// }
+.login__socials__content{
+  margin: 20px 0;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.login__socials__icons{
+  display: flex;
+  width: 50%;
+  justify-content: space-evenly;
+  margin-bottom: 1rem;
+}
+.login__socials__icons img{
+  height: 35px;
+  width: 35px;
+}
 /* .login__banner{
   display: none;
 } */

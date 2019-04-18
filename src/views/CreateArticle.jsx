@@ -2,6 +2,18 @@ import React from 'react';
 import ReactQuill from 'react-quill';
 import TagsInput from './TagsInput';
 
+/**
+ * Create Article view component
+ * @param {object} props Component props
+ * @param {function} props.updateInputHandler updating input values
+ * @param {function} props.updateBodyHandler updating the state of the article body
+ * @param {function} props.imageUploadHandler submit image to cloudinary
+ * @param {function} props.submitHandler submit event handler
+ * @param String props.valueText updated form data body
+ * @param Boolean props.isLoading updated loading state passed as props
+ * @returns {import('@babel/types').JSXAttribute}
+ */
+
 function CreateArticle(props) {
   const {
     updateInputHandler,
@@ -61,13 +73,14 @@ function CreateArticle(props) {
             </select>
           </div>
           <div className="form-group mb-4" data-pg-collapsed>
+            <label className="font-weight-bold" htmlFor="tags">Cover Image</label>
+            <button type="button" onClick={imageUploadHandler} className="create-article-image-btn">
+              <div className="camera-icon" />
+            </button>
+          </div>
+          <div className="form-group mb-4" data-pg-collapsed>
             <label className="font-weight-bold" htmlFor="tags">Tags (optional)</label>
             <TagsInput tagsUpdateHandler={tagsUpdateHandler} />
-          </div>
-          <div className="form-group mb-4">
-            <div className="custom-file">
-              <button type="button" onClick={imageUploadHandler}>Upload cover image</button>
-            </div>
           </div>
           <button
             type="submit"

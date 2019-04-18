@@ -1,3 +1,5 @@
-export const ADD_DATA = 'ADD_DATA'; // dummy constant
+import typeGenerator from './typeGenerator';
+
+export const authenticationType = typeGenerator('AUTHENTICATION');
 
 export default {};

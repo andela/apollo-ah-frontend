@@ -1,3 +1,50 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Footer Test Suite> <Footer> It should render succesfully 1`] = `ShallowWrapper {}`;
+exports[`<Footer Test Suite> <Footer> It should render succesfully 1`] = `
+<footer
+  className="footer"
+>
+  <div
+    className="container"
+  >
+    <div>
+      <Link
+        className="logo"
+        replace={false}
+        to="/"
+      >
+        Authors Haven
+      </Link>
+      <Link
+        replace={false}
+        to="/authors"
+      >
+        Authors
+      </Link>
+      <Link
+        replace={false}
+        to="/categories"
+      >
+        Categories
+      </Link>
+      <Link
+        replace={false}
+        to="/search"
+      >
+        <i
+          className="fas fa-search"
+        />
+         
+        Search
+      </Link>
+      <Link
+        className="pull-right terms"
+        replace={false}
+        to="/terms"
+      >
+        Terms & Conditions
+      </Link>
+    </div>
+  </div>
+</footer>
+`;

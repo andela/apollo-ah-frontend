@@ -4,6 +4,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import AlertMessage from './AlertMessage';
+import SocialLoginComponent from '../components/SocialLogin';
 import ResetPassword from '../components/ResetPassword';
 
 /**
@@ -114,7 +115,7 @@ function UserForm(props) {
                     <hr />
                     <p>Or login using</p>
                   </div>
-                  {/* social logincomponent here please */}
+                  <SocialLoginComponent />
                 </div>
               </div>
             </div>

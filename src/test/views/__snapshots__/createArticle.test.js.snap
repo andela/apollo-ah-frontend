@@ -1,5 +1,376 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<CreateArticle> should render with errorData 1`] = `ShallowWrapper {}`;
+exports[`<CreateArticle> should render with errorData 1`] = `
+<div>
+  <header
+    className="page-header"
+    data-pg-collapsed={true}
+  >
+    <h3>
+      New Article
+    </h3>
+  </header>
+  <div
+    className="card mb-5"
+  >
+    <form
+      className="form p-sm-4 p-3 form-borderless"
+    >
+      <div
+        className="form-group mb-4"
+        data-pg-collapsed={true}
+      >
+        <label
+          className="font-weight-bold"
+          htmlFor="title"
+        >
+          Title
+        </label>
+        <input
+          className="form-control text-capitalize"
+          id="title"
+          name="title"
+          onChange={[Function]}
+          required={true}
+          type="text"
+        />
+      </div>
+      <div
+        className="form-group mb-4"
+        data-pg-collapsed={true}
+      >
+        <label
+          className="font-weight-bold"
+          htmlFor="description"
+        >
+          Short Description
+        </label>
+        <textarea
+          className="form-control textarea-sm"
+          id="description"
+          name="description"
+          onChange={[Function]}
+          required={true}
+        />
+      </div>
+      <div
+        className="form-group mb-4"
+        data-pg-collapsed={true}
+      >
+        <label
+          className="font-weight-bold"
+          htmlFor="description"
+        >
+          Details
+        </label>
+        <Quill
+          modules={Object {}}
+          onChange={[MockFunction]}
+          theme="snow"
+          value="article body"
+        />
+      </div>
+      <div
+        className="form-group mb-4"
+        data-pg-collapsed={true}
+      >
+        <label
+          className="font-weight-bold"
+          htmlFor="category"
+        >
+          Category
+        </label>
+        <select
+          className="custom-select"
+          defaultValue="DEFAULT"
+          id="category"
+          name="categoryId"
+          onChange={[Function]}
+        >
+          <option
+            value="DEFAULT"
+          >
+            -- Choose one --
+          </option>
+          <option
+            value="3"
+          >
+            Business
+          </option>
+          <option
+            value="7"
+          >
+            Entertainment
+          </option>
+          <option
+            value="4"
+          >
+            Fashion
+          </option>
+          <option
+            value="6"
+          >
+            Food
+          </option>
+          <option
+            value="5"
+          >
+            Health
+          </option>
+          <option
+            value="8"
+          >
+            History
+          </option>
+          <option
+            value="1"
+          >
+            Technology
+          </option>
+          <option
+            value="2"
+          >
+            Sports
+          </option>
+          <option
+            value="9"
+          >
+            Others
+          </option>
+        </select>
+      </div>
+      <div
+        className="form-group mb-4"
+        data-pg-collapsed={true}
+      >
+        <label
+          className="font-weight-bold"
+          htmlFor="tags"
+        >
+          Cover Image
+        </label>
+        <button
+          className="create-article-image-btn"
+          onClick={[MockFunction]}
+          type="button"
+        >
+          <div
+            className="camera-icon"
+          />
+        </button>
+      </div>
+      <div
+        className="form-group mb-4"
+        data-pg-collapsed={true}
+      >
+        <label
+          className="font-weight-bold"
+          htmlFor="tags"
+        >
+          Tags (optional)
+        </label>
+        <TagsInput
+          tagsUpdateHandler={[Function]}
+        />
+      </div>
+      <button
+        className="btn btn-brand btn-plain mt-3 create-article-btn"
+        onClick={[MockFunction]}
+        style={
+          Object {
+            "backgroundColor": "#66008c",
+            "color": "white",
+          }
+        }
+        type="submit"
+      >
+        Publish article
+      </button>
+    </form>
+  </div>
+</div>
+`;
 
-exports[`<CreateArticle> should render without crashing 1`] = `ShallowWrapper {}`;
+exports[`<CreateArticle> should render without crashing 1`] = `
+<div>
+  <header
+    className="page-header"
+    data-pg-collapsed={true}
+  >
+    <h3>
+      New Article
+    </h3>
+  </header>
+  <div
+    className="card mb-5"
+  >
+    <form
+      className="form p-sm-4 p-3 form-borderless"
+    >
+      <div
+        className="form-group mb-4"
+        data-pg-collapsed={true}
+      >
+        <label
+          className="font-weight-bold"
+          htmlFor="title"
+        >
+          Title
+        </label>
+        <input
+          className="form-control text-capitalize"
+          id="title"
+          name="title"
+          required={true}
+          type="text"
+        />
+      </div>
+      <div
+        className="form-group mb-4"
+        data-pg-collapsed={true}
+      >
+        <label
+          className="font-weight-bold"
+          htmlFor="description"
+        >
+          Short Description
+        </label>
+        <textarea
+          className="form-control textarea-sm"
+          id="description"
+          name="description"
+          required={true}
+        />
+      </div>
+      <div
+        className="form-group mb-4"
+        data-pg-collapsed={true}
+      >
+        <label
+          className="font-weight-bold"
+          htmlFor="description"
+        >
+          Details
+        </label>
+        <Quill
+          modules={Object {}}
+          theme="snow"
+        />
+      </div>
+      <div
+        className="form-group mb-4"
+        data-pg-collapsed={true}
+      >
+        <label
+          className="font-weight-bold"
+          htmlFor="category"
+        >
+          Category
+        </label>
+        <select
+          className="custom-select"
+          defaultValue="DEFAULT"
+          id="category"
+          name="categoryId"
+        >
+          <option
+            value="DEFAULT"
+          >
+            -- Choose one --
+          </option>
+          <option
+            value="3"
+          >
+            Business
+          </option>
+          <option
+            value="7"
+          >
+            Entertainment
+          </option>
+          <option
+            value="4"
+          >
+            Fashion
+          </option>
+          <option
+            value="6"
+          >
+            Food
+          </option>
+          <option
+            value="5"
+          >
+            Health
+          </option>
+          <option
+            value="8"
+          >
+            History
+          </option>
+          <option
+            value="1"
+          >
+            Technology
+          </option>
+          <option
+            value="2"
+          >
+            Sports
+          </option>
+          <option
+            value="9"
+          >
+            Others
+          </option>
+        </select>
+      </div>
+      <div
+        className="form-group mb-4"
+        data-pg-collapsed={true}
+      >
+        <label
+          className="font-weight-bold"
+          htmlFor="tags"
+        >
+          Cover Image
+        </label>
+        <button
+          className="create-article-image-btn"
+          type="button"
+        >
+          <div
+            className="camera-icon"
+          />
+        </button>
+      </div>
+      <div
+        className="form-group mb-4"
+        data-pg-collapsed={true}
+      >
+        <label
+          className="font-weight-bold"
+          htmlFor="tags"
+        >
+          Tags (optional)
+        </label>
+        <TagsInput
+          tagsUpdateHandler={[Function]}
+        />
+      </div>
+      <button
+        className="btn btn-brand btn-plain mt-3 create-article-btn"
+        style={
+          Object {
+            "backgroundColor": "#66008c",
+            "color": "white",
+          }
+        }
+        type="submit"
+      >
+        Publish article
+      </button>
+    </form>
+  </div>
+</div>
+`;
