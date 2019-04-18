@@ -6,7 +6,7 @@
   "scripts": {
     "jest": "jest --watchAll",
     "test": "jest",
-    "test2": "jest & npm run start:dev & wait-on http://localhost:8092 & ./node_modules/.bin/cypress run && npm run test:coverage",
+    "test:all": "jest & npm run start:dev & wait-on http://localhost:8092 & ./node_modules/.bin/cypress run && npm run test:coverage",
     "test:coverage": "jest --coverage --colors",
     "test:cypress": "jest & npm run start:dev & wait-on http://localhost:8092 & ./node_modules/.bin/cypress run && npm run test:coverage",
     "test:watch": "jest --watchAll",
