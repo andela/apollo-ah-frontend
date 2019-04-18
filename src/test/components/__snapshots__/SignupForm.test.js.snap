@@ -1,3 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<SignupForm Test Suite> <SignupForm> It should render succesfully 1`] = `ShallowWrapper {}`;
+exports[`<SignupForm Test Suite> <SignupForm> It should render succesfully 1`] = `
+<ContextConsumer>
+  <Component />
+</ContextConsumer>
+`;

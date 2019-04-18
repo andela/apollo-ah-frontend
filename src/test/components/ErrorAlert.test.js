@@ -3,10 +3,8 @@ import { shallow } from 'enzyme';
 import ErrorAlert from '../../views/ErrorAlert';
 
 const props = [{
-  message: {message: "Email is required", field: "email"},
-  close: () => {
-    return;
-  }
+  message: { message: 'Email is required', field: 'email' },
+  close: () => true
 }];
 
 describe('<ErrorAlert Test Suite>', () => {
