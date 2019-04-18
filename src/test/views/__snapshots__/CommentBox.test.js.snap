@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CommentBox> should render withour crashing 1`] = `
+<div
+  className="article-author"
+>
+  <img
+    alt="john"
+    src="image.jpg"
+  />
+  <div>
+    <h6>
+      john
+    </h6>
+    <span>
+      2hrs ago
+    </span>
+    <p>
+      text
+    </p>
+  </div>
+</div>
+`;

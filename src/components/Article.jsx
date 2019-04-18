@@ -2,9 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 import ArticleBody from '../views/ArticleBody';
-/*
- * @todo - Import comments component here
- */
+import CommentsContainer from './CommentsContainer';
 
 /**
  *
@@ -82,7 +80,7 @@ class Article extends React.Component {
                   bookmarkArticle={this.bookmarkArticle}
                   bookmarked={bookmarked}
                 />
-                {/* Insert omment component here */}
+                <CommentsContainer />
               </div>
             </div>
             <div className="single-suggested-grp">
