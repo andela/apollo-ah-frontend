@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PostComment> should render without crashing 1`] = `
+<form
+  className="form"
+  onSubmit={[MockFunction]}
+>
+  <div
+    className="form-group"
+  >
+    <input
+      className="form-control"
+      name="body"
+      placeholder="Leave a comment"
+    />
+    <button
+      className="btn btn-link"
+      type="submit"
+    >
+      <i
+        className="fas fa-paper-plane"
+      />
+    </button>
+  </div>
+</form>
+`;

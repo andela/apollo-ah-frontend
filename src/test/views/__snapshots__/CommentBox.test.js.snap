@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<CommentBox> should render withour crashing 1`] = `
+exports[`<CommentBox> should render without crashing 1`] = `
 <div
   className="article-author"
 >

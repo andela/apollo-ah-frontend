@@ -1,4 +1,6 @@
 import React from 'react';
+import CommentBox from './CommentBox';
+import PostComment from './PostComment';
 
 export default function Comments() {
   return (
@@ -6,18 +8,11 @@ export default function Comments() {
       <h4>25 comments</h4>
       <div className="card">
         <div className="card-body">
-
+          <CommentBox />
           <div className="text-center loadmore-grp">
             <button type="button" className="btn btn-secondary">Load more...</button>
           </div>
-          <form className="form">
-            <div className="form-group">
-              <input className="form-control" placeholder="Leave a comment" name="comment" />
-              <button type="submit" className="btn btn-link">
-                <i className="fas fa-paper-plane" />
-              </button>
-            </div>
-          </form>
+          <PostComment />
         </div>
       </div>
     </div>
