@@ -8,8 +8,7 @@ import initialState from '../store/initialState';
  * @param {Function} action - Action to dispatch
  * @returns {object}
  */
-export default (state = initialState, action ) => {
- 
+export default (state = initialState, action) => {
   switch (action.type) {
     case signupType.loading:
       return { loading: action.data };
@@ -20,7 +19,11 @@ export default (state = initialState, action ) => {
     case signupType.add_error:
       return { errors: action.data.errors };
     case signupType.success:
-      return { success: action.data.success, loading: action.data.loading, token: action.data.token };
+      return {
+        success: action.data.success,
+        loading: action.data.loading,
+        token: action.data.token,
+      };
     default:
       return state;
   }

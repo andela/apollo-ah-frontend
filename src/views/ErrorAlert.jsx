@@ -6,7 +6,6 @@ import propTypes from 'prop-types';
  * @extends { React }
  */
 class ErrorAlert extends React.Component {
- 
   render() {
     const { message, close } = this.props;
     if (!message) {
