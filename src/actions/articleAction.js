@@ -18,10 +18,15 @@ export const articleAction = (type, payload) => ({
  * @returns {object} dispatch object
  */
 
-export const getArticles = () => async (dispatch) => {
+let response;
+export const getArticles = (page, size) => async (dispatch) => {
   try {
     dispatch(articleAction('LOADING', 'started'));
-    const response = await axios.get(`${process.env.API_BASE_URL}/articles?size=12`);
+    if (page === undefined || size === undefined) {
+      response = await axios.get(`${process.env.API_BASE_URL}/articles?page=1&size=12`);
+    } else {
+      response = await axios.get(`${process.env.API_BASE_URL}/articles?page=${page}&size=${size}`);
+    }
     const { data: { data } } = response;
     if (response.status === 404) {
       dispatch(articleAction('GET_ARTICLES_FAILURE', 'Article not found'));

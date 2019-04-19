@@ -88,8 +88,7 @@ export class HomePage extends Component {
             Category={Category}
           />
         ) : (
-            // eslint-disable-next-line react/jsx-indent
-            <Body
+          <Body
               loadingCategory={loadingCategory}
               PlaceholderLoader={PlaceholderLoader}
               Category={Category}

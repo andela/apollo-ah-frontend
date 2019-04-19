@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Pagination Test Suite> <Pagination> It should render connected pagination succesfully 1`] = `ReactWrapper {}`;

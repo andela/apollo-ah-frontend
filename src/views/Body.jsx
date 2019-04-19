@@ -1,3 +1,4 @@
+/* eslint-disable import/no-named-as-default */
 /* eslint-disable no-nested-ternary */
 import React from 'react';
 import { Link } from 'react-router-dom';
@@ -77,7 +78,7 @@ const Body = ({
             </h3>
           </div>
         </div>
-        {loadingArticles === 'started' ? <PlaceholderLoader /> : <Articles articles={allArticles} />}
+        {loadingArticles === 'started' ? <PlaceholderLoader /> : (<Articles articles={allArticles} />)}
       </section>
     ) : ''}
 
