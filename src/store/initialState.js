@@ -1,7 +1,7 @@
 const initialState = {
   user: {
     token: '',
-    id: 5,
+    id: '',
     isLoggedIn: false,
     profile: {
       username: '',
@@ -17,6 +17,30 @@ const initialState = {
       loading: false,
       message: '',
     }
+  },
+  article: {
+    id: '',
+    title: '',
+    slug: '',
+    body: '',
+    image: '',
+    description: '',
+    createdAt: '',
+    updatedAt: '',
+    deletedAt: '',
+    auhtorId: '',
+    categoryId: '',
+    isLoading: false,
+    message: '',
+    User: {},
+    tagList: [],
+    articleCategory: {},
+    ratings: [],
+    readTime: '',
+  },
+  bookmarkedList: {
+    bookmarked: [],
+    isLoading: false
   },
 };
 

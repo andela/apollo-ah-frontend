@@ -1,5 +1,6 @@
 import initialState from '../store/initialState';
 import { loginType } from '../actions/loginActions';
+import { authenticationType } from '../actions/actionTypes';
 
 /**
  *
@@ -33,6 +34,18 @@ const LoginReducer = (state = initialState.user, action) => {
         isLoading: false,
         isLoggedIn: false,
         loginStatus: false,
+        profile: {},
+        resetPassword: {}
+      };
+    case authenticationType.success:
+      return {
+        ...state,
+        ...action.payload,
+      };
+    case authenticationType.failure:
+      return {
+        ...state,
+        error: [action.payload.error],
       };
     default:
       return state;

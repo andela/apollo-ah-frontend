@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SocialLogin /> renders without crashing given the required props 1`] = `
+<div
+  className="row login__socials__content"
+>
+  <div
+    className="login__socials__icons"
+  >
+    <SocialButton
+      altText=""
+      icon={Object {}}
+      onClick={[Function]}
+    />
+    <SocialButton
+      altText=""
+      icon={Object {}}
+      onClick={[Function]}
+    />
+  </div>
+</div>
+`;

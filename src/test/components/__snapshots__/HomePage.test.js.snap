@@ -1,3 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`<HomePage Test Suite> <HomePage> It should render connected homepage succesfully 1`] = `ReactWrapper {}`;

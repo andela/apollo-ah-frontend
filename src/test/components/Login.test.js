@@ -1,13 +1,10 @@
-import '@babel/polyfill';
 import React from 'react';
 import setup from '../setup';
 import ConnectedLogin from '../../components/Login';
 
 const mockFn = jest.fn();
 
-location = {
-  pathname: '',
-};
+const location = { pathname: '' };
 
 describe('<UserForm />', () => {
   it('should respond to input change and alter state (email) of component', () => {

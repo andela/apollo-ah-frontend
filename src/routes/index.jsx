@@ -21,9 +21,8 @@ function Routes() {
         <Navbar />
         <Switch>
           <Route path="/" component={ConnectedHomePage} exact />
-          <Route path="/login" component={ConnectedLogin} exact />
+          <Route path="/login" component={ConnectedLogin} />
           <Route path="/user" component={ProtectedRoutes} />
-          <Route path="/" component={ConnectedHomePage} exact />
           <Route path="/article/:slug" component={Article} />
           <Route path="*" component={NotFound} />
         </Switch>

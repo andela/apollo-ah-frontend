@@ -1,3 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Category Test Suite> <Category> It should render succesfully 1`] = `ShallowWrapper {}`;
+exports[`<Category Test Suite> <Category> It should render succesfully 1`] = `
+<Fragment>
+  <div
+    className="container"
+  >
+    <div
+      className="row"
+    />
+  </div>
+</Fragment>
+`;

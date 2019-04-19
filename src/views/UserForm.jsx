@@ -4,6 +4,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import AlertMessage from './AlertMessage';
+import SocialLoginComponent from '../components/SocialLogin';
 import ResetPassword from '../components/ResetPassword';
 
 /**
@@ -51,12 +52,10 @@ function UserForm(props) {
                 )}
                 <div className="login__input__section">
                   <form
-                    onSubmit={
-                      (e) => {
-                        e.preventDefault();
-                        handleLogin();
-                      }
-                    }
+                    onSubmit={(e) => {
+                      e.preventDefault();
+                      handleLogin();
+                    }}
                   >
                     <div className="form-group">
                       <div className="login__input__field">
@@ -76,12 +75,12 @@ function UserForm(props) {
                         <div className="login__forgot-password">
                           <label htmlFor="password">Password</label>
                           <button
-                          type="button"
-                          className="btn btn-link login__reset__btn "
-                          data-toggle="modal"
-                          data-target="#myModal"
+                            type="button"
+                            className="btn btn-link login__reset__btn "
+                            data-toggle="modal"
+                            data-target="#myModal"
                           >
-                          Forgot password?
+                            Forgot password?
                           </button>
                         </div>
                         <input
@@ -114,7 +113,7 @@ function UserForm(props) {
                     <hr />
                     <p>Or login using</p>
                   </div>
-                  {/* social logincomponent here please */}
+                  <SocialLoginComponent />
                 </div>
               </div>
             </div>

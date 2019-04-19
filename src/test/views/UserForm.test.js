@@ -1,11 +1,9 @@
 /* eslint-disable react/jsx-filename-extension */
 import React from 'react';
-import { configure, shallow, mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import { shallow } from 'enzyme';
 import UserForm from '../../views/UserForm';
 import ResetPassword from '../../components/ResetPassword';
 
-configure({ adapter: new Adapter() });
 // eslint-disable-next-line no-undef
 const mockFn = jest.fn();
 

@@ -27,6 +27,10 @@ export const mockState = {
       message: '',
     }
   },
+  bookmarkedList: {
+    bookmarked: [],
+    isLoading: false,
+  },
 };
 
 export const createMockStore = () => {

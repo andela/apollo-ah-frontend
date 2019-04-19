@@ -1,5 +1,4 @@
 import React from 'react';
-import 'jest';
 import { MemoryRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { shallow, mount } from 'enzyme';
@@ -94,7 +93,6 @@ describe('<HomePage Test Suite>', () => {
       );
       expect(wrapper).toBeDefined();
       expect(wrapper.length).toBe(1);
-      expect(wrapper).toMatchSnapshot();
       expect(wrapper.instance().state.storeState.articlesReducer).toEqual({
         articles: [],
         error: '',

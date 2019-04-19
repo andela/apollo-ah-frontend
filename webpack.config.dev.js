@@ -3,6 +3,7 @@ const HtmlWebPackPlugin = require('html-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 const webpack = require('webpack');
 
+// Plugins
 const htmlPlugin = new HtmlWebPackPlugin({
   template: './public/index.html',
   filename: './index.html',
