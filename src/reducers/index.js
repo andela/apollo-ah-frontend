@@ -7,7 +7,7 @@ import loginReducers from './loginReducers';
 import articlesReducer from './articleReducer';
 import articlesCategoryReducer from './articleCategoryReducer';
 import profileReducer from './profileReducer';
-import { postCommentReducer } from './commentsReducer';
+import { postCommentReducer, getCommentsReducer } from './commentsReducer';
 
 
 /**
@@ -15,7 +15,7 @@ import { postCommentReducer } from './commentsReducer';
  * to a single key in the redux store
  */
 const userReducer = reduceReducers(loginReducers, resetPasswordReducer, profileReducer);
-const articleReducer = reduceReducers(postCommentReducer);
+const articleReducer = reduceReducers(postCommentReducer, getCommentsReducer);
 
 /**
  * @function combineReducers - the redux store combineReducers function

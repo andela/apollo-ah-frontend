@@ -12,6 +12,7 @@ exports[`<CommentForm> should render without crashing when user is authenticated
       className="form-group"
     >
       <input
+        autoComplete="off"
         className="form-control"
         disabled={true}
         name="body"
@@ -48,6 +49,7 @@ exports[`<CommentForm> should render without crashing when user is unauthenticat
       className="form-group"
     >
       <input
+        autoComplete="off"
         className="form-control"
         disabled={false}
         name="body"

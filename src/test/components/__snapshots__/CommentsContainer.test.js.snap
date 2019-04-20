@@ -40,10 +40,13 @@ exports[`<CommentsContainer> should render without crashing 1`] = `
         slug="abc"
       >
         <CommentsContainer
+          clearComments={[Function]}
           commentMessage="Done"
+          fetchComment={[Function]}
+          gettingComments={false}
+          hasMoreComments={false}
           isLoggedIn={false}
-          more={false}
-          newComment={
+          newCommentList={
             Object {
               "authorImage": "image.jpg",
               "authorName": "John",
@@ -52,6 +55,7 @@ exports[`<CommentsContainer> should render without crashing 1`] = `
               "id": 1,
             }
           }
+          oldCommentList={Array []}
           postingComment={false}
           profile={
             Object {
@@ -61,10 +65,14 @@ exports[`<CommentsContainer> should render without crashing 1`] = `
               "username": "johnny",
             }
           }
+          remainingComments={0}
           sendComment={[Function]}
           slug="abc"
           token=""
         >
+          <div
+            className="comment-grp card"
+          />
           <PostComment
             body=""
             commentMessagef="Done"
@@ -84,6 +92,7 @@ exports[`<CommentsContainer> should render without crashing 1`] = `
                   className="form-group"
                 >
                   <input
+                    autoComplete="off"
                     className="form-control"
                     disabled={false}
                     name="body"

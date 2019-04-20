@@ -19,9 +19,12 @@ const initialState = {
     }
   },
   article: {
-    newComment: {},
+    newComments: [],
     postingComment: false,
+    gettingComments: false,
     commentMessage: '',
+    oldComments: [],
+    hasMoreComments: false,
   }
 };
 

@@ -29,7 +29,7 @@ export const mockState = {
     }
   },
   article: {
-    newComment: {
+    newComments: {
       body: 'Hello world',
       id: 1,
       authorName: 'John',
@@ -37,7 +37,15 @@ export const mockState = {
       date: 'July 4th 2018',
     },
     postingComment: false,
-    commentMessage: 'Done'
+    commentMessage: 'Done',
+    gettingComments: false,
+    oldComments: [],
+    hasMoreComments: false,
+    commentPage: {
+      current: 1,
+      currentCount: 1,
+      totalCount: 1,
+    }
   }
 };
 

@@ -1,4 +1,4 @@
-import { getCommentTypes, postCommentTypes } from '../actions/commentsAction';
+import { getCommentTypes, postCommentTypes, clearCommentsType } from '../actions/commentsAction';
 
 /**
  * A reducer that formats the data before updating the redux store with the new comment
@@ -15,13 +15,22 @@ export const postCommentReducer = (state = {}, action) => {
       return {
         ...state,
         postingComment: false,
-        newComment: {
+        commentPage: {
+          ...state.commentPage,
+          totalCount: state.commentPage.totalCount + 1
+        },
+        newComments: [{
           body: data.body,
-          date: data.createdAt,
+          createdAt: data.createdAt,
           id: data.id,
-          authorImage: data.profile.image,
-          authorName: data.profile.firstname || data.profile.username
-        }
+          author: {
+            Profile: {
+              image: data.profile.image,
+              firstname: data.profile.firstname,
+              username: data.profile.username
+            }
+          }
+        }]
       };
     case postCommentTypes.failure:
       return { ...state, postingComment: false, commentMessage: data };
@@ -41,6 +50,30 @@ export const getCommentsReducer = (state = {}, action) => {
   switch (type) {
     case getCommentTypes.loading:
       return { ...state, gettingComments: data };
+    case getCommentTypes.success:
+      return {
+        ...state,
+        gettingComments: false,
+        oldComments: data.articles,
+        commentPage: data.page,
+        hasMoreComments: data.page.current < data.page.last,
+      };
+    case getCommentTypes.failure:
+      return {
+        ...state,
+        gettingComments: false,
+        commentMessage: data,
+        oldComments: [],
+      };
+    case clearCommentsType.success:
+      return {
+        ...state,
+        oldComments: [],
+        hasMoreComments: false,
+        commentPage: {},
+        commentMessage: '',
+        newComments: [],
+      };
     default:
       return state;
   }

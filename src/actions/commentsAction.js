@@ -14,6 +14,12 @@ export const getCommentTypes = typeGenerator('GET_COMMENTS');
 export const postCommentTypes = typeGenerator('POST_COMMENTS');
 
 /**
+ * Generate action types to clear comments
+ * @returns {object} An object with the corresponding loading, success, failure keys
+ */
+export const clearCommentsType = typeGenerator('CLEAR_COMMENTS');
+
+/**
  * Action creator to get and post comments
  * @param {string} type The dispatch type
  * @param {object} data The data to dispatch
@@ -21,27 +27,31 @@ export const postCommentTypes = typeGenerator('POST_COMMENTS');
  */
 export const commentsAction = (type, data) => ({ type, data });
 
+
+/**
+ * Action creator to clear all comments stored in the redux store
+ * @returns {object} The generated action object
+ */
+export const clearComments = () => ({ type: clearCommentsType.success });
+
 /**
  * The action to dispatch to fetch comments from the backend
  * @param {object} payload The payload containing the comment, current page, and authorization token
  * @returns {object} The promise object
  */
-// export const getComments = payload => async (dispatch) => {
-//   dispatch(commentsAction(getCommentTypes.loading, true));
-//   return request({
-//     route: `${payload.slug}/comments?size=10&page=${payload.page}`,
-//     token: payload.token
-//   }).then((response) => {
-//     dispatch(commentsAction(getCommentTypes.success, response.data.data));
-//   }).catch((error) => {
-//     let errorMessage = 'Please check your network connection';
-//     if (error.response) {
-//       const { message } = error.response.data;
-//       errorMessage = message;
-//     }
-//     dispatch(commentsAction(getCommentTypes.failure, errorMessage));
-//   });
-// };
+export const getComments = payload => async (dispatch) => {
+  dispatch(commentsAction(getCommentTypes.loading, true));
+  return request({
+    route: `articles/${payload.slug}/comments?size=15&page=${payload.page}`,
+  }).then((response) => {
+    dispatch(commentsAction(getCommentTypes.success, response.data.data));
+  }).catch((error) => {
+    const message = error.response
+      ? 'No more comments'
+      : 'Please check your network connection';
+    dispatch(commentsAction(getCommentTypes.failure, message));
+  });
+};
 
 /**
  * The action to dispatch to post comments

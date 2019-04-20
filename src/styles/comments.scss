@@ -1,95 +1,140 @@
-.comment-grp
-{
-    margin-top: 0px;
-    padding-top: 5px;
+.comment-grp {
+	margin-top: 0;
+	padding-top: 5px;
+	.article-author {
+		&:first-child {
+			border: none;
+		}
+		p {
+			max-width: 700px;
+			margin-bottom: 10px;
+		}
+		img {
+			margin-left: 20px;
+		}
+		div {
+			margin-right: 20px;
+			padding-left: 25px;
+			margin-top: 0;
+		}
+		span {
+			margin-top: -5px;
+			margin-bottom: 5px;
+		}
+	}
+	h4 {
+		margin-bottom: 15px;
+		font-weight: bold;
+		margin-top: 10px;
+	}
+	form {
+		margin: 10px 15px 0;
+		.form-control {
+			vertical-align: middle;
+			height: 65px;
+			padding-left: 20px;
+			padding-right: 60px;
+		}
+		button {
+			position: absolute;
+			right: 0;
+			top: 0;
+			background-color: transparent;
+			color: $colortundora;
+			bottom: 0;
+			width: 60px;
+		}
+		&.busy {
+			.fas {
+				display: none;
+			}
+			.spinner-grow {
+				display: inline-block;
+			}
+		}
+		.spinner-grow {
+			display: none;
+		}
+	}
+	.form-group {
+		position: relative;
+	}
+	.card-body {
+		padding: 10px 0 0;
+	}
 }
-
-.comment-grp .article-author:first-child
-{
-    border: none;
+.loadmore-grp {
+	background-color: $colorsilver;
+	color: $colorrangoongreen;
+	font-weight: bold;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-radius: 0;
+	width: 100%;
+	&.busy {
+		.text {
+			display: none;
+		}
+		.spinner-grow {
+			display: inline-block;
+		}
+	}
+	.spinner-grow {
+		display: none;
+	}
 }
-
-.comment-grp .article-author p
-{
-    max-width: 700px;
-    margin-bottom: 10px;
+@keyframes shiny {
+	from {
+		width: 100%;
+		opacity: 0;
+	}
+	to {
+		width: 10%;
+		opacity: 1;
+	}
 }
-
-.comment-grp h4
-{
-    margin-bottom: 15px;
-    font-weight: bold;
-    margin-top: 10px;
+.comment-loader {
+	height: 80px;
+	position: relative;
+	div::after {
+		content: "";
+		left: 0;
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		background-color: $colorquillgray;
+		animation: shiny 1.5s ease-in-out 0s infinite reverse;
+	}
 }
-
-.comment-grp form
-{
-    margin: 10px 15px 0px;
+.comment-loader-img {
+	position: absolute;
+	width: 40px;
+	height: 40px;
+	border-radius: 100%;
+	background-color: $gallery;
+	left: 20px;
+	top: 10px;
+	overflow: hidden;
 }
-.comment-grp form .form-control
-{
-    vertical-align: middle;
-    height: 65px;
-    padding-left: 20px;
-    padding-right: 60px;
+.comment-loader-name {
+	margin-left: 70px;
+	width: 130px;
+	height: 7px;
+	background-color: $gallery;
+	top: 17px;
+	position: absolute;
 }
-
-.comment-grp .form-group
-{
-    position: relative;
+.comment-loader-time {
+	top: 29px;
+	width: 60px;
+	height: 4px;
 }
-
-.comment-grp form button
-{
-    position: absolute;
-    right: 0px;
-    top: 0px;
-    background-color: transparent;
-    color: #474343;
-    bottom: 0px;
-    width: 60px;
+.comment-loader-text {
+	top: 46px;
+	height: 7px;
+	width: 70%;
 }
-
-.loadmore-grp
-{
-    background-color: #bdbdbd;
-    color: #1a1919;
-    font-weight: bold;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    border-radius: 0px;
-    width: 100%;
-}
-
-.comment-grp .card-body
-{
-    padding: 10px 0px 0px;
-}
-
-.comment-grp .article-author img
-{
-    margin-left: 20px;
-}
-
-.comment-grp .article-author div
-{
-    margin-right: 20px;
-    padding-left: 25px;
-    margin-top: 0px;
-}
-
-.comment-grp form.busy .fas{
-    display: none;
-}
-
-.comment-grp form .spinner-grow{
-    display: none;
-}
-.comment-grp form.busy .spinner-grow{
-    display: inline-block;
-}
-
-.comment-grp .article-author span{
-    margin-top: -5px;
-    margin-bottom: 5px;
+.comment-loader-text-sm {
+	width: 50%;
+	top: 59px;
 }
