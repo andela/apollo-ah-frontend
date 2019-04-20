@@ -1,0 +1,95 @@
+.comment-grp
+{
+    margin-top: 0px;
+    padding-top: 5px;
+}
+
+.comment-grp .article-author:first-child
+{
+    border: none;
+}
+
+.comment-grp .article-author p
+{
+    max-width: 700px;
+    margin-bottom: 10px;
+}
+
+.comment-grp h4
+{
+    margin-bottom: 15px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.comment-grp form
+{
+    margin: 10px 15px 0px;
+}
+.comment-grp form .form-control
+{
+    vertical-align: middle;
+    height: 65px;
+    padding-left: 20px;
+    padding-right: 60px;
+}
+
+.comment-grp .form-group
+{
+    position: relative;
+}
+
+.comment-grp form button
+{
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    background-color: transparent;
+    color: #474343;
+    bottom: 0px;
+    width: 60px;
+}
+
+.loadmore-grp
+{
+    background-color: #bdbdbd;
+    color: #1a1919;
+    font-weight: bold;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 0px;
+    width: 100%;
+}
+
+.comment-grp .card-body
+{
+    padding: 10px 0px 0px;
+}
+
+.comment-grp .article-author img
+{
+    margin-left: 20px;
+}
+
+.comment-grp .article-author div
+{
+    margin-right: 20px;
+    padding-left: 25px;
+    margin-top: 0px;
+}
+
+.comment-grp form.busy .fas{
+    display: none;
+}
+
+.comment-grp form .spinner-grow{
+    display: none;
+}
+.comment-grp form.busy .spinner-grow{
+    display: inline-block;
+}
+
+.comment-grp .article-author span{
+    margin-top: -5px;
+    margin-bottom: 5px;
+}

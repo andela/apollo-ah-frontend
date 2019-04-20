@@ -12,7 +12,9 @@ exports[`<CommentBox> should render without crashing 1`] = `
     <h6>
       john
     </h6>
-    <span>
+    <span
+      title="July 4th 2019, 4:45pm"
+    >
       2hrs ago
     </span>
     <p>

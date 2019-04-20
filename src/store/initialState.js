@@ -17,6 +17,11 @@ const initialState = {
       loading: false,
       message: '',
     }
+  },
+  article: {
+    newComment: {},
+    postingComment: false,
+    commentMessage: '',
   }
 };
 

@@ -18,8 +18,9 @@ export const mockState = {
     message: '',
     isLoading: false,
     profile: {
-      username: '',
-      image: '',
+      firstname: 'John',
+      username: 'johnny',
+      image: 'image.jpg',
       errorData: [],
     },
     resetPassword: {
@@ -27,6 +28,17 @@ export const mockState = {
       message: '',
     }
   },
+  article: {
+    newComment: {
+      body: 'Hello world',
+      id: 1,
+      authorName: 'John',
+      authorImage: 'image.jpg',
+      date: 'July 4th 2018',
+    },
+    postingComment: false,
+    commentMessage: 'Done'
+  }
 };
 
 export const createMockStore = () => {

@@ -1,0 +1,126 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CommentsContainer> should render without crashing 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <BrowserRouter>
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "createHref": [Function],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <Connect(CommentsContainer)
+        slug="abc"
+      >
+        <CommentsContainer
+          commentMessage="Done"
+          isLoggedIn={false}
+          more={false}
+          newComment={
+            Object {
+              "authorImage": "image.jpg",
+              "authorName": "John",
+              "body": "Hello world",
+              "date": "July 4th 2018",
+              "id": 1,
+            }
+          }
+          postingComment={false}
+          profile={
+            Object {
+              "errorData": Array [],
+              "firstname": "John",
+              "image": "image.jpg",
+              "username": "johnny",
+            }
+          }
+          sendComment={[Function]}
+          slug="abc"
+          token=""
+        >
+          <PostComment
+            body=""
+            commentMessagef="Done"
+            handleInputChange={[Function]}
+            handlePostComment={[Function]}
+            isLoggedIn={false}
+            postingComment={false}
+          >
+            <div
+              className="comment-grp card mt-3 relative"
+            >
+              <form
+                className="form"
+                onSubmit={[Function]}
+              >
+                <div
+                  className="form-group"
+                >
+                  <input
+                    className="form-control"
+                    disabled={false}
+                    name="body"
+                    onChange={[Function]}
+                    placeholder="Leave a comment"
+                    value=""
+                  />
+                  <button
+                    className="btn btn-link"
+                    disabled={false}
+                    type="submit"
+                  >
+                    <i
+                      className="fas fa-paper-plane"
+                    />
+                    <span
+                      className="spinner-grow text-dark"
+                    />
+                  </button>
+                </div>
+              </form>
+              <Link
+                className="link-surface"
+                replace={false}
+                to="/login"
+              >
+                <a
+                  className="link-surface"
+                  href="/login"
+                  onClick={[Function]}
+                />
+              </Link>
+            </div>
+          </PostComment>
+        </CommentsContainer>
+      </Connect(CommentsContainer)>
+    </Router>
+  </BrowserRouter>
+</Provider>
+`;

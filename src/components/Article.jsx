@@ -63,6 +63,8 @@ class Article extends React.Component {
    */
   render() {
     const { article, bookmarked } = this.state;
+    const { match } = this.props;
+    const { slug } = match.params;
     return (
       <div>
         <main className="main-body">
@@ -80,7 +82,7 @@ class Article extends React.Component {
                   bookmarkArticle={this.bookmarkArticle}
                   bookmarked={bookmarked}
                 />
-                <CommentsContainer />
+                <CommentsContainer slug={slug} />
               </div>
             </div>
             <div className="single-suggested-grp">

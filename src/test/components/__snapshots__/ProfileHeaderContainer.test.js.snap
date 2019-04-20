@@ -46,8 +46,9 @@ exports[`<ProfileHeaderContainer> should render without crashing 1`] = `
           profile={
             Object {
               "errorData": Array [],
-              "image": "",
-              "username": "",
+              "firstname": "John",
+              "image": "image.jpg",
+              "username": "johnny",
             }
           }
           showLoader={[Function]}
@@ -61,8 +62,9 @@ exports[`<ProfileHeaderContainer> should render without crashing 1`] = `
             profile={
               Object {
                 "errorData": Array [],
-                "image": "",
-                "username": "",
+                "firstname": "John",
+                "image": "image.jpg",
+                "username": "johnny",
               }
             }
           >
@@ -83,9 +85,9 @@ exports[`<ProfileHeaderContainer> should render without crashing 1`] = `
                   className="spinner-border text-light align-middle"
                 />
                 <img
-                  alt=""
+                  alt="johnny"
                   className="img-thumbnail"
-                  src=""
+                  src="image.jpg"
                 />
                 <button
                   className="btn change-image transition"
@@ -103,12 +105,13 @@ exports[`<ProfileHeaderContainer> should render without crashing 1`] = `
                 <h4
                   className="profile-name text-capitalize"
                 >
+                  John
                    
                 </h4>
                 <p
                   className="profile-username"
                 >
-                  @
+                  @johnny
                 </p>
               </div>
               <div

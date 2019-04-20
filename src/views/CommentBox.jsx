@@ -1,15 +1,26 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
 
+
+/**
+ * Creates the JSX element used to display a single comment
+ * @param {object} props The component props
+ * date - Short format representation of the date the comment was made
+ * body - The comment body
+ * authorImage - The profile image of the  user
+ * authorName - The firstname or username of the user
+ * fullDate - Long format representation of the date the comment was made
+ * @returns {Node} The generated JSX element
+ */
 export default function CommentBox({
-  author, time, body, profileImage
+  date, body, authorImage, authorName, fullDate
 }) {
   return (
     <div className="article-author">
-      <img src={profileImage} alt={author} />
+      <img src={authorImage} alt={authorName} />
       <div>
-        <h6>{author}</h6>
-        <span>{time}</span>
+        <h6>{authorName}</h6>
+        <span title={fullDate}>{date}</span>
         <p>{body}</p>
       </div>
     </div>
@@ -17,9 +28,11 @@ export default function CommentBox({
   );
 }
 
+/** Prop types declaration */
 CommentBox.propTypes = {
-  author: PropTypes.string.isRequired,
-  time: PropTypes.string.isRequired,
+  authorName: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
-  profileImage: PropTypes.string.isRequired
+  authorImage: PropTypes.string.isRequired,
+  fullDate: PropTypes.string.isRequired,
 };

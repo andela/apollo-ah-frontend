@@ -100,9 +100,11 @@
   }
 }
 .single-article-author {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   margin-top: -20px;
   padding-right: 20px;
+  border-bottom: 1px solid #C4C4C4;
+  padding-bottom: 30px;
   p {
     max-width: 500px;
   }
@@ -116,51 +118,6 @@
     background-color: $colorpurple;
     color: $white;
   }
-}
-.comment-grp {
-  margin-bottom: 50px;
-  margin-top: 0;
-  border-top: 1px solid $black20;
-  padding-top: 30px;
-  .article-author {
-    &:first-child {
-      border: none;
-    }
-    p {
-      max-width: 700px;
-    }
-  }
-  h4 {
-    margin-bottom: 15px;
-    font-weight: bold;
-    margin-top: 10px;
-  }
-  form {
-    margin-top: 30px;
-    .form-control {
-      vertical-align: middle;
-      height: 65px;
-      padding-left: 20px;
-      padding-right: 60px;
-    }
-    button {
-      position: absolute;
-      right: 0;
-      top: 0;
-      background-color: transparent;
-      color: $colortundora;
-      bottom: 0;
-      width: 60px;
-    }
-  }
-  .form-group {
-    position: relative;
-  }
-}
-.loadmore-grp {
-  margin-top: 30px;
-  border-top: 1px solid $black20;
-  padding-top: 30px;
 }
 .single-suggested-grp {
   background-color: $colorgraynurse;
@@ -189,10 +146,10 @@
 .fa-bookmark{
   color: $colorpumice90;
 }
-.articleauthor{
+.article__author{
   display: flex;
   align-items: center;
-  .bookmarkdiv{
+  .bookmark__div{
     margin-left: 30px;
     font-size: 20px;
     .bookmarked{
@@ -200,11 +157,11 @@
     }
   }
 }
-.singleauthorcontainer{
+.single__author__container{
   margin-top: 25px;
   margin-bottom: 25px;
 }
-.authorprofile--mini{
+.author__profile--mini{
   display: inherit;
   margin-left: unset;
   img{
@@ -218,7 +175,7 @@
   h6{
     margin-bottom: unset;
   }
-  .authorprofile--details{
+  .author__profile--details{
     margin-left: 10px;
     span{
       font-size: 14px;
@@ -230,7 +187,7 @@
   
 }
 @media only screen and (min-device-width: 500px){
-  .articleauthor{
+  .article__author{
     justify-content: space-between;
     .bookmarkdiv{
       margin-left: unset;
