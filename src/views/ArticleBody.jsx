@@ -1,14 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Tags from './ArticleTags';
-import clapImage from '../images/clap.svg';
+import ClapButton from '../components/ClapButton';
+
 /**
  *
  * @param {*} props - The props passed from the parent Article component
  * @returns {JSX} - The JSX representation of the Article's bpdy
  */
 function ArticleBody(props) {
-  const { bookmarkArticle, bookmarked, article } = props;
+  const {
+    bookmarkArticle,
+    bookmarked,
+    article,
+  } = props;
   return (
     <div>
       <h1 className="signle-title">{article.title}</h1>
@@ -43,10 +48,7 @@ function ArticleBody(props) {
       <Tags />
       <div className="pg-empty-placeholder" />
       <div className="clap-grp">
-        <span className="clap-icon">
-          <img src={clapImage} alt="" />
-          40k claps
-        </span>
+        <ClapButton />
         <div className="share-grp">
           <a href="you" className="text-danger"><i className="fas fa-envelope" /></a>
           <a href="you" className="text-primary"><i className="fab fa-facebook-square" /></a>

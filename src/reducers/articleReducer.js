@@ -1,7 +1,9 @@
 import typeGenerator from '../actions/actionTypeGenerator';
+import { getArticleType } from '../actions/actionTypes';
 
 const initialState = {
   articles: [],
+  article: {},
   page: {
     first: 1,
     current: 1,
@@ -20,7 +22,6 @@ const initialState = {
  * @param {Function} action - Action to dispatch
  * @returns {object}
  */
-
 export default (state = initialState, action) => {
   switch (action.type) {
     case typeGenerator('LOADING'):
@@ -49,7 +50,20 @@ export default (state = initialState, action) => {
       return {
         ...state,
         loading: action.payload,
-        error: 'INTERNAL SERVER ERROR'
+        error: ['INTERNAL SERVER ERROR']
+      };
+    case getArticleType.success:
+      return {
+        ...state,
+        article: {
+          ...state.article,
+          ...Object.assign({}, action.payload),
+        },
+      };
+    case getArticleType.failure:
+      return {
+        ...state,
+        error: action.payload
       };
     default:
       return state;

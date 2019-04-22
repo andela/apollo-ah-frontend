@@ -61,6 +61,7 @@ describe('articleReducer test suite', () => {
   it('return initial state', () => {
     expect(articleReducer(undefined, {})).toEqual({
       articles: [],
+      article: {},
       error: '',
       page: {
         first: 1,

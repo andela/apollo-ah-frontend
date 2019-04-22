@@ -1,5 +1,11 @@
 import axios from 'axios';
 
+const store = JSON.parse(localStorage.getItem('persist:root'));
+let userToken;
+if (store) {
+  userToken = JSON.parse(store.user).token;
+}
+
 /**
  * Helper function that configures axios requests
  * @param {object} config The configuration data.
@@ -18,6 +24,7 @@ const request = async (
   }
 ) => {
   method = method || 'get';
+  token = token || userToken;
   const headers = {
     Authorization: `Bearer ${token}`,
   };

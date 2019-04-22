@@ -84,8 +84,11 @@
   font-size: 14px;
   font-weight: bold;
   img {
-      margin-right: 5px;
-      width: 38px;
+    width: 38px;
+  }
+  button {
+    cursor: pointer;
+    padding: 6px;
   }
 }
 .share-grp {

@@ -1,5 +1,4 @@
 import typeGenerator from './typeGenerator';
 
 export const authenticationType = typeGenerator('AUTHENTICATION');
-
-export default {};
+export const getArticleType = typeGenerator('GET_ARTICLE');
