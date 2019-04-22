@@ -16,13 +16,6 @@ import { clapArticleRequest } from '../actions/articleAction';
  * @extends {Component}
  */
 export class ClapButton extends Component {
-  static propTypes = {
-    article: PropType.object.isRequired,
-    clapArticle: PropType.func.isRequired,
-    loadUserClaps: PropType.func.isRequired,
-    claps: PropType.number.isRequired,
-  };
-
   /**
    * Handles clap request (debounced)
    *
@@ -35,6 +28,13 @@ export class ClapButton extends Component {
     this.setState({ claps: 0 });
     return clapArticle({ slug, claps });
   }, 1000);
+
+  static propTypes = {
+    article: PropType.object.isRequired,
+    clapArticle: PropType.func.isRequired,
+    loadUserClaps: PropType.func.isRequired,
+    claps: PropType.number.isRequired,
+  };
 
   constructor(props) {
     super(props);
