@@ -8,25 +8,33 @@ import { bookmarkArticleType } from '../actions/bookmarkActions';
  * @returns {Object} - The current bookmarkedList state
  */
 const bookmarkReducer = (state = initialState.bookmarkedList, action) => {
-  const { type, data } = action;
+  const { type, data, message } = action;
   switch (type) {
     case bookmarkArticleType.success:
-      // if (typeof data === 'string') {
-      //   return state.
-      // }
+      if (message === 'successfully unbookmarked this article') {
+        const filteredList = state.bookmarked.filter(post => post.articleId !== data.articleId);
+        return {
+          bookmarked: [...filteredList],
+          isLoading: false,
+          message
+        };
+      }
       return {
         bookmarked: [...state.bookmarked, data],
         isLoading: false,
+        message
       };
     case bookmarkArticleType.loading:
       return {
         bookmarked: [...state.bookmarked],
         isLoading: true,
+        message: ''
       };
     case bookmarkArticleType.failure:
       return {
         bookmarked: [...state.bookmarked],
         isLoading: false,
+        message
       };
     default:
       return state;

@@ -17,6 +17,7 @@ describe('<ArticleBody />', () => {
       <ArticleBody
         article={mockArticle}
         bookmarkArticle={mockFn}
+        token="4566"
         bookmarked={false}
       />
     );
@@ -28,6 +29,7 @@ describe('<ArticleBody />', () => {
       <ArticleBody
         article={mockArticle}
         bookmarkArticle={mockFn}
+        token="4566"
         bookmarked={false}
       />
     );
@@ -42,6 +44,7 @@ describe('<ArticleBody />', () => {
         article={mockArticle}
         bookmarkArticle={mockFn}
         bookmarked
+        token="4566"
       />
     );
     expect(wrapper.findWhere(span => span.hasClass('bookmarked')).exists()).toBe(true);

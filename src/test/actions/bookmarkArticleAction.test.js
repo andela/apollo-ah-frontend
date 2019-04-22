@@ -49,6 +49,7 @@ describe('Action creators', () => {
       {
         type: types.success,
         data: bookmarkSuccess.data,
+        message: 'successfully bookmarked this article'
       }
     ];
     const store = mockStore({ bookmarkedList: {} });
@@ -64,7 +65,7 @@ describe('Action creators', () => {
     const response = {
       code: 200,
       data: [],
-      message: 'successfully unbookmarked this articlet',
+      message: 'successfully unbookmarked this article',
       status: true
     };
     request.mockResolvedValue({ data: { ...response } });
@@ -75,7 +76,8 @@ describe('Action creators', () => {
       },
       {
         type: types.success,
-        data: response.message,
+        data: [],
+        message: response.message
       }
     ];
     const store = mockStore({ bookmarkedList: {} });

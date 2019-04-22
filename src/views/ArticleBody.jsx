@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import decodeBody from 'unescape';
 import Tags from './ArticleTags';
 import clapImage from '../images/clap.svg';
 import time from '../utils/time';
@@ -13,7 +12,7 @@ import debounceFn from '../utils/debounce';
 function ArticleBody(props) {
   const currentUrl = window.location.href;
   const {
-    bookmarkArticle, bookmarked, article
+    bookmarkArticle, bookmarked, article, token,
   } = props;
   const { Profile: profile } = article.author;
   const returnMarkup = () => ({ __html: article.body });
@@ -61,7 +60,6 @@ function ArticleBody(props) {
           40k claps
         </span>
         <div className="share-grp">
-          {/* <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" className="twitter-share-button" data-show-count="false">Tweet</a> */}
           <div className="share__group__child">
             <a
               href={`mailto:?subject=Check out this article on Authors Haven&body=${currentUrl}`}
@@ -73,46 +71,23 @@ function ArticleBody(props) {
               <i className="fas fa-envelope" />
             </a>
           </div>
-          {/* <
-          a href="you" className="text-primary"><i className="fab fa-facebook-square" /></a>
-          */}
           <div className="share__group__child">
-            {/* <div className="socials-icon socials-fb">
-              <i className="fab fa-facebook-f" />
-            </div> */}
             <div
               className="fb-share-button"
-              data-href={currentUrl} data-layout="button"
+              data-href={decodeURI(currentUrl)}
+              data-layout="button"
               data-size="small"
             >
               <a
                 target="_blank"
                 rel="noopener noreferrer"
-                href={`https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`}
+                data-href={`https://www.facebook.com/sharer?u=${decodeURI(currentUrl)}`}
                 className="fb-xfbml-parse-ignore">
                 Share
               </a>
             </div>
           </div>
-          {/*
-          <a
-          href="you"
-          className="text-white"
-          >
-          <i className="fab fa-twitter-square text-info" />
-          </a>
-          */}
           <div className="share__group__child">
-            {/* <div className="socials-icon socials-twitter">
-              <i className="fab fa-twitter" />
-            </div> */}
-            {/* <a
-              href={`http://twitter.com/share?url=${currentUrl}&text=my%20text%20here`}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <i className="fab fa-twitter" />
-            </a> */}
             <a
               href="https://twitter.com/share?ref_src=twsrc%5Etfw"
               className="twitter-share-button"
@@ -131,15 +106,48 @@ function ArticleBody(props) {
             </button>
           </div>
           <div className="share__group__child">
-            <button
-              type="button"
-              className="btn btn-link"
-              id="show-options"
-            >
-              <i className="fas fa-ellipsis-h" />
-            </button>
+            <div className="dropdown article__options">
+              <button
+                className="btn dropdown-toggle"
+                type="button"
+                id="show-options"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                <i className="fas fa-ellipsis-h" />
+              </button>
+              <div
+                className="dropdown-menu dropdown-menu-right"
+                aria-labelledby="show-options"
+              >
+                <div className="dropdown-item">
+                  {token && (
+                    <div>
+                      <button
+                        className="btn"
+                        type="button"
+                      >
+                        <i className="fas fa-trash text-danger" />
+                        Delete Article
+                      </button>
+                      <div className="dropdown-divider" />
+                    </div>
+                  )}
+                </div>
+
+                <div className="dropdown-item">
+                  <button
+                    className="btn"
+                    type="button"
+                  >
+                    <i className="fas fa-flag text-danger" />
+                    Report Article
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
-          {/* <a href="" className="text-muted"><i className="fas fa-ellipsis-h" /></a> */}
         </div>
       </div>
       <div className="single-author-container single-article-author">
@@ -160,6 +168,7 @@ ArticleBody.propTypes = {
   bookmarkArticle: PropTypes.func.isRequired,
   bookmarked: PropTypes.bool.isRequired,
   article: PropTypes.object.isRequired,
+  token: PropTypes.string.isRequired,
 };
 
 export default ArticleBody;

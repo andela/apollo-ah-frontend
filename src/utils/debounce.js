@@ -1,4 +1,10 @@
-
+/**
+ *
+ *
+ * @param {*} func - The function to be called by debounce function
+ * @param {*} delay - The time at which the call will be delayed for
+ * @returns {function}
+ */
 const debounceFn = (func, delay) => {
   let delayPeriod;
   return () => {

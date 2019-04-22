@@ -7,6 +7,10 @@ const mockFn = jest.fn();
 const location = { pathname: '' };
 
 describe('<UserForm />', () => {
+  it('Should render all elements', () => {
+    const wrapper = setup(<ConnectedLogin location={location} />);
+    expect(wrapper).toMatchSnapshot();
+  });
   it('should respond to input change and alter state (email) of component', () => {
     const wrapper = setup(<ConnectedLogin location={location} />);
     const loginWrapper = wrapper.find('Login');

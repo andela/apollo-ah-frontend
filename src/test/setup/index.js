@@ -30,6 +30,7 @@ export const mockState = {
   bookmarkedList: {
     bookmarked: [],
     isLoading: false,
+    message: '',
   },
 };
 

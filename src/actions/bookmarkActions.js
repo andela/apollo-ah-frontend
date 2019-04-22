@@ -1,15 +1,19 @@
 import request from '../utils/request';
 import typeGenerator from './typeGenerator';
 
-// const API_URL = process.env.API_BASE_URL;
-
 export const bookmarkArticleType = typeGenerator('BOOKMARK_ARTICLE');
 
 export const bookmarkLoading = (type, status) => ({ type, status });
-export const bookmarkArticleProcess = (type, data) => ({ type, data });
+export const bookmarkArticleProcess = (type, data, message) => ({ type, data, message });
 
+/**
+ * @function bookmarkArticleGenerators - The action generator that dispatches the action
+ * @param {*} token - The user's token
+ * @param {*} slug - The article's slug
+ * @param {*} dispatch - The redux dispatch action
+ * @returns
+ */
 export const bookmarkArticleGenerators = ({ slug, token }) => async (dispatch) => {
-  let data;
   dispatch(bookmarkLoading(bookmarkArticleType.loading, true));
   return request({
     method: 'post',
@@ -18,12 +22,8 @@ export const bookmarkArticleGenerators = ({ slug, token }) => async (dispatch) =
     route: `articles/${slug}/bookmarks`
   }).then((response) => {
     const feedback = response.data;
-    if (feedback.message === 'successfully bookmarked this article') {
-      const bookmarkedData = feedback.data;
-      data = bookmarkedData;
-      return dispatch(bookmarkArticleProcess(bookmarkArticleType.success, data));
-    }
-    return dispatch(bookmarkArticleProcess(bookmarkArticleType.success, feedback.message));
+    const { data, message } = feedback;
+    dispatch(bookmarkArticleProcess(bookmarkArticleType.success, data, message));
   }).catch((error) => {
     let errorMessage = 'Please check your network connection';
     if (error.response) {

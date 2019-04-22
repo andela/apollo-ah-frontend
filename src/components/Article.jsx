@@ -6,21 +6,22 @@ import ArticleBody from '../views/ArticleBody';
 import getArticle from '../actions/singleArticleActions';
 import { bookmarkArticleGenerators } from '../actions/bookmarkActions';
 import * as articleSelector from '../selectors/singleArticleSelector';
+import bookmarkedList from '../selectors/bookmarkSelector';
 import { getUserToken } from '../selectors/loginSelector';
 import DummyArticleLoader from '../views/DummyArticleLoader';
+import SuggestedArticles from '../views/Articles';
+import { getArticles } from '../actions';
+import ScrollToTopOnMount from '../views/ScrollToTopOnMount';
 /*
  * @todo - Import comments component here
  */
 
 /**
- *
- *
  * @class Article
  * @extends {React.Component}
  */
 class Article extends React.Component {
   /**
-   *
    * @static - Validating proptypes
    * @memberof Article
    */
@@ -29,7 +30,8 @@ class Article extends React.Component {
     getArticle: PropTypes.func,
     slug: PropTypes.string,
     history: PropTypes.object,
-    bookmarkArticleGenerators: PropTypes.func
+    bookmarkArticleGenerators: PropTypes.func,
+    getArticles: PropTypes.func,
   }
 
   static defaultProps = {
@@ -37,7 +39,8 @@ class Article extends React.Component {
     getArticle: f => f,
     match: {},
     history: {},
-    bookmarkArticleGenerators: f => f
+    bookmarkArticleGenerators: f => f,
+    getArticles: f => f,
   }
 
   /**
@@ -51,19 +54,21 @@ class Article extends React.Component {
       article: {},
       bookmarked: false,
       token: '',
+      recommendations: [],
     };
   }
 
   /**
-   *
-   *
    * @static
    * @param {*} nextProps - The new props received by the component
    * @returns {Object} - The article object to display in the page
    * @memberof Article
    */
   static getDerivedStateFromProps(nextProps) {
-    const { token } = nextProps;
+    let bookmarked;
+    const {
+      token, recommendations, bookmarkedList: bookmarkedArticles, id,
+    } = nextProps;
     const article = { ...nextProps };
     delete article.match;
     delete article.location;
@@ -71,18 +76,28 @@ class Article extends React.Component {
     delete article.getArticle;
     delete article.staticContext;
     delete article.token;
-    return { article, token };
+    bookmarkedArticles.forEach((post) => {
+      if (post.articleId === id) bookmarked = true;
+    });
+    return {
+      article, token, recommendations, bookmarked,
+    };
   }
 
   /**
-   *
    * @todo - Move the fetch article functionality to redux store
    * @memberof Article
    */
-  componentDidMount = () => {
-    const { match, getArticle: fetchArticle, slug: persistedSlug } = this.props;
+  componentDidMount = async () => {
+    const {
+      match,
+      getArticle: fetchArticle,
+      slug: persistedSlug,
+      getArticles: getRecommendations
+    } = this.props;
     const { slug } = match.params;
     if (slug !== persistedSlug) fetchArticle(slug);
+    await getRecommendations(3);
   }
 
   /**
@@ -91,25 +106,27 @@ class Article extends React.Component {
    * @memberof Article
    */
   bookmarkArticle = () => {
-    const { bookmarkArticleGenerators: bookmarkFn } = this.props;
+    const { bookmarkArticleGenerators: bookmarkFn, history } = this.props;
     const { bookmarked, article, token } = this.state;
+    if (!token) history.push('/login');
     const { slug } = article;
     this.setState({ bookmarked: !bookmarked });
     bookmarkFn({ slug, token });
   };
 
   /**
-   *
-   *
    * @returns {JSX} The JSX representation of the Article component
    * @memberof Article
    */
   render() {
     const { history } = this.props;
-    const { article, bookmarked, token } = this.state;
+    const {
+      article, bookmarked, token, recommendations,
+    } = this.state;
     const { title, status } = article;
     return (
       <div>
+        <ScrollToTopOnMount />
         {!title ? <DummyArticleLoader articleStatus={status} history={history} /> : (
           <main className="main-body">
             <section className="min-vh-100">
@@ -131,10 +148,11 @@ class Article extends React.Component {
                 </div>
               </div>
               <div className="single-suggested-grp">
-                <div className="container">
-                  <h4>Recommended for you</h4>
-                  <div className="row pg-empty-placeholder" />
-                </div>
+                <div className="row pg-empty-placeholder" />
+                <SuggestedArticles
+                  articles={recommendations}
+                  showHeader
+                />
               </div>
             </section>
           </main>
@@ -145,6 +163,7 @@ class Article extends React.Component {
 }
 
 const mapStateToProps = createStructuredSelector({
+  id: articleSelector.getArticleId,
   message: articleSelector.getArticleMessage,
   author: articleSelector.getArticleAuthorProfile,
   isLoading: articleSelector.getArticleIsLoading,
@@ -159,7 +178,9 @@ const mapStateToProps = createStructuredSelector({
   updatedAt: articleSelector.getArticleUpdatedTime,
   tagList: articleSelector.getArticleTagList,
   token: getUserToken,
+  recommendations: articleSelector.getRecommendedArticles,
+  bookmarkedList,
 });
-const mapDispatchToProps = { getArticle, bookmarkArticleGenerators };
+const mapDispatchToProps = { getArticle, bookmarkArticleGenerators, getArticles };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Article);

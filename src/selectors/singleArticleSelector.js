@@ -17,6 +17,8 @@ const getArticleImageSelector = state => state.article.image;
 const getArticleReadTimeSelector = state => state.article.readTime;
 const getArticleCreatedAtSelector = state => state.article.createdAt;
 const getArticleUpdatedAtSelector = state => state.article.updatedAt;
+const recommendedArticlesSelector = state => state.articlesReducer.articles;
+const singleArticleIdSelector = state => state.article.id;
 
 
 export const getArticleSlug = createSelector(getArticleSlugSelector, slug => slug);
@@ -39,3 +41,7 @@ export const getArticleImage = createSelector(getArticleImageSelector, image => 
 export const getArticleReadTime = createSelector(getArticleReadTimeSelector, readTime => readTime);
 export const getArticleCreatedTime = createSelector(getArticleCreatedAtSelector, time => time);
 export const getArticleUpdatedTime = createSelector(getArticleUpdatedAtSelector, time => time);
+export const getRecommendedArticles = createSelector(
+  recommendedArticlesSelector, articles => articles
+);
+export const getArticleId = createSelector(singleArticleIdSelector, id => id);

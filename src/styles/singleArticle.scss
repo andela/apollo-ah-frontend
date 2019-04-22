@@ -281,6 +281,21 @@
   height: 100%;
   padding-top: 90px;
 }
+.article__options{
+  .dropdown-toggle::after{
+    display: none;
+  }
+  .dropdown-item i{
+    margin-right: 10px;
+  }
+  #show-options{
+    height: 26px;
+    color: $colorcloud;
+  }
+  .btn:focus{
+    color: $colorvioleteggplant;
+  }
+}
 
 @media only screen and (min-device-width: 500px){
   .article__author{

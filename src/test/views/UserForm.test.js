@@ -1,8 +1,8 @@
+/* eslint-disable react/jsx-no-bind */
 /* eslint-disable react/jsx-filename-extension */
 import React from 'react';
 import { shallow } from 'enzyme';
 import UserForm from '../../views/UserForm';
-import ResetPassword from '../../components/ResetPassword';
 
 // eslint-disable-next-line no-undef
 const mockFn = jest.fn();
@@ -51,11 +51,6 @@ describe('<UserForm />', () => {
   it('should call handleChange on password change', () => {
     const formJsx = shallow(<UserForm resetState={f => f} handleChange={mockFn} />);
     formJsx.find('#password').simulate('change', { target: { name: 'password', value: '12345' } });
-    expect(mockFn).toHaveBeenCalled();
-  });
-  it('should submit form', () => {
-    const formJsx = shallow(<UserForm resetState={f => f} />);
-    formJsx.find('form').simulate('submit', { preventDefault: mockFn });
     expect(mockFn).toHaveBeenCalled();
   });
   it('should submit form and call handleLogin', () => {

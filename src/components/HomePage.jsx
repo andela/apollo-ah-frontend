@@ -25,7 +25,7 @@ export class HomePage extends Component {
 
   async componentDidMount() {
     const { getArticles, getArticlesCategory } = this.props;
-    await Promise.all([getArticles(), getArticlesCategory()]);
+    await Promise.all([getArticles(12), getArticlesCategory()]);
   }
 
   /**
@@ -100,7 +100,8 @@ export class HomePage extends Component {
               Authors={Authors}
               fiveStarAuthors={fiveStarAuthors}
             />
-        )
+            // eslint-disable-next-line indent
+          )
         }
       </div>
     );

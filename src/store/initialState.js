@@ -40,7 +40,8 @@ const initialState = {
   },
   bookmarkedList: {
     bookmarked: [],
-    isLoading: false
+    isLoading: false,
+    message: '',
   },
 };
 
