@@ -17,7 +17,8 @@ const initialState = {
       loading: false,
       message: '',
     }
-  }
+  },
+  article: {},
 };
 
 export default initialState;
