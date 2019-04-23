@@ -1,8 +1,5 @@
-/* eslint-disable react/react-in-jsx-scope */
-/* eslint-disable react/jsx-filename-extension */
 import React from 'react';
 import { shallow } from 'enzyme';
-import toJson from 'enzyme-to-json';
 import { ClapButton } from '../../components/ClapButton';
 
 /**
@@ -12,10 +9,16 @@ import { ClapButton } from '../../components/ClapButton';
  */
 function setup() {
   const props = {
-    article: {},
+    articleSlug: 'some-slug',
+    articleAuthorId: 1,
+    articleClaps: 0,
     clapArticle: jest.fn(),
-    loadUserClaps: jest.fn(),
-    claps: 0,
+    isLoggedIn: true,
+    userId: 1,
+    history: {
+      push: jest.fn(),
+    },
+    token: '',
   };
 
   const enzymeWrapper = shallow(<ClapButton {...props} />);
@@ -25,6 +28,11 @@ function setup() {
 describe('<ClapButton />', () => {
   it('renders without crashing given the required props', () => {
     const { enzymeWrapper } = setup();
-    expect(toJson(enzymeWrapper)).toMatchSnapshot();
+    expect(enzymeWrapper).toMatchSnapshot();
+  });
+  it('should click clap button', () => {
+    const { enzymeWrapper } = setup();
+    const mockFn = jest.fn();
+    expect(enzymeWrapper.find('button').simulate('click', mockFn));
   });
 });

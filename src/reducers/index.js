@@ -8,7 +8,7 @@ import loginReducers from './loginReducers';
 import articlesReducer from './articleReducer';
 import articlesCategoryReducer from './articleCategoryReducer';
 import profileReducer from './profileReducer';
-import clapsReducer from './clapsReducer';
+import singleArticleReducer from './singleArticleReducer';
 
 
 /**
@@ -22,5 +22,5 @@ export default combineReducers({
   user: userReducer,
   articlesReducer,
   articlesCategoryReducer,
-  userClaps: clapsReducer,
+  article: singleArticleReducer,
 });

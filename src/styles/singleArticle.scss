@@ -89,8 +89,14 @@
   button {
     cursor: pointer;
     padding: 6px;
+    transition: transform 250ms cubic-bezier(.73,1.62,.76,1.71);
+
+    &:active {
+      transform: scale(1.4);
+    }
   }
 }
+
 .share-grp {
   float: right;
   position: relative;

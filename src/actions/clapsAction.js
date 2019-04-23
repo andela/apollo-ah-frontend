@@ -1,43 +1,56 @@
 import typeGenerator from './typeGenerator';
 import request from '../utils/request';
 
-export const getUserClapsType = typeGenerator('GET_USER_CLAPS');
+export const clapArticleType = typeGenerator('CLAP_ARTICLE');
 
 /**
- * Triggers a success
+ * Triggers a clap success
  *
- * @param {object} payload - The user claps payload
- * @returns {object} Returns an action object
+ * @param {boolean} payload - The user payload state
+ * @returns {object} - Returns an action object
  */
-export const getUserClapsSuccess = payload => ({
-  type: getUserClapsType.success,
+export const clapArticleSuccess = payload => ({
+  type: clapArticleType.success,
   payload,
 });
 
 /**
- * Triggers a failure
+ * Triggers a clap failure
  *
- * @param {object} payload - The error object
- * @returns {object} Returns an action object
+ * @param {boolean} payload - The user payload state
+ * @returns {object} - Returns an action object
  */
-export const getUserClapsFailure = payload => ({
-  type: getUserClapsType.failure,
+export const clapArticleFailure = payload => ({
+  type: clapArticleType.failure,
   payload,
 });
 
 /**
- * Action handler for fetching auth user's claps
+ * Action handler for clapping article
  *
  * @export
- * @param {string} slug - The article resource slug
+ * @param {object} payload - The request payload
+ * @param {string} payload.slug - The article slug
+ * @param {number} payload.claps - The article claps to add
+ * @param {token} payload.token - The user access token
  * @returns {object} Returns an actions object
  */
-export const fetchUserClaps = slug => async (dispatch) => {
+export const clapArticleRequest = ({ slug, claps, token }) => async (dispatch) => {
   try {
-    const response = await request({ route: `articles/${slug}/claps?include=user` });
-    const { data: { data: claps } } = response;
-    return dispatch(getUserClapsSuccess(claps));
+    const response = await request({
+      route: `articles/${slug}/claps`,
+      method: 'POST',
+      payload: { claps },
+      token
+    });
+    const { data: { data: article } } = response;
+    dispatch(clapArticleSuccess(article));
   } catch (error) {
-    return dispatch(getUserClapsFailure(error));
+    let errorData = ['Please check your network connection'];
+    if (error.response) {
+      const { message, data } = error.response.data;
+      errorData = [message, data];
+    }
+    dispatch(clapArticleFailure(errorData));
   }
 };

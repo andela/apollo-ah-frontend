@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Tags from './ArticleTags';
-import ClapButton from '../components/ClapButton';
+import ClapButtonComponent from '../components/ClapButton';
 
 /**
  *
@@ -48,7 +48,7 @@ function ArticleBody(props) {
       <Tags />
       <div className="pg-empty-placeholder" />
       <div className="clap-grp">
-        <ClapButton />
+        <ClapButtonComponent />
         <div className="share-grp">
           <a href="you" className="text-danger"><i className="fas fa-envelope" /></a>
           <a href="you" className="text-primary"><i className="fab fa-facebook-square" /></a>

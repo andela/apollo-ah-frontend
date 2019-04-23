@@ -1,11 +1,7 @@
 import React from 'react';
+import axios from 'axios';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { createStructuredSelector } from 'reselect';
 import ArticleBody from '../views/ArticleBody';
-import { fetchArticle } from '../actions/articleAction';
-import { getArticle } from '../selectors/articlesSelector';
-
 /*
  * @todo - Import comments component here
  */
@@ -24,8 +20,6 @@ class Article extends React.Component {
    */
   static propTypes = {
     match: PropTypes.object.isRequired,
-    article: PropTypes.object.isRequired,
-    loadArticle: PropTypes.func.isRequired,
   }
 
   /**
@@ -36,6 +30,7 @@ class Article extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      article: {},
       bookmarked: false,
     };
   }
@@ -45,10 +40,11 @@ class Article extends React.Component {
    * @todo - Move the fetch article functionality to redux store
    * @memberof Article
    */
-  componentDidMount = () => {
-    const { match, loadArticle } = this.props;
+  componentDidMount = async () => {
+    const { match } = this.props;
     const { slug } = match.params;
-    loadArticle(slug);
+    const result = await axios.get(`${process.env.API_BASE_URL}/articles/${slug}`);
+    this.setState({ article: result.data.data });
   }
 
   /**
@@ -68,8 +64,7 @@ class Article extends React.Component {
    * @memberof Article
    */
   render() {
-    const { bookmarked } = this.state;
-    const { article } = this.props;
+    const { article, bookmarked } = this.state;
     return (
       <div>
         <main className="main-body">
@@ -86,7 +81,6 @@ class Article extends React.Component {
                   article={article}
                   bookmarkArticle={this.bookmarkArticle}
                   bookmarked={bookmarked}
-                  applaud={this.applaud}
                 />
                 {/* Insert omment component here */}
               </div>
@@ -104,12 +98,4 @@ class Article extends React.Component {
   }
 }
 
-const mapStateToProps = createStructuredSelector({
-  article: getArticle,
-});
-
-const mapDispatchToProps = {
-  loadArticle: slug => fetchArticle(slug),
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Article);
+export default Article;

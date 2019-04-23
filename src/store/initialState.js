@@ -1,7 +1,7 @@
 const initialState = {
   user: {
     token: '',
-    id: 5,
+    id: '',
     isLoggedIn: false,
     profile: {
       username: '',

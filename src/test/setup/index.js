@@ -27,6 +27,11 @@ export const mockState = {
       message: '',
     }
   },
+  article: {
+    slug: 'article-slug',
+    claps: 10,
+    authorId: 1,
+  },
 };
 
 export const createMockStore = () => {
