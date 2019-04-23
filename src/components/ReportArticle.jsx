@@ -1,6 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
+import { withRouter } from 'react-router-dom';
+import propTypes from 'prop-types';
+import { reportArticle } from '../actions/reportArticleAction';
 
 class ReportArticle extends React.Component {
   /**
@@ -27,15 +30,22 @@ class ReportArticle extends React.Component {
   handleChange = e => this.setState({ [e.target.name]: e.target.value.trim() });
 
   handleSubmit = () => {
-    const { type } = this.state;
-    console.log(type);
+    const { type, comment } = this.state;
+    const { reportArticle } = this.props;
+    const articleId = 'skjjdks';
     if (type === '') {
       console.log('bad');
     }
+    const reportData = {
+      type,
+      comment,
+      articleId
+    };
+    reportArticle(reportData);
   }
 
   render() {
-    console.log(this.state);
+    console.log(this.prop);
     return (
       <section>
         <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#myModal">Open modal</button>
@@ -75,7 +85,10 @@ class ReportArticle extends React.Component {
   }
 }
 
+ReportArticle.propTypes = {
+  reportArticle: propTypes.func.isRequired,
+};
 const mapStateToProps = createStructuredSelector({
 });
 
-export default connect(mapStateToProps)(ReportArticle);
+export default connect(() => mapStateToProps, { reportArticle })(withRouter(ReportArticle));

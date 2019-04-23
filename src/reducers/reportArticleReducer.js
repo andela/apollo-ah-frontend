@@ -7,8 +7,16 @@ import initialState from '../store/initialState';
  * @param {Function} action - Action to dispatch
  * @returns {object}
  */
-const reportArticleReducer = (state= initialState, action= {}) => {
+const reportArticleReducer = (state = initialState, action = {}) => {
   console.log(action);
+  switch (action.type) {
+    case reportArticleType.loading:
+      return { loading: action.data.loading };
+    case reportArticleType.success:
+      return { loading: false, success: true };
+    default:
+      return state;
+  }
 };
 
 export default reportArticleReducer;

@@ -14,8 +14,13 @@ export const reportArticle = reportData => async (dispatch) => {
       type: reportArticleType.loading,
       data: { loading: true }
     });
+    const config = {
+      headers: {
+        token: reportData.userToken,
+      }
+    };
     const result = await axios.post(`${process.env.API_BASE_URL}/articles/${reportData.articleId}/report`,
-      reportData);
+      reportData, config);
     console.log(result);
   } catch (error) {
     // let errorMessage = 'Please check your network connection';

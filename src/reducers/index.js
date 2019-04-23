@@ -8,7 +8,7 @@ import loginReducers from './loginReducers';
 import articlesReducer from './articleReducer';
 import articlesCategoryReducer from './articleCategoryReducer';
 import profileReducer from './profileReducer';
-
+import reportArticleReducer from './reportArticleReducer';
 
 /**
  * @function combineReducers - the redux store combineReducers function
@@ -21,4 +21,5 @@ export default combineReducers({
   user: userReducer,
   articlesReducer,
   articlesCategoryReducer,
+  reportArticleReducer
 });
