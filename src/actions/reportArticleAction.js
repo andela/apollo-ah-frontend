@@ -12,7 +12,7 @@ export const reportArticle = reportData => async (dispatch) => {
   try {
     dispatch({
       type: reportArticleType.loading,
-      payload: { loading: true }
+      data: { loading: true }
     });
     const result = await axios.post(`${process.env.API_BASE_URL}/articles/${reportData.articleId}/report`,
       reportData);
