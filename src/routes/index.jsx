@@ -8,6 +8,7 @@ import Navbar from '../components/NavbarContainer';
 import ConnectedLogin from '../components/Login';
 import Article from '../components/Article';
 import NotFound from '../views/NotFound';
+import ReportArticle from '../components/ReportArticle';
 
 /**
  * @function Routes - A JSX wrapper for all the app's routes
@@ -24,7 +25,8 @@ function Routes() {
           <Route path="/login" component={ConnectedLogin} exact />
           <Route path="/user" component={ProtectedRoutes} />
           <Route path="/" component={ConnectedHomePage} exact />
-          <Route path="/article/:slug" component={Article} />
+          <Route path="/article/:slug" component={Article} exact />
+          <Route path="/article/:slug/report" component={ReportArticle} />
           <Route path="*" component={NotFound} />
         </Switch>
         <Footer />
