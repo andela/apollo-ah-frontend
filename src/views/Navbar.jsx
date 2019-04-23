@@ -94,7 +94,7 @@ const Navbar = ({ isLoggedIn, profile }) => (
             </Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/user/bookmark">
+            <Link className="nav-link" to="/user/bookmarks">
               Bookmarks
             </Link>
           </li>
