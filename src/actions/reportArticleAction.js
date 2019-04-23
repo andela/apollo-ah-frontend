@@ -6,29 +6,23 @@ export const reportArticleType = typeGenerator('REPORT_ARTICLE');
 
 
 /**
- * @function userLogin - This is an action generator which dispatches an action
- * @param {*} payload - The dispatch payload. receives user email and password
- * @param {*} dispatch - the redux store dispatch function
+ * This functions connects to the api and updates the store
 */
-export const reportArticle = (reportData) => {
-async (dispatch) => {
+export const reportArticle = reportData => async (dispatch) => {
   try {
     dispatch({
       type: reportArticleType.loading,
       payload: { loading: true }
     });
-    const result = await axios.post(`${process.env.API_BASE_URL}/users/login`, reportData);
-    const { token } = await result.data;
-    const profile = decodeToken(token);
-    return dispatch(loginProcess(loginType.success, { token, profile }));
+    const result = await axios.post(`${process.env.API_BASE_URL}/articles/${reportData.articleId}/report`,
+      reportData);
+    console.log(result);
   } catch (error) {
-    let errorMessage = 'Please check your network connection';
-    if (error.response) {
-      const { message } = error.response.data;
-      errorMessage = message;
-    }
-    return dispatch(loginProcess(loginType.failure, errorMessage));
+    // let errorMessage = 'Please check your network connection';
+    // if (error.response) {
+    //   const { message } = error.response.data;
+    //   errorMessage = message;
+    // }
+    // return dispatch(loginProcess(loginType.failure, errorMessage));
   }
-}
 };
-
