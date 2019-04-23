@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import * as selectors from '../selectors/createArticleSelector';
 import createArticleAction from '../actions/createArticles';
+import resetMessageAction from '../actions/clearMessage';
 import CreateArticle from '../views/CreateArticle';
 import CloudinaryWidget from './common/CloudinaryWidget';
-
 
 /**
  * Form for creating a new article
@@ -15,7 +15,7 @@ import CloudinaryWidget from './common/CloudinaryWidget';
 function CreateArticleContainer(props) {
   /** passing global state loading as props into variables */
   const {
-    message, isLoading, token,
+    message, isLoading, token
   } = props;
 
   const [formData, setFormData] = useState({
@@ -27,18 +27,18 @@ function CreateArticleContainer(props) {
     image: '',
   });
 
-  const [responseMessage, setResponseMessage] = useState(false);
+  useEffect(() => {
+    props.resetMessageAction();
+  }, []);
 
   let widget;
 
   /** handling changes to form input */
-
   function updateInputHandler(event) {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   }
 
   /** handling changes to the article editor input */
-
   function updateBodyHandler(value) {
     setFormData({ ...formData, body: value });
   }
@@ -60,7 +60,6 @@ function CreateArticleContainer(props) {
       token,
     };
     await props.createArticleAction(props, requestData);
-    setResponseMessage({ ...responseMessage, message });
   }
 
   /** updating state with the cloudinary url */
@@ -87,7 +86,7 @@ function CreateArticleContainer(props) {
       submitHandler={submitHandler}
       valueText={formData.body}
       isLoading={isLoading}
-      responseMessage={responseMessage.message}
+      responseMessage={message}
     />
   );
 }
@@ -99,5 +98,10 @@ const mapStateToProps = createStructuredSelector(
     token: selectors.getUserToken,
   }
 );
-
-export default connect(mapStateToProps, { createArticleAction })(CreateArticleContainer);
+export default connect(
+  mapStateToProps,
+  {
+    createArticleAction,
+    resetMessageAction
+  }
+)(CreateArticleContainer);

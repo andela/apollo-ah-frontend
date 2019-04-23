@@ -1,4 +1,5 @@
 import { createArticleType } from '../actions/createArticles';
+import { resetArticleMessage } from '../actions/clearMessage';
 
 const initialState = {
   loading: false,
@@ -25,6 +26,10 @@ export default function createArticleReducer(state = initialState, action = {}) 
     case createArticleType.failure:
       return {
         ...state, loading: false, message,
+      };
+    case resetArticleMessage:
+      return {
+        ...state, loading: false, message: '',
       };
     default:
       return state;

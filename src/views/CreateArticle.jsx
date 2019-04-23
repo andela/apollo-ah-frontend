@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactQuill from 'react-quill';
 import TagsInput from './TagsInput';
-
 /**
  * Create Article view component
  * @param {object} props Component props

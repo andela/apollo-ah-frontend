@@ -1,9 +1,8 @@
-import axios from 'axios';
+// import axios from 'axios';
+import request from '../utils/request';
 import actionTypeGenerator from './typeGenerator';
 
 export const createArticleType = actionTypeGenerator('CREATE_ARTICLE');
-
-const apiUrl = process.env.API_BASE_URL;
 
 /**
  * Action generator that is dispatched when user starts operation
@@ -43,19 +42,17 @@ export const createArticleFailure = message => ({
 
 const createArticle = (props, requestData) => async (dispatch) => {
   dispatch(createArticleLoading());
-  try {
-    const { data } = await axios.post(
-      `${apiUrl}/articles`,
-      requestData.formData,
-      {
-        headers: { Authorization: `Bearer ${requestData.token}` }
-      }
-    );
-    props.history.push(`/article/${data.data.slug}`);
-    dispatch(createArticleSuccess(data.message));
-  } catch (error) {
+  return request({
+    route: 'articles',
+    method: 'post',
+    payload: requestData.formData,
+    token: requestData.token
+  }).then((response) => {
+    dispatch(createArticleSuccess(response.message));
+    props.history.push(`/article/${response.data.data.slug}`);
+  }).catch((error) => {
     dispatch(createArticleFailure(error.response.data.message));
-  }
+  });
 };
 
 export default createArticle;

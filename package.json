@@ -126,6 +126,7 @@
     "react-scripts": "^2.1.8",
     "react-spinners": "^0.5.4",
     "react-tag-input": "^6.4.0",
+    "react-testing-library": "^6.1.2",
     "react-toastify": "^5.0.1",
     "reduce-reducers": "^1.0.1",
     "redux": "^4.0.1",

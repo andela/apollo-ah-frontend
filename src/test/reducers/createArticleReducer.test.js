@@ -4,8 +4,6 @@ import { mockState } from '../setup/index';
 
 const { createArticle } = mockState;
 
-console.log(createArticle)
-
 describe('Reset password reducer: ', () => {
   it('should have the correct default state', () => {
     expect(createArticleReducer(undefined, {
