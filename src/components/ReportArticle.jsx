@@ -1,15 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { createStructuredSelector } from 'reselect';
 import { withRouter } from 'react-router-dom';
 import propTypes from 'prop-types';
 import { reportArticle } from '../actions/reportArticleAction';
 
 class ReportArticle extends React.Component {
   /**
-   * Creates an instance of Login.
+   * Creates an instance of ReportArticle class.
    * @param {*} {props} - various props supplied to the component
-   * @memberof Login
+   * @memberof ReportArticle
    */
   constructor(props) {
     super(props);
@@ -31,7 +30,7 @@ class ReportArticle extends React.Component {
 
   handleSubmit = () => {
     const { type, comment } = this.state;
-    const { reportArticle } = this.props;
+    const { reportArticle, token, { match: { params: { slug: {} } } }  = this.props;
     const articleId = 'skjjdks';
     if (type === '') {
       console.log('bad');
@@ -39,13 +38,14 @@ class ReportArticle extends React.Component {
     const reportData = {
       type,
       comment,
-      articleId
+      articleId,
+      userToken: token,
     };
     reportArticle(reportData);
   }
 
   render() {
-    console.log(this.prop);
+    console.log(this.props);
     return (
       <section>
         <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#myModal">Open modal</button>
@@ -88,7 +88,8 @@ class ReportArticle extends React.Component {
 ReportArticle.propTypes = {
   reportArticle: propTypes.func.isRequired,
 };
-const mapStateToProps = createStructuredSelector({
+const mapStateToProps = state => ({
+  token: state.user.token
 });
 
 export default connect(() => mapStateToProps, { reportArticle })(withRouter(ReportArticle));

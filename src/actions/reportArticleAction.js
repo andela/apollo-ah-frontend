@@ -16,7 +16,7 @@ export const reportArticle = reportData => async (dispatch) => {
     });
     const config = {
       headers: {
-        token: reportData.userToken,
+        Authorization: `Bearer ${reportData.userToken}`,
       }
     };
     const result = await axios.post(`${process.env.API_BASE_URL}/articles/${reportData.articleId}/report`,
