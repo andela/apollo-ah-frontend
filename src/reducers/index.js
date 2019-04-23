@@ -8,6 +8,7 @@ import loginReducers from './loginReducers';
 import articlesReducer from './articleReducer';
 import articlesCategoryReducer from './articleCategoryReducer';
 import profileReducer from './profileReducer';
+import getBookmarkReducer from './getBookmarkReducer';
 
 
 /**
@@ -19,6 +20,7 @@ const userReducer = reduceReducers(loginReducers, resetPasswordReducer, profileR
 
 export default combineReducers({
   user: userReducer,
+  bookmark: getBookmarkReducer,
   articlesReducer,
   articlesCategoryReducer,
 });

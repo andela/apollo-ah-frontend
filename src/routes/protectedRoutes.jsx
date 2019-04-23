@@ -8,6 +8,7 @@ import Wrapper from '../views/common/Wrapper';
 import EditProfileContainer from '../components/EditProfileContainer';
 import SettingsContainer from '../components/SettingsContainer';
 import DashboardContainer from '../components/DashboardContainer';
+import BookmarkContainer from '../components/BookmarkContainer';
 import { getIsLoggedIn } from '../selectors/navbarSelector';
 
 
@@ -26,6 +27,7 @@ class ProtectedContainer extends Component {
     return (
       <Wrapper>
         <Switch>
+          <Route path="/user/bookmarks" component={BookmarkContainer} />
           <Route path="/user/profile" component={EditProfileContainer} />
           <Route path="/user/dashboard" component={DashboardContainer} />
           <Route path="/user/settings" component={SettingsContainer} />
