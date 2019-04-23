@@ -65,7 +65,6 @@ class Article extends React.Component {
    * @memberof Article
    */
   static getDerivedStateFromProps(nextProps) {
-    let bookmarked;
     const {
       token, recommendations, bookmarkedList: bookmarkedArticles, id,
     } = nextProps;
@@ -76,16 +75,16 @@ class Article extends React.Component {
     delete article.getArticle;
     delete article.staticContext;
     delete article.token;
-    bookmarkedArticles.forEach((post) => {
-      if (post.articleId === id) bookmarked = true;
-    });
+    const alreadyBookmarked = bookmarkedArticles.findIndex(post => post.articleId === id);
+    const bookmarked = alreadyBookmarked !== -1;
     return {
       article, token, recommendations, bookmarked,
     };
   }
 
   /**
-   * @todo - Move the fetch article functionality to redux store
+   *
+   * @method componentDidMount - A method called when the component mounts
    * @memberof Article
    */
   componentDidMount = async () => {

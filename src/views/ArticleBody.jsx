@@ -166,9 +166,13 @@ function ArticleBody(props) {
 
 ArticleBody.propTypes = {
   bookmarkArticle: PropTypes.func.isRequired,
-  bookmarked: PropTypes.bool.isRequired,
+  bookmarked: PropTypes.bool,
   article: PropTypes.object.isRequired,
   token: PropTypes.string.isRequired,
+};
+
+ArticleBody.defaultProps = {
+  bookmarked: false,
 };
 
 export default ArticleBody;
