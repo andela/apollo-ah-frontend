@@ -1,5 +1,322 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<EditProfile> should render with errorData 1`] = `ShallowWrapper {}`;
+exports[`<EditProfile> should render with empty errorData 1`] = `
+<Fragment>
+  <div
+    className="card mb-5 mt-4"
+  >
+    <form
+      className="form p-sm-4 p-3 "
+      noValidate={true}
+      onSubmit={[MockFunction]}
+    >
+      <div
+        className="form-group mb-4"
+      >
+        <label
+          className="font-weight-bold"
+          htmlFor="fname"
+        >
+          First Name
+        </label>
+        <input
+          className="form-control text-capitalize"
+          id="fname"
+          name="firstname"
+          type="text"
+        />
+      </div>
+      <div
+        className="form-group mb-4"
+      >
+        <label
+          className="font-weight-bold"
+          htmlFor="lname"
+        >
+          Last Name
+        </label>
+        <input
+          className="form-control text-capitalize"
+          id="lname"
+          name="lastname"
+          type="text"
+        />
+      </div>
+      <div
+        className="form-group mb-4"
+      >
+        <label
+          className="font-weight-bold"
+          htmlFor="fname"
+        >
+          Username
+        </label>
+        <input
+          className="form-control"
+          defaultValue=""
+          id="username"
+          name="username"
+          required={true}
+          type="text"
+        />
+        <span
+          className="text-danger"
+        >
+          Username is required.
+        </span>
+      </div>
+      <div
+        className="form-group mb-4"
+      >
+        <label
+          className="font-weight-bold"
+          htmlFor="bio"
+        >
+          Bio
+        </label>
+        <textarea
+          className="form-control"
+          id="bio"
+          name="bio"
+        />
+      </div>
+      <button
+        className="btn btn-brand btn-plain"
+        disabled={true}
+        type="submit"
+      >
+        Update profile
+         
+        <span
+          className="spinner-border text-light spinner-border-sm"
+        />
+      </button>
+      <input
+        className="hidden"
+        defaultValue="encoded"
+        name="token"
+        type="hidden"
+      />
+      <input
+        className="hidden"
+        defaultValue=""
+        name="image"
+        type="hidden"
+      />
+    </form>
+  </div>
+</Fragment>
+`;
 
-exports[`<EditProfile> should render withour crashing 1`] = `ShallowWrapper {}`;
+exports[`<EditProfile> should render with errorData 1`] = `
+<Fragment>
+  <div
+    className="card mb-5 mt-4"
+  >
+    <form
+      className="form p-sm-4 p-3 error"
+      noValidate={true}
+      onSubmit={[MockFunction]}
+    >
+      <div
+        className="form-group mb-4"
+      >
+        <label
+          className="font-weight-bold"
+          htmlFor="fname"
+        >
+          First Name
+        </label>
+        <input
+          className="form-control text-capitalize"
+          id="fname"
+          name="firstname"
+          type="text"
+        />
+      </div>
+      <div
+        className="form-group mb-4"
+      >
+        <label
+          className="font-weight-bold"
+          htmlFor="lname"
+        >
+          Last Name
+        </label>
+        <input
+          className="form-control text-capitalize"
+          id="lname"
+          name="lastname"
+          type="text"
+        />
+      </div>
+      <div
+        className="form-group mb-4"
+      >
+        <label
+          className="font-weight-bold"
+          htmlFor="fname"
+        >
+          Username
+        </label>
+        <input
+          className="form-control"
+          defaultValue=""
+          id="username"
+          name="username"
+          required={true}
+          type="text"
+        />
+        <span
+          className="text-danger"
+        >
+          Username is required.
+        </span>
+      </div>
+      <div
+        className="form-group mb-4"
+      >
+        <label
+          className="font-weight-bold"
+          htmlFor="bio"
+        >
+          Bio
+        </label>
+        <textarea
+          className="form-control"
+          id="bio"
+          name="bio"
+        />
+      </div>
+      <button
+        className="btn btn-brand btn-plain"
+        disabled={true}
+        type="submit"
+      >
+        Update profile
+         
+        <span
+          className="spinner-border text-light spinner-border-sm"
+        />
+      </button>
+      <input
+        className="hidden"
+        defaultValue="encoded"
+        name="token"
+        type="hidden"
+      />
+      <input
+        className="hidden"
+        defaultValue=""
+        name="image"
+        type="hidden"
+      />
+    </form>
+  </div>
+</Fragment>
+`;
+
+exports[`<EditProfile> should render withour crashing 1`] = `
+<Fragment>
+  <div
+    className="card mb-5 mt-4"
+  >
+    <form
+      className="form p-sm-4 p-3 "
+      noValidate={true}
+      onSubmit={[MockFunction]}
+    >
+      <div
+        className="form-group mb-4"
+      >
+        <label
+          className="font-weight-bold"
+          htmlFor="fname"
+        >
+          First Name
+        </label>
+        <input
+          className="form-control text-capitalize"
+          id="fname"
+          name="firstname"
+          type="text"
+        />
+      </div>
+      <div
+        className="form-group mb-4"
+      >
+        <label
+          className="font-weight-bold"
+          htmlFor="lname"
+        >
+          Last Name
+        </label>
+        <input
+          className="form-control text-capitalize"
+          id="lname"
+          name="lastname"
+          type="text"
+        />
+      </div>
+      <div
+        className="form-group mb-4"
+      >
+        <label
+          className="font-weight-bold"
+          htmlFor="fname"
+        >
+          Username
+        </label>
+        <input
+          className="form-control"
+          defaultValue=""
+          id="username"
+          name="username"
+          required={true}
+          type="text"
+        />
+        <span
+          className="text-danger"
+        >
+          Username is required.
+        </span>
+      </div>
+      <div
+        className="form-group mb-4"
+      >
+        <label
+          className="font-weight-bold"
+          htmlFor="bio"
+        >
+          Bio
+        </label>
+        <textarea
+          className="form-control"
+          id="bio"
+          name="bio"
+        />
+      </div>
+      <button
+        className="btn btn-brand btn-plain"
+        disabled={false}
+        type="submit"
+      >
+        Update profile
+         
+      </button>
+      <input
+        className="hidden"
+        defaultValue="encoded"
+        name="token"
+        type="hidden"
+      />
+      <input
+        className="hidden"
+        defaultValue=""
+        name="image"
+        type="hidden"
+      />
+    </form>
+  </div>
+</Fragment>
+`;

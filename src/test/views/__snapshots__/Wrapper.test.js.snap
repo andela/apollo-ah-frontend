@@ -1,3 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Wrapper> should render without crashing 1`] = `ShallowWrapper {}`;
+exports[`<Wrapper> should render without crashing 1`] = `
+<main
+  className="main-body"
+>
+  <section
+    className="wrapper min-vh-100"
+  >
+    <div
+      className="container"
+    >
+      <p>
+        Hello
+      </p>
+    </div>
+  </section>
+</main>
+`;
