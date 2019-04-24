@@ -1,11 +1,8 @@
-/* eslint-disable react/jsx-filename-extension */
 import React from 'react';
-import { configure, shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import { shallow } from 'enzyme';
 import ArticleBody from '../../views/ArticleBody';
 import mockArticle from '../__mocks__/mockSingleArticleData';
 
-configure({ adapter: new Adapter() });
 // eslint-disable-next-line no-undef
 const mockFn = jest.fn();
 jest.useFakeTimers();
@@ -19,6 +16,7 @@ describe('<ArticleBody />', () => {
         bookmarkArticle={mockFn}
         token="4566"
         bookmarked={false}
+        isLoggedin
       />
     );
     expect(wrapper).toMatchSnapshot();
@@ -31,6 +29,7 @@ describe('<ArticleBody />', () => {
         bookmarkArticle={mockFn}
         token="4566"
         bookmarked={false}
+        isLoggedin
       />
     );
     wrapper.find('.bookmark-btn').first().simulate('click', { bookmarkArticle: f => f });
@@ -45,6 +44,7 @@ describe('<ArticleBody />', () => {
         bookmarkArticle={mockFn}
         bookmarked
         token="4566"
+        isLoggedin
       />
     );
     expect(wrapper.findWhere(span => span.hasClass('bookmarked')).exists()).toBe(true);

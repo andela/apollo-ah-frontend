@@ -1,6 +1,3 @@
-//@extend-elements
-//original selectors
-//.page-item.active .page-link, .page-link.active
 %extend_1 {
   background-color: $colorpurple;
   color: $white;
@@ -60,14 +57,11 @@
     margin-top: 10px;
   }
 }
-// .single-sub {
-// }
 .single-tags {
   margin-top: 40px;
   margin-bottom: 20px;
   width: 100%;
   .badge {
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
     border-radius: 23px;
     font-size: 15px;
     display: inline-block;
@@ -110,36 +104,17 @@
     padding: 0 5px 1px 6px;
     font-size: 18px;
     position: relative;
-    // top: 7px;
     text-decoration: none;
     color: $colorcloud;
   }
-  // .socials-icon{
-  //   color: white;
-  //   height: 30px;
-  //   width: 30px;
-  //   border-radius: 100%;
-  //   display: flex;
-  //   align-items: center;
-  //   justify-content: center;
-  // }
   .socials-fb{
     background-color: #3b5998;
   }
   .socials-twitter{
     background-color: #38A1F3;
   }
-  // .hidden-socials{
-  //   position: absolute;
-  //   opacity: 0;
-  //   top: 0;
-  //   left: 0;
-  //   height: 100%;
-  //   width: 100%;
-  //   z-index: 3000;
-  // }
 }
-.share__group__child{
+.share-group-child{
   position: relative;
   .btn-link{
     height: 26px;
@@ -154,9 +129,7 @@
   }
   button {
     color: $colorpurple;
-    //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
     box-shadow: 0 0 3px $black20;
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
     border-radius: 50px;
     padding: 5px 20px;
   }
@@ -219,9 +192,15 @@
     margin-bottom: 50px;
   }
 }
+.main-article{
+  margin-top: 70px;
+}
+.main-article-no-image{
+  margin-top: 90px;
+}
 @media(min-width:450px) {
   .single-hero {
-    height: 400px;
+    height: 450px;
   }
 }
 .page-item.active {
@@ -298,11 +277,17 @@
 }
 
 @media only screen and (min-device-width: 500px){
+  .main-article-no-image{
+    margin-top: 100px;
+  }
   .article__author{
     justify-content: space-between;
     .bookmark__div{
       margin-left: unset;
     }
+  }
+  .bookmark__div .fa-bookmark{
+    font-size: 20px;
   }
   .clap-grp{
     flex-direction: row;
@@ -311,5 +296,16 @@
   }
   .share-grp{
     width: 55%;
+  }
+}
+@media only screen and (min-device-width: 900px){
+  .main-article{
+    margin-top: 85px;
+  }
+  .main-article-no-image{
+    margin-top: 120px;
+  }
+  .bookmark__div .fa-bookmark{
+    font-size: 25px;
   }
 }

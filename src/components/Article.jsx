@@ -7,7 +7,7 @@ import getArticle from '../actions/singleArticleActions';
 import { bookmarkArticleGenerators } from '../actions/bookmarkActions';
 import * as articleSelector from '../selectors/singleArticleSelector';
 import bookmarkedList from '../selectors/bookmarkSelector';
-import { getUserToken } from '../selectors/loginSelector';
+import { getLoginStatus } from '../selectors/loginSelector';
 import DummyArticleLoader from '../views/DummyArticleLoader';
 import SuggestedArticles from '../views/Articles';
 import { getArticles } from '../actions';
@@ -53,7 +53,7 @@ class Article extends React.Component {
     this.state = {
       article: {},
       bookmarked: false,
-      token: '',
+      isLoggedin: false,
       recommendations: [],
     };
   }
@@ -74,7 +74,7 @@ class Article extends React.Component {
     delete article.history;
     delete article.getArticle;
     delete article.staticContext;
-    delete article.token;
+    delete article.isLoggedin;
     const alreadyBookmarked = bookmarkedArticles.findIndex(post => post.articleId === id);
     const bookmarked = alreadyBookmarked !== -1;
     return {
@@ -106,11 +106,11 @@ class Article extends React.Component {
    */
   bookmarkArticle = () => {
     const { bookmarkArticleGenerators: bookmarkFn, history } = this.props;
-    const { bookmarked, article, token } = this.state;
-    if (!token) history.push('/login');
+    const { bookmarked, article, isLoggedin } = this.state;
+    if (!isLoggedin) history.push('/login');
     const { slug } = article;
     this.setState({ bookmarked: !bookmarked });
-    bookmarkFn({ slug, token });
+    bookmarkFn({ slug });
   };
 
   /**
@@ -120,14 +120,14 @@ class Article extends React.Component {
   render() {
     const { history } = this.props;
     const {
-      article, bookmarked, token, recommendations,
+      article, bookmarked, isLoggedin, recommendations,
     } = this.state;
     const { title, status } = article;
     return (
       <div>
         <ScrollToTopOnMount />
         {!title ? <DummyArticleLoader articleStatus={status} history={history} /> : (
-          <main className="main-body">
+          <main className={(article.image) ? 'main-article' : 'main-article-no-image'}>
             <section className="min-vh-100">
               {article.image && (
                 <div
@@ -141,9 +141,9 @@ class Article extends React.Component {
                     article={article}
                     bookmarkArticle={this.bookmarkArticle}
                     bookmarked={bookmarked}
-                    token={token}
+                    isLoggedin={isLoggedin}
                   />
-                  {/* Insert omment component here */}
+                  {/* Insert comment component here */}
                 </div>
               </div>
               <div className="single-suggested-grp">
@@ -176,7 +176,7 @@ const mapStateToProps = createStructuredSelector({
   createdAt: articleSelector.getArticleCreatedTime,
   updatedAt: articleSelector.getArticleUpdatedTime,
   tagList: articleSelector.getArticleTagList,
-  token: getUserToken,
+  isLoggedin: getLoginStatus,
   recommendations: articleSelector.getRecommendedArticles,
   bookmarkedList,
 });

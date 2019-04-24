@@ -7,18 +7,18 @@ export const bookmarkLoading = (type, status) => ({ type, status });
 export const bookmarkArticleProcess = (type, data, message) => ({ type, data, message });
 
 /**
- * @function bookmarkArticleGenerators - The action generator that dispatches the action
+ * @function bookmarkArticleGenerators - The action creator that dispatches
+ * the bookmarkArticleProcess action generators
  * @param {*} token - The user's token
  * @param {*} slug - The article's slug
  * @param {*} dispatch - The redux dispatch action
  * @returns
  */
-export const bookmarkArticleGenerators = ({ slug, token }) => async (dispatch) => {
+export const bookmarkArticleGenerators = ({ slug }) => async (dispatch) => {
   dispatch(bookmarkLoading(bookmarkArticleType.loading, true));
   return request({
     method: 'post',
     payload: null,
-    token,
     route: `articles/${slug}/bookmarks`
   }).then((response) => {
     const feedback = response.data;

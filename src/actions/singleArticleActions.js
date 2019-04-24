@@ -9,7 +9,7 @@ const loading = (type, status) => ({ type, status });
 const getArticleProcess = (type, data, message) => ({ type, data, message });
 
 /**
- * @function getArticle - This is an action generator which dispatches the getArticle action
+ * @function getArticle - This is an action creator which dispatches the getArticleProcess actions
  * @param {*} payload - The dispatch payload. receives article slug
  * @param {*} dispatch - the redux store dispatch function
  * @returns

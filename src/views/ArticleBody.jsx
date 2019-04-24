@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import parser from 'html-react-parser';
 import Tags from './ArticleTags';
 import clapImage from '../images/clap.svg';
 import time from '../utils/time';
@@ -12,10 +13,10 @@ import debounceFn from '../utils/debounce';
 function ArticleBody(props) {
   const currentUrl = window.location.href;
   const {
-    bookmarkArticle, bookmarked, article, token,
+    bookmarkArticle, bookmarked, article, isLoggedin,
   } = props;
   const { Profile: profile } = article.author;
-  const returnMarkup = () => ({ __html: article.body });
+  article.body = encodeURIComponent(article.body);
   return (
     <div>
       <h1 className="signle-title">{article.title}</h1>
@@ -49,8 +50,8 @@ function ArticleBody(props) {
           </div>
         </div>
       </div>
-      <div className="single-body" dangerouslySetInnerHTML={returnMarkup()}>
-        {/* {article.body} */}
+      <div className="single-body">
+        {parser(decodeURIComponent(article.body))}
       </div>
       <Tags />
       <div className="pg-empty-placeholder" />
@@ -60,7 +61,7 @@ function ArticleBody(props) {
           40k claps
         </span>
         <div className="share-grp">
-          <div className="share__group__child">
+          <div className="share-group-child">
             <a
               href={`mailto:?subject=Check out this article on Authors Haven&body=${currentUrl}`}
               title="Share via mail"
@@ -71,32 +72,29 @@ function ArticleBody(props) {
               <i className="fas fa-envelope" />
             </a>
           </div>
-          <div className="share__group__child">
-            <div
-              className="fb-share-button"
-              data-href={decodeURI(currentUrl)}
-              data-layout="button"
-              data-size="small"
-            >
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                data-href={`https://www.facebook.com/sharer?u=${decodeURI(currentUrl)}`}
-                className="fb-xfbml-parse-ignore">
-                Share
-              </a>
-            </div>
-          </div>
-          <div className="share__group__child">
+          <div className="share-group-child">
             <a
-              href="https://twitter.com/share?ref_src=twsrc%5Etfw"
-              className="twitter-share-button"
-              data-show-count="false"
+              href={`https://www.facebook.com/sharer?u=${decodeURI(currentUrl)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="fb-xfbml-parse-ignore"
+              style={{ color: '#3b5998' }}
             >
-              Tweet
+              <i className="fab fa-facebook-square" />
             </a>
           </div>
-          <div className="share__group__child">
+          <div className="share-group-child">
+            <a
+              href={`https://twitter.com/intent/tweet?text=${currentUrl}`}
+              data-show-count="false"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: '#38A1F3' }}
+            >
+              <i className="fab fa-twitter-square" />
+            </a>
+          </div>
+          <div className="share-group-child">
             <button
               onClick={debounceFn(bookmarkArticle, 500)}
               type="button"
@@ -105,7 +103,7 @@ function ArticleBody(props) {
               <span className={`fas fa-bookmark transition ${(bookmarked) ? 'bookmarked' : ''}`} />
             </button>
           </div>
-          <div className="share__group__child">
+          <div className="share-group-child">
             <div className="dropdown article__options">
               <button
                 className="btn dropdown-toggle"
@@ -122,7 +120,7 @@ function ArticleBody(props) {
                 aria-labelledby="show-options"
               >
                 <div className="dropdown-item">
-                  {token && (
+                  {isLoggedin && (
                     <div>
                       <button
                         className="btn"
@@ -168,7 +166,7 @@ ArticleBody.propTypes = {
   bookmarkArticle: PropTypes.func.isRequired,
   bookmarked: PropTypes.bool,
   article: PropTypes.object.isRequired,
-  token: PropTypes.string.isRequired,
+  isLoggedin: PropTypes.bool.isRequired,
 };
 
 ArticleBody.defaultProps = {

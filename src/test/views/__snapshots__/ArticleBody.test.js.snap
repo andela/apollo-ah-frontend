@@ -40,7 +40,7 @@ exports[`<ArticleBody /> should take a snapshot of the component 1`] = `
             Anonymous Lekan
           </h6>
           <span>
-            6 days ago
+            7 days ago
           </span>
           <span
             className="article-author-dot"
@@ -68,9 +68,8 @@ exports[`<ArticleBody /> should take a snapshot of the component 1`] = `
   </div>
   <div
     className="single-body"
-    dangerouslySetInnerHTML={
-      Object {
-        "__html": "Instead of mounting the company’s signature indoor cycling bike, I prop my iPhone on the family media console, tap into the Peloton app, and start streaming a 30-minute Pop Yoga Flow class.
+  >
+    Instead of mounting the company’s signature indoor cycling bike, I prop my iPhone on the family media console, tap into the Peloton app, and start streaming a 30-minute Pop Yoga Flow class.
 
 It’s a bit like a silent disco: Ariana Grande’s breakup bop “Thank U, Next” pours into my AirPods while Anna Greenberg, a cheerful instructor wearing red lipstick, her blonde hair in a topknot, leads me onto my knees and into spine-curving cat and cow poses. Following Greenberg, I balance on one knee, swivel to the side, and stretch my right arm overhead, just as Grande’s chorus — “I’m so fuckin’ grateful for my ex” — drops.
 
@@ -85,10 +84,8 @@ Peloton emerged at a time when everything is available on demand. We can get a 1
 
 After the success of Peloton’s stationary bike — it has sold hundreds of thousands, though the company won’t provide specifics — Peloton is aggressively expanding to become a full-body, full-service fitness and technology company, and it’s forcing the rest of the industry to follow suit or fall behind.
 
-“I think this is the wave of the future,” McGee says.",
-      }
-    }
-  />
+“I think this is the wave of the future,” McGee says.
+  </div>
   <Tags />
   <div
     className="pg-empty-placeholder"
@@ -109,7 +106,7 @@ After the success of Peloton’s stationary bike — it has sold hundreds of
       className="share-grp"
     >
       <div
-        className="share__group__child"
+        className="share-group-child"
       >
         <a
           className="text-danger"
@@ -124,37 +121,45 @@ After the success of Peloton’s stationary bike — it has sold hundreds of
         </a>
       </div>
       <div
-        className="share__group__child"
-      >
-        <div
-          className="fb-share-button"
-          data-href="http://localhost/"
-          data-layout="button"
-          data-size="small"
-        >
-          <a
-            className="fb-xfbml-parse-ignore"
-            data-href="https://www.facebook.com/sharer?u=http://localhost/"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            Share
-          </a>
-        </div>
-      </div>
-      <div
-        className="share__group__child"
+        className="share-group-child"
       >
         <a
-          className="twitter-share-button"
-          data-show-count="false"
-          href="https://twitter.com/share?ref_src=twsrc%5Etfw"
+          className="fb-xfbml-parse-ignore"
+          href="https://www.facebook.com/sharer?u=http://localhost/"
+          rel="noopener noreferrer"
+          style={
+            Object {
+              "color": "#3b5998",
+            }
+          }
+          target="_blank"
         >
-          Tweet
+          <i
+            className="fab fa-facebook-square"
+          />
         </a>
       </div>
       <div
-        className="share__group__child"
+        className="share-group-child"
+      >
+        <a
+          data-show-count="false"
+          href="https://twitter.com/intent/tweet?text=http://localhost/"
+          rel="noopener noreferrer"
+          style={
+            Object {
+              "color": "#38A1F3",
+            }
+          }
+          target="_blank"
+        >
+          <i
+            className="fab fa-twitter-square"
+          />
+        </a>
+      </div>
+      <div
+        className="share-group-child"
       >
         <button
           className="btn btn-link bookmark-btn"
@@ -167,7 +172,7 @@ After the success of Peloton’s stationary bike — it has sold hundreds of
         </button>
       </div>
       <div
-        className="share__group__child"
+        className="share-group-child"
       >
         <div
           className="dropdown article__options"
