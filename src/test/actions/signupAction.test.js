@@ -1,9 +1,9 @@
 import '@babel/polyfill';
-import mockAxios from 'axios';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import mockData from '../__mocks__/mockSignupData';
 import initialState from '../../store/initialState';
+import request from '../../utils/request';
 import {
   signupType,
   signUpUser,
@@ -11,7 +11,7 @@ import {
   clearErrors
 } from '../../actions/signupActions';
 
-jest.mock('../../store');
+jest.mock('../../utils/request');
 const initialUserState = initialState.user;
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
@@ -24,8 +24,7 @@ const {
 
 describe('Testing signup action ', () => {
   it('Should dispatch the success action type when signup is successfull', async (done) => {
-    mockAxios.post
-      .mockImplementationOnce(() => Promise.resolve({ data: { data: { ...success } } }));
+    request.mockResolvedValue({ data: { data: { ...success } } });
     const expectedAction = [
       { type: signupType.loading, data: true },
       { type: signupType.success, data: { token: data.token, success: true, loading: false } },
