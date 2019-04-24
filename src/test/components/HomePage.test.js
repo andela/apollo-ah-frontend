@@ -96,7 +96,7 @@ describe('<HomePage Test Suite>', () => {
       expect(wrapper.instance().state.storeState.articlesReducer).toEqual({
         articles: [],
         error: '',
-        loading: 'started',
+        loading: true,
         page:
         {
           first: 1,

@@ -77,18 +77,11 @@ export class HomePage extends Component {
     articles.map((article) => {
       this.recommendedAuthor(article);
     });
-
     return (
       <div>
-        {articles === 'Articles not found' ? (
-          <Body
-            loadingCategory={loadingCategory}
-            PlaceholderLoader={PlaceholderLoader}
-            articlesCategory={articlesCategory}
-            Category={Category}
-          />
-        ) : (
-          <Body
+        {articles.length !== 0
+          ? (
+            <Body
               loadingCategory={loadingCategory}
               PlaceholderLoader={PlaceholderLoader}
               Category={Category}
@@ -99,7 +92,7 @@ export class HomePage extends Component {
               Authors={Authors}
               fiveStarAuthors={fiveStarAuthors}
             />
-        )
+          ) : null
         }
       </div>
     );
@@ -111,8 +104,8 @@ HomePage.propTypes = {
   articles: PropTypes.array,
   getArticlesCategory: PropTypes.func,
   articlesCategory: PropTypes.array,
-  loadingArticles: PropTypes.string,
-  loadingCategory: PropTypes.string,
+  loadingArticles: PropTypes.bool,
+  loadingCategory: PropTypes.bool,
 };
 
 HomePage.defaultProps = {
