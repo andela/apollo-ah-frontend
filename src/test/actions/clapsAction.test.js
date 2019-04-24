@@ -37,6 +37,26 @@ describe('Action creators', () => {
       expect(store.getActions()).toEqual(expectedAction);
     });
   });
+  it('clapArticleRequest() should dispatch failure with error payload', () => {
+    const response = {
+      data: {
+        message: 'error message',
+        data: [],
+      }
+    };
+    request.mockRejectedValue({ response });
+
+    const expectedAction = [
+      {
+        type: clapArticleType.failure,
+        payload: { ...response.data },
+      }
+    ];
+    const store = mockStore();
+    return store.dispatch(actions.clapArticleRequest({})).then(() => {
+      expect(store.getActions()).toEqual(expectedAction);
+    });
+  });
   it('fetchUserClaps() should dispatch success', () => {
     request.mockResolvedValue({ data: { data: { claps: 0 } } });
     const expectedAction = [

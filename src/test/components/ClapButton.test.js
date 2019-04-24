@@ -19,6 +19,8 @@ function setup() {
       push: jest.fn(),
     },
     token: '',
+    userClaps: 0,
+    loadUserClaps: jest.fn(),
   };
 
   const enzymeWrapper = shallow(<ClapButton {...props} />);
@@ -29,10 +31,5 @@ describe('<ClapButton />', () => {
   it('renders without crashing given the required props', () => {
     const { enzymeWrapper } = setup();
     expect(enzymeWrapper).toMatchSnapshot();
-  });
-  it('should click clap button', () => {
-    const { enzymeWrapper } = setup();
-    const mockFn = jest.fn();
-    expect(enzymeWrapper.find('button').simulate('click', mockFn));
   });
 });

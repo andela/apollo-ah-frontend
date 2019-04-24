@@ -50,7 +50,7 @@ export const clapArticleRequest = ({ slug, claps, token }) => async (dispatch) =
     let errorData = ['Please check your network connection'];
     if (error.response) {
       const { message, data } = error.response.data;
-      errorData = [message, data];
+      errorData = { message, data };
     }
     dispatch(clapArticleFailure(errorData));
   }
