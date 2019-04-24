@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import parser from 'html-react-parser';
-import Tags from './ArticleTags';
+import Tag from './ArticleTag';
 import clapImage from '../images/clap.svg';
 import time from '../utils/time';
 import debounceFn from '../utils/debounce';
@@ -53,7 +53,9 @@ function ArticleBody(props) {
       <div className="single-body">
         {parser(decodeURIComponent(article.body))}
       </div>
-      <Tags />
+      <div className="single-tags text-center">
+        {(!article.tagList || article.tagList.length === 0) ? '' : article.tagList.map(tag => <Tag tag={tag} key={tag.tagName} />)}
+      </div>
       <div className="pg-empty-placeholder" />
       <div className="clap-grp">
         <span className="clap-icon">
@@ -172,5 +174,6 @@ ArticleBody.propTypes = {
 ArticleBody.defaultProps = {
   bookmarked: false,
 };
+
 
 export default ArticleBody;

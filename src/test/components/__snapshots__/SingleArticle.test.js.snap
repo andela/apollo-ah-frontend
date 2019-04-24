@@ -343,37 +343,62 @@ After the success of Peloton’s stationary bike — it has sold hundreds of
 
 “I think this is the wave of the future,” McGee says.
                         </div>
-                        <Tags>
-                          <div
-                            className="single-tags text-center"
+                        <div
+                          className="single-tags text-center"
+                        >
+                          <Tag
+                            key="life"
+                            tag={
+                              Object {
+                                "ArticleTag": Object {
+                                  "articleId": 23,
+                                  "tagName": "life",
+                                },
+                                "tagName": "life",
+                              }
+                            }
                           >
-                            <span
+                            <Link
                               className="badge"
+                              replace={false}
+                              to="/search?tag=life"
                             >
-                              andela
-                            </span>
-                            <span
+                              <a
+                                className="badge"
+                                href="/search?tag=life"
+                                onClick={[Function]}
+                              >
+                                life
+                              </a>
+                            </Link>
+                          </Tag>
+                          <Tag
+                            key="tech"
+                            tag={
+                              Object {
+                                "ArticleTag": Object {
+                                  "articleId": 23,
+                                  "tagName": "tech",
+                                },
+                                "tagName": "tech",
+                              }
+                            }
+                          >
+                            <Link
                               className="badge"
+                              replace={false}
+                              to="/search?tag=tech"
                             >
-                              technology
-                            </span>
-                            <span
-                              className="badge"
-                            >
-                              bootcamp
-                            </span>
-                            <span
-                              className="badge"
-                            >
-                              computer
-                            </span>
-                            <span
-                              className="badge"
-                            >
-                              laptop
-                            </span>
-                          </div>
-                        </Tags>
+                              <a
+                                className="badge"
+                                href="/search?tag=tech"
+                                onClick={[Function]}
+                              >
+                                tech
+                              </a>
+                            </Link>
+                          </Tag>
+                        </div>
                         <div
                           className="pg-empty-placeholder"
                         />

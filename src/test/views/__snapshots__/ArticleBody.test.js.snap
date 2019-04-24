@@ -86,7 +86,34 @@ After the success of Peloton’s stationary bike — it has sold hundreds of
 
 “I think this is the wave of the future,” McGee says.
   </div>
-  <Tags />
+  <div
+    className="single-tags text-center"
+  >
+    <Tag
+      key="life"
+      tag={
+        Object {
+          "ArticleTag": Object {
+            "articleId": 23,
+            "tagName": "life",
+          },
+          "tagName": "life",
+        }
+      }
+    />
+    <Tag
+      key="tech"
+      tag={
+        Object {
+          "ArticleTag": Object {
+            "articleId": 23,
+            "tagName": "tech",
+          },
+          "tagName": "tech",
+        }
+      }
+    />
+  </div>
   <div
     className="pg-empty-placeholder"
   />
