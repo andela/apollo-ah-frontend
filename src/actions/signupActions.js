@@ -29,7 +29,6 @@ export const signUpUser = userData => async (dispatch) => {
       token: data.token
     }));
   } catch (err) {
-    console.log(err);
     let errors;
     errors = [{ message: 'A network error occurred', field: 'network' }];
     if (err.response) {
