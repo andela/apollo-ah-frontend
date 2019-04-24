@@ -130,6 +130,7 @@ exports[`<EditProfile> should render with errorData 1`] = `
         </label>
         <input
           className="form-control text-capitalize"
+          defaultValue="John"
           id="fname"
           name="firstname"
           type="text"
@@ -162,7 +163,7 @@ exports[`<EditProfile> should render with errorData 1`] = `
         </label>
         <input
           className="form-control"
-          defaultValue=""
+          defaultValue="johnny"
           id="username"
           name="username"
           required={true}
@@ -208,7 +209,7 @@ exports[`<EditProfile> should render with errorData 1`] = `
       />
       <input
         className="hidden"
-        defaultValue=""
+        defaultValue="image.jpg"
         name="image"
         type="hidden"
       />

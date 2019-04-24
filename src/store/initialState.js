@@ -25,6 +25,7 @@ const initialState = {
     commentMessage: '',
     oldComments: [],
     hasMoreComments: false,
+    commentPage: {}
   }
 };
 

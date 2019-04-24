@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 import ArticleBody from '../views/ArticleBody';
-import CommentsContainer from './CommentsContainer';
+import ConnectedCommentsContainer from './CommentsContainer';
 
 /**
  *
@@ -82,7 +82,7 @@ class Article extends React.Component {
                   bookmarkArticle={this.bookmarkArticle}
                   bookmarked={bookmarked}
                 />
-                <CommentsContainer slug={slug} />
+                <ConnectedCommentsContainer slug={slug} />
               </div>
             </div>
             <div className="single-suggested-grp">

@@ -62,6 +62,9 @@
 	.card-body {
 		padding: 10px 0 0;
 	}
+	&:empty{
+		display: none;
+	}
 }
 .loadmore-grp {
 	background-color: $colorsilver;

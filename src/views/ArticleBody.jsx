@@ -41,7 +41,7 @@ function ArticleBody(props) {
         {article.body}
       </div>
       <div className="single-tags text-center">
-        {(!article.tagList || article.tagList.length === 0) ? '' : article.tagList.map(tag => <Tag tag={tag} key={tag} />) }
+        {(!article.tagList || article.tagList.length === 0) ? '' : article.tagList.map(tag => <Tag tag={tag} key={tag.tagName} />) }
       </div>
       <div className="pg-empty-placeholder" />
       <div className="clap-grp">

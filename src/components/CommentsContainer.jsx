@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import simpleDateFormat from 'date-fns/format';
-import compareDateFormat from 'date-fns/distance_in_words_strict';
 import CommentBox from '../views/CommentBox';
 import CommentForm from '../views/CommentForm';
 import { postComment, getComments, clearComments } from '../actions/commentsAction';
@@ -11,6 +9,7 @@ import { getToken, getProfile } from '../selectors/profileSelector';
 import * as selectors from '../selectors/commentsSelector';
 import { getIsLoggedIn } from '../selectors/navbarSelector';
 import CommentLoader from '../views/CommentLoader';
+import { getDisplayDate } from '../utils/helpers';
 /**
  * Container component for the adding and viewing commments
  * @class CommentsContainer
@@ -37,7 +36,7 @@ class CommentsContainer extends Component {
  */
   createCommentItems = (comments) => {
     const result = comments.map((comment) => {
-      const date = this.getDisplayDate(comment.createdAt);
+      const date = getDisplayDate(comment.createdAt);
       const { Profile: { firstname, username, image } } = comment.author;
       return (
         <CommentBox
@@ -52,25 +51,6 @@ class CommentsContainer extends Component {
     });
     return result;
   }
-
-  /**
-   * Formats the date to a human readable format
-   * @param {object} date The date object to format
-   * @memberof CommentsContainer
-   * @returns {object} An object  containing a short and long format representations of the date
-   */
-  getDisplayDate = (date) => {
-    const today = new Date();
-    const result = {
-      short: simpleDateFormat(date, 'MMM Do, YYYY'),
-      long: simpleDateFormat(date, 'MMM Do, YYYY h:mm a')
-    };
-    if (simpleDateFormat(date, 'M YYYY') === simpleDateFormat(today, 'M YYYY')) {
-      const difference = compareDateFormat(date, today);
-      result.short = difference.startsWith('0') ? '1 second ago' : `${difference} ago`;
-    }
-    return result;
-  };
 
   /**
    * Increases the page number used for pagination
@@ -95,17 +75,10 @@ class CommentsContainer extends Component {
     const { body } = this.state;
     if (body.trim().length === 0) return;
     const {
-      token,
-      profile,
-      sendComment,
-      slug,
-      hasMoreComments
+      token, profile, sendComment, slug, hasMoreComments
     } = this.props;
     const payload = {
-      token,
-      profile,
-      slug,
-      body,
+      token, profile, slug, body,
     };
     await sendComment(payload);
     if (!hasMoreComments) {
@@ -144,7 +117,6 @@ class CommentsContainer extends Component {
     this.setState({
       [prevValue]: [...oldList, ...commentItems]
     });
-
     return newList.length > 0;
   }
 
@@ -173,12 +145,7 @@ handleInputChange = (event) => {
 
 render() {
   const {
-    postingComment,
-    gettingComments,
-    commentMessage,
-    hasMoreComments,
-    remainingComments,
-    isLoggedIn
+    postingComment, gettingComments, commentMessage, hasMoreComments, remainingComments, isLoggedIn
   } = this.props;
   const { newComments, oldComments, body } = this.state;
   return (
