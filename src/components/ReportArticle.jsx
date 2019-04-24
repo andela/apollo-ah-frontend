@@ -2,7 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import propTypes from 'prop-types';
-import { reportArticle } from '../actions/reportArticleAction';
+import { toast } from 'react-toastify';
+import { reportArticle, clearErrors } from '../actions/reportArticleAction';
+
 
 class ReportArticle extends React.Component {
   /**
@@ -14,12 +16,10 @@ class ReportArticle extends React.Component {
     super(props);
     this.state = {
       type: '',
-      comment: ''
+      comment: '',
     };
-  }
-
-  componentDidMount() {
-
+    const { clearErrors } = props;
+    clearErrors();
   }
 
   /**
@@ -30,13 +30,10 @@ class ReportArticle extends React.Component {
 
   handleSubmit = () => {
     const { type, comment } = this.state;
-    const { reportArticle, token, { match: { params: { slug: {} } } }  = this.props;
-    const articleId = 'skjjdks';
-    if (type === '') {
-      console.log('bad');
-    }
+    const { reportArticle, token } = this.props;
+    const articleId = '78';
     const reportData = {
-      type,
+      reportType: type,
       comment,
       articleId,
       userToken: token,
@@ -45,11 +42,17 @@ class ReportArticle extends React.Component {
   }
 
   render() {
-    console.log(this.props);
+    const { loading, error, success } = this.props;
+    if (error) {
+      toast.error(error);
+    }
+    if (success) {
+      toast.success('Article successfully reported');
+    }
     return (
       <section>
-        <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#myModal">Open modal</button>
-        <div className="modal" id="myModal">
+        <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#reportArticle">Open modal</button>
+        <div className="modal" id="reportArticle">
           <div className="modal-dialog modal-lg">
             <div className="modal-content">
               <div className="modal-header">
@@ -58,16 +61,18 @@ class ReportArticle extends React.Component {
               </div>
               <div className="modal-body">
                 <div className="row">
-                  <div className="col ">
+                  <div className="col">
                     <form>
                       <div className="form-group">
-                        <select onChange={this.handleChange} name="type" className="form-control col-md-3">
+                        <select onChange={this.handleChange} name="type" className="form-control col-md-5">
                           <option value="">Report category</option>
-                          <option value="abuse">Abuse</option>
-                          <option value="copyright">Copyright</option>
+                          <option value="spam">Spam</option>
+                          <option value="plagiarism">Plagiarism</option>
+                          <option value="other">Other</option>
                         </select>
                       </div>
                       <div className="form-group">
+                        <p className="text-muted">Comment (optional)</p>
                         <textarea onChange={this.handleChange} className="form-control" rows="10" name="comment" />
                       </div>
                     </form>
@@ -75,7 +80,14 @@ class ReportArticle extends React.Component {
                 </div>
               </div>
               <div className="modal-footer">
-                <button onClick={this.handleSubmit} type="button" className="btn-brand">Report</button>
+                <button onClick={this.handleSubmit} type="button" className="btn-brand">
+                  {loading
+                    ? (
+                      <div className="spinner-border" role="status">
+                        <span className="sr-only">Loading...</span>
+                      </div>
+                    ) : 'Report'}
+                </button>
               </div>
             </div>
           </div>
@@ -87,9 +99,24 @@ class ReportArticle extends React.Component {
 
 ReportArticle.propTypes = {
   reportArticle: propTypes.func.isRequired,
+  clearErrors: propTypes.func.isRequired,
+  loading: propTypes.bool,
+  error: propTypes.bool,
+  success: propTypes.bool,
+  token: propTypes.string.isRequired,
 };
+ReportArticle.defaultProps = {
+  loading: false,
+  error: false,
+  success: false
+};
+
 const mapStateToProps = state => ({
-  token: state.user.token
+  token: state.user.token,
+  loading: state.reportArticleReducer.loading,
+  error: state.reportArticleReducer.error,
+  success: state.reportArticleReducer.success
 });
 
-export default connect(() => mapStateToProps, { reportArticle })(withRouter(ReportArticle));
+export default
+connect(() => mapStateToProps, { reportArticle, clearErrors })(withRouter(ReportArticle));
