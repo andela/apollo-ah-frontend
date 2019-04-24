@@ -90,8 +90,7 @@ class Signup extends React.Component {
     }
     let message;
     if (errors) {
-      // eslint-disable-next-line prefer-destructuring
-      message = errors[0];
+      [message] = errors;
     } else {
       message = null;
     }

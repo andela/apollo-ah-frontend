@@ -1,4 +1,4 @@
-import axios from 'axios';
+import request from '../utils/request';
 import typeGenerator from './typeGenerator';
 
 export const signupType = typeGenerator('SIGNUP');
@@ -17,14 +17,19 @@ const signupAction = (type, data) => ({ type, data });
 export const signUpUser = userData => async (dispatch) => {
   dispatch(signupAction(signupType.loading, true));
   try {
-    const response = await axios.post(`${process.env.API_BASE_URL}/users`, userData);
+    const response = await request({
+      route: 'users',
+      method: 'post',
+      payload: userData
+    });
     const { data: { data } } = response;
     dispatch(signupAction(signupType.success, {
       loading: false,
       success: true,
-      token: data.token,
+      token: data.token
     }));
   } catch (err) {
+    console.log(err);
     let errors;
     errors = [{ message: 'A network error occurred', field: 'network' }];
     if (err.response) {
