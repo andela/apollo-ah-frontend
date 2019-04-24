@@ -8,7 +8,7 @@ import HomePage from '../components/HomePage';
 import SignupPage from '../views/SignupPage';
 import Login from '../components/Login';
 import NotFound from '../views/NotFound';
-import ProtectedRoutes from './protectedRoutes';
+import ProtectedRoutes from './ProtectedRoutes';
 import Footer from '../views/Footer';
 import Navbar from '../components/NavbarContainer';
 
