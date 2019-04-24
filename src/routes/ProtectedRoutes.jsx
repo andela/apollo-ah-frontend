@@ -13,7 +13,7 @@ import CreateArticleContainer from '../components/CreateArticles';
 
 
 /**
- * Container component for protected pages
+ * Container component for protected pages. Users must log in to access these pages
  * @export
  * @class ProtectedContainer
  * @extends {Component}

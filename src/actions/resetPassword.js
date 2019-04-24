@@ -45,7 +45,11 @@ const passwordResetRequest = email => async (dispatch) => {
     const { data } = await axios.post(`${process.env.API_BASE_URL}/users/forgot_password`, { email });
     dispatch(resetPasswordSuccess(data.message));
   } catch (error) {
-    dispatch(resetPasswordFailure(error.response.data.data[0].message));
+    let info = 'Please check your network connection';
+    if (error.response) {
+      info = error.response.data.data[0].message;
+    }
+    dispatch(resetPasswordFailure(info));
   }
 };
 
