@@ -6,7 +6,6 @@ describe('<SignupForm Test Suite>', () => {
   describe('<SignupForm>', () => {
     const wrapper = shallow(<SignupForm />);
     it('It should render succesfully', () => {
-      
       expect(wrapper).toBeDefined();
       expect(wrapper).toMatchSnapshot();
     });

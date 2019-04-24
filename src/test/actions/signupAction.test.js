@@ -35,6 +35,7 @@ describe('Testing signup action ', () => {
     expect(actual).toEqual(expectedAction);
     done();
   });
+
   it('should populate the store with errors for the application', async (done) => {
     const expectedAction = [
       {
