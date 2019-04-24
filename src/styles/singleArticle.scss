@@ -58,18 +58,19 @@
   }
 }
 .single-tags {
-  margin-top: 40px;
+  margin-top: 30px;
   margin-bottom: 20px;
-  width: 100%;
   .badge {
     border-radius: 23px;
-    font-size: 15px;
+    font-size: 14px;
     display: inline-block;
-    padding: 15px;
+    padding: 10px;
+    text-transform: capitalize;
     background-color: $colorsolitude;
     margin-right: 5px;
     font-weight: normal;
     margin-bottom: 10px;
+    color: #464444;
   }
 }
 .clap-grp {
@@ -108,7 +109,7 @@
     top: 7px;
   }
 }
-.single-article-author {
+.single__article--author {
   margin-bottom: 30px;
   margin-top: -20px;
   padding-right: 20px;
@@ -191,14 +192,14 @@
     @extend %extend1;
   }
 }
-.following .single-article-author button {
+.following .single__article--author button {
   background-color: $colorpurple;
   color: $white;
 }
 .fa-bookmark{
   color: $colorpumice90;
 }
-.articleauthor{
+.article__author{
   display: flex;
   align-items: center;
   .bookmarkdiv{
@@ -209,11 +210,11 @@
     }
   }
 }
-.singleauthorcontainer{
+.single__author__container{
   margin-top: 25px;
   margin-bottom: 25px;
 }
-.authorprofile--mini{
+.author__profile--mini{
   display: inherit;
   margin-left: unset;
   img{
@@ -227,7 +228,7 @@
   h6{
     margin-bottom: unset;
   }
-  .authorprofile--details{
+  .author__profile--details{
     margin-left: 10px;
     span{
       font-size: 14px;
@@ -239,9 +240,9 @@
   
 }
 @media only screen and (min-device-width: 500px){
-  .articleauthor{
+  .article__author{
     justify-content: space-between;
-    .bookmarkdiv{
+    .bookmark__div{
       margin-left: unset;
     }
   }

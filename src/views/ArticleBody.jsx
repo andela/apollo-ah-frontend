@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Tags from './ArticleTags';
 import ClapButtonComponent from '../components/ClapButton';
+import Tag from './ArticleTag';
 
 /**
  *
@@ -45,7 +45,9 @@ function ArticleBody(props) {
       <div className="single-body">
         {article.body}
       </div>
-      <Tags />
+      <div className="single-tags text-center">
+        {(!article.tagList || article.tagList.length === 0) ? '' : article.tagList.map(tag => <Tag tag={tag} key={tag} />) }
+      </div>
       <div className="pg-empty-placeholder" />
       <div className="clap-grp">
         <ClapButtonComponent />
@@ -76,5 +78,6 @@ ArticleBody.propTypes = {
   bookmarked: PropTypes.bool.isRequired,
   article: PropTypes.object.isRequired,
 };
+
 
 export default ArticleBody;
