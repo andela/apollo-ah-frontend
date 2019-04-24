@@ -71,7 +71,7 @@ function CreateArticleContainer(props) {
   function imageUploadHandler() {
     if (widget === undefined) {
       widget = new CloudinaryWidget(
-        cloudinaryUpdate, error => (error), false
+        cloudinaryUpdate, error => (error), 2.27
       );
     }
     widget.open();

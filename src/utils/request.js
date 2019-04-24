@@ -14,7 +14,7 @@ const request = async (
     route,
     method,
     payload,
-    token
+    token,
   }
 ) => {
   method = method || 'get';
