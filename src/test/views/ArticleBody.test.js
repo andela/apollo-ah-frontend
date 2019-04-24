@@ -1,6 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
-import ArticleTag from '../../views/ArticleBody';
+import ArticleBody from '../../views/ArticleBody';
 import setup from '../setup';
 
 const props = {
@@ -17,7 +16,7 @@ const props = {
 
 describe('<ArticleBody>', () => {
   it('should render without crashing when there are no tags', () => {
-    const wrapper = mount(<ArticleTag
+    const wrapper = setup(<ArticleBody
         bookmarkArticle={props.bookmarkArticle}
         bookmarked={props.bookmarked}
         article={props.article}
@@ -30,7 +29,7 @@ describe('<ArticleBody>', () => {
         tagName: 'tech',
       }
     ];
-    const wrapper = setup(<ArticleTag
+    const wrapper = setup(<ArticleBody
         bookmarkArticle={props.bookmarkArticle}
         bookmarked={props.bookmarked}
         article={props.article}

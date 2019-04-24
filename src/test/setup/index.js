@@ -25,13 +25,14 @@ export const mockState = {
     resetPassword: {
       laoding: false,
       message: '',
-    }
+    },
   },
   article: {
     slug: 'article-slug',
     claps: 10,
     authorId: 1,
   },
+  userClaps: { claps: 0 }
 };
 
 export const createMockStore = () => {
