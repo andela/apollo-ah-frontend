@@ -21,7 +21,7 @@ export default function createArticleReducer(state = initialState, action = {}) 
   } = action;
   switch (type) {
     case createArticleType.loading:
-      return { ...state, loading: true, message: false };
+      return { ...state, loading: true };
     case createArticleType.success:
     case createArticleType.failure:
       return {
