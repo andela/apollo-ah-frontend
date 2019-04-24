@@ -9,6 +9,7 @@ import articlesReducer from './articleReducer';
 import articlesCategoryReducer from './articleCategoryReducer';
 import profileReducer from './profileReducer';
 import singleArticleReducer from './singleArticleReducer';
+import clapsReducer from './clapsReducer';
 
 
 /**
@@ -23,4 +24,5 @@ export default combineReducers({
   articlesReducer,
   articlesCategoryReducer,
   article: singleArticleReducer,
+  userClaps: clapsReducer,
 });

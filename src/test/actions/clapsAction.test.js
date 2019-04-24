@@ -6,7 +6,7 @@ const mockStore = createMockStore();
 
 jest.mock('../../utils/request');
 
-const { clapArticleType } = actions;
+const { clapArticleType, userClapsType } = actions;
 const { article: payload } = mockState;
 
 describe('Action creators', () => {
@@ -24,7 +24,7 @@ describe('Action creators', () => {
     };
     expect(actions.clapArticleFailure([{ error: 'some error' }])).toEqual(expected);
   });
-  it('should dispatch success', () => {
+  it('clapArticleRequest() should dispatch success', () => {
     request.mockResolvedValue({ data: { data: {} } });
     const expectedAction = [
       {
@@ -34,6 +34,19 @@ describe('Action creators', () => {
     ];
     const store = mockStore();
     return store.dispatch(actions.clapArticleRequest({})).then(() => {
+      expect(store.getActions()).toEqual(expectedAction);
+    });
+  });
+  it('fetchUserClaps() should dispatch success', () => {
+    request.mockResolvedValue({ data: { data: { claps: 0 } } });
+    const expectedAction = [
+      {
+        type: userClapsType.success,
+        payload: { claps: 0 },
+      }
+    ];
+    const store = mockStore();
+    return store.dispatch(actions.fetchUserClaps({})).then(() => {
       expect(store.getActions()).toEqual(expectedAction);
     });
   });

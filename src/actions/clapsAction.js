@@ -1,12 +1,13 @@
 import typeGenerator from './typeGenerator';
 import request from '../utils/request';
 
+export const userClapsType = typeGenerator('GET_USER_CLAP');
 export const clapArticleType = typeGenerator('CLAP_ARTICLE');
 
 /**
- * Triggers a clap success
+ * Action generator that is dispatched upon successfully clapping on article
  *
- * @param {boolean} payload - The user payload state
+ * @param {object} payload - The user payload state
  * @returns {object} - Returns an action object
  */
 export const clapArticleSuccess = payload => ({
@@ -15,9 +16,9 @@ export const clapArticleSuccess = payload => ({
 });
 
 /**
- * Triggers a clap failure
+ * Action generator that is dispatched if there's failure clapping on article
  *
- * @param {boolean} payload - The user payload state
+ * @param {object} payload - The user payload state
  * @returns {object} - Returns an action object
  */
 export const clapArticleFailure = payload => ({
@@ -32,8 +33,8 @@ export const clapArticleFailure = payload => ({
  * @param {object} payload - The request payload
  * @param {string} payload.slug - The article slug
  * @param {number} payload.claps - The article claps to add
- * @param {token} payload.token - The user access token
- * @returns {object} Returns an actions object
+ * @param {string} payload.token - The user access token
+ * @returns {void}
  */
 export const clapArticleRequest = ({ slug, claps, token }) => async (dispatch) => {
   try {
@@ -53,4 +54,30 @@ export const clapArticleRequest = ({ slug, claps, token }) => async (dispatch) =
     }
     dispatch(clapArticleFailure(errorData));
   }
+};
+
+/**
+ * Action generator that is dispatched upon successfully fetching user claps
+ *
+ * @param {number} payload - The user payload state
+ * @returns {object} - Returns an action object
+ */
+export const getUserClapsSuccess = payload => ({
+  type: userClapsType.success,
+  payload,
+});
+
+/**
+ * Action handler for fetching user claps
+ *
+ * @export
+ * @param {object} payload - The request payload
+ * @param {string} payload.slug - The article slug
+ * @param {number} payload.userId - The user id
+ * @returns {void}
+ */
+export const fetchUserClaps = ({ slug, userId }) => async (dispatch) => {
+  const response = await request({ route: `articles/${slug}/claps/${userId}` });
+  const { data: { data: claps } } = response;
+  dispatch(getUserClapsSuccess(claps));
 };

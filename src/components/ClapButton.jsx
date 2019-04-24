@@ -9,8 +9,9 @@ import clapIcon from '../images/clap.svg';
 import * as articleSelector from '../selectors/singleArticleSelector';
 import { getAuthId, getIsAuthenticated } from '../selectors/authSelector';
 import { getToken } from '../selectors/profileSelector';
-import request from '../utils/request';
-import { clapArticleRequest } from '../actions/clapsAction';
+import { clapArticleRequest, fetchUserClaps } from '../actions/clapsAction';
+import { getUserClaps } from '../selectors/clapsSelector';
+import { CLAPS_LIMIT, CLAPS_REQUEST_TIMER } from '../utils/contants';
 
 /**
  * A class representing clap button component
@@ -30,7 +31,7 @@ export class ClapButton extends Component {
     const { clapsCount: claps } = this.state;
     this.setState({ clapsCount: 0 });
     return clapArticle({ slug, claps, token });
-  }, 1000);
+  }, CLAPS_REQUEST_TIMER);
 
   static propTypes = {
     articleSlug: PropType.string.isRequired,
@@ -41,6 +42,8 @@ export class ClapButton extends Component {
     userId: PropType.number,
     history: PropType.object.isRequired,
     token: PropType.string.isRequired,
+    userClaps: PropType.number.isRequired,
+    loadUserClaps: PropType.func.isRequired,
   };
 
   static defaultProps = {
@@ -50,7 +53,7 @@ export class ClapButton extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      clapsLeft: 100,
+      clapsLeft: CLAPS_LIMIT - props.userClaps,
       articleClaps: props.articleClaps,
       clapsCount: 0, // record clap button clicks
     };
@@ -61,22 +64,20 @@ export class ClapButton extends Component {
       articleSlug: slug,
       isLoggedIn,
       userId,
+      loadUserClaps
     } = this.props;
     if (isLoggedIn) {
-      const response = await request({ route: `articles/${slug}/claps/${userId}` });
-      const { data: { data: { claps } } } = response;
-      const { clapsLeft } = this.state;
-      this.setState({ clapsLeft: clapsLeft - claps });
+      loadUserClaps({ slug, userId });
     }
   }
 
   /**
-   * Handles button click
+   * Makes an article clap
    *
    * @returns {void}
    * @memberof ClapButton
    */
-  handleClick = () => {
+  handleClapArticle = () => {
     const {
       isLoggedIn,
       userId,
@@ -84,7 +85,7 @@ export class ClapButton extends Component {
       history,
     } = this.props;
 
-    if (!isLoggedIn) { // prompt guest users to login
+    if (!isLoggedIn) { // redirect guest users to login
       history.push('/login');
       return false;
     }
@@ -102,7 +103,7 @@ export class ClapButton extends Component {
   }
 
   /**
-   * Handles button click
+   * React render function
    *
    * @returns {JSX.Element} DOM element
    * @memberof ClapButton
@@ -112,7 +113,7 @@ export class ClapButton extends Component {
 
     return (
       <span className="clap-icon">
-        <button type="button" className="btn" onClick={this.handleClick}>
+        <button type="button" className="btn" onClick={this.handleClapArticle}>
           <img src={clapIcon} alt="" />
         </button>
         {articleClaps}
@@ -130,10 +131,12 @@ const mapStateToProps = createStructuredSelector({
   isLoggedIn: getIsAuthenticated,
   userId: getAuthId,
   token: getToken,
+  userClaps: getUserClaps,
 });
 
 const mapDispatchToProps = {
   clapArticle: claps => clapArticleRequest(claps),
+  loadUserClaps: payload => fetchUserClaps(payload),
 };
 
 export default connect(
