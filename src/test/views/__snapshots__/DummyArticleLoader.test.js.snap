@@ -1,218 +1,88 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<NotFound /> should render the component 1`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
+<div
+  className="get-article__loader"
 >
-  <BrowserRouter>
-    <Router
-      history={
-        Object {
-          "action": "POP",
-          "block": [Function],
-          "createHref": [Function],
-          "go": [Function],
-          "goBack": [Function],
-          "goForward": [Function],
-          "length": 1,
-          "listen": [Function],
-          "location": Object {
-            "hash": "",
-            "pathname": "/",
-            "search": "",
-            "state": undefined,
-          },
-          "push": [Function],
-          "replace": [Function],
-        }
-      }
-    >
-      <DummyArticleLoader>
-        <div
-          className="get-article__loader"
-        >
-          <ContentLoader
-            height={100}
-            primaryColor="#8b01be"
-            secondaryColor="#ecebeb"
-            speed={2}
-            width={400}
-          >
-            <Svg
-              animate={true}
-              ariaLabel="Loading interface..."
-              baseUrl=""
-              gradientRatio={2}
-              height={100}
-              interval={0.25}
-              preserveAspectRatio="none"
-              primaryColor="#8b01be"
-              primaryOpacity={1}
-              rtl={false}
-              secondaryColor="#ecebeb"
-              secondaryOpacity={1}
-              speed={2}
-              style={Object {}}
-              width={400}
-            >
-              <svg
-                aria-labelledby="Loading interface..."
-                preserveAspectRatio="none"
-                role="img"
-                style={Object {}}
-                viewBox="0 0 400 100"
-              >
-                <title>
-                  Loading interface...
-                </title>
-                <rect
-                  clipPath="url(#cxgcctk8wvw)"
-                  height={100}
-                  style={
-                    Object {
-                      "fill": "url(#fuw1zogd6k7)",
-                    }
-                  }
-                  width={400}
-                  x="0"
-                  y="0"
-                />
-                <defs>
-                  <clipPath
-                    id="cxgcctk8wvw"
-                  >
-                    <rect
-                      height="10"
-                      rx="3"
-                      ry="3"
-                      width="70"
-                      x="0"
-                      y="0"
-                    />
-                    <rect
-                      height="10"
-                      rx="3"
-                      ry="3"
-                      width="100"
-                      x="80"
-                      y="0"
-                    />
-                    <rect
-                      height="10"
-                      rx="3"
-                      ry="3"
-                      width="10"
-                      x="190"
-                      y="0"
-                    />
-                    <rect
-                      height="10"
-                      rx="3"
-                      ry="3"
-                      width="130"
-                      x="15"
-                      y="20"
-                    />
-                    <rect
-                      height="10"
-                      rx="3"
-                      ry="3"
-                      width="130"
-                      x="155"
-                      y="20"
-                    />
-                    <rect
-                      height="10"
-                      rx="3"
-                      ry="3"
-                      width="90"
-                      x="15"
-                      y="40"
-                    />
-                    <rect
-                      height="10"
-                      rx="3"
-                      ry="3"
-                      width="60"
-                      x="115"
-                      y="40"
-                    />
-                    <rect
-                      height="10"
-                      rx="3"
-                      ry="3"
-                      width="60"
-                      x="185"
-                      y="40"
-                    />
-                    <rect
-                      height="10"
-                      rx="3"
-                      ry="3"
-                      width="30"
-                      x="0"
-                      y="60"
-                    />
-                  </clipPath>
-                  <linearGradient
-                    id="fuw1zogd6k7"
-                  >
-                    <stop
-                      offset="0%"
-                      stopColor="#8b01be"
-                      stopOpacity={1}
-                    >
-                      <animate
-                        attributeName="offset"
-                        dur="2s"
-                        keyTimes="0; 0.25; 1"
-                        repeatCount="indefinite"
-                        values="-2; -2; 1"
-                      />
-                    </stop>
-                    <stop
-                      offset="50%"
-                      stopColor="#ecebeb"
-                      stopOpacity={1}
-                    >
-                      <animate
-                        attributeName="offset"
-                        dur="2s"
-                        keyTimes="0; 0.25; 1"
-                        repeatCount="indefinite"
-                        values="-1; -1; 2"
-                      />
-                    </stop>
-                    <stop
-                      offset="100%"
-                      stopColor="#8b01be"
-                      stopOpacity={1}
-                    >
-                      <animate
-                        attributeName="offset"
-                        dur="2s"
-                        keyTimes="0; 0.25; 1"
-                        repeatCount="indefinite"
-                        values="0; 0; 3"
-                      />
-                    </stop>
-                  </linearGradient>
-                </defs>
-              </svg>
-            </Svg>
-          </ContentLoader>
-        </div>
-      </DummyArticleLoader>
-    </Router>
-  </BrowserRouter>
-</Provider>
+  <ContentLoader
+    height={100}
+    primaryColor="#8b01be"
+    secondaryColor="#ecebeb"
+    speed={2}
+    width={400}
+  >
+    <rect
+      height="10"
+      rx="3"
+      ry="3"
+      width="70"
+      x="0"
+      y="0"
+    />
+    <rect
+      height="10"
+      rx="3"
+      ry="3"
+      width="100"
+      x="80"
+      y="0"
+    />
+    <rect
+      height="10"
+      rx="3"
+      ry="3"
+      width="10"
+      x="190"
+      y="0"
+    />
+    <rect
+      height="10"
+      rx="3"
+      ry="3"
+      width="130"
+      x="15"
+      y="20"
+    />
+    <rect
+      height="10"
+      rx="3"
+      ry="3"
+      width="130"
+      x="155"
+      y="20"
+    />
+    <rect
+      height="10"
+      rx="3"
+      ry="3"
+      width="90"
+      x="15"
+      y="40"
+    />
+    <rect
+      height="10"
+      rx="3"
+      ry="3"
+      width="60"
+      x="115"
+      y="40"
+    />
+    <rect
+      height="10"
+      rx="3"
+      ry="3"
+      width="60"
+      x="185"
+      y="40"
+    />
+    <rect
+      height="10"
+      rx="3"
+      ry="3"
+      width="30"
+      x="0"
+      y="60"
+    />
+  </ContentLoader>
+</div>
 `;

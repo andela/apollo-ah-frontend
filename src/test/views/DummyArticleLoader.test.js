@@ -1,11 +1,11 @@
 import React from 'react';
-import setup from '../setup';
+import { shallow } from 'enzyme';
 import DummyArticleLoader from '../../views/DummyArticleLoader';
 
 
 describe('<NotFound />', () => {
   it('should render the component', () => {
-    const wrapper = setup(<DummyArticleLoader />);
+    const wrapper = shallow(<DummyArticleLoader />);
     expect(wrapper).toMatchSnapshot();
   });
 });
