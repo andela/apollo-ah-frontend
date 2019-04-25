@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Tags from './ArticleTags';
 import clapImage from '../images/clap.svg';
-import SocailShare from '../components/SocialShare';
+import SocialShare from '../components/SocialShare';
 /**
  *
  * @param {*} props - The props passed from the parent Article component
@@ -53,7 +53,7 @@ function ArticleBody(props) {
           <a href="you" className="text-muted"><i className="fas fa-ellipsis-h" /></a>
         </div>
         <div className="share-grp">
-          <SocailShare />
+          <SocialShare />
         </div>
       </div>
       <div className="single-author-container single-article-author">
