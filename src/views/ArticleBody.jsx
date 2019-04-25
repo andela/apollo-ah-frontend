@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Tags from './ArticleTags';
+import Tag from './ArticleTag';
 import clapImage from '../images/clap.svg';
 import SocialShare from '../components/SocialShare';
 /**
@@ -41,7 +41,9 @@ function ArticleBody(props) {
       <div className="single-body">
         {article.body}
       </div>
-      <Tags />
+      <div className="single-tags text-center">
+        {(!article.tagList || article.tagList.length === 0) ? '' : article.tagList.map(tag => <Tag tag={tag} key={tag} />) }
+      </div>
       <div className="pg-empty-placeholder" />
       <div className="clap-grp">
         <span className="clap-icon">
@@ -75,5 +77,6 @@ ArticleBody.propTypes = {
   bookmarked: PropTypes.bool.isRequired,
   article: PropTypes.object.isRequired,
 };
+
 
 export default ArticleBody;
