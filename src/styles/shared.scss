@@ -11,6 +11,32 @@ section {
 	background-color: colorpurple;
 	color: $white;
 }
+.create-article-btn {
+    background-color: rgb(102, 0, 140);
+    color: white;
+    width: 188px;
+}
+.create-article-image-btn {
+    text-align: -webkit-center;
+    background-color: white;
+    border-style: dashed;
+    border-width: thin;
+    border-color: #ced4da;
+		height: 45px;
+		width: -webkit-fill-available;
+		outline: none;
+}
+.camera-icon {
+    height: 30px;
+    width: 30px;
+    background-image: url('../images/icons/plus-icon-two.png');
+    background-position: 50%;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.create-article-alert {
+    margin-top: 10px;
+}
 #navbar {
 	background-color: $white;
 

@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ArticleTag> should render without crashing 1`] = `
+<Link
+  className="badge"
+  replace={false}
+  to="/search?tag=Technology"
+>
+  Technology
+</Link>
+`;
