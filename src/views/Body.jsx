@@ -2,7 +2,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Proptypes from 'prop-types';
+import Slider from 'react-slick';
 import FooterImage from '../../public/images/background/Image.png';
+import Category from './Category';
+import { carouselSettings } from '../utils/helpers';
 
 /**
  * @description - returns the body of the landing page
@@ -20,7 +23,6 @@ import FooterImage from '../../public/images/background/Image.png';
 const Body = ({
   loadingCategory,
   PlaceholderLoader,
-  Category,
   articlesCategory,
   loadingArticles,
   Articles,
@@ -48,18 +50,16 @@ const Body = ({
       <div className="heading heading-no-spacing">
         <div className="container">
           <h3>
-            <Link
-                to="/categories"
-                className="btn-brand btn-secondary transition"
-              >
-                More &gt;&gt;
-            </Link>
               Browse by Category
           </h3>
         </div>
       </div>
-      {loadingCategory === 'started' ? <PlaceholderLoader /> : <Category begin={0} end={6} articlesCategory={articlesCategory} />}
-
+      {/* Categories */}
+      <div className="container">
+        <Slider {...carouselSettings} className="row">
+          {loadingCategory === 'started' ? <PlaceholderLoader /> : articlesCategory.map(category => <Category className="col-12" category={category} key={category.id} />)}
+        </Slider>
+      </div>
     </section>
 
     {Articles ? (
@@ -131,7 +131,6 @@ const Body = ({
 Body.propTypes = {
   loadingCategory: Proptypes.string,
   PlaceholderLoader: Proptypes.func,
-  Category: Proptypes.func,
   articlesCategory: Proptypes.array,
   loadingArticles: Proptypes.string,
   Articles: Proptypes.func,
@@ -143,7 +142,6 @@ Body.propTypes = {
 Body.defaultProps = {
   loadingCategory: '',
   PlaceholderLoader: f => f,
-  Category: f => f,
   articlesCategory: [],
   loadingArticles: Proptypes.string,
   Articles: f => f,

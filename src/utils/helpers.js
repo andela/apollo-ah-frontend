@@ -19,4 +19,31 @@ export const getUrlQuery = (param) => {
  */
 export const verifyToken = token => jwt.verify(token, process.env.APP_KEY);
 
-export default {};
+export const carouselSettings = {
+  dots: true,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  autoplay: true,
+  swipeToSlide: true,
+  arrows: false,
+  pauseOnHover: false,
+  responsive: [
+    {
+      breakpoint: 767,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1,
+      }
+    },
+    {
+      breakpoint: 575,
+      settings: {
+        slidesToShow: 1,
+        centerMode: true,
+        centerPadding: 15,
+      }
+    },
+  ]
+};

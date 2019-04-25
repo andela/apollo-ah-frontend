@@ -138,3 +138,29 @@
 .heading-no-spacing {
 	margin-top: 0;
 }
+
+.slick-slide {
+	height: auto;
+}
+
+.slick-dots {
+	text-align: center;
+	margin-bottom: 50px;
+	margin-top: 20px;
+}
+.slick-dots li {
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	border-radius: 100%;
+	border: 2px solid $colorpurple37;
+	margin-left: 2px;
+	margin-right: 2px;
+}
+.slick-dots .slick-active {
+	background-color: $colorpurple;
+}
+
+.slick-dots li button{
+display: none;
+}

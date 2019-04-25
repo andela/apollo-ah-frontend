@@ -49,39 +49,39 @@ const Navbar = ({ isLoggedIn, profile }) => (
                 className="dropdown-menu"
                 aria-labelledby="navbarDropdownMenuLink18"
               >
-              <Link className="dropdown-item" to="/business">
+              <Link className="dropdown-item" to="/search?categoryId=3">
                   Business
               </Link>
               <div className="dropdown-divider" />
-              <Link className="dropdown-item" to="/entertainment">
+              <Link className="dropdown-item" to="/search?categoryId=7">
                   Entertainment
               </Link>
               <div className="dropdown-divider" />
-              <Link className="dropdown-item" to="/fashion">
+              <Link className="dropdown-item" to="/search?categoryId=4">
                   Fashion
               </Link>
               <div className="dropdown-divider" />
-              <Link className="dropdown-item" to="/food">
+              <Link className="dropdown-item" to="/search?categoryId=6">
                   Food
               </Link>
               <div className="dropdown-divider" />
-              <Link className="dropdown-item" to="/health">
+              <Link className="dropdown-item" to="/search?categoryId=5">
                   Health
               </Link>
               <div className="dropdown-divider" />
-              <Link className="dropdown-item" to="/history">
+              <Link className="dropdown-item" to="/search?categoryId=8">
                   History
               </Link>
               <div className="dropdown-divider" />
-              <Link className="dropdown-item" to="/technology">
+              <Link className="dropdown-item" to="/search?categoryId=1">
                   Technology
               </Link>
               <div className="dropdown-divider" />
-              <Link className="dropdown-item" to="/sports">
+              <Link className="dropdown-item" to="/search?categoryId=2">
                   Sports
               </Link>
               <div className="dropdown-divider" />
-              <Link className="dropdown-item" to="/others">
+              <Link className="dropdown-item" to="/search?categoryId=9">
                   Others
               </Link>
             </div>

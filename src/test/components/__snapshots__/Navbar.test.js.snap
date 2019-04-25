@@ -57,7 +57,7 @@ exports[`<Navbar Test Suite> <Navbar> It should render succesfully when user is 
             <Link
               className="dropdown-item"
               replace={false}
-              to="/business"
+              to="/search?categoryId=3"
             >
               Business
             </Link>
@@ -67,7 +67,7 @@ exports[`<Navbar Test Suite> <Navbar> It should render succesfully when user is 
             <Link
               className="dropdown-item"
               replace={false}
-              to="/entertainment"
+              to="/search?categoryId=7"
             >
               Entertainment
             </Link>
@@ -77,7 +77,7 @@ exports[`<Navbar Test Suite> <Navbar> It should render succesfully when user is 
             <Link
               className="dropdown-item"
               replace={false}
-              to="/fashion"
+              to="/search?categoryId=4"
             >
               Fashion
             </Link>
@@ -87,7 +87,7 @@ exports[`<Navbar Test Suite> <Navbar> It should render succesfully when user is 
             <Link
               className="dropdown-item"
               replace={false}
-              to="/food"
+              to="/search?categoryId=6"
             >
               Food
             </Link>
@@ -97,7 +97,7 @@ exports[`<Navbar Test Suite> <Navbar> It should render succesfully when user is 
             <Link
               className="dropdown-item"
               replace={false}
-              to="/health"
+              to="/search?categoryId=5"
             >
               Health
             </Link>
@@ -107,7 +107,7 @@ exports[`<Navbar Test Suite> <Navbar> It should render succesfully when user is 
             <Link
               className="dropdown-item"
               replace={false}
-              to="/history"
+              to="/search?categoryId=8"
             >
               History
             </Link>
@@ -117,7 +117,7 @@ exports[`<Navbar Test Suite> <Navbar> It should render succesfully when user is 
             <Link
               className="dropdown-item"
               replace={false}
-              to="/technology"
+              to="/search?categoryId=1"
             >
               Technology
             </Link>
@@ -127,7 +127,7 @@ exports[`<Navbar Test Suite> <Navbar> It should render succesfully when user is 
             <Link
               className="dropdown-item"
               replace={false}
-              to="/sports"
+              to="/search?categoryId=2"
             >
               Sports
             </Link>
@@ -137,7 +137,7 @@ exports[`<Navbar Test Suite> <Navbar> It should render succesfully when user is 
             <Link
               className="dropdown-item"
               replace={false}
-              to="/others"
+              to="/search?categoryId=9"
             >
               Others
             </Link>
@@ -366,7 +366,7 @@ exports[`<Navbar Test Suite> <Navbar> It should render succesfully when user is 
             <Link
               className="dropdown-item"
               replace={false}
-              to="/business"
+              to="/search?categoryId=3"
             >
               Business
             </Link>
@@ -376,7 +376,7 @@ exports[`<Navbar Test Suite> <Navbar> It should render succesfully when user is 
             <Link
               className="dropdown-item"
               replace={false}
-              to="/entertainment"
+              to="/search?categoryId=7"
             >
               Entertainment
             </Link>
@@ -386,7 +386,7 @@ exports[`<Navbar Test Suite> <Navbar> It should render succesfully when user is 
             <Link
               className="dropdown-item"
               replace={false}
-              to="/fashion"
+              to="/search?categoryId=4"
             >
               Fashion
             </Link>
@@ -396,7 +396,7 @@ exports[`<Navbar Test Suite> <Navbar> It should render succesfully when user is 
             <Link
               className="dropdown-item"
               replace={false}
-              to="/food"
+              to="/search?categoryId=6"
             >
               Food
             </Link>
@@ -406,7 +406,7 @@ exports[`<Navbar Test Suite> <Navbar> It should render succesfully when user is 
             <Link
               className="dropdown-item"
               replace={false}
-              to="/health"
+              to="/search?categoryId=5"
             >
               Health
             </Link>
@@ -416,7 +416,7 @@ exports[`<Navbar Test Suite> <Navbar> It should render succesfully when user is 
             <Link
               className="dropdown-item"
               replace={false}
-              to="/history"
+              to="/search?categoryId=8"
             >
               History
             </Link>
@@ -426,7 +426,7 @@ exports[`<Navbar Test Suite> <Navbar> It should render succesfully when user is 
             <Link
               className="dropdown-item"
               replace={false}
-              to="/technology"
+              to="/search?categoryId=1"
             >
               Technology
             </Link>
@@ -436,7 +436,7 @@ exports[`<Navbar Test Suite> <Navbar> It should render succesfully when user is 
             <Link
               className="dropdown-item"
               replace={false}
-              to="/sports"
+              to="/search?categoryId=2"
             >
               Sports
             </Link>
@@ -446,7 +446,7 @@ exports[`<Navbar Test Suite> <Navbar> It should render succesfully when user is 
             <Link
               className="dropdown-item"
               replace={false}
-              to="/others"
+              to="/search?categoryId=9"
             >
               Others
             </Link>

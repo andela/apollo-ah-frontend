@@ -23,6 +23,7 @@ export class HomePage extends Component {
     fiveStarAuthors: [],
   }
 
+
   async componentDidMount() {
     const { getArticles, getArticlesCategory } = this.props;
     await Promise.all([getArticles(), getArticlesCategory()]);

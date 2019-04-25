@@ -16,13 +16,10 @@ class NavbarContainer extends Component {
   render() {
     const { isLoggedIn, profile } = this.props;
     return (
-      <>
-        <Navbar isLoggedIn={isLoggedIn} profile={profile} />
-      </>
+      <Navbar isLoggedIn={isLoggedIn} profile={profile} />
     );
   }
 }
-
 
 const mapStateToProps = createStructuredSelector(
   {
