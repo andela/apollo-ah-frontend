@@ -144,13 +144,13 @@ Body.propTypes = {
 };
 
 Body.defaultProps = {
-  loadingCategory: '',
+  loadingCategory: false,
   PlaceholderLoader: f => f,
   Category: f => f,
   articlesCategory: [],
-  loadingArticles: Proptypes.string,
+  loadingArticles: false,
   Articles: f => f,
-  allArticles: Proptypes.array,
+  allArticles: [],
   Authors: f => f,
   fiveStarAuthors: [],
 };

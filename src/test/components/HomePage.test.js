@@ -3,12 +3,17 @@ import { MemoryRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { shallow, mount } from 'enzyme';
 import reduxStore from '../../store';
+import setup, { mockState } from '../setup';
 import ConnectedHomePage, { HomePage } from '../../components/HomePage';
 
 const { store } = reduxStore;
 const props = {
   getArticles: jest.fn(),
   getArticlesCategory: jest.fn(),
+  loadingCategory: false,
+  loadingArticles: false,
+  allArticles: [],
+  fiveStarAuthors: [],
   articles: [
     {
       id: 24,
@@ -57,56 +62,35 @@ const props = {
 };
 
 describe('<HomePage Test Suite>', () => {
-  describe('<HomePage>', () => {
-    it('It should render unconnected homepage succesfully', async (done) => {
-      const spy = jest.spyOn(HomePage.prototype, 'componentDidMount');
-      const wrapper = await shallow(<HomePage {...props} />);
-      wrapper.setState({
-        fiveStarAuthors: []
-      });
-      expect(wrapper).toBeDefined();
-      expect(wrapper.length).toBe(1);
-      wrapper.setState({
-        fiveStarAuthors: [{
-          authorsProfile: {
-            image: 'https://images.unsplash.com/photo-1478358161113-b0e11994a36b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-            firstname: 'Andra',
-            lastname: 'Collins',
-            bio: 'I love writing inspirational articles',
-          }
-        }],
-      });
-      expect(spy).toHaveBeenCalled();
-      expect(wrapper.instance().props.getArticles).toHaveBeenCalled();
-      expect(wrapper.instance().props.getArticlesCategory).toHaveBeenCalled();
-      wrapper.instance().averageRatings(props.articles[0]);
-      // expect(wrapper.instance().state.fiveStarAuthors.length).toBe(2);
-      done();
+  it('It should render unconnected homepage succesfully', async (done) => {
+    const spy = jest.spyOn(HomePage.prototype, 'componentDidMount');
+    const wrapper = await shallow(<HomePage {...props} />);
+    wrapper.setState({
+      fiveStarAuthors: []
     });
-    it('It should render connected homepage succesfully', () => {
-      const wrapper = mount(
-        <Provider store={store}>
-          <MemoryRouter>
-            <ConnectedHomePage {...props} />
-          </MemoryRouter>
-        </Provider>
-      );
-      expect(wrapper).toBeDefined();
-      expect(wrapper.length).toBe(1);
-      expect(wrapper.instance().state.storeState.articlesReducer).toEqual({
-        articles: [],
-        error: '',
-        loading: true,
-        page:
-        {
-          first: 1,
-          current: 1,
-          last: 1,
-          currentCount: 0,
-          totalCount: 0,
-          description: ''
+    expect(wrapper).toBeDefined();
+    expect(wrapper.length).toBe(1);
+    wrapper.setState({
+      fiveStarAuthors: [{
+        authorsProfile: {
+          image: 'https://images.unsplash.com/photo-1478358161113-b0e11994a36b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+          firstname: 'Andra',
+          lastname: 'Collins',
+          bio: 'I love writing inspirational articles',
         }
-      });
+      }],
     });
+    expect(spy).toHaveBeenCalled();
+    expect(wrapper.instance().props.getArticles).toHaveBeenCalled();
+    expect(wrapper.instance().props.getArticlesCategory).toHaveBeenCalled();
+    wrapper.instance().averageRatings(props.articles[0]);
+    done();
+  });
+  it('It should render connected homepage succesfully', () => {
+    const wrapper = setup(<ConnectedHomePage />);
+    expect(wrapper).toBeDefined();
+    expect(wrapper.length).toBe(1);
+    expect(wrapper.instance().state.storeState.articlesReducer)
+      .toEqual(mockState.articlesReducer);
   });
 });

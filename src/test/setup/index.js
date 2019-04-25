@@ -10,7 +10,6 @@ import { BrowserRouter } from 'react-router-dom';
 
 
 export const mockState = {
-  articles: [],
   user: {
     token: '',
     isLoggedIn: false,
@@ -23,10 +22,18 @@ export const mockState = {
       errorData: [],
     },
     resetPassword: {
-      laoding: false,
+      loading: false,
       message: '',
     }
   },
+  createArticle: {
+    loading: false,
+    message: false,
+  },
+  articlesReducer: {
+    articles: []
+  },
+  articlesCategoryReducer: []
 };
 
 export const createMockStore = () => {

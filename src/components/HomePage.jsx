@@ -113,8 +113,8 @@ HomePage.defaultProps = {
   articles: [],
   getArticlesCategory: f => f,
   articlesCategory: [],
-  loadingArticles: '',
-  loadingCategory: '',
+  loadingArticles: false,
+  loadingCategory: false,
 };
 
 const mapStateToProps = state => ({
