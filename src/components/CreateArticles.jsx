@@ -15,7 +15,7 @@ import CloudinaryWidget from './common/CloudinaryWidget';
 function CreateArticleContainer(props) {
   /** passing global state loading as props into variables */
   const {
-    message, isLoading, token
+    message, isLoading,
   } = props;
 
   const [formData, setFormData] = useState({
@@ -57,7 +57,6 @@ function CreateArticleContainer(props) {
     event.preventDefault();
     const requestData = {
       formData,
-      token,
     };
     await props.createArticleAction(props, requestData);
   }
@@ -95,7 +94,6 @@ const mapStateToProps = createStructuredSelector(
   {
     isLoading: selectors.getCreateArticleLoading,
     message: selectors.getCreateArticleMessage,
-    token: selectors.getUserToken,
   }
 );
 export default connect(

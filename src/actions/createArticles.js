@@ -46,7 +46,6 @@ const createArticle = (props, requestData) => async (dispatch) => {
     route: 'articles',
     method: 'post',
     payload: requestData.formData,
-    token: requestData.token
   }).then((response) => {
     dispatch(createArticleSuccess(response.message));
     props.history.push(`/article/${response.data.data.slug}`);

@@ -19,6 +19,9 @@ const userLogin = payload => async (dispatch) => {
     const result = await axios.post(`${process.env.API_BASE_URL}/users/login`, { ...payload });
     const { token } = await result.data;
     const profile = decodeToken(token);
+    /** store token in a session */
+    sessionStorage.setItem('token', token);
+    /** dispatch token as payload for redux persistence */
     return dispatch(loginProcess(loginType.success, { token, profile }));
   } catch (error) {
     let errorMessage = 'Please check your network connection';
