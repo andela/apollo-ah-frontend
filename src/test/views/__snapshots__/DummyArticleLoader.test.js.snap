@@ -75,11 +75,11 @@ exports[`<NotFound /> should render the component 1`] = `
                   Loading interface...
                 </title>
                 <rect
-                  clipPath="url(#zz02dfb50d)"
+                  clipPath="url(#cxgcctk8wvw)"
                   height={100}
                   style={
                     Object {
-                      "fill": "url(#hss7wq9xjlq)",
+                      "fill": "url(#fuw1zogd6k7)",
                     }
                   }
                   width={400}
@@ -88,7 +88,7 @@ exports[`<NotFound /> should render the component 1`] = `
                 />
                 <defs>
                   <clipPath
-                    id="zz02dfb50d"
+                    id="cxgcctk8wvw"
                   >
                     <rect
                       height="10"
@@ -164,7 +164,7 @@ exports[`<NotFound /> should render the component 1`] = `
                     />
                   </clipPath>
                   <linearGradient
-                    id="hss7wq9xjlq"
+                    id="fuw1zogd6k7"
                   >
                     <stop
                       offset="0%"
@@ -216,4 +216,3 @@ exports[`<NotFound /> should render the component 1`] = `
   </BrowserRouter>
 </Provider>
 `;
-;
