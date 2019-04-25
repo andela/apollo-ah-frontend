@@ -72,11 +72,17 @@ exports[`<NotFound /> should render the component 1`] = `
                     <p>
                       You can find more impactful acticles  on our
                        
-                      <a
-                        href="/"
+                      <Link
+                        replace={false}
+                        to="/"
                       >
-                        home page.
-                      </a>
+                        <a
+                          href="/"
+                          onClick={[Function]}
+                        >
+                          home page.
+                        </a>
+                      </Link>
                     </p>
                   </header>
                   <form

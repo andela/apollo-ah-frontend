@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/aria-role */
 /* eslint-disable jsx-a11y/accessible-emoji */
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
@@ -75,7 +76,7 @@ class NotFound extends React.Component {
                 <p>
                   You can find more impactful acticles  on our
                   {' '}
-                  <a href="/">home page.</a>
+                  <Link to="/">home page.</Link>
                 </p>
               </header>
               <form className="form" action="/search" method="get">
