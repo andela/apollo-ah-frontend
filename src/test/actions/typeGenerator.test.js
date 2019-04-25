@@ -9,6 +9,7 @@ describe('Action Type Generator', () => {
       loading: 'PROFILE_LOADING',
       success: 'PROFILE_SUCCESS',
       failure: 'PROFILE_FAILURE',
+      clearErrors: 'PROFILE_CLEAR_ERROR'
     });
   });
 });

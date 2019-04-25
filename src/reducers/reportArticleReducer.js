@@ -8,7 +8,6 @@ import initialState from '../store/initialState';
  * @returns {object}
  */
 const reportArticleReducer = (state = initialState, action = {}) => {
-  console.log(action.data);
   switch (action.type) {
     case reportArticleType.loading:
       return { loading: action.data.loading };

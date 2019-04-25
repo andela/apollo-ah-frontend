@@ -1,6 +1,5 @@
-import axios from 'axios';
 import typeGenerator from './typeGenerator';
-
+import request from '../utils/request';
 
 export const reportArticleType = typeGenerator('REPORT_ARTICLE');
 
@@ -10,7 +9,7 @@ export const reportArticleType = typeGenerator('REPORT_ARTICLE');
 export const clearErrors = () => async (dispatch) => {
   dispatch({
     type: reportArticleType.clearErrors,
-    data: { loading: false, error: null }
+    data: { error: null }
   });
 };
 
@@ -24,20 +23,17 @@ export const reportArticle = reportData => async (dispatch) => {
       type: reportArticleType.loading,
       data: { loading: true }
     });
-    const config = {
-      headers: {
-        Authorization: `Bearer ${reportData.userToken}`,
-      }
-    };
-    const result = await axios.post(`${process.env.API_BASE_URL}/articles/${reportData.articleId}/report`,
-      reportData, config);
-    dispatch({
+    await request({
+      route: `/articles/${reportData.articleId}/report`,
+      method: 'post',
+      payload: reportData,
+      token: reportData.userToken
+    });
+    return dispatch({
       type: reportArticleType.success,
       data: { loading: false, success: true }
     });
-    console.log(result);
   } catch (error) {
-    console.log(error.response);
     let errorMessage = 'An error occured';
     if (error.response) {
       const { message } = error.response.data;

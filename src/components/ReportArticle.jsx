@@ -31,7 +31,7 @@ class ReportArticle extends React.Component {
   handleSubmit = () => {
     const { type, comment } = this.state;
     const { reportArticle, token } = this.props;
-    const articleId = '78';
+    const articleId = '77';
     const reportData = {
       reportType: type,
       comment,
@@ -42,56 +42,46 @@ class ReportArticle extends React.Component {
   }
 
   render() {
-    const { loading, error, success } = this.props;
+    const {
+      loading, error, success, clearErrors
+    } = this.props;
     if (error) {
       toast.error(error);
+      clearErrors();
     }
     if (success) {
       toast.success('Article successfully reported');
+      clearErrors();
     }
     return (
       <section>
-        <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#reportArticle">Open modal</button>
-        <div className="modal" id="reportArticle">
-          <div className="modal-dialog modal-lg">
-            <div className="modal-content">
-              <div className="modal-header">
-                <h4 className="modal-title">Report Article</h4>
-                <button type="button" className="close" data-dismiss="modal">&times;</button>
+        <div className="row">
+          <div className="col-md-6 offset-md-3">
+            <form>
+              <div className="form-group">
+                <select onChange={this.handleChange} name="type" className="form-control col-md-5">
+                  <option value="">Report category</option>
+                  <option value="spam">Spam</option>
+                  <option value="plagiarism">Plagiarism</option>
+                  <option value="other">Other</option>
+                </select>
               </div>
-              <div className="modal-body">
-                <div className="row">
-                  <div className="col">
-                    <form>
-                      <div className="form-group">
-                        <select onChange={this.handleChange} name="type" className="form-control col-md-5">
-                          <option value="">Report category</option>
-                          <option value="spam">Spam</option>
-                          <option value="plagiarism">Plagiarism</option>
-                          <option value="other">Other</option>
-                        </select>
-                      </div>
-                      <div className="form-group">
-                        <p className="text-muted">Comment (optional)</p>
-                        <textarea onChange={this.handleChange} className="form-control" rows="10" name="comment" />
-                      </div>
-                    </form>
-                  </div>
-                </div>
+              <div className="form-group">
+                <p className="text-muted">Comment (optional)</p>
+                <textarea onChange={this.handleChange} className="form-control" rows="10" name="comment" />
               </div>
-              <div className="modal-footer">
-                <button onClick={this.handleSubmit} type="button" className="btn-brand">
-                  {loading
-                    ? (
-                      <div className="spinner-border" role="status">
-                        <span className="sr-only">Loading...</span>
-                      </div>
-                    ) : 'Report'}
-                </button>
-              </div>
-            </div>
+              <button onClick={this.handleSubmit} type="button" className="btn-brand">
+                {loading
+                  ? (
+                    <div className="spinner-border" role="status">
+                      <span className="sr-only">Loading...</span>
+                    </div>
+                  ) : 'Report'}
+              </button>
+            </form>
           </div>
         </div>
+        <section />
       </section>
     );
   }
@@ -101,13 +91,13 @@ ReportArticle.propTypes = {
   reportArticle: propTypes.func.isRequired,
   clearErrors: propTypes.func.isRequired,
   loading: propTypes.bool,
-  error: propTypes.bool,
+  error: propTypes.string,
   success: propTypes.bool,
   token: propTypes.string.isRequired,
 };
 ReportArticle.defaultProps = {
   loading: false,
-  error: false,
+  error: null,
   success: false
 };
 
