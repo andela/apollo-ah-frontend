@@ -17,22 +17,23 @@ describe('Testimng Signup reducer', () => {
   });
   it('should handle signup error', () => {
     const expectedResponse = { data: { errors: {}, loading: false } };
-    expect(signupReducer(expectedResponse, signupType.error)).not.toEqual({ ...initialUserState });
-    expect(signupReducer(expectedResponse, signupType.error))
+    expect(signupReducer(expectedResponse, signupType.failure))
+      .not.toEqual({ ...initialUserState });
+    expect(signupReducer(expectedResponse, signupType.failure))
       .toEqual(expectedResponse);
   });
   it('should hanlde add_error case', () => {
     const expectedResponse = { data: { errors: {} } };
-    expect(signupReducer(expectedResponse, signupType.add_error))
+    expect(signupReducer(expectedResponse, signupType.failure))
       .not.toEqual({ ...initialUserState });
-    expect(signupReducer(expectedResponse, signupType.add_error))
+    expect(signupReducer(expectedResponse, signupType.failure))
       .toEqual(expectedResponse);
   });
   it('should hanlde clear_error case', () => {
-    const expectedResponse = { data: null };
-    expect(signupReducer(expectedResponse, signupType.clear_errors))
+    const expectedResponse = { data: { errors: null, loading: false } };
+    expect(signupReducer(expectedResponse, signupType.failure))
       .not.toEqual({ ...initialUserState });
-    expect(signupReducer(expectedResponse, signupType.clear_errors))
+    expect(signupReducer(expectedResponse, signupType.failure))
       .toEqual(expectedResponse);
   });
 });

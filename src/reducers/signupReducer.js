@@ -12,12 +12,8 @@ export default (state = initialState, action) => {
   switch (action.type) {
     case signupType.loading:
       return { loading: action.data };
-    case signupType.error:
+    case signupType.failure:
       return { errors: action.data.errors, loading: action.data.loading };
-    case signupType.clear_errors:
-      return { errors: action.data };
-    case signupType.add_error:
-      return { errors: action.data.errors };
     case signupType.success:
       return {
         success: action.data.success,

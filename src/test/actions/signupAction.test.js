@@ -39,8 +39,8 @@ describe('Testing signup action ', () => {
   it('should populate the store with errors for the application', async (done) => {
     const expectedAction = [
       {
-        type: signupType.add_error,
-        data: { errors: [{ message: 'Email is required', field: 'email' }] }
+        type: signupType.failure,
+        data: { errors: [{ message: 'Email is required', field: 'email' }], loading: false }
       }
     ];
 
@@ -53,7 +53,7 @@ describe('Testing signup action ', () => {
 
   it('should reset the errors in the store', async (done) => {
     const expectedAction = [
-      { type: signupType.clear_errors, data: null }
+      { type: signupType.failure, data: { errors: null, loading: false } }
     ];
     const store = makeMockStore();
     await store.dispatch(clearErrors());

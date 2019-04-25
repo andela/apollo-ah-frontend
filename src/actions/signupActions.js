@@ -35,7 +35,7 @@ export const signUpUser = userData => async (dispatch) => {
     if (err.response) {
       errors = err.response.data.data;
     }
-    dispatch(signupAction(signupType.error, { errors, loading: false }));
+    dispatch(signupAction(signupType.failure, { errors, loading: false }));
   }
 };
 
@@ -43,7 +43,7 @@ export const signUpUser = userData => async (dispatch) => {
  * This function clears all errors from the store
 */
 export const clearErrors = () => (dispatch) => {
-  dispatch(signupAction(signupType.clear_errors, null));
+  dispatch(signupAction(signupType.failure, { errors: null, loading: false }));
 };
 
 
@@ -52,5 +52,5 @@ export const clearErrors = () => (dispatch) => {
  * @param {Object} data - data to be passed to the action
 */
 export const addError = data => (dispatch) => {
-  dispatch(signupAction(signupType.add_error, { errors: data }));
+  dispatch(signupAction(signupType.failure, { errors: data, loading: false }));
 };
