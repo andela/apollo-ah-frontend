@@ -44,22 +44,24 @@ class Signup extends React.Component {
   handleValidation = (data) => {
     const { addError } = this.props;
     const errors = [];
+    let validate = true;
+
     if (data.email === '') {
       errors.push({ message: 'Email is required', field: 'email' });
-      addError(errors);
-      return false;
+      validate = false;
     }
     if (data.username === '') {
       errors.push({ message: 'A valid username is required', field: 'username' });
-      addError(errors);
-      return false;
+      validate = false;
     }
     if (data.password === '') {
       errors.push({ message: 'A password is required', field: 'password' });
-      addError(errors);
-      return false;
+      validate = false;
     }
-    return true;
+    if (validate === false) {
+      addError(errors);
+    }
+    return validate;
   }
 
   /**
@@ -112,9 +114,9 @@ class Signup extends React.Component {
           else fill the form below to create an account.
         </p>
         <ErrorAlert message={message} close={this.handleErrorClose} />
-        <Input name="email" display="Email" onChange={this.handleChange} />
+        <Input name="email" display="Email" onChange={this.handleChange} type="email" />
         <Input name="username" display="Username" onChange={this.handleChange} />
-        <Input name="password" display="Password" onChange={this.handleChange} />
+        <Input name="password" display="Password" onChange={this.handleChange} type="password" />
         <button onClick={this.handleSubmit} type="submit" className="btn btn-brand w-100 btn-rectangle mt-1">
           {loading
             ? (
