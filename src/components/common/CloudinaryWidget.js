@@ -1,4 +1,4 @@
-const defaultFunc = () => {};
+const defaultFunc = () => { };
 const styles = {
   palette: {
     window: '#FFFFFF',
@@ -29,12 +29,12 @@ export default class CloudinaryWidget {
    * @param {boolean} [cropping=false] If the widget should enforce cropping
    * @memberof CloudinaryWidget
    */
-  constructor(handleSuccess = defaultFunc, handleFailure = defaultFunc, cropping = false) {
+  constructor(handleSuccess = defaultFunc, handleFailure = defaultFunc, ratio = 1) {
     this.widget = window.cloudinary.createUploadWidget({
       cloudName: process.env.CLOUDINARY_CLOUD_NAME,
-      uploadPreset: 'xdvl8frf',
-      cropping,
-      croppingAspectRatio: cropping ? 1 : null,
+      uploadPreset: 'ml_default',
+      cropping: true,
+      croppingAspectRatio: ratio,
       croppingDefaultSelectionRatio: 0.8,
       resourceType: 'image',
       clientAllowedFormats: ['png', 'jpg', 'jpeg', 'gif'],

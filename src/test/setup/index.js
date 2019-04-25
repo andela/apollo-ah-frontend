@@ -23,7 +23,7 @@ export const mockState = {
       errorData: [],
     },
     resetPassword: {
-      laoding: false,
+      loading: false,
       message: '',
     }
   },
@@ -32,6 +32,10 @@ export const mockState = {
     isLoading: false,
     message: '',
   },
+  createArticle: {
+    loading: false,
+    message: false,
+  }
 };
 
 export const createMockStore = () => {

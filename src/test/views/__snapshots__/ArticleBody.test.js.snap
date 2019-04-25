@@ -40,7 +40,7 @@ exports[`<ArticleBody /> should take a snapshot of the component 1`] = `
             Anonymous Lekan
           </h6>
           <span>
-            7 days ago
+            8 days ago
           </span>
           <span
             className="article-author-dot"

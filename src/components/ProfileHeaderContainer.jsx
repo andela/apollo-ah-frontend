@@ -40,7 +40,7 @@ class ProfileHeaderContainer extends Component {
      const { showLoader } = this.props;
      showLoader(true);
      if (widget === undefined) {
-       widget = new CloudinaryWidget(this.updateProfileImage, showLoader, true);
+       widget = new CloudinaryWidget(this.updateProfileImage, showLoader);
      }
      widget.open();
    }
