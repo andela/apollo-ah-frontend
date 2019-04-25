@@ -4,6 +4,7 @@ import propTypes from 'prop-types';
 import { Link, withRouter, Redirect } from 'react-router-dom';
 import { signUpUser, clearErrors, addError } from '../actions/signupActions';
 import ErrorAlert from '../views/ErrorAlert';
+import Input from '../views/Input';
 
 /**
  * @class Signup
@@ -111,18 +112,9 @@ class Signup extends React.Component {
           else fill the form below to create an account.
         </p>
         <ErrorAlert message={message} close={this.handleErrorClose} />
-        <div className="form-group mb-4">
-          <label htmlFor="email" className="font-weight-bold"> Email</label>
-          <input type="email" className="form-control text-lowercase" id="email" name="email" onChange={this.handleChange} />
-        </div>
-        <div className="form-group mb-4">
-          <label htmlFor="fname" className="font-weight-bold">Username</label>
-          <input type="text" className="form-control" id="username" name="username" onChange={this.handleChange} />
-        </div>
-        <div className="form-group mb-4">
-          <label htmlFor="password" className="font-weight-bold">Password</label>
-          <input type="password" className="form-control" id="password" name="password" onChange={this.handleChange} />
-        </div>
+        <Input name="email" display="Email" onChange={this.handleChange} />
+        <Input name="username" display="Username" onChange={this.handleChange} />
+        <Input name="password" display="Password" onChange={this.handleChange} />
         <button onClick={this.handleSubmit} type="submit" className="btn btn-brand w-100 btn-rectangle mt-1">
           {loading
             ? (
