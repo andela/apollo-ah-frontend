@@ -23,6 +23,7 @@ export const signUpUser = userData => async (dispatch) => {
       payload: userData
     });
     const { data: { data } } = response;
+    sessionStorage.setItem('token', data.token);
     dispatch(signupAction(signupType.success, {
       loading: false,
       success: true,
