@@ -31,7 +31,7 @@ class ReportArticle extends React.Component {
   handleSubmit = () => {
     const { type, comment } = this.state;
     const { reportArticle, token } = this.props;
-    const articleId = '77';
+    const articleId = '65';
     const reportData = {
       reportType: type,
       comment,

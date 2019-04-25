@@ -15,8 +15,6 @@ const reportArticleReducer = (state = initialState, action = {}) => {
       return { loading: action.data.loading, success: action.data.success };
     case reportArticleType.failure:
       return { loading: action.data.loading, error: action.data.error };
-    case reportArticleType.clearErrors:
-      return { error: action.data.error };
     default:
       return state;
   }

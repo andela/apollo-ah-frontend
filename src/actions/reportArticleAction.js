@@ -8,8 +8,8 @@ export const reportArticleType = typeGenerator('REPORT_ARTICLE');
  */
 export const clearErrors = () => async (dispatch) => {
   dispatch({
-    type: reportArticleType.clearErrors,
-    data: { error: null }
+    type: reportArticleType.failure,
+    data: { error: null, loading: false }
   });
 };
 
