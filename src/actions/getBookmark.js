@@ -44,12 +44,10 @@ export const getBookmarkFailure = message => ({
  * @param {object} payload The payload to send with the request
  * @returns {Promise} The promise returned from the request
  */
-export const getBookmarkedArticles = payload => async (dispatch) => {
+export const getBookmarkedArticles = () => async (dispatch) => {
   dispatch(getBookmarkLoading(true));
   return request({
     route: 'bookmarks',
-    payload,
-    token: payload.token
   }).then((response) => {
     dispatch(getBookmarkSuccess(response.data.data));
   }).catch((error) => {

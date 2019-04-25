@@ -3,6 +3,7 @@ import { getBookmarkType } from '../actions/getBookmark';
 const initialState = {
   loading: false,
   articles: [],
+  message: '',
 };
 
 /**

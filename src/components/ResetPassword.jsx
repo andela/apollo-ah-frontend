@@ -71,14 +71,14 @@ function ResetPassword(props) {
       <div>
         {
           isLoading
-            && (
-              <div className="reset_spinner_box">
-                <ClipLoader
-                  size={40}
-                  color="purple"
-                />
-              </div>
-            )
+          && (
+            <div className="reset_spinner_box">
+              <ClipLoader
+                size={40}
+                color="purple"
+              />
+            </div>
+          )
         }
       </div>
       {
@@ -90,7 +90,7 @@ function ResetPassword(props) {
 
 const mapStateToProps = createStructuredSelector(
   {
-    isLoading: selectors.getResetPassswordLoading,
+    isLoading: selectors.getResetPasswordLoading,
     message: selectors.getResetPasswordMessage,
   }
 );
