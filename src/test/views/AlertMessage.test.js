@@ -40,5 +40,4 @@ describe('<AlertMessage />', () => {
     wrapper.find('button').simulate('click', { resetstate: f => f });
     expect(mockFn).toHaveBeenCalled();
   });
-
 });

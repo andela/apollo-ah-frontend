@@ -7,7 +7,7 @@ import Footer from '../views/Footer';
 import Navbar from '../components/NavbarContainer';
 import ConnectedLogin from '../components/Login';
 import Article from '../components/Article';
-import NotFound from '../views/NotFound';
+import NotFound from '../components/NotFound';
 
 /**
  * @function Routes - A JSX wrapper for all the app's routes
