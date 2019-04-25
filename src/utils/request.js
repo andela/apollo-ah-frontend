@@ -1,5 +1,8 @@
 import axios from 'axios';
 
+/** Get token from the session storage */
+const token = sessionStorage.getItem('token');
+
 /**
  * Helper function that configures axios requests
  * @param {object} config The configuration data.
@@ -9,12 +12,12 @@ import axios from 'axios';
  * token - The authorization token to use if any
  * @returns {Promise} The axios promise
  */
+
 const request = async (
   {
     route,
     method,
     payload,
-    token
   }
 ) => {
   method = method || 'get';
