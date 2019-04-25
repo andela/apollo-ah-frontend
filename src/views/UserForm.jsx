@@ -77,12 +77,12 @@ function UserForm(props) {
                         <div className="login__forgot-password">
                           <label htmlFor="password">Password</label>
                           <button
-                          type="button"
-                          className="btn btn-link login__reset__btn "
-                          data-toggle="modal"
-                          data-target="#myModal"
+                            type="button"
+                            className="btn btn-link login__reset__btn "
+                            data-toggle="modal"
+                            data-target="#myModal"
                           >
-                          Forgot password?
+                            Forgot password?
                           </button>
                         </div>
                         <input

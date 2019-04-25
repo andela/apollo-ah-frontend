@@ -6,6 +6,7 @@ import resetPasswordReducer from './resetPasswordReducer';
 import loginReducers from './loginReducers';
 import articlesReducer from './articleReducer';
 import articlesCategoryReducer from './articleCategoryReducer';
+import createArticleReducer from './createArticleReducer';
 import profileReducer from './profileReducer';
 import { postCommentReducer, getCommentsReducer } from './commentsReducer';
 
@@ -23,6 +24,7 @@ const articleReducer = reduceReducers(postCommentReducer, getCommentsReducer);
 export default combineReducers({
   user: userReducer,
   article: articleReducer,
+  createArticle: createArticleReducer,
   articlesReducer,
   articlesCategoryReducer,
 });

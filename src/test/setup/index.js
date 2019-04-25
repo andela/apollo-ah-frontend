@@ -24,7 +24,7 @@ export const mockState = {
       errorData: [],
     },
     resetPassword: {
-      laoding: false,
+      loading: false,
       message: '',
     }
   },
@@ -45,9 +45,14 @@ export const mockState = {
       current: 1,
       currentCount: 1,
       totalCount: 1,
-    }
+    },
+  },
+  createArticle: {
+    loading: false,
+    message: false,
   }
 };
+
 
 export const createMockStore = () => {
   const mockStore = configMockStore([thunk]);

@@ -110,6 +110,7 @@ const Navbar = ({ isLoggedIn, profile }) => (
           <li className="nav-item">
             <Link
                 className="nav-link btn-cta transition btn-brand"
+                data-pg-collapsed
                 to="/user/create-article"
               >
               <i className="fas fa-pen transition" />
