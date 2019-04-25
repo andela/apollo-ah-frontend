@@ -4,7 +4,7 @@ import actionTypeGenerator from './typeGenerator';
 export const resetPasswordType = actionTypeGenerator('RESET_PASSWORD');
 
 /**
- * Action generator that is dispatched when user starts operatione
+ * Action generator that is dispatched when user starts operation
  * @returns {object} The action to dispatch
  */
 export const resetPasswordLoading = () => ({
