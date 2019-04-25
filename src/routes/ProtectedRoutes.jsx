@@ -10,10 +10,11 @@ import SettingsContainer from '../components/SettingsContainer';
 import DashboardContainer from '../components/DashboardContainer';
 import BookmarkContainer from '../components/BookmarkContainer';
 import { getIsLoggedIn } from '../selectors/navbarSelector';
+import CreateArticleContainer from '../components/CreateArticles';
 
 
 /**
- * Container component for protected pages
+ * Container component for protected pages. Users must log in to access these pages
  * @export
  * @class ProtectedContainer
  * @extends {Component}
@@ -31,6 +32,7 @@ class ProtectedContainer extends Component {
           <Route path="/user/profile" component={EditProfileContainer} />
           <Route path="/user/dashboard" component={DashboardContainer} />
           <Route path="/user/settings" component={SettingsContainer} />
+          <Route path="/user/create-article" component={CreateArticleContainer} />
         </Switch>
       </Wrapper>
     );

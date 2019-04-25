@@ -4,7 +4,7 @@ import actionTypeGenerator from './typeGenerator';
 export const resetPasswordType = actionTypeGenerator('RESET_PASSWORD');
 
 /**
- * Action generator that is dispatched when user starts operatione
+ * Action generator that is dispatched when user starts operation
  * @returns {object} The action to dispatch
  */
 export const resetPasswordLoading = () => ({
@@ -45,7 +45,11 @@ const passwordResetRequest = email => async (dispatch) => {
     const { data } = await axios.post(`${process.env.API_BASE_URL}/users/forgot_password`, { email });
     dispatch(resetPasswordSuccess(data.message));
   } catch (error) {
-    dispatch(resetPasswordFailure(error.response.data.data[0].message));
+    let info = 'Please check your network connection';
+    if (error.response) {
+      info = error.response.data.data[0].message;
+    }
+    dispatch(resetPasswordFailure(info));
   }
 };
 
