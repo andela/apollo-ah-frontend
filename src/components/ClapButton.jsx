@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { debounce } from 'lodash';
 import { withRouter } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import clapIcon from '../images/clap.svg';
 import * as articleSelector from '../selectors/singleArticleSelector';
 import { getAuthId, getIsAuthenticated } from '../selectors/authSelector';
@@ -90,7 +91,10 @@ export class ClapButton extends Component {
       return false;
     }
     // Deny article's author
-    if (articleAuthorId === userId) return false;
+    if (articleAuthorId === userId) {
+      toast.info('Sorry, you cannot clap on your article');
+      return false;
+    }
     const { articleClaps, clapsLeft, clapsCount } = this.state;
     if (clapsLeft >= 1) {
       this.setState({

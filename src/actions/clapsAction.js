@@ -5,7 +5,7 @@ export const userClapsType = typeGenerator('GET_USER_CLAP');
 export const clapArticleType = typeGenerator('CLAP_ARTICLE');
 
 /**
- * Action generator that is dispatched upon successfully clapping on article
+ * Action creator that is dispatched upon successfully clapping on article
  *
  * @param {object} payload - The user payload state
  * @returns {object} - Returns an action object
@@ -16,7 +16,7 @@ export const clapArticleSuccess = payload => ({
 });
 
 /**
- * Action generator that is dispatched if there's failure clapping on article
+ * Action creator that is dispatched if there's failure clapping on article
  *
  * @param {object} payload - The user payload state
  * @returns {object} - Returns an action object
@@ -57,7 +57,7 @@ export const clapArticleRequest = ({ slug, claps, token }) => async (dispatch) =
 };
 
 /**
- * Action generator that is dispatched upon successfully fetching user claps
+ * Action creator that is dispatched upon successfully fetching user claps
  *
  * @param {number} payload - The user payload state
  * @returns {object} - Returns an action object

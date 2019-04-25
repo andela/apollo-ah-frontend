@@ -8,7 +8,7 @@ const initialState = {
  * Claps reducer function
  *
  * @param {object} [state=initialState] - The initial state to load
- * @param {Function} action - The action to dispatch
+ * @param {object} action - The action to dispatch
  * @returns {object} - Returns the mutated state object
  */
 export default (state = initialState, action) => {
