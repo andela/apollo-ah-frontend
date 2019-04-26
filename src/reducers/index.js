@@ -7,6 +7,7 @@ import resetPasswordReducer from './resetPasswordReducer';
 import loginReducers from './loginReducers';
 import articlesReducer from './articleReducer';
 import articlesCategoryReducer from './articleCategoryReducer';
+import signupReducer from './signupReducer';
 import createArticleReducer from './createArticleReducer';
 import profileReducer from './profileReducer';
 
@@ -23,4 +24,5 @@ export default combineReducers({
   createArticle: createArticleReducer,
   articlesReducer,
   articlesCategoryReducer,
+  signupReducer,
 });
