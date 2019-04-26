@@ -74,7 +74,7 @@ class NotFound extends React.Component {
                   has been deleted or never existed.
                 </p>
                 <p>
-                  You can find more impactful acticles  on our
+                  You can find more impactful articles  on our
                   {' '}
                   <Link to="/">home page.</Link>
                 </p>
