@@ -41,7 +41,7 @@ function ArticleBody(props) {
         {article.body}
       </div>
       <div className="single-tags text-center">
-        {(!article.tagList || article.tagList.length === 0) ? '' : article.tagList.map(tag => <Tag tag={tag} key={tag} />) }
+        {(!article.tagList || article.tagList.length === 0) ? '' : article.tagList.map(tag => <Tag tag={tag} key={tag.tagName} />) }
       </div>
       <div className="pg-empty-placeholder" />
       <div className="clap-grp">
@@ -59,7 +59,7 @@ function ArticleBody(props) {
       </div>
       <div className="single-author-container single-article-author">
         <div className="article-author">
-          <img src="assets/images/authors/photo-1524154217857-45f012d0f167.jpg" alt="" />
+          <img src={article.image} alt="" />
           <div>
             <h6>Alexandra</h6>
             <p>Journalist, author, dad. Former TIME magazine editor and foreign correspondent. </p>
