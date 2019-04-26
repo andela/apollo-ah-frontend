@@ -104,30 +104,6 @@ exports[`<ArticleBody> should render without crashing when there are no tags 1`]
         className="share-grp"
       >
         <a
-          className="text-danger"
-          href="you"
-        >
-          <i
-            className="fas fa-envelope"
-          />
-        </a>
-        <a
-          className="text-primary"
-          href="you"
-        >
-          <i
-            className="fab fa-facebook-square"
-          />
-        </a>
-        <a
-          className="text-white"
-          href="you"
-        >
-          <i
-            className="fab fa-twitter-square text-info"
-          />
-        </a>
-        <a
           className="text-muted"
           href="you"
         >
@@ -143,6 +119,44 @@ exports[`<ArticleBody> should render without crashing when there are no tags 1`]
             className="fas fa-ellipsis-h"
           />
         </a>
+      </div>
+      <div
+        className="share-grp"
+      >
+        <SocialShare>
+          <div>
+            <a
+              className="text-danger"
+              href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to&su=Authors+Haven&body=http://localhost/"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <i
+                className="fas fa-envelope"
+              />
+            </a>
+            <a
+              className="text-primary"
+              href="https://www.facebook.com/sharer.php?u=http://localhost/"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <i
+                className="fab fa-facebook-square"
+              />
+            </a>
+            <a
+              className="text-white"
+              href="https://twitter.com/intent/tweet?text=http://localhost/"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <i
+                className="fab fa-twitter-square text-info"
+              />
+            </a>
+          </div>
+        </SocialShare>
       </div>
     </div>
     <div
@@ -341,30 +355,6 @@ exports[`<ArticleBody> should render without crashing when there are tags 1`] = 
               className="share-grp"
             >
               <a
-                className="text-danger"
-                href="you"
-              >
-                <i
-                  className="fas fa-envelope"
-                />
-              </a>
-              <a
-                className="text-primary"
-                href="you"
-              >
-                <i
-                  className="fab fa-facebook-square"
-                />
-              </a>
-              <a
-                className="text-white"
-                href="you"
-              >
-                <i
-                  className="fab fa-twitter-square text-info"
-                />
-              </a>
-              <a
                 className="text-muted"
                 href="you"
               >
@@ -380,6 +370,44 @@ exports[`<ArticleBody> should render without crashing when there are tags 1`] = 
                   className="fas fa-ellipsis-h"
                 />
               </a>
+            </div>
+            <div
+              className="share-grp"
+            >
+              <SocialShare>
+                <div>
+                  <a
+                    className="text-danger"
+                    href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to&su=Authors+Haven&body=http://localhost/"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    <i
+                      className="fas fa-envelope"
+                    />
+                  </a>
+                  <a
+                    className="text-primary"
+                    href="https://www.facebook.com/sharer.php?u=http://localhost/"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    <i
+                      className="fab fa-facebook-square"
+                    />
+                  </a>
+                  <a
+                    className="text-white"
+                    href="https://twitter.com/intent/tweet?text=http://localhost/"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    <i
+                      className="fab fa-twitter-square text-info"
+                    />
+                  </a>
+                </div>
+              </SocialShare>
             </div>
           </div>
           <div
