@@ -19,6 +19,13 @@ export default (state = initialState, action) => {
         success: action.data.success,
         loading: action.data.loading,
         token: action.data.token,
+        isLoggedIn: true,
+        profile: {
+          ...state.profile,
+          image: action.data.profile.image,
+          id: action.data.profile.id,
+          username: action.data.profile.username
+        }
       };
     default:
       return state;

@@ -16,7 +16,12 @@ import { postCommentReducer, getCommentsReducer } from './commentsReducer';
  * @function userReducer,artilceReducer reducers used to combine multiple reducers
  * to a single key in the redux store
  */
-const userReducer = reduceReducers(loginReducers, resetPasswordReducer, profileReducer);
+const userReducer = reduceReducers(
+  loginReducers,
+  resetPasswordReducer,
+  profileReducer,
+  signupReducer
+);
 const articleReducer = reduceReducers(postCommentReducer, getCommentsReducer);
 
 /**
