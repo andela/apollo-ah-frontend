@@ -1,0 +1,74 @@
+
+.signup-row {
+  background-color: $white;
+}
+.signup-bg {
+  background-size: cover;
+  background-position: center center;
+  background-image: $url0;
+  right: 15px;
+}
+.signup-intro {
+  position: absolute;
+  color: $white;
+  bottom: 60px;
+  max-width: 380px;
+  left: 80px;
+  h2 {
+      font-size: 28px;
+      font-weight: bold;
+  }
+}
+.signup-form-message {
+  color: $colormountainmist;
+  font-size: 16px;
+  margin-bottom: 30px;
+  margin-top: 10px;
+  a {
+      color: $colorpurple80;
+      border-bottom: 1px dashed;
+      margin-right: 5px;
+      padding-bottom: 3px;
+      &:hover {
+          text-decoration: none;
+          color: $colorpurple;
+      }
+  }
+}
+.signup-btn-back {
+  font-size: 22px;
+  color: $colormountainmist;
+  margin-top: 20px;
+  margin-left: 10px;
+  padding: 5px 10px;
+  &:hover {
+      color: $colorpurple70;
+  }
+}
+.signup-intro::before {
+  position: absolute;
+  content: "";
+  background-color: $white;
+  height: 3px;
+  width: 40px;
+  left: -50px;
+  top: 15px;
+}
+.social-grp {
+  margin-top: 50px;
+  text-align: center;
+  margin-bottom: -20px;
+  color: $colormasala;
+  p {
+      color: $colormountainmist;
+      a {
+          color: $colormasala;
+          text-decoration: underline;
+          display: inline-block;
+      }
+  }
+}
+.signup-form h1 {
+  font-weight: bold;
+  font-size: 30px;
+}

@@ -1,0 +1,143 @@
+.comment-grp {
+	margin-top: 0;
+	padding-top: 5px;
+	.article-author {
+		&:first-child {
+			border: none;
+		}
+		p {
+			max-width: 700px;
+			margin-bottom: 10px;
+		}
+		img {
+			margin-left: 20px;
+		}
+		div {
+			margin-right: 20px;
+			padding-left: 25px;
+			margin-top: 0;
+		}
+		span {
+			margin-top: -5px;
+			margin-bottom: 5px;
+		}
+	}
+	h4 {
+		margin-bottom: 15px;
+		font-weight: bold;
+		margin-top: 10px;
+	}
+	form {
+		margin: 10px 15px 0;
+		.form-control {
+			vertical-align: middle;
+			height: 65px;
+			padding-left: 20px;
+			padding-right: 60px;
+		}
+		button {
+			position: absolute;
+			right: 0;
+			top: 0;
+			background-color: transparent;
+			color: $colortundora;
+			bottom: 0;
+			width: 60px;
+		}
+		&.busy {
+			.fas {
+				display: none;
+			}
+			.spinner-grow {
+				display: inline-block;
+			}
+		}
+		.spinner-grow {
+			display: none;
+		}
+	}
+	.form-group {
+		position: relative;
+	}
+	.card-body {
+		padding: 10px 0 0;
+	}
+	&:empty{
+		display: none;
+	}
+}
+.loadmore-grp {
+	background-color: $colorsilver;
+	color: $colorrangoongreen;
+	font-weight: bold;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-radius: 0;
+	width: 100%;
+	&.busy {
+		.text {
+			display: none;
+		}
+		.spinner-grow {
+			display: inline-block;
+		}
+	}
+	.spinner-grow {
+		display: none;
+	}
+}
+@keyframes shiny {
+	from {
+		width: 100%;
+		opacity: 0;
+	}
+	to {
+		width: 10%;
+		opacity: 1;
+	}
+}
+.comment-loader {
+	height: 80px;
+	position: relative;
+	div::after {
+		content: "";
+		left: 0;
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		background-color: $colorquillgray;
+		animation: shiny 1.5s ease-in-out 0s infinite reverse;
+	}
+}
+.comment-loader-img {
+	position: absolute;
+	width: 40px;
+	height: 40px;
+	border-radius: 100%;
+	background-color: $gallery;
+	left: 20px;
+	top: 10px;
+	overflow: hidden;
+}
+.comment-loader-name {
+	margin-left: 70px;
+	width: 130px;
+	height: 7px;
+	background-color: $gallery;
+	top: 17px;
+	position: absolute;
+}
+.comment-loader-time {
+	top: 29px;
+	width: 60px;
+	height: 4px;
+}
+.comment-loader-text {
+	top: 46px;
+	height: 7px;
+	width: 70%;
+}
+.comment-loader-text-sm {
+	width: 50%;
+	top: 59px;
+}

@@ -1,0 +1,80 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CommentForm> should render without crashing when user is authenticated 1`] = `
+<div
+  className="comment-grp card mt-3 relative"
+>
+  <form
+    className="form busy"
+    onSubmit={[MockFunction]}
+  >
+    <div
+      className="form-group"
+    >
+      <input
+        autoComplete="off"
+        className="form-control"
+        disabled={true}
+        name="body"
+        onChange={[MockFunction]}
+        placeholder="Leave a comment"
+        value="Hello world"
+      />
+      <button
+        className="btn btn-link"
+        disabled={true}
+        type="submit"
+      >
+        <i
+          className="fas fa-paper-plane"
+        />
+        <span
+          className="spinner-grow text-dark"
+        />
+      </button>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`<CommentForm> should render without crashing when user is unauthenticated 1`] = `
+<div
+  className="comment-grp card mt-3 relative"
+>
+  <form
+    className="form"
+    onSubmit={[MockFunction]}
+  >
+    <div
+      className="form-group"
+    >
+      <input
+        autoComplete="off"
+        className="form-control"
+        disabled={false}
+        name="body"
+        onChange={[MockFunction]}
+        placeholder="Leave a comment"
+        value="Hello world"
+      />
+      <button
+        className="btn btn-link"
+        disabled={false}
+        type="submit"
+      >
+        <i
+          className="fas fa-paper-plane"
+        />
+        <span
+          className="spinner-grow text-dark"
+        />
+      </button>
+    </div>
+  </form>
+  <Link
+    className="link-surface"
+    replace={false}
+    to="/login"
+  />
+</div>
+`;

@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Input  Test Suite> <Input> It should render Input field well 1`] = `
+<div
+  className="form-group mb-4"
+>
+  <label
+    className="font-weight-bold"
+    htmlFor="email"
+  >
+    Email
+  </label>
+  <input
+    className="form-control"
+    id="email"
+    name="email"
+    onChange={[Function]}
+    type="text"
+  />
+</div>
+`;

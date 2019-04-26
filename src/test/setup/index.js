@@ -19,8 +19,9 @@ export const mockState = {
     message: '',
     isLoading: false,
     profile: {
-      username: '',
-      image: '',
+      firstname: 'John',
+      username: 'johnny',
+      image: 'image.jpg',
       errorData: [],
     },
     resetPassword: {
@@ -28,12 +29,32 @@ export const mockState = {
       message: '',
     }
   },
+  article: {
+    newComments: {
+      body: 'Hello world',
+      id: 1,
+      authorName: 'John',
+      authorImage: 'image.jpg',
+      date: 'July 4th 2018',
+    },
+    postingComment: false,
+    commentMessage: 'Done',
+    gettingComments: false,
+    oldComments: [],
+    hasMoreComments: false,
+    commentPage: {
+      current: 1,
+      currentCount: 1,
+      totalCount: 1,
+    },
+  },
   createArticle: {
     loading: false,
     message: false,
   }
 };
 mockState.articlesReducer = articlesReducer;
+
 
 export const createMockStore = () => {
   const mockStore = configMockStore([thunk]);
