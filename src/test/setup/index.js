@@ -18,8 +18,9 @@ export const mockState = {
     message: '',
     isLoading: false,
     profile: {
-      username: '',
-      image: '',
+      firstname: 'John',
+      username: 'johnny',
+      image: 'image.jpg',
       errorData: [],
     },
     resetPassword: {
@@ -27,17 +28,35 @@ export const mockState = {
       message: '',
     },
   },
+  userClaps: { claps: 0 },
   article: {
     slug: 'article-slug',
     claps: 10,
     authorId: 1,
+    newComments: {
+      body: 'Hello world',
+      id: 1,
+      authorName: 'John',
+      authorImage: 'image.jpg',
+      date: 'July 4th 2018',
+    },
+    postingComment: false,
+    commentMessage: 'Done',
+    gettingComments: false,
+    oldComments: [],
+    hasMoreComments: false,
+    commentPage: {
+      current: 1,
+      currentCount: 1,
+      totalCount: 1,
+    },
   },
-  userClaps: { claps: 0 },
   createArticle: {
     loading: false,
     message: false,
   }
 };
+
 
 export const createMockStore = () => {
   const mockStore = configMockStore([thunk]);

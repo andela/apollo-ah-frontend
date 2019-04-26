@@ -46,8 +46,9 @@ exports[`<EditProfileContainer> should render without crashing 1`] = `
           profile={
             Object {
               "errorData": Array [],
-              "image": "",
-              "username": "",
+              "firstname": "John",
+              "image": "image.jpg",
+              "username": "johnny",
             }
           }
           token=""
@@ -63,8 +64,9 @@ exports[`<EditProfileContainer> should render without crashing 1`] = `
               profile={
                 Object {
                   "errorData": Array [],
-                  "image": "",
-                  "username": "",
+                  "firstname": "John",
+                  "image": "image.jpg",
+                  "username": "johnny",
                 }
               }
               showLoader={[Function]}
@@ -78,8 +80,9 @@ exports[`<EditProfileContainer> should render without crashing 1`] = `
                 profile={
                   Object {
                     "errorData": Array [],
-                    "image": "",
-                    "username": "",
+                    "firstname": "John",
+                    "image": "image.jpg",
+                    "username": "johnny",
                   }
                 }
               >
@@ -100,9 +103,9 @@ exports[`<EditProfileContainer> should render without crashing 1`] = `
                       className="spinner-border text-light align-middle"
                     />
                     <img
-                      alt=""
+                      alt="johnny"
                       className="img-thumbnail"
-                      src=""
+                      src="image.jpg"
                     />
                     <button
                       className="btn change-image transition"
@@ -120,12 +123,13 @@ exports[`<EditProfileContainer> should render without crashing 1`] = `
                     <h4
                       className="profile-name text-capitalize"
                     >
+                      John
                        
                     </h4>
                     <p
                       className="profile-username"
                     >
-                      @
+                      @johnny
                     </p>
                   </div>
                   <div
@@ -194,8 +198,9 @@ exports[`<EditProfileContainer> should render without crashing 1`] = `
             profile={
               Object {
                 "errorData": Array [],
-                "image": "",
-                "username": "",
+                "firstname": "John",
+                "image": "image.jpg",
+                "username": "johnny",
               }
             }
             token=""
@@ -219,6 +224,7 @@ exports[`<EditProfileContainer> should render without crashing 1`] = `
                   </label>
                   <input
                     className="form-control text-capitalize"
+                    defaultValue="John"
                     id="fname"
                     name="firstname"
                     type="text"
@@ -251,7 +257,7 @@ exports[`<EditProfileContainer> should render without crashing 1`] = `
                   </label>
                   <input
                     className="form-control"
-                    defaultValue=""
+                    defaultValue="johnny"
                     id="username"
                     name="username"
                     required={true}
@@ -294,7 +300,7 @@ exports[`<EditProfileContainer> should render without crashing 1`] = `
                 />
                 <input
                   className="hidden"
-                  defaultValue=""
+                  defaultValue="image.jpg"
                   name="image"
                   type="hidden"
                 />
