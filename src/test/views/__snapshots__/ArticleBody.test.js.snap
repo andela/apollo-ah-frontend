@@ -167,7 +167,7 @@ exports[`<ArticleBody> should render without crashing when there are no tags 1`]
       >
         <img
           alt=""
-          src="assets/images/authors/photo-1524154217857-45f012d0f167.jpg"
+          src="image.jpg"
         />
         <div>
           <h6>
@@ -314,7 +314,7 @@ exports[`<ArticleBody> should render without crashing when there are tags 1`] = 
             className="single-tags text-center"
           >
             <Tag
-              key="[object Object]"
+              key="tech"
               tag={
                 Object {
                   "tagName": "tech",
@@ -418,7 +418,7 @@ exports[`<ArticleBody> should render without crashing when there are tags 1`] = 
             >
               <img
                 alt=""
-                src="assets/images/authors/photo-1524154217857-45f012d0f167.jpg"
+                src="image.jpg"
               />
               <div>
                 <h6>

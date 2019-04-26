@@ -1,8 +1,25 @@
 import articleReducer from '../../reducers/articleReducer';
+import { getArticlesType } from '../../actions/articleAction';
 
-describe('articleReducer test suite', () => {
-  it('should return articles', () => {
-    const initialState = {
+const articleState = {
+  articles: [],
+  page: {
+    first: 1,
+    current: 1,
+    last: 1,
+    currentCount: 0,
+    totalCount: 0,
+    description: ''
+  },
+  loading: '',
+  error: ''
+};
+
+describe('Reset password reducer: ', () => {
+  it('should have the correct default state', () => {
+    expect(articleReducer(undefined, {
+      type: 'non-existent type'
+    })).toEqual({
       articles: [],
       page: {
         first: 1,
@@ -12,65 +29,33 @@ describe('articleReducer test suite', () => {
         totalCount: 0,
         description: ''
       },
-      loading: ''
-    };
-    const state = articleReducer(initialState, {
-      type: 'GET_ARTICLES_SUCCESS',
-      payload: {
-        articles: [{
-          id: 1,
-          image: 'https://images.unsplash.com/photo-1478358161113-b0e11994a36b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-          title: 'New article title',
-          articleCategory: {
-            category: 'Technology',
-          },
-          description: 'This is the article description',
-          User: { id: 8, Profile: { firstname: 'Andra', lastname: 'Collins', username: '@Andra' } },
-        }],
-      }
-    });
-    expect(state).toEqual({
-      articles: [{
-        id: 1,
-        image: 'https://images.unsplash.com/photo-1478358161113-b0e11994a36b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-        title: 'New article title',
-        articleCategory: {
-          category: 'Technology',
-        },
-        description: 'This is the article description',
-        User: { id: 8, Profile: { firstname: 'Andra', lastname: 'Collins', username: '@Andra' } },
-      }],
       loading: '',
-      page: undefined,
+      error: ''
     });
   });
 
-  it('return default state', () => {
-    const initialState = {
+  it('should update the reducer state when successful', () => {
+    const action = {
+      type: getArticlesType.success,
       articles: [],
+      page: 1,
     };
-    const state = articleReducer(initialState, {
-      type: '',
-      payload: [],
-    });
-    expect(state).toEqual({
-      articles: [],
-    });
+    const result = articleReducer(articleState, action);
+    const expected = { ...articleState, articles: [], page: 1 };
+    expect(result).toEqual(expected);
   });
 
-  it('return initial state', () => {
-    expect(articleReducer(undefined, {})).toEqual({
-      articles: [],
+  it('should update the reducer state when unsuccessful', () => {
+    const action = {
+      type: getArticlesType.failure,
+      articles: '',
       error: '',
-      page: {
-        first: 1,
-        current: 1,
-        last: 1,
-        currentCount: 0,
-        totalCount: 0,
-        description: ''
-      },
-      loading: ''
-    });
+      loading: false
+    };
+    const result = articleReducer(articleState, action);
+    const expected = {
+      ...articleState, loading: false, articles: '', error: ''
+    };
+    expect(result).toEqual(expected);
   });
 });

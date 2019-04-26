@@ -2,7 +2,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import UserForm from '../../views/UserForm';
-import ResetPassword from '../../components/ResetPassword';
+
 
 // eslint-disable-next-line no-undef
 const mockFn = jest.fn();

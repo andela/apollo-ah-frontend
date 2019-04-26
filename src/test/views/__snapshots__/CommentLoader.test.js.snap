@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CommentLoader> should render without crashing 1`] = `
+<div
+  className="comment-loader"
+>
+  <div
+    className="pg-empty-placeholder comment-loader-img"
+  />
+  <div
+    className="pg-empty-placeholder comment-loader-name"
+  />
+  <div
+    className="pg-empty-placeholder comment-loader-name comment-loader-time"
+  />
+  <div
+    className="pg-empty-placeholder comment-loader-name comment-loader-text"
+  />
+  <div
+    className="pg-empty-placeholder comment-loader-name comment-loader-text comment-loader-text-sm"
+  />
+</div>
+`;
