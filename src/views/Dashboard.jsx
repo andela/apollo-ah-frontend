@@ -1,191 +1,61 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+import SummaryBox from './SummaryBox';
+import TableRow from './TableRow';
 
-export default function Dashboard() {
+
+export default function Dashboard({ summary, articles, handleDeleteArticle }) {
   return (
     <div>
       <div className="card-columns" data-pg-collapsed>
-        <div className="card">
-          <div className="card-body">
-            <div className="summary">
-              <h4 className="font-weight-bold">40</h4>
-              <span>Articles</span>
-              <i className="fas fa-file-alt" />
-            </div>
-          </div>
-        </div>
-        <div className="card">
-          <div className="card-body">
-            <div className="summary">
-              <h4 className="font-weight-bold">35k</h4>
-              <span>Comments</span>
-              <i className="fas fa-comments" />
-            </div>
-          </div>
-        </div>
-        <div className="card">
-          <div className="card-body">
-            <div className="summary">
-              <h4 className="font-weight-bold">12k</h4>
-              <span>Claps</span>
-              <i className="fas fa-sign-language" />
-            </div>
-          </div>
-        </div>
+        <SummaryBox value={summary.articles} icon="file-alt" text="Articles" />
+        <SummaryBox value={summary.comments} icon="comments" text="Comments" />
+        <SummaryBox value={summary.claps} icon="sign-language" text="Claps" />
+
       </div>
-      <div className="mt-3 card" data-pg-collapsed>
-        <div className="table-responsive-sm">
-          <table className="table">
-            <thead>
-              <tr>
-                <th />
-                <th className="text-center">Comments</th>
-                <th className="text-center">Claps</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td className="align-middle">
-                  <p className="mb-n1 font-weight-bold">
-                How to write on any subject
-                    {' '}
 
-                  </p>
-                  <small>
-                Published Jul 24th, 2018
+      {articles.length === 0 ? (
+        <div className="dashboard-empty">
+          <i className="fas fa-book-open" />
+          <h2>You don't have any articles yet</h2>
+          <p>
+When you start publishing articles, you will be able to view statistics about the
+            performance of your articles here.
 
-                  </small>
-                  <div className="dropdown d-inline-block">
-                    <button className="btn dropdown-toggle btn-unfocused" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" />
-                    <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      <a className="dropdown-item" href="#">View article</a>
-                      <a className="dropdown-item" href="#">Edit</a>
-                      <a className="dropdown-item" href="#">Delete</a>
-                    </div>
-                  </div>
-                </td>
-                <td className="text-center align-middle">45</td>
-                <td className="text-center align-middle">12</td>
-              </tr>
-              <tr>
-                <td className="align-middle">
-                  <p className="mb-n1 font-weight-bold">
-                How to write on any subject
-                    {' '}
-
-                  </p>
-                  <small>
-                Published Jul 24th, 2018
-
-                  </small>
-                  <div className="dropdown d-inline-block">
-                    <button className="btn dropdown-toggle btn-unfocused" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" />
-                    <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      <a className="dropdown-item" href="#">View article</a>
-                      <a className="dropdown-item" href="#">Edit</a>
-                      <a className="dropdown-item" href="#">Delete</a>
-                    </div>
-                  </div>
-                </td>
-                <td className="text-center align-middle">45</td>
-                <td className="text-center align-middle">12</td>
-              </tr>
-              <tr>
-                <td className="align-middle">
-                  <p className="mb-n1 font-weight-bold">
-                How to write on any subject
-                    {' '}
-
-                  </p>
-                  <small>
-                Published Jul 24th, 2018
-
-                  </small>
-                  <div className="dropdown d-inline-block">
-                    <button className="btn dropdown-toggle btn-unfocused" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" />
-                    <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      <a className="dropdown-item" href="#">View article</a>
-                      <a className="dropdown-item" href="#">Edit</a>
-                      <a className="dropdown-item" href="#">Delete</a>
-                    </div>
-                  </div>
-                </td>
-                <td className="text-center align-middle">45</td>
-                <td className="text-center align-middle">12</td>
-              </tr>
-              <tr>
-                <td className="align-middle">
-                  <p className="mb-n1 font-weight-bold">
-                How to write on any subject
-                    {' '}
-
-                  </p>
-                  <small>
-                Published Jul 24th, 2018
-
-                  </small>
-                  <div className="dropdown d-inline-block">
-                    <button className="btn dropdown-toggle btn-unfocused" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" />
-                    <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      <a className="dropdown-item" href="#">View article</a>
-                      <a className="dropdown-item" href="#">Edit</a>
-                      <a className="dropdown-item" href="#">Delete</a>
-                    </div>
-                  </div>
-                </td>
-                <td className="text-center align-middle">45</td>
-                <td className="text-center align-middle">12</td>
-              </tr>
-              <tr>
-                <td className="align-middle">
-                  <p className="mb-n1 font-weight-bold">
-                How to write on any subject
-                    {' '}
-
-                  </p>
-                  <small>
-                Published Jul 24th, 2018
-
-                  </small>
-                  <div className="dropdown d-inline-block">
-                    <button className="btn dropdown-toggle btn-unfocused" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" />
-                    <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      <a className="dropdown-item" href="#">View article</a>
-                      <a className="dropdown-item" href="#">Edit</a>
-                      <a className="dropdown-item" href="#">Delete</a>
-                    </div>
-                  </div>
-                </td>
-                <td className="text-center align-middle">45</td>
-                <td className="text-center align-middle">12</td>
-              </tr>
-              <tr>
-                <td className="align-middle">
-                  <p className="mb-n1 font-weight-bold">
-                How to write on any subject
-                    {' '}
-
-                  </p>
-                  <small>
-                Published Jul 24th, 2018
-
-                  </small>
-                  <div className="dropdown d-inline-block">
-                    <button className="btn dropdown-toggle btn-unfocused" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" />
-                    <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      <a className="dropdown-item" href="#">View article</a>
-                      <a className="dropdown-item" href="#">Edit</a>
-                      <a className="dropdown-item" href="#">Delete</a>
-                    </div>
-                  </div>
-                </td>
-                <td className="text-center align-middle">45</td>
-                <td className="text-center align-middle">12</td>
-              </tr>
-            </tbody>
-          </table>
+          </p>
+          <Link to="/user/create-article" className="btn btn-brand">Write your first article</Link>
         </div>
-      </div>
+      ) : (
+        <div className="mt-3 card" data-pg-collapsed>
+          <div className="table-responsive-sm">
+            <table className="table">
+              <thead>
+                <tr>
+                  <th />
+                  <th className="text-center">Comments</th>
+                  <th className="text-center">Claps</th>
+                </tr>
+              </thead>
+              <tbody>
+                {articles.map(item => (
+                  <TableRow
+      item={item}
+      handleDeleteArticle={handleDeleteArticle}
+      key={item.id} />
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      )}
     </div>
 
   );
 }
+
+Dashboard.propTypes = {
+  summary: PropTypes.object.isRequired,
+  articles: PropTypes.array.isRequired,
+  handleDeleteArticle: PropTypes.func.isRequired
+};

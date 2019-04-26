@@ -1,4 +1,3 @@
-/* eslint-disable react/prefer-stateless-function */
 import React, { Component } from 'react';
 
 import Dashboard from '../views/Dashboard';
@@ -11,11 +10,16 @@ import ProfileHeaderContainer from './ProfileHeaderContainer';
  * @extends {Component}
  */
 export default class DashboardContainer extends Component {
+  handleDeleteArticle(event) {
+    const slug = event.target.value;
+    console.log(slug);
+  }
+
   render() {
     return (
       <>
         <ProfileHeaderContainer activePage="DASHBOARD" />
-        <Dashboard />
+        <Dashboard summary={{}} articles={[]} handleDeleteArticle={this.handleDeleteArticle} />
       </>
     );
   }
