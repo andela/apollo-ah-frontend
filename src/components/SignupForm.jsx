@@ -5,6 +5,7 @@ import { Link, withRouter, Redirect } from 'react-router-dom';
 import { signUpUser, clearErrors, addError } from '../actions/signupActions';
 import ErrorAlert from '../views/ErrorAlert';
 import Input from '../views/Input';
+import SocialLoginComponent from './SocialLogin';
 
 /**
  * @class Signup
@@ -125,6 +126,13 @@ class Signup extends React.Component {
               </div>
             ) : 'Join Authors Haven'}
         </button>
+        <div className="login__socials">
+          <div className="row login__socials__intro">
+            <hr />
+            <p>Or Signup using</p>
+          </div>
+          <SocialLoginComponent />
+        </div>
         <div className="social-grp">
           <p>
             By signing up you agree to accept and adhere to our
