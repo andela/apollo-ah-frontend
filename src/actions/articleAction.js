@@ -1,16 +1,33 @@
 import axios from 'axios';
-import typeGenerator from './actionTypeGenerator';
+import actionTypeGenerator from './typeGenerator';
+
+export const getArticlesType = actionTypeGenerator('GET_ARTICLES');
 
 /**
- * @description - articles response function
- * @param {string} actionType - type of action
- * @param {object} articles - articles returned
- * @returns {object}
+ * Action generator that is dispatched when user starts operation
+ * @returns {object} The action to dispatch
  */
+export const getArticlesLoading = () => ({
+  type: getArticlesType.loading,
+});
 
-export const articleAction = (type, payload) => ({
-  type: typeGenerator(type),
-  payload
+/**
+ * Action generator that is dispatched when operation is successful
+ * @returns {object} The action to dispatch
+ */
+export const getArticlesSuccess = (articles, page) => ({
+  type: getArticlesType.success,
+  articles,
+  page,
+});
+
+/**
+ * Action generator that is dispatched when operation fails
+ * @returns {object} The action to dispatch
+ */
+export const getArticlesFailure = error => ({
+  type: getArticlesType.failure,
+  error,
 });
 
 /**
@@ -18,19 +35,18 @@ export const articleAction = (type, payload) => ({
  * @returns {object} dispatch object
  */
 
-export const getArticles = size => async (dispatch) => {
+let response;
+export const getArticles = (page, size) => async (dispatch) => {
+  dispatch(getArticlesLoading());
   try {
-    dispatch(articleAction('LOADING', 'started'));
-    const response = await axios.get(`${process.env.API_BASE_URL}/articles?size=${size}`);
-    const { data: { data } } = response;
-    if (response.status === 404) {
-      dispatch(articleAction('GET_ARTICLES_FAILURE', 'Article not found'));
-      dispatch(articleAction('STOP_LOADING', 'stopped'));
+    if (!page || !size) {
+      response = await axios.get(`${process.env.API_BASE_URL}/articles?page=1&size=12`);
+    } else {
+      response = await axios.get(`${process.env.API_BASE_URL}/articles?page=${page}&size=${size}`);
     }
-    dispatch(articleAction('GET_ARTICLES_SUCCESS', data));
-    dispatch(articleAction('STOP_LOADING', 'stopped'));
-  } catch (err) {
-    dispatch(articleAction('STOP_LOADING', 'stopped'));
-    dispatch(articleAction('SEVER_ERROR', err));
+    const { data: { data } } = response;
+    dispatch(getArticlesSuccess(data.articles, data.page));
+  } catch (error) {
+    dispatch(getArticlesFailure(error));
   }
 };

@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react/jsx-no-bind */
 import React, { useState, useRef } from 'react';
 import { connect } from 'react-redux';
 import { ClipLoader } from 'react-spinners';

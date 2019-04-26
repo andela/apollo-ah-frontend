@@ -11,7 +11,6 @@ import articlesReducer from '../../reducers/articleReducer';
 
 
 export const mockState = {
-  articles: [],
   user: {
     token: '',
     isLoggedIn: false,
@@ -51,7 +50,11 @@ export const mockState = {
   createArticle: {
     loading: false,
     message: false,
-  }
+  },
+  articlesReducer: {
+    articles: []
+  },
+  articlesCategoryReducer: []
 };
 mockState.articlesReducer = articlesReducer;
 
