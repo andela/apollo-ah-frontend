@@ -42,18 +42,6 @@ export default (state = initialState, action) => {
     case getArticlesType.failure:
       return {
         ...state,
-        articles: action.payload.articles,
-        page: action.payload.page
-      };
-    case typeGenerator('GET_ARTICLES_FAILURE'):
-      return {
-        ...state,
-        loading: action.payload,
-        articles: 'Articles not found'
-      };
-    case typeGenerator('SERVER_ERROR'):
-      return {
-        ...state,
         loading: false,
         articles: '',
         error,
