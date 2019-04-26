@@ -1,4 +1,9 @@
 const initialState = {
+  loading: false,
+  errors: null,
+  success: false,
+  token: null,
+  articles: [],
   user: {
     token: '',
     id: 5,
