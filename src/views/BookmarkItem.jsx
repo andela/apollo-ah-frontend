@@ -5,25 +5,33 @@ import React from 'react';
  * @return {JSX}
  */
 
-function BookmarkItem() {
+function BookmarkItem(props) {
+  const {
+    category,
+    image,
+    articleTitle,
+    articleDescription,
+    authorsName,
+    authorsImage,
+    readTime,
+  } = props;
+
   return (
     <div className="col-lg-4 col-sm-6">
       <div className="article transition">
-        <a href="single-article.html" className="link-surface">link </a>
         <div className="article-cover">
-          <img alt="" src="assets/images/articles/tim-gouw-68319-unsplash.jpg" className="article-cover-img transition" />
+          <img alt="" src={image} className="article-cover-img transition" />
         </div>
         <div className="article-item">
-          <span className="article-category">Technology</span>
-          <h4>5 ways to manage your time effectively.</h4>
-          <p>Distinctively reconceptualize high standards in...</p>
+          <span className="article-category">{category}</span>
+          <h4>{articleTitle}</h4>
+          <p>{articleDescription}</p>
           <div className="article-author">
-            <img alt="" src="assets/images/authors/photo-1524154217857-45f012d0f167.jpg" />
+            <img alt="" src={authorsImage} />
             <div>
-              <h6>Alexandra</h6>
-              <span>22 hrs ago</span>
+              <h6>{authorsName}</h6>
               <span className="article-author-dot" />
-              <span>4 min read</span>
+              <span>{readTime}</span>
               <i className="fas fa-bookmark transition bookmarked" />
             </div>
           </div>

@@ -16,14 +16,14 @@ const initialState = {
  */
 
 export default function getBookmarkReducer(state = initialState, action = {}) {
-  const { type, payload, message } = action;
+  const { type, payload } = action;
   switch (type) {
     case getBookmarkType.loading:
       return { ...state, loading: true };
     case getBookmarkType.success:
       return { ...state, loading: false, articles: payload };
     case getBookmarkType.failure:
-      return { ...state, loading: false, message };
+      return { ...state, loading: false, message: payload };
     default:
       return state;
   }

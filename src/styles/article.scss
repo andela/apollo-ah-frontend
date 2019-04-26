@@ -15,8 +15,10 @@
 	box-shadow: 0 0 3px $black5;
 	h4 {
 		font-weight: bold;
-		font-size: 18px;
-		margin-bottom: 10px;
+    font-size: 18px;
+    margin-bottom: 10px;
+    height: 45px;
+    overflow: hidden;
 	}
 	p {
 		font-size: 13px;
@@ -75,6 +77,7 @@
 		color: $colorpurple;
 		margin-top: 0;
 		margin-bottom: 5px;
+		text-transform: capitalize;
 	}
 	div {
 		margin-left: 40px;

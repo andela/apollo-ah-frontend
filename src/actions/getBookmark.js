@@ -4,31 +4,13 @@ import actionTypeGenerator from './typeGenerator';
 export const getBookmarkType = actionTypeGenerator('GET_BOOKMARK');
 
 /**
- * Action generator that is dispatched when user starts operation
- * @returns {object} The action to dispatch
- */
-export const getBookmarkLoading = () => ({
-  type: getBookmarkType.loading,
-});
-
-/**
  * Action generator that is dispatched when operation is successful
  * @param {string} message The response message
  * @returns {object} The action to dispatch
  */
-export const getBookmarkSuccess = payload => ({
-  type: getBookmarkType.success,
+export const getBookmarkAction = (type, payload) => ({
+  type,
   payload,
-});
-
-/**
- * Action generator that is dispatched when operation fails
- * @param {string} message The response message
- * @returns {object} The action to dispatch
- */
-export const getBookmarkFailure = message => ({
-  type: getBookmarkType.failure,
-  message,
 });
 
 /**
@@ -44,20 +26,26 @@ export const getBookmarkFailure = message => ({
  * @param {object} payload The payload to send with the request
  * @returns {Promise} The promise returned from the request
  */
-export const getBookmarkedArticles = () => async (dispatch) => {
-  dispatch(getBookmarkLoading(true));
+let requestUrl;
+export const getBookmarkedArticles = (page, size) => async (dispatch) => {
+  dispatch(getBookmarkAction(getBookmarkType.loading, true));
+
+  if (!page || !size) {
+    requestUrl = 'bookmarks?page=1&size=12';
+  } else {
+    requestUrl = `/bookmarks?page=${page}&size=${size}`;
+  }
+
   return request({
-    route: 'bookmarks',
+    route: requestUrl,
   }).then((response) => {
-    dispatch(getBookmarkSuccess(response.data.data));
+    dispatch(getBookmarkAction(getBookmarkType.success, response.data.data));
   }).catch((error) => {
-    let errorData = ['Please check your network connection'];
+    let errorData = 'Please check your network connection';
     if (error.response) {
-      const { message, data } = error.response.data;
-      errorData = [message, data];
+      const { message } = error.response.data;
+      errorData = message;
     }
-    dispatch(getBookmarkFailure(errorData));
+    dispatch(getBookmarkAction(getBookmarkType.failure, errorData));
   });
 };
-
-export default getBookmarkedArticles;
