@@ -22,6 +22,15 @@ const initialState = {
       loading: false,
       message: '',
     }
+  },
+  article: {
+    newComments: [],
+    postingComment: false,
+    gettingComments: false,
+    commentMessage: '',
+    oldComments: [],
+    hasMoreComments: false,
+    commentPage: {}
   }
 };
 
