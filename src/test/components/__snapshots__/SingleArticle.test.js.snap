@@ -103,7 +103,7 @@ After the success of Peloton’s stationary bike — it has sold hundreds of
           }
           id={23}
           image="https://images.unsplash.com/photo-1555339990-18e05015e062?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
-          isLoggedin="failure"
+          isLoggedin={false}
           match={
             Object {
               "params": Object {
@@ -297,7 +297,7 @@ After the success of Peloton’s stationary bike — it has sold hundreds of
                                   Anonymous Lekan
                                 </h6>
                                 <span>
-                                  8 days ago
+                                  9 days ago
                                 </span>
                                 <span
                                   className="article-author-dot"
@@ -527,7 +527,7 @@ After the success of Peloton’s stationary bike — it has sold hundreds of
                           </div>
                         </div>
                         <div
-                          className="single-author-container single-article-author"
+                          className="single-author-container single-article-author mb-5"
                         >
                           <div
                             className="article-author"
@@ -554,6 +554,103 @@ After the success of Peloton’s stationary bike — it has sold hundreds of
                         </div>
                       </div>
                     </ArticleBody>
+                    <Connect(CommentsContainer)
+                      slug="whatpelotonmeansforthefutureoffitnesspt3-bb9473a0-5b4d-4267-ad08-cdaff14cc57d"
+                    >
+                      <CommentsContainer
+                        clearComments={[Function]}
+                        commentMessage="Done"
+                        fetchComment={[Function]}
+                        gettingComments={false}
+                        hasMoreComments={false}
+                        isLoggedIn={false}
+                        newCommentList={
+                          Object {
+                            "authorImage": "image.jpg",
+                            "authorName": "John",
+                            "body": "Hello world",
+                            "date": "July 4th 2018",
+                            "id": 1,
+                          }
+                        }
+                        oldCommentList={Array []}
+                        postingComment={false}
+                        profile={
+                          Object {
+                            "bio": "",
+                            "email": "",
+                            "errorData": Array [],
+                            "firstname": "",
+                            "image": "",
+                            "lastname": "",
+                            "loading": false,
+                            "username": "",
+                          }
+                        }
+                        remainingComments={0}
+                        sendComment={[Function]}
+                        slug="whatpelotonmeansforthefutureoffitnesspt3-bb9473a0-5b4d-4267-ad08-cdaff14cc57d"
+                        token=""
+                      >
+                        <div
+                          className="comment-grp card"
+                        />
+                        <PostComment
+                          body=""
+                          commentMessagef="Done"
+                          handleInputChange={[Function]}
+                          handlePostComment={[Function]}
+                          isLoggedIn={false}
+                          postingComment={false}
+                        >
+                          <div
+                            className="comment-grp card mt-3 relative"
+                          >
+                            <form
+                              className="form"
+                              onSubmit={[Function]}
+                            >
+                              <div
+                                className="form-group"
+                              >
+                                <input
+                                  autoComplete="off"
+                                  className="form-control"
+                                  disabled={false}
+                                  name="body"
+                                  onChange={[Function]}
+                                  placeholder="Leave a comment"
+                                  value=""
+                                />
+                                <button
+                                  className="btn btn-link"
+                                  disabled={false}
+                                  type="submit"
+                                >
+                                  <i
+                                    className="fas fa-paper-plane"
+                                  />
+                                  <span
+                                    className="spinner-grow text-dark"
+                                  />
+                                </button>
+                              </div>
+                            </form>
+                            <Link
+                              className="link-surface"
+                              replace={false}
+                              to="/login"
+                            >
+                              <a
+                                className="link-surface"
+                                href="/login"
+                                onClick={[Function]}
+                              />
+                            </Link>
+                          </div>
+                        </PostComment>
+                      </CommentsContainer>
+                    </Connect(CommentsContainer)>
                   </div>
                 </div>
                 <div

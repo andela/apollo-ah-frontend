@@ -150,7 +150,7 @@ function ArticleBody(props) {
           </div>
         </div>
       </div>
-      <div className="single-author-container single-article-author">
+      <div className="single-author-container single-article-author mb-5">
         <div className="article-author">
           <img src={profile.image} alt="author" />
           <div>

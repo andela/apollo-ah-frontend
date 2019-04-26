@@ -4,7 +4,7 @@ import loginReducer from '../../reducers/loginReducers';
 
 const initialUserState = initialState.user;
 
-describe('Testimng login reducer', () => {
+describe('Testing login reducer', () => {
   it('Login reducer to return default state', () => {
     expect(loginReducer(undefined, {})).toEqual({ ...initialUserState });
   });

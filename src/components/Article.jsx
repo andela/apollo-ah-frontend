@@ -7,14 +7,12 @@ import getArticle from '../actions/singleArticleActions';
 import { bookmarkArticleGenerators } from '../actions/bookmarkActions';
 import * as articleSelector from '../selectors/singleArticleSelector';
 import bookmarkedList from '../selectors/bookmarkSelector';
-import { getLoginStatus } from '../selectors/loginSelector';
+import { getUserIsLoggedIn } from '../selectors/loginSelector';
 import DummyArticleLoader from '../views/DummyArticleLoader';
 import SuggestedArticles from '../views/Articles';
 import { getArticles } from '../actions';
 import ScrollToTopOnMount from '../views/ScrollToTopOnMount';
-/*
- * @todo - Import comments component here
- */
+import ConnectedCommentsContainer from './CommentsContainer';
 
 /**
  * @class Article
@@ -32,6 +30,7 @@ class Article extends React.Component {
     history: PropTypes.object,
     bookmarkArticleGenerators: PropTypes.func,
     getArticles: PropTypes.func,
+    isLoggedin: PropTypes.bool,
   }
 
   static defaultProps = {
@@ -41,6 +40,7 @@ class Article extends React.Component {
     history: {},
     bookmarkArticleGenerators: f => f,
     getArticles: f => f,
+    isLoggedin: false,
   }
 
   /**
@@ -82,6 +82,15 @@ class Article extends React.Component {
     };
   }
 
+  componentDidUpdate(prevProps) {
+    const { match } = this.props;
+    const { slug } = match.params;
+    const { getArticle: fetchArticle } = prevProps;
+    if (slug !== prevProps.slug) fetchArticle(slug);
+    // console.log('fired____');
+    return this.state;
+  }
+
   /**
    *
    * @method componentDidMount - A method called when the component mounts
@@ -96,7 +105,7 @@ class Article extends React.Component {
     } = this.props;
     const { slug } = match.params;
     if (slug !== persistedSlug) fetchArticle(slug);
-    await getRecommendations(3);
+    await getRecommendations(1, 3);
   }
 
   /**
@@ -105,8 +114,8 @@ class Article extends React.Component {
    * @memberof Article
    */
   bookmarkArticle = () => {
-    const { bookmarkArticleGenerators: bookmarkFn, history } = this.props;
-    const { bookmarked, article, isLoggedin } = this.state;
+    const { bookmarkArticleGenerators: bookmarkFn, history, isLoggedin } = this.props;
+    const { bookmarked, article } = this.state;
     if (!isLoggedin) history.push('/login');
     const { slug } = article;
     this.setState({ bookmarked: !bookmarked });
@@ -118,15 +127,15 @@ class Article extends React.Component {
    * @memberof Article
    */
   render() {
-    const { history } = this.props;
     const {
       article, bookmarked, isLoggedin, recommendations,
     } = this.state;
-    const { title, status } = article;
+    const { match } = this.props;
+    const { slug } = match.params;
     return (
       <div>
         <ScrollToTopOnMount />
-        {!title ? <DummyArticleLoader articleStatus={status} history={history} /> : (
+        {!article.title ? <DummyArticleLoader /> : (
           <main className={(article.image) ? 'main-article' : 'main-article-no-image'}>
             <section className="min-vh-100">
               {article.image && (
@@ -143,7 +152,7 @@ class Article extends React.Component {
                     bookmarked={bookmarked}
                     isLoggedin={isLoggedin}
                   />
-                  {/* Insert comment component here */}
+                  <ConnectedCommentsContainer slug={slug} />
                 </div>
               </div>
               <div className="single-suggested-grp">
@@ -176,7 +185,7 @@ const mapStateToProps = createStructuredSelector({
   createdAt: articleSelector.getArticleCreatedTime,
   updatedAt: articleSelector.getArticleUpdatedTime,
   tagList: articleSelector.getArticleTagList,
-  isLoggedin: getLoginStatus,
+  isLoggedin: getUserIsLoggedIn,
   recommendations: articleSelector.getRecommendedArticles,
   bookmarkedList,
 });

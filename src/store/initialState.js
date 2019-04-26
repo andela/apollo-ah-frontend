@@ -1,4 +1,9 @@
 const initialState = {
+  loading: false,
+  errors: null,
+  success: false,
+  token: null,
+  articles: [],
   user: {
     token: '',
     id: '',
@@ -37,6 +42,13 @@ const initialState = {
     articleCategory: {},
     ratings: [],
     readTime: '',
+    newComments: [],
+    postingComment: false,
+    gettingComments: false,
+    commentMessage: '',
+    oldComments: [],
+    hasMoreComments: false,
+    commentPage: {}
   },
   bookmarkedList: {
     bookmarked: [],

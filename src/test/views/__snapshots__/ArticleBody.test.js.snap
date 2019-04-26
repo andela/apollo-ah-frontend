@@ -40,7 +40,7 @@ exports[`<ArticleBody /> should take a snapshot of the component 1`] = `
             Anonymous Lekan
           </h6>
           <span>
-            8 days ago
+            9 days ago
           </span>
           <span
             className="article-author-dot"
@@ -257,7 +257,7 @@ After the success of Peloton’s stationary bike — it has sold hundreds of
     </div>
   </div>
   <div
-    className="single-author-container single-article-author"
+    className="single-author-container single-article-author mb-5"
   >
     <div
       className="article-author"

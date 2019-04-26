@@ -1,4 +1,4 @@
-import typeGenerator from '../actions/actionTypeGenerator';
+import { getArticlesType } from '../actions/articleAction';
 
 const initialState = {
   articles: [],
@@ -22,34 +22,30 @@ const initialState = {
  */
 
 export default (state = initialState, action) => {
-  switch (action.type) {
-    case typeGenerator('LOADING'):
+  const {
+    type,
+    articles,
+    page,
+    error,
+  } = action;
+  switch (type) {
+    case getArticlesType.loading:
       return {
         ...state,
-        loading: action.payload,
+        loading: true,
       };
-    case typeGenerator('STOP_LOADING'):
+    case getArticlesType.success:
       return {
         ...state,
-        loading: action.payload,
+        articles,
+        page,
       };
-    case typeGenerator('GET_ARTICLES_SUCCESS'):
+    case getArticlesType.failure:
       return {
         ...state,
-        articles: action.payload.articles,
-        page: action.payload.page
-      };
-    case typeGenerator('GET_ARTICLES_FAILURE'):
-      return {
-        ...state,
-        loading: action.payload,
-        articles: 'Articles not found'
-      };
-    case typeGenerator('SERVER_ERROR'):
-      return {
-        ...state,
-        loading: action.payload,
-        error: 'INTERNAL SERVER ERROR'
+        loading: false,
+        articles: '',
+        error,
       };
     default:
       return state;

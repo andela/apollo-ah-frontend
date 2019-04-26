@@ -77,18 +77,10 @@ export class HomePage extends Component {
     articles.map((article) => {
       this.recommendedAuthor(article);
     });
-
     return (
       <div>
-        {articles === 'Articles not found' ? (
-          <Body
-            loadingCategory={loadingCategory}
-            PlaceholderLoader={PlaceholderLoader}
-            articlesCategory={articlesCategory}
-            Category={Category}
-          />
-        ) : (
-            // eslint-disable-next-line react/jsx-indent
+        {articles.length !== 0
+          ? (
             <Body
               loadingCategory={loadingCategory}
               PlaceholderLoader={PlaceholderLoader}
@@ -100,8 +92,7 @@ export class HomePage extends Component {
               Authors={Authors}
               fiveStarAuthors={fiveStarAuthors}
             />
-            // eslint-disable-next-line indent
-          )
+          ) : null
         }
       </div>
     );
@@ -113,8 +104,8 @@ HomePage.propTypes = {
   articles: PropTypes.array,
   getArticlesCategory: PropTypes.func,
   articlesCategory: PropTypes.array,
-  loadingArticles: PropTypes.string,
-  loadingCategory: PropTypes.string,
+  loadingArticles: PropTypes.bool,
+  loadingCategory: PropTypes.bool,
 };
 
 HomePage.defaultProps = {
@@ -122,8 +113,8 @@ HomePage.defaultProps = {
   articles: [],
   getArticlesCategory: f => f,
   articlesCategory: [],
-  loadingArticles: '',
-  loadingCategory: '',
+  loadingArticles: false,
+  loadingCategory: false,
 };
 
 const mapStateToProps = state => ({

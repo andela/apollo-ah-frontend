@@ -42,6 +42,23 @@ const article = {
   },
   ratings: [],
   message: 'article was successfully fetched',
+  newComments: {
+    body: 'Hello world',
+    id: 1,
+    authorName: 'John',
+    authorImage: 'image.jpg',
+    date: 'July 4th 2018',
+  },
+  postingComment: false,
+  commentMessage: 'Done',
+  gettingComments: false,
+  oldComments: [],
+  hasMoreComments: false,
+  commentPage: {
+    current: 1,
+    currentCount: 1,
+    totalCount: 1,
+  },
 };
 
 export default article;

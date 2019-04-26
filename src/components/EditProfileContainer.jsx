@@ -69,6 +69,11 @@ EditProfileContainer.propTypes = {
   profile: PropTypes.object.isRequired,
 };
 
+EditProfileContainer.defaultProps = {
+  isLoading: false,
+  errorData: []
+};
+
 const mapStateToProps = createStructuredSelector(
   {
     isLoading: selectors.getUpdatingProfile,
@@ -77,11 +82,6 @@ const mapStateToProps = createStructuredSelector(
     profile: selectors.getProfile,
   }
 );
-
-EditProfileContainer.defaultProps = {
-  isLoading: false,
-  errorData: []
-};
 
 const mapDispatchToProps = dispatch => ({
   updateProfile: payload => dispatch(updateUserProfile(payload)),
