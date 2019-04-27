@@ -7,6 +7,7 @@ import Adapter from 'enzyme-adapter-react-16';
 import thunk from 'redux-thunk';
 import configMockStore from 'redux-mock-store';
 import { BrowserRouter } from 'react-router-dom';
+import articlesReducer from '../../reducers/articleReducer';
 
 
 export const mockState = {
@@ -60,6 +61,7 @@ export const mockState = {
   },
   articlesCategoryReducer: []
 };
+mockState.articlesReducer = articlesReducer;
 
 
 export const createMockStore = () => {

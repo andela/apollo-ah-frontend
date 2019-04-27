@@ -7,12 +7,11 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import ConnectedHomePage from '../components/HomePage';
 import SignupPage from '../views/SignupPage';
 import ConnectedLogin from '../components/Login';
-import NotFound from '../views/NotFound';
 import ProtectedRoutes from './ProtectedRoutes';
 import Footer from '../views/Footer';
 import Navbar from '../components/NavbarContainer';
-
 import Article from '../components/Article';
+import NotFound from '../components/NotFound';
 
 
 /**
