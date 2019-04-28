@@ -10,6 +10,8 @@ import signupReducer from './signupReducer';
 import createArticleReducer from './createArticleReducer';
 import profileReducer from './profileReducer';
 import { postCommentReducer, getCommentsReducer } from './commentsReducer';
+import followerReducer from './followerReducer';
+import toastReducer from './toastReducer';
 
 
 /**
@@ -34,4 +36,6 @@ export default combineReducers({
   articlesReducer,
   articlesCategoryReducer,
   signupReducer,
+  follow: followerReducer,
+  toast: toastReducer,
 });

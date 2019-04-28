@@ -306,3 +306,21 @@ color: $white;
 .btn:focus{
 	box-shadow: none;
 }
+
+.btn-follow {
+	background: $colorpurple;
+	color: lighten($colorpurple, 100%);
+
+	&:hover {
+		background: lighten($colorpurple, 10%);
+	}
+}
+
+.btn-following {
+	background: $colorgraynurse;
+	color: #777;
+	&:hover {
+		background: $colorgraynurse;
+		color: #777;
+	}
+}

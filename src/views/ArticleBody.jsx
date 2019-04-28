@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Tag from './ArticleTag';
 import clapImage from '../images/clap.svg';
+import FollowButton from '../components/FollowButton';
+
 /**
  *
  * @param {*} props - The props passed from the parent Article component
@@ -63,7 +65,10 @@ function ArticleBody(props) {
           <div>
             <h6>Alexandra</h6>
             <p>Journalist, author, dad. Former TIME magazine editor and foreign correspondent. </p>
-            <button type="button" className="btn btn-light">Follow</button>
+            <FollowButton
+              followId={article.authorId}
+              username={article.User.Profile.username}
+            />
           </div>
         </div>
       </div>

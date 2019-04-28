@@ -6,7 +6,7 @@ const initialState = {
   articles: [],
   user: {
     token: '',
-    id: 5,
+    id: null,
     isLoggedIn: false,
     profile: {
       username: '',
@@ -31,6 +31,12 @@ const initialState = {
     oldComments: [],
     hasMoreComments: false,
     commentPage: {}
+  },
+  follow: {
+    followers: [],
+    following: [],
+    isLoading: false,
+    followStatus: ''
   }
 };
 
