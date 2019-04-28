@@ -36,7 +36,6 @@ const initialState = {
     followers: [],
     following: [],
     isLoading: false,
-    followStatus: ''
   }
 };
 

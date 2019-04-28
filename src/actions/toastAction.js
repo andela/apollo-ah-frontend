@@ -6,7 +6,7 @@ import { NEW_TOAST, CLEAR_TOAST } from './actionTypes';
  * @param {string} message - The toast message
  * @returns {object} - Returns an action object
  */
-const newToaster = message => ({
+export const newToaster = message => ({
   type: NEW_TOAST,
   payload: message
 });
@@ -18,7 +18,7 @@ const newToaster = message => ({
  * @param {string} message - The toast message
  * @returns {object} - Returns an actions object
  */
-const newToast = message => async (dispatch) => {
+export const newToast = message => async (dispatch) => {
   dispatch(newToaster(message));
 };
 
@@ -31,5 +31,3 @@ const newToast = message => async (dispatch) => {
 export const clearToast = () => async (dispatch) => {
   dispatch({ type: CLEAR_TOAST });
 };
-
-export default newToast;

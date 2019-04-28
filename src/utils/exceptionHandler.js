@@ -8,7 +8,7 @@ const exceptionHandler = (error) => {
   let errorData = ['Please check your network connection'];
   if (error.response) {
     const { message, data } = error.response.data;
-    errorData = [message, data];
+    errorData = data ? [message, data] : [message];
   }
   return errorData;
 };

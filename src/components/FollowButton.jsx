@@ -16,7 +16,7 @@ import { clearToast } from '../actions/toastAction';
  * @class FollowButton
  * @extends {Component}
  */
-class FollowButton extends Component {
+export class FollowButton extends Component {
   static propTypes = {
     followId: PropType.number,
     username: PropType.string.isRequired,

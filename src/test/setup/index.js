@@ -54,7 +54,13 @@ export const mockState = {
   articlesReducer: {
     articles: []
   },
-  articlesCategoryReducer: []
+  articlesCategoryReducer: [],
+  follow: {
+    followers: [],
+    following: [],
+    isLoading: false,
+  },
+  toast: '',
 };
 mockState.articlesReducer = articlesReducer;
 

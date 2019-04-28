@@ -1,5 +1,4 @@
 import React from 'react';
-import { mount } from 'enzyme';
 import ArticleTag from '../../views/ArticleBody';
 import setup from '../setup';
 
@@ -11,13 +10,14 @@ const props = {
     description: 'description',
     body: 'body',
     image: 'image.jpg',
-    tagList: []
-  }
+    tagList: [],
+    User: { Profile: { username: '' } }
+  },
 };
 
 describe('<ArticleBody>', () => {
   it('should render without crashing when there are no tags', () => {
-    const wrapper = mount(<ArticleTag
+    const wrapper = setup(<ArticleTag
         bookmarkArticle={props.bookmarkArticle}
         bookmarked={props.bookmarked}
         article={props.article}

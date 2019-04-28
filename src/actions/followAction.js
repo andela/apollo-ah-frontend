@@ -1,7 +1,7 @@
 import typeGenerator from './typeGenerator';
 import request from '../utils/request';
 import exceptionHandler from '../utils/exceptionHandler';
-import newToast from './toastAction';
+import { newToast } from './toastAction';
 
 export const followType = typeGenerator('FOLLOW_USER');
 export const unfollowType = typeGenerator('UNFOLLOW_USER');
@@ -36,9 +36,9 @@ export const followSuccess = payload => ({
  * @param {object} error - The error object
  * @returns {object} - Returns an action object
  */
-export const followFailure = error => ({
+export const followFailure = payload => ({
   type: followType.failure,
-  payload: { error }
+  payload
 });
 
 /**
@@ -70,7 +70,7 @@ export const followUserAction = (requestType, username) => async (dispatch) => {
     const { data, message } = response.data;
     dispatch(newToast(message));
     if (requestType === 'follow') {
-      dispatch(followSuccess(data));
+      return dispatch(followSuccess(data));
     }
     dispatch(unFollowSuccess(data));
   } catch (error) {
@@ -105,15 +105,15 @@ export const getFollowingSuccess = payload => ({
  * Followers action handler
  *
  * @export
- * @param {string} type - A type of followers or following
+ * @param {string} requestType - A request type of followers or following
  * @returns {object} - Returns an actions object
  */
-export const fetchFollowersAction = type => async (dispatch) => {
+export const fetchFollowersAction = (requestType = 'followers') => async (dispatch) => {
   dispatch(followLoading(true));
   try {
-    const response = await request({ route: `profiles/${type}` });
+    const response = await request({ route: `profiles/${requestType}` });
     const { data } = response.data;
-    if (followType === 'followers') dispatch(getFollowersSuccess(data));
+    if (requestType === 'followers') dispatch(getFollowersSuccess(data));
     else dispatch(getFollowingSuccess(data));
   } catch (error) {
     const errorData = exceptionHandler(error);

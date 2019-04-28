@@ -1,178 +1,289 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<ArticleBody> should render without crashing when there are no tags 1`] = `
-<ArticleBody
-  article={
+<Provider
+  store={
     Object {
-      "body": "body",
-      "description": "description",
-      "image": "image.jpg",
-      "tagList": Array [],
-      "title": "title",
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
     }
   }
-  bookmarkArticle={[MockFunction]}
-  bookmarked={false}
 >
-  <div>
-    <h1
-      className="signle-title"
-    >
-      title
-    </h1>
-    <p
-      className="single-sub"
-      style={
+  <BrowserRouter>
+    <Router
+      history={
         Object {
-          "color": "#9c9c9c",
-          "fontSize": 21,
-          "fontWeight": "bold",
+          "action": "POP",
+          "block": [Function],
+          "createHref": [Function],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+          "push": [Function],
+          "replace": [Function],
         }
       }
     >
-      description
-       
-    </p>
-    <div
-      className="single__author__container"
-    >
-      <div
-        className="article__author"
+      <ArticleBody
+        article={
+          Object {
+            "User": Object {
+              "Profile": Object {
+                "username": "",
+              },
+            },
+            "body": "body",
+            "description": "description",
+            "image": "image.jpg",
+            "tagList": Array [],
+            "title": "title",
+          }
+        }
+        bookmarkArticle={[MockFunction]}
+        bookmarked={false}
       >
-        <div
-          className="author__profile--mini"
-        >
-          <img
-            alt=""
-            src="image.jpg"
+        <div>
+          <h1
+            className="signle-title"
+          >
+            title
+          </h1>
+          <p
+            className="single-sub"
+            style={
+              Object {
+                "color": "#9c9c9c",
+                "fontSize": 21,
+                "fontWeight": "bold",
+              }
+            }
+          >
+            description
+             
+          </p>
+          <div
+            className="single__author__container"
+          >
+            <div
+              className="article__author"
+            >
+              <div
+                className="author__profile--mini"
+              >
+                <img
+                  alt=""
+                  src="image.jpg"
+                />
+                <div
+                  className="author__profile--details"
+                >
+                  <h6>
+                    Alexandra
+                  </h6>
+                  <span>
+                    22 hrs ago
+                  </span>
+                  <span
+                    className="article-author-dot"
+                  />
+                  <span>
+                    4 min read
+                  </span>
+                </div>
+              </div>
+              <div
+                className="bookmark__div"
+              >
+                <button
+                  onClick={[MockFunction]}
+                  type="button"
+                >
+                  <span
+                    className="fas fa-bookmark transition "
+                  />
+                </button>
+              </div>
+            </div>
+          </div>
+          <div
+            className="single-body"
+          >
+            body
+          </div>
+          <div
+            className="single-tags text-center"
           />
           <div
-            className="author__profile--details"
+            className="pg-empty-placeholder"
+          />
+          <div
+            className="clap-grp"
           >
-            <h6>
-              Alexandra
-            </h6>
-            <span>
-              22 hrs ago
-            </span>
             <span
-              className="article-author-dot"
-            />
-            <span>
-              4 min read
+              className="clap-icon"
+            >
+              <img
+                alt=""
+                src={Object {}}
+              />
+              40k claps
             </span>
+            <div
+              className="share-grp"
+            >
+              <a
+                className="text-danger"
+                href="you"
+              >
+                <i
+                  className="fas fa-envelope"
+                />
+              </a>
+              <a
+                className="text-primary"
+                href="you"
+              >
+                <i
+                  className="fab fa-facebook-square"
+                />
+              </a>
+              <a
+                className="text-white"
+                href="you"
+              >
+                <i
+                  className="fab fa-twitter-square text-info"
+                />
+              </a>
+              <a
+                className="text-muted"
+                href="you"
+              >
+                <i
+                  className="fas fa-bookmark"
+                />
+              </a>
+              <a
+                className="text-muted"
+                href="you"
+              >
+                <i
+                  className="fas fa-ellipsis-h"
+                />
+              </a>
+            </div>
+          </div>
+          <div
+            className="single-author-container single-article-author"
+          >
+            <div
+              className="article-author"
+            >
+              <img
+                alt=""
+                src="image.jpg"
+              />
+              <div>
+                <h6>
+                  Alexandra
+                </h6>
+                <p>
+                  Journalist, author, dad. Former TIME magazine editor and foreign correspondent. 
+                </p>
+                <Connect(withRouter(FollowButton))
+                  username=""
+                >
+                  <withRouter(FollowButton)
+                    authUsername="johnny"
+                    clearToaster={[Function]}
+                    followRequest={[Function]}
+                    following={Array []}
+                    isLoading={false}
+                    isLoggedIn={false}
+                    loadFollowers={[Function]}
+                    toaster=""
+                    username=""
+                  >
+                    <Route>
+                      <FollowButton
+                        authUsername="johnny"
+                        clearToaster={[Function]}
+                        followId={null}
+                        followRequest={[Function]}
+                        following={Array []}
+                        history={
+                          Object {
+                            "action": "POP",
+                            "block": [Function],
+                            "createHref": [Function],
+                            "go": [Function],
+                            "goBack": [Function],
+                            "goForward": [Function],
+                            "length": 1,
+                            "listen": [Function],
+                            "location": Object {
+                              "hash": "",
+                              "pathname": "/",
+                              "search": "",
+                              "state": undefined,
+                            },
+                            "push": [Function],
+                            "replace": [Function],
+                          }
+                        }
+                        isLoading={false}
+                        isLoggedIn={false}
+                        loadFollowers={[Function]}
+                        location={
+                          Object {
+                            "hash": "",
+                            "pathname": "/",
+                            "search": "",
+                            "state": undefined,
+                          }
+                        }
+                        match={
+                          Object {
+                            "isExact": true,
+                            "params": Object {},
+                            "path": "/",
+                            "url": "/",
+                          }
+                        }
+                        toaster=""
+                        username=""
+                      >
+                        <button
+                          className="btn btn-follow"
+                          onClick={[Function]}
+                          type="button"
+                        >
+                          Follow
+                        </button>
+                      </FollowButton>
+                    </Route>
+                  </withRouter(FollowButton)>
+                </Connect(withRouter(FollowButton))>
+              </div>
+            </div>
           </div>
         </div>
-        <div
-          className="bookmark__div"
-        >
-          <button
-            onClick={[MockFunction]}
-            type="button"
-          >
-            <span
-              className="fas fa-bookmark transition "
-            />
-          </button>
-        </div>
-      </div>
-    </div>
-    <div
-      className="single-body"
-    >
-      body
-    </div>
-    <div
-      className="single-tags text-center"
-    />
-    <div
-      className="pg-empty-placeholder"
-    />
-    <div
-      className="clap-grp"
-    >
-      <span
-        className="clap-icon"
-      >
-        <img
-          alt=""
-          src={Object {}}
-        />
-        40k claps
-      </span>
-      <div
-        className="share-grp"
-      >
-        <a
-          className="text-danger"
-          href="you"
-        >
-          <i
-            className="fas fa-envelope"
-          />
-        </a>
-        <a
-          className="text-primary"
-          href="you"
-        >
-          <i
-            className="fab fa-facebook-square"
-          />
-        </a>
-        <a
-          className="text-white"
-          href="you"
-        >
-          <i
-            className="fab fa-twitter-square text-info"
-          />
-        </a>
-        <a
-          className="text-muted"
-          href="you"
-        >
-          <i
-            className="fas fa-bookmark"
-          />
-        </a>
-        <a
-          className="text-muted"
-          href="you"
-        >
-          <i
-            className="fas fa-ellipsis-h"
-          />
-        </a>
-      </div>
-    </div>
-    <div
-      className="single-author-container single-article-author"
-    >
-      <div
-        className="article-author"
-      >
-        <img
-          alt=""
-          src="image.jpg"
-        />
-        <div>
-          <h6>
-            Alexandra
-          </h6>
-          <p>
-            Journalist, author, dad. Former TIME magazine editor and foreign correspondent. 
-          </p>
-          <button
-            className="btn btn-light"
-            type="button"
-          >
-            Follow
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-</ArticleBody>
+      </ArticleBody>
+    </Router>
+  </BrowserRouter>
+</Provider>
 `;
 
 exports[`<ArticleBody> should render without crashing when there are tags 1`] = `
@@ -214,6 +325,11 @@ exports[`<ArticleBody> should render without crashing when there are tags 1`] = 
       <ArticleBody
         article={
           Object {
+            "User": Object {
+              "Profile": Object {
+                "username": "",
+              },
+            },
             "body": "body",
             "description": "description",
             "image": "image.jpg",
@@ -399,12 +515,80 @@ exports[`<ArticleBody> should render without crashing when there are tags 1`] = 
                 <p>
                   Journalist, author, dad. Former TIME magazine editor and foreign correspondent. 
                 </p>
-                <button
-                  className="btn btn-light"
-                  type="button"
+                <Connect(withRouter(FollowButton))
+                  username=""
                 >
-                  Follow
-                </button>
+                  <withRouter(FollowButton)
+                    authUsername="johnny"
+                    clearToaster={[Function]}
+                    followRequest={[Function]}
+                    following={Array []}
+                    isLoading={false}
+                    isLoggedIn={false}
+                    loadFollowers={[Function]}
+                    toaster=""
+                    username=""
+                  >
+                    <Route>
+                      <FollowButton
+                        authUsername="johnny"
+                        clearToaster={[Function]}
+                        followId={null}
+                        followRequest={[Function]}
+                        following={Array []}
+                        history={
+                          Object {
+                            "action": "POP",
+                            "block": [Function],
+                            "createHref": [Function],
+                            "go": [Function],
+                            "goBack": [Function],
+                            "goForward": [Function],
+                            "length": 1,
+                            "listen": [Function],
+                            "location": Object {
+                              "hash": "",
+                              "pathname": "/",
+                              "search": "",
+                              "state": undefined,
+                            },
+                            "push": [Function],
+                            "replace": [Function],
+                          }
+                        }
+                        isLoading={false}
+                        isLoggedIn={false}
+                        loadFollowers={[Function]}
+                        location={
+                          Object {
+                            "hash": "",
+                            "pathname": "/",
+                            "search": "",
+                            "state": undefined,
+                          }
+                        }
+                        match={
+                          Object {
+                            "isExact": true,
+                            "params": Object {},
+                            "path": "/",
+                            "url": "/",
+                          }
+                        }
+                        toaster=""
+                        username=""
+                      >
+                        <button
+                          className="btn btn-follow"
+                          onClick={[Function]}
+                          type="button"
+                        >
+                          Follow
+                        </button>
+                      </FollowButton>
+                    </Route>
+                  </withRouter(FollowButton)>
+                </Connect(withRouter(FollowButton))>
               </div>
             </div>
           </div>
