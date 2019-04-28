@@ -15,7 +15,9 @@ describe('<Dashboard>', () => {
     expect(wrapper).toMatchSnapshot();
   });
   it('should render with articles', () => {
-    dashboard.articles = [{}];
+    dashboard.articles = [{
+      id: 1,
+    }];
     const wrapper = shallow(<Dashboard summary={{}} dashboard={dashboard} />);
     expect(wrapper).toMatchSnapshot();
   });
