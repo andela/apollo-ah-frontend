@@ -50,7 +50,11 @@ function ArticleBody(props) {
       </div>
       <div className="pg-empty-placeholder" />
       <div className="clap-grp">
-        <ClapButtonComponent />
+        <ClapButtonComponent
+          articleSlug={article.slug}
+          articleAuthorId={article.authorId}
+          articleClaps={article.claps}
+        />
         <div className="share-grp">
           <a href="you" className="text-danger"><i className="fas fa-envelope" /></a>
           <a href="you" className="text-primary"><i className="fab fa-facebook-square" /></a>

@@ -128,9 +128,6 @@ exports[`<ArticleBody> should render without crashing when there are no tags 1`]
           >
             <Connect(withRouter(ClapButton))>
               <withRouter(ClapButton)
-                articleAuthorId={1}
-                articleClaps={10}
-                articleSlug="article-slug"
                 clapArticle={[Function]}
                 isLoggedIn={false}
                 loadUserClaps={[Function]}
@@ -139,9 +136,9 @@ exports[`<ArticleBody> should render without crashing when there are no tags 1`]
               >
                 <Route>
                   <ClapButton
-                    articleAuthorId={1}
-                    articleClaps={10}
-                    articleSlug="article-slug"
+                    articleAuthorId={null}
+                    articleClaps={0}
+                    articleSlug=""
                     clapArticle={[Function]}
                     history={
                       Object {
@@ -198,7 +195,7 @@ exports[`<ArticleBody> should render without crashing when there are no tags 1`]
                           src={Object {}}
                         />
                       </button>
-                      10
+                      0
                        
                       claps
                     </span>
@@ -439,9 +436,6 @@ exports[`<ArticleBody> should render without crashing when there are tags 1`] = 
           >
             <Connect(withRouter(ClapButton))>
               <withRouter(ClapButton)
-                articleAuthorId={1}
-                articleClaps={10}
-                articleSlug="article-slug"
                 clapArticle={[Function]}
                 isLoggedIn={false}
                 loadUserClaps={[Function]}
@@ -450,9 +444,9 @@ exports[`<ArticleBody> should render without crashing when there are tags 1`] = 
               >
                 <Route>
                   <ClapButton
-                    articleAuthorId={1}
-                    articleClaps={10}
-                    articleSlug="article-slug"
+                    articleAuthorId={null}
+                    articleClaps={0}
+                    articleSlug=""
                     clapArticle={[Function]}
                     history={
                       Object {
@@ -509,7 +503,7 @@ exports[`<ArticleBody> should render without crashing when there are tags 1`] = 
                           src={Object {}}
                         />
                       </button>
-                      10
+                      0
                        
                       claps
                     </span>

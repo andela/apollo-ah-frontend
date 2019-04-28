@@ -1,3 +1,4 @@
+/* eslint-disable react/no-did-update-set-state */
 /* eslint-disable no-undef */
 import React, { Component } from 'react';
 import PropType from 'prop-types';
@@ -7,7 +8,6 @@ import { debounce } from 'lodash';
 import { withRouter } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import clapIcon from '../images/clap.svg';
-import * as articleSelector from '../selectors/singleArticleSelector';
 import { getAuthId, getIsAuthenticated } from '../selectors/authSelector';
 import { getToken } from '../selectors/profileSelector';
 import { clapArticleRequest, fetchUserClaps } from '../actions/clapsAction';
@@ -34,10 +34,20 @@ export class ClapButton extends Component {
     return clapArticle({ slug, claps, token });
   }, CLAPS_REQUEST_TIMER);
 
+  /**
+   * Pops-up notification upon waiting time (debounced)
+   *
+   * @returns {void}
+   * @memberof ClapButton
+   */
+  notifyUser = debounce(() => {
+    toast.info('Sorry, you cannot clap on your article');
+  }, CLAPS_REQUEST_TIMER);
+
   static propTypes = {
-    articleSlug: PropType.string.isRequired,
-    articleAuthorId: PropType.number.isRequired,
-    articleClaps: PropType.number.isRequired,
+    articleSlug: PropType.string,
+    articleAuthorId: PropType.number,
+    articleClaps: PropType.number,
     clapArticle: PropType.func.isRequired,
     isLoggedIn: PropType.bool.isRequired,
     userId: PropType.number,
@@ -49,26 +59,43 @@ export class ClapButton extends Component {
 
   static defaultProps = {
     userId: null,
+    articleClaps: 0,
+    articleAuthorId: null,
+    articleSlug: ''
   };
 
   constructor(props) {
     super(props);
     this.state = {
-      clapsLeft: CLAPS_LIMIT - props.userClaps,
-      articleClaps: props.articleClaps,
+      clapsLeft: CLAPS_LIMIT,
+      articleClaps: 0,
       clapsCount: 0, // record clap button clicks
     };
   }
 
-  componentDidMount = async () => {
-    const {
-      articleSlug: slug,
-      isLoggedIn,
-      userId,
-      loadUserClaps
-    } = this.props;
-    if (isLoggedIn) {
-      loadUserClaps({ slug, userId });
+  /**
+   * Called immediately after updating occurs
+   *
+   * @param {object} prevProps - The previous props object
+   * @param {void}
+   * @memberof ClapButton
+   */
+  componentDidUpdate(prevProps) {
+    const { articleSlug, articleClaps, userClaps } = this.props;
+    if (articleSlug !== prevProps.articleSlug) {
+      const {
+        articleSlug: slug,
+        isLoggedIn,
+        userId,
+        loadUserClaps
+      } = this.props;
+      if (isLoggedIn) {
+        loadUserClaps({ slug, userId });
+      }
+      this.setState({ articleClaps });
+    }
+    if (userClaps !== prevProps.userClaps) {
+      this.setState({ clapsLeft: CLAPS_LIMIT - userClaps });
     }
   }
 
@@ -92,7 +119,7 @@ export class ClapButton extends Component {
     }
     // Deny article's author
     if (articleAuthorId === userId) {
-      toast.info('Sorry, you cannot clap on your article');
+      this.notifyUser();
       return false;
     }
     const { articleClaps, clapsLeft, clapsCount } = this.state;
@@ -129,9 +156,6 @@ export class ClapButton extends Component {
 }
 
 const mapStateToProps = createStructuredSelector({
-  articleSlug: articleSelector.getArticleSlug,
-  articleAuthorId: articleSelector.getArticleAuthorId,
-  articleClaps: articleSelector.getArticleClaps,
   isLoggedIn: getIsAuthenticated,
   userId: getAuthId,
   token: getToken,
