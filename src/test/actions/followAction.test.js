@@ -31,7 +31,7 @@ describe('Follow action creators', () => {
       type: followType.failure,
       payload: [errorMessage],
     };
-    expect(actions.followFailure(['Sorry, you cannot follow yourself']))
+    expect(actions.followFailure([errorMessage]))
       .toEqual(expected);
   });
   it('followUserAction() should dispatch success', () => {

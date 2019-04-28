@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Tag from './ArticleTag';
 import clapImage from '../images/clap.svg';
-import ConnectedFollowButton from '../components/FollowButton';
+import FollowButtonComponent from '../components/FollowButton';
 
 /**
  *
@@ -65,7 +65,7 @@ function ArticleBody(props) {
           <div>
             <h6>Alexandra</h6>
             <p>Journalist, author, dad. Former TIME magazine editor and foreign correspondent. </p>
-            <ConnectedFollowButton
+            <FollowButtonComponent
               followId={article.authorId}
               username={article.User.Profile.username}
             />
