@@ -9,7 +9,6 @@ import axios from 'axios';
  * token - The authorization token to use if any
  * @returns {Promise} The axios promise
  */
-
 const request = async (
   {
     route,
