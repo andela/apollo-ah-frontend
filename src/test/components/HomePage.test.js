@@ -1,16 +1,16 @@
 import '@babel/polyfill';
 import React from 'react';
-import { MemoryRouter } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import { shallow, mount } from 'enzyme';
-import reduxStore from '../../store';
-import '../setup';
+import { shallow } from 'enzyme';
+import setup, { mockState } from '../setup';
 import ConnectedHomePage, { HomePage } from '../../components/HomePage';
 
-const { store } = reduxStore;
 const props = {
   getArticles: jest.fn(),
   getArticlesCategory: jest.fn(),
+  loadingCategory: false,
+  loadingArticles: false,
+  allArticles: [],
+  fiveStarAuthors: [],
   articles: [
     {
       id: 24,
@@ -59,7 +59,7 @@ const props = {
 };
 
 describe('<HomePage Test Suite>', () => {
-  it.skip('It should render unconnected homepage succesfully', async (done) => {
+  it('It should render unconnected homepage succesfully', async (done) => {
     const spy = jest.spyOn(HomePage.prototype, 'componentDidMount');
     const wrapper = await shallow(<HomePage {...props} />);
     wrapper.setState({
@@ -81,32 +81,13 @@ describe('<HomePage Test Suite>', () => {
     expect(wrapper.instance().props.getArticles).toHaveBeenCalled();
     expect(wrapper.instance().props.getArticlesCategory).toHaveBeenCalled();
     wrapper.instance().averageRatings(props.articles[0]);
-    // expect(wrapper.instance().state.fiveStarAuthors.length).toBe(2);
     done();
   });
-  it.skip('It should render connected homepage succesfully', () => {
-    const wrapper = mount(
-      <Provider store={store}>
-        <MemoryRouter>
-          <ConnectedHomePage {...props} />
-        </MemoryRouter>
-      </Provider>
-    );
+  it('It should render connected homepage succesfully', () => {
+    const wrapper = setup(<ConnectedHomePage />);
     expect(wrapper).toBeDefined();
     expect(wrapper.length).toBe(1);
-    expect(wrapper.instance().state.storeState.articlesReducer).toEqual({
-      articles: [],
-      error: '',
-      loading: 'started',
-      page:
-      {
-        first: 1,
-        current: 1,
-        last: 1,
-        currentCount: 0,
-        totalCount: 0,
-        description: ''
-      }
-    });
+    expect(wrapper.instance().state.storeState.articlesReducer)
+      .toEqual(mockState.articlesReducer);
   });
 });

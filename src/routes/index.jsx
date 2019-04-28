@@ -4,15 +4,14 @@
 /* eslint-disable react/wrap-multilines */
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import HomePage from '../components/HomePage';
+import ConnectedHomePage from '../components/HomePage';
 import SignupPage from '../views/SignupPage';
 import Login from '../components/Login';
-import NotFound from '../views/NotFound';
 import ProtectedRoutes from './ProtectedRoutes';
 import Footer from '../views/Footer';
 import Navbar from '../components/NavbarContainer';
-
 import Article from '../components/Article';
+import NotFound from '../components/NotFound';
 
 
 /**
@@ -26,7 +25,7 @@ function Routes() {
       <>
         <Navbar />
         <Switch>
-          <Route path="/" component={HomePage} exact />
+          <Route path="/" component={ConnectedHomePage} exact />
           <Route path="/signup" component={SignupPage} />
           <Route path="/login" component={Login} />
           <Route path="/user" component={ProtectedRoutes} />

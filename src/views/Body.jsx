@@ -1,4 +1,3 @@
-/* eslint-disable no-nested-ternary */
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Proptypes from 'prop-types';
@@ -77,7 +76,7 @@ const Body = ({
             </h3>
           </div>
         </div>
-        {loadingArticles === 'started' ? <PlaceholderLoader /> : <Articles articles={allArticles} />}
+        {loadingArticles ? (<Articles articles={allArticles} />) : <PlaceholderLoader />}
       </section>
     ) : ''}
 
@@ -96,7 +95,9 @@ const Body = ({
             </h3>
           </div>
         </div>
-        {loadingArticles === 'started' ? <PlaceholderLoader /> : Authors ? <Authors authors={fiveStarAuthors} begin={0} end={6} /> : ''}
+        {loadingArticles
+          ? <Authors authors={fiveStarAuthors} begin={0} end={6} />
+          : <PlaceholderLoader />}
       </section>
     ) : ''}
 
@@ -129,10 +130,10 @@ const Body = ({
 );
 
 Body.propTypes = {
-  loadingCategory: Proptypes.string,
+  loadingCategory: Proptypes.bool,
   PlaceholderLoader: Proptypes.func,
   articlesCategory: Proptypes.array,
-  loadingArticles: Proptypes.string,
+  loadingArticles: Proptypes.bool,
   Articles: Proptypes.func,
   allArticles: Proptypes.array,
   Authors: Proptypes.func,
@@ -140,12 +141,12 @@ Body.propTypes = {
 };
 
 Body.defaultProps = {
-  loadingCategory: '',
+  loadingCategory: false,
   PlaceholderLoader: f => f,
   articlesCategory: [],
-  loadingArticles: Proptypes.string,
+  loadingArticles: false,
   Articles: f => f,
-  allArticles: Proptypes.array,
+  allArticles: [],
   Authors: f => f,
   fiveStarAuthors: [],
 };
