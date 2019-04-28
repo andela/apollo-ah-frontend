@@ -21,29 +21,6 @@ import { CLAPS_LIMIT, CLAPS_REQUEST_TIMER } from '../utils/contants';
  * @extends {Component}
  */
 export class ClapButton extends Component {
-  /**
-   * Handles clap request (debounced)
-   *
-   * @returns {void}
-   * @memberof ClapButton
-   */
-  makeClapRequest = debounce(() => {
-    const { clapArticle, articleSlug: slug, token } = this.props;
-    const { clapsCount: claps } = this.state;
-    this.setState({ clapsCount: 0 });
-    return clapArticle({ slug, claps, token });
-  }, CLAPS_REQUEST_TIMER);
-
-  /**
-   * Pops-up notification upon waiting time (debounced)
-   *
-   * @returns {void}
-   * @memberof ClapButton
-   */
-  notifyUser = debounce(() => {
-    toast.info('Sorry, you cannot clap on your article');
-  }, CLAPS_REQUEST_TIMER);
-
   static propTypes = {
     articleSlug: PropType.string,
     articleAuthorId: PropType.number,
@@ -98,6 +75,29 @@ export class ClapButton extends Component {
       this.setState({ clapsLeft: CLAPS_LIMIT - userClaps });
     }
   }
+
+  /**
+   * Handles clap request (debounced)
+   *
+   * @returns {void}
+   * @memberof ClapButton
+   */
+  makeClapRequest = debounce(() => {
+    const { clapArticle, articleSlug: slug, token } = this.props;
+    const { clapsCount: claps } = this.state;
+    this.setState({ clapsCount: 0 });
+    return clapArticle({ slug, claps, token });
+  }, CLAPS_REQUEST_TIMER);
+
+  /**
+   * Pops-up notification upon waiting time (debounced)
+   *
+   * @returns {void}
+   * @memberof ClapButton
+   */
+  notifyUser = debounce(() => {
+    toast.info('Sorry, you cannot clap on your article');
+  }, CLAPS_REQUEST_TIMER);
 
   /**
    * Makes an article clap
