@@ -31,6 +31,11 @@ const initialState = {
     oldComments: [],
     hasMoreComments: false,
     commentPage: {}
+  },
+  dashboard: {
+    articles: [],
+    loading: false,
+    message: ''
   }
 };
 

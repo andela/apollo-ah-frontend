@@ -10,7 +10,7 @@ import signupReducer from './signupReducer';
 import createArticleReducer from './createArticleReducer';
 import profileReducer from './profileReducer';
 import { postCommentReducer, getCommentsReducer } from './commentsReducer';
-
+import dashboardReducer from './dashboardReducer';
 
 /**
  * @function userReducer,artilceReducer reducers used to combine multiple reducers
@@ -34,4 +34,5 @@ export default combineReducers({
   articlesReducer,
   articlesCategoryReducer,
   signupReducer,
+  dashboard: dashboardReducer,
 });

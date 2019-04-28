@@ -1,80 +1,26 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Dashboard> should render 1`] = `
+exports[`<Dashboard> should render with articles 1`] = `
 <div>
   <div
     className="card-columns"
     data-pg-collapsed={true}
   >
-    <div
-      className="card"
-    >
-      <div
-        className="card-body"
-      >
-        <div
-          className="summary"
-        >
-          <h4
-            className="font-weight-bold"
-          >
-            40
-          </h4>
-          <span>
-            Articles
-          </span>
-          <i
-            className="fas fa-file-alt"
-          />
-        </div>
-      </div>
-    </div>
-    <div
-      className="card"
-    >
-      <div
-        className="card-body"
-      >
-        <div
-          className="summary"
-        >
-          <h4
-            className="font-weight-bold"
-          >
-            35k
-          </h4>
-          <span>
-            Comments
-          </span>
-          <i
-            className="fas fa-comments"
-          />
-        </div>
-      </div>
-    </div>
-    <div
-      className="card"
-    >
-      <div
-        className="card-body"
-      >
-        <div
-          className="summary"
-        >
-          <h4
-            className="font-weight-bold"
-          >
-            12k
-          </h4>
-          <span>
-            Claps
-          </span>
-          <i
-            className="fas fa-sign-language"
-          />
-        </div>
-      </div>
-    </div>
+    <SummaryBox
+      icon="file-alt"
+      text="Articles"
+      value={0}
+    />
+    <SummaryBox
+      icon="comments"
+      text="Comments"
+      value={0}
+    />
+    <SummaryBox
+      icon="sign-language"
+      text="Claps"
+      value={0}
+    />
   </div>
   <div
     className="mt-3 card"
@@ -102,369 +48,57 @@ exports[`<Dashboard> should render 1`] = `
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td
-              className="align-middle"
-            >
-              <p
-                className="mb-n1 font-weight-bold"
-              >
-                How to write on any subject
-                 
-              </p>
-              <small>
-                Published Jul 24th, 2018
-              </small>
-              <div
-                className="dropdown d-inline-block"
-              >
-                <button
-                  aria-expanded="false"
-                  aria-haspopup="true"
-                  className="btn dropdown-toggle btn-unfocused"
-                  data-toggle="dropdown"
-                  id="dropdownMenuButton"
-                  type="button"
-                />
-                <div
-                  aria-labelledby="dropdownMenuButton"
-                  className="dropdown-menu"
-                >
-                  <a
-                    className="dropdown-item"
-                    href="#"
-                  >
-                    View article
-                  </a>
-                  <a
-                    className="dropdown-item"
-                    href="#"
-                  >
-                    Edit
-                  </a>
-                  <a
-                    className="dropdown-item"
-                    href="#"
-                  >
-                    Delete
-                  </a>
-                </div>
-              </div>
-            </td>
-            <td
-              className="text-center align-middle"
-            >
-              45
-            </td>
-            <td
-              className="text-center align-middle"
-            >
-              12
-            </td>
-          </tr>
-          <tr>
-            <td
-              className="align-middle"
-            >
-              <p
-                className="mb-n1 font-weight-bold"
-              >
-                How to write on any subject
-                 
-              </p>
-              <small>
-                Published Jul 24th, 2018
-              </small>
-              <div
-                className="dropdown d-inline-block"
-              >
-                <button
-                  aria-expanded="false"
-                  aria-haspopup="true"
-                  className="btn dropdown-toggle btn-unfocused"
-                  data-toggle="dropdown"
-                  id="dropdownMenuButton"
-                  type="button"
-                />
-                <div
-                  aria-labelledby="dropdownMenuButton"
-                  className="dropdown-menu"
-                >
-                  <a
-                    className="dropdown-item"
-                    href="#"
-                  >
-                    View article
-                  </a>
-                  <a
-                    className="dropdown-item"
-                    href="#"
-                  >
-                    Edit
-                  </a>
-                  <a
-                    className="dropdown-item"
-                    href="#"
-                  >
-                    Delete
-                  </a>
-                </div>
-              </div>
-            </td>
-            <td
-              className="text-center align-middle"
-            >
-              45
-            </td>
-            <td
-              className="text-center align-middle"
-            >
-              12
-            </td>
-          </tr>
-          <tr>
-            <td
-              className="align-middle"
-            >
-              <p
-                className="mb-n1 font-weight-bold"
-              >
-                How to write on any subject
-                 
-              </p>
-              <small>
-                Published Jul 24th, 2018
-              </small>
-              <div
-                className="dropdown d-inline-block"
-              >
-                <button
-                  aria-expanded="false"
-                  aria-haspopup="true"
-                  className="btn dropdown-toggle btn-unfocused"
-                  data-toggle="dropdown"
-                  id="dropdownMenuButton"
-                  type="button"
-                />
-                <div
-                  aria-labelledby="dropdownMenuButton"
-                  className="dropdown-menu"
-                >
-                  <a
-                    className="dropdown-item"
-                    href="#"
-                  >
-                    View article
-                  </a>
-                  <a
-                    className="dropdown-item"
-                    href="#"
-                  >
-                    Edit
-                  </a>
-                  <a
-                    className="dropdown-item"
-                    href="#"
-                  >
-                    Delete
-                  </a>
-                </div>
-              </div>
-            </td>
-            <td
-              className="text-center align-middle"
-            >
-              45
-            </td>
-            <td
-              className="text-center align-middle"
-            >
-              12
-            </td>
-          </tr>
-          <tr>
-            <td
-              className="align-middle"
-            >
-              <p
-                className="mb-n1 font-weight-bold"
-              >
-                How to write on any subject
-                 
-              </p>
-              <small>
-                Published Jul 24th, 2018
-              </small>
-              <div
-                className="dropdown d-inline-block"
-              >
-                <button
-                  aria-expanded="false"
-                  aria-haspopup="true"
-                  className="btn dropdown-toggle btn-unfocused"
-                  data-toggle="dropdown"
-                  id="dropdownMenuButton"
-                  type="button"
-                />
-                <div
-                  aria-labelledby="dropdownMenuButton"
-                  className="dropdown-menu"
-                >
-                  <a
-                    className="dropdown-item"
-                    href="#"
-                  >
-                    View article
-                  </a>
-                  <a
-                    className="dropdown-item"
-                    href="#"
-                  >
-                    Edit
-                  </a>
-                  <a
-                    className="dropdown-item"
-                    href="#"
-                  >
-                    Delete
-                  </a>
-                </div>
-              </div>
-            </td>
-            <td
-              className="text-center align-middle"
-            >
-              45
-            </td>
-            <td
-              className="text-center align-middle"
-            >
-              12
-            </td>
-          </tr>
-          <tr>
-            <td
-              className="align-middle"
-            >
-              <p
-                className="mb-n1 font-weight-bold"
-              >
-                How to write on any subject
-                 
-              </p>
-              <small>
-                Published Jul 24th, 2018
-              </small>
-              <div
-                className="dropdown d-inline-block"
-              >
-                <button
-                  aria-expanded="false"
-                  aria-haspopup="true"
-                  className="btn dropdown-toggle btn-unfocused"
-                  data-toggle="dropdown"
-                  id="dropdownMenuButton"
-                  type="button"
-                />
-                <div
-                  aria-labelledby="dropdownMenuButton"
-                  className="dropdown-menu"
-                >
-                  <a
-                    className="dropdown-item"
-                    href="#"
-                  >
-                    View article
-                  </a>
-                  <a
-                    className="dropdown-item"
-                    href="#"
-                  >
-                    Edit
-                  </a>
-                  <a
-                    className="dropdown-item"
-                    href="#"
-                  >
-                    Delete
-                  </a>
-                </div>
-              </div>
-            </td>
-            <td
-              className="text-center align-middle"
-            >
-              45
-            </td>
-            <td
-              className="text-center align-middle"
-            >
-              12
-            </td>
-          </tr>
-          <tr>
-            <td
-              className="align-middle"
-            >
-              <p
-                className="mb-n1 font-weight-bold"
-              >
-                How to write on any subject
-                 
-              </p>
-              <small>
-                Published Jul 24th, 2018
-              </small>
-              <div
-                className="dropdown d-inline-block"
-              >
-                <button
-                  aria-expanded="false"
-                  aria-haspopup="true"
-                  className="btn dropdown-toggle btn-unfocused"
-                  data-toggle="dropdown"
-                  id="dropdownMenuButton"
-                  type="button"
-                />
-                <div
-                  aria-labelledby="dropdownMenuButton"
-                  className="dropdown-menu"
-                >
-                  <a
-                    className="dropdown-item"
-                    href="#"
-                  >
-                    View article
-                  </a>
-                  <a
-                    className="dropdown-item"
-                    href="#"
-                  >
-                    Edit
-                  </a>
-                  <a
-                    className="dropdown-item"
-                    href="#"
-                  >
-                    Delete
-                  </a>
-                </div>
-              </div>
-            </td>
-            <td
-              className="text-center align-middle"
-            >
-              45
-            </td>
-            <td
-              className="text-center align-middle"
-            >
-              12
-            </td>
-          </tr>
+          <TableRow
+            item={Object {}}
+          />
         </tbody>
       </table>
     </div>
+  </div>
+</div>
+`;
+
+exports[`<Dashboard> should render with empty articles 1`] = `
+<div>
+  <div
+    className="card-columns"
+    data-pg-collapsed={true}
+  >
+    <SummaryBox
+      icon="file-alt"
+      text="Articles"
+      value={0}
+    />
+    <SummaryBox
+      icon="comments"
+      text="Comments"
+      value={0}
+    />
+    <SummaryBox
+      icon="sign-language"
+      text="Claps"
+      value={0}
+    />
+  </div>
+  <div
+    className="dashboard-empty"
+  >
+    <i
+      className="fas fa-book-open"
+    />
+    <h2>
+      You don't have any articles yet
+    </h2>
+    <p>
+      When you start publishing articles, you will be able to view statistics about the performance of your articles here.
+    </p>
+    <Link
+      className="btn btn-brand"
+      replace={false}
+      to="/user/create-article"
+    >
+      Write your first article
+    </Link>
   </div>
 </div>
 `;

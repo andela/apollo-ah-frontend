@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SummaryBox> should render 1`] = `
+<div
+  className="card"
+>
+  <div
+    className="card-body"
+  >
+    <div
+      className="summary"
+    >
+      <h4
+        className="font-weight-bold"
+      >
+        0
+      </h4>
+      <span />
+      <i
+        className="fas fa-"
+      />
+    </div>
+  </div>
+</div>
+`;

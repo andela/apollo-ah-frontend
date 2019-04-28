@@ -17,8 +17,8 @@ export default function SummaryBox({ text, icon, value }) {
 SummaryBox.propTypes = {
   text: PropTypes.string.isRequired,
   icon: PropTypes.string.isRequired,
-  value: PropTypes.string
+  value: PropTypes.number
 };
 SummaryBox.defaultProps = {
-  value: '0'
+  value: 0
 };

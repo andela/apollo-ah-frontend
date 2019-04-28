@@ -5,7 +5,8 @@ import SummaryBox from './SummaryBox';
 import TableRow from './TableRow';
 
 
-export default function Dashboard({ summary, articles, handleDeleteArticle }) {
+export default function Dashboard({ summary, dashboard }) {
+  const { articles } = dashboard;
   return (
     <div>
       <div className="card-columns" data-pg-collapsed>
@@ -41,7 +42,6 @@ When you start publishing articles, you will be able to view statistics about th
                 {articles.map(item => (
                   <TableRow
       item={item}
-      handleDeleteArticle={handleDeleteArticle}
       key={item.id} />
                 ))}
               </tbody>
@@ -50,12 +50,10 @@ When you start publishing articles, you will be able to view statistics about th
         </div>
       )}
     </div>
-
   );
 }
 
 Dashboard.propTypes = {
   summary: PropTypes.object.isRequired,
-  articles: PropTypes.array.isRequired,
-  handleDeleteArticle: PropTypes.func.isRequired
+  dashboard: PropTypes.object.isRequired,
 };
