@@ -58,7 +58,7 @@ export const unFollowSuccess = payload => ({
  * @export
  * @param {string} requestType - The request type (follow or unfollow)
  * @param {string} username - The username to follow/unfollow
- * @returns {object} - Returns an actions object
+ * @returns {Promise} - Returns a Promise
  */
 export const followUserAction = (requestType, username) => async (dispatch) => {
   dispatch(followLoading(true));
@@ -105,8 +105,8 @@ export const getFollowingSuccess = payload => ({
  * Followers action handler
  *
  * @export
- * @param {string} requestType - A request type of followers or following
- * @returns {object} - Returns an actions object
+ * @param {string} [requestType='follow'] - A request type of followers or following
+ * @returns {Promise} Returns a promise
  */
 export const fetchFollowersAction = (requestType = 'followers') => async (dispatch) => {
   dispatch(followLoading(true));

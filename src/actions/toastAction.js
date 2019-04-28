@@ -16,7 +16,7 @@ export const newToaster = message => ({
  *
  * @export
  * @param {string} message - The toast message
- * @returns {object} - Returns an actions object
+ * @returns {Promise} - Returns a Promise
  */
 export const newToast = message => async (dispatch) => {
   dispatch(newToaster(message));
@@ -26,7 +26,7 @@ export const newToast = message => async (dispatch) => {
  * Toast action for clearing the toast
  *
  * @export
- * @returns {object} - Returns an actions object
+ * @returns {object} - Returns an action object
  */
 export const clearToast = () => async (dispatch) => {
   dispatch({ type: CLEAR_TOAST });

@@ -13,6 +13,8 @@ const { follow } = initialState;
  *
  * @param {object} [state=follow] - The initial state to load
  * @param {object} action - The action to dispatch
+ * @param {string} action.type - The action type
+ * @param {object|boolean} action.payload - The action payload
  * @returns {object} - Returns the mutated state object
  */
 export default (state = follow, { type, payload }) => {
