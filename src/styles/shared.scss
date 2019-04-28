@@ -4,6 +4,22 @@ body {
 	background-color: $colordesertstorm;
 	color: $colortundora;
 }
+
+.btn:hover {
+color: $white;
+}
+.bg {
+	width: 100%;
+	padding: 10px;
+}
+.card-title {
+	font-size: 30px;
+	font-weight: bold;
+	color: #000000;
+}
+.card-text {
+	color: #999595;
+}
 .bg-brand {
 	background-color: colorpurple;
 	color: $white;

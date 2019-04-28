@@ -50,7 +50,12 @@ const createArticle = (props, requestData) => async (dispatch) => {
     dispatch(createArticleSuccess(response.message));
     props.history.push(`/article/${response.data.data.slug}`);
   }).catch((error) => {
-    dispatch(createArticleFailure(error.response.data.message));
+    let errorMessage = 'Please check your network connection';
+    if (error.response) {
+      const { message } = error.response.data;
+      errorMessage = message;
+    }
+    dispatch(createArticleFailure(errorMessage));
   });
 };
 
