@@ -19,7 +19,7 @@ export const getDashboardSummary = createSelector(dashboardSelector, (data) => {
   };
 
   articles.forEach((article) => {
-    // summary.comments += article.comments;
+    summary.comments += article.comments;
     summary.claps += article.claps;
   });
   return summary;

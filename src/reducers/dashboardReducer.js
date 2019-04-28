@@ -11,7 +11,7 @@ const dashboardReducer = (state = {}, action) => {
   switch (type) {
     case dashboardActionTypes.success:
       return {
-        ...state, articles: data, loading: false
+        ...state, articles: data || [], loading: false
       };
     case dashboardActionTypes.failure:
       return {

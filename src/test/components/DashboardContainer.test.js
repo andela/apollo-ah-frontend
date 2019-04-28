@@ -1,4 +1,3 @@
-import '@babel/polyfill';
 import React from 'react';
 import DashboardContainer from '../../components/DashboardContainer';
 import setup, { mockState } from '../setup/index';
