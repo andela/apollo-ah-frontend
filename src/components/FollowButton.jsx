@@ -68,7 +68,7 @@ export class FollowButton extends Component {
    * Validates user follower
    *
    * @param {number} - The follower id
-   * @returns {boolean} The followed user
+   * @returns {boolean} Returns truthy if already a follower, else falsy
    * @memberof FollowButton
    */
   isFollowing = (followerId) => {
