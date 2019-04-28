@@ -31,4 +31,11 @@ describe('<ClapButton />', () => {
     const { enzymeWrapper } = setup();
     expect(enzymeWrapper).toMatchSnapshot();
   });
+  it('calls "handleClapArticle()" on button click', () => {
+    const { enzymeWrapper } = setup();
+    const spy = jest.spyOn(enzymeWrapper.instance(), 'handleClapArticle');
+    enzymeWrapper.instance().forceUpdate();
+    enzymeWrapper.find('button').simulate('click');
+    expect(spy).toHaveBeenCalled();
+  });
 });
