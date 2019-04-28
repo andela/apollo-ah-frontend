@@ -42,26 +42,6 @@ export const followFailure = error => ({
 });
 
 /**
- * Follow action handler
- *
- * @export
- * @param {object} username - The username to follow
- * @returns {object} - Returns an actions object
- */
-export const followUserAction = username => async (dispatch) => {
-  dispatch(followLoading(true));
-  try {
-    const response = await request({ route: `profiles/${username}/follow`, method: 'POST' });
-    const { data, message } = response.data;
-    dispatch(newToast(message))
-    dispatch(followSuccess(data));
-  } catch (error) {
-    const errorData = exceptionHandler(error);
-    dispatch(followFailure(errorData));
-  }
-};
-
-/**
  * Action creator that is dispatched when user is successfully unfollowed
  *
  * @param {object} payload - The unfollowed user
@@ -76,15 +56,22 @@ export const unFollowSuccess = payload => ({
  * Follow action handler
  *
  * @export
- * @param {string} username - The username to unfollow
+ * @param {string} requestType - The request type (follow or unfollow)
+ * @param {string} username - The username to follow/unfollow
  * @returns {object} - Returns an actions object
  */
-export const unFollowUserAction = username => async (dispatch) => {
+export const followUserAction = (requestType, username) => async (dispatch) => {
   dispatch(followLoading(true));
   try {
-    const response = await request({ route: `profiles/${username}/unfollow`, method: 'POST' });
+    const response = await request({
+      route: `profiles/${username}/${requestType}`,
+      method: 'POST'
+    });
     const { data, message } = response.data;
-    dispatch(newToast(message))
+    dispatch(newToast(message));
+    if (requestType === 'follow') {
+      dispatch(followSuccess(data));
+    }
     dispatch(unFollowSuccess(data));
   } catch (error) {
     const errorData = exceptionHandler(error);

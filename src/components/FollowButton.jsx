@@ -20,7 +20,7 @@ class FollowButton extends Component {
   static propTypes = {
     followId: PropType.number,
     username: PropType.string.isRequired,
-    followUser: PropType.func.isRequired,
+    followRequest: PropType.func.isRequired,
     isLoggedIn: PropType.bool.isRequired,
     authUsername: PropType.string,
     history: PropType.object.isRequired,
@@ -89,7 +89,7 @@ class FollowButton extends Component {
       authUsername,
       username,
       followId,
-      followUser,
+      followRequest,
     } = this.props;
 
     if (!isLoggedIn) {
@@ -103,7 +103,7 @@ class FollowButton extends Component {
     }
 
     if (!this.isFollowing(followId)) {
-      followUser(username);
+      followRequest('follow', username);
     }
   }
 
@@ -137,7 +137,7 @@ const mapStateToProps = createStructuredSelector({
 });
 
 const mapDispatchToProps = {
-  followUser: username => followUserAction(username),
+  followRequest: (type, username) => followUserAction(type, username),
   clearToaster: () => clearToast(),
   loadFollowers: type => fetchFollowersAction(type),
 };
