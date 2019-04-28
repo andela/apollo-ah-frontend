@@ -18,7 +18,6 @@ function setup() {
     history: {
       push: jest.fn(),
     },
-    token: '',
     userClaps: 0,
     loadUserClaps: jest.fn(),
   };

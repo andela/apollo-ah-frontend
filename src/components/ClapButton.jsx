@@ -9,7 +9,6 @@ import { withRouter } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import clapIcon from '../images/clap.svg';
 import { getAuthId, getIsAuthenticated } from '../selectors/authSelector';
-import { getToken } from '../selectors/profileSelector';
 import { clapArticleRequest, fetchUserClaps } from '../actions/clapsAction';
 import { getUserClaps } from '../selectors/clapsSelector';
 import { CLAPS_LIMIT, CLAPS_REQUEST_TIMER } from '../utils/contants';
@@ -29,7 +28,6 @@ export class ClapButton extends Component {
     isLoggedIn: PropType.bool.isRequired,
     userId: PropType.number,
     history: PropType.object.isRequired,
-    token: PropType.string.isRequired,
     userClaps: PropType.number.isRequired,
     loadUserClaps: PropType.func.isRequired,
   };
@@ -83,10 +81,10 @@ export class ClapButton extends Component {
    * @memberof ClapButton
    */
   makeClapRequest = debounce(() => {
-    const { clapArticle, articleSlug: slug, token } = this.props;
+    const { clapArticle, articleSlug: slug } = this.props;
     const { clapsCount: claps } = this.state;
     this.setState({ clapsCount: 0 });
-    return clapArticle({ slug, claps, token });
+    return clapArticle({ slug, claps });
   }, CLAPS_REQUEST_TIMER);
 
   /**
@@ -158,7 +156,6 @@ export class ClapButton extends Component {
 const mapStateToProps = createStructuredSelector({
   isLoggedIn: getIsAuthenticated,
   userId: getAuthId,
-  token: getToken,
   userClaps: getUserClaps,
 });
 

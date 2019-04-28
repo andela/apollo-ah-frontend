@@ -36,13 +36,12 @@ export const clapArticleFailure = payload => ({
  * @param {string} payload.token - The user access token
  * @returns {void}
  */
-export const clapArticleRequest = ({ slug, claps, token }) => async (dispatch) => {
+export const clapArticleRequest = ({ slug, claps }) => async (dispatch) => {
   try {
     const response = await request({
       route: `articles/${slug}/claps`,
       method: 'POST',
       payload: { claps },
-      token
     });
     const { data: { data: article } } = response;
     dispatch(clapArticleSuccess(article));

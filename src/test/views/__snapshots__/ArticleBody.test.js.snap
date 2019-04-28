@@ -131,7 +131,6 @@ exports[`<ArticleBody> should render without crashing when there are no tags 1`]
                 clapArticle={[Function]}
                 isLoggedIn={false}
                 loadUserClaps={[Function]}
-                token=""
                 userClaps={0}
               >
                 <Route>
@@ -178,7 +177,6 @@ exports[`<ArticleBody> should render without crashing when there are no tags 1`]
                         "url": "/",
                       }
                     }
-                    token=""
                     userClaps={0}
                     userId={null}
                   >
@@ -439,7 +437,6 @@ exports[`<ArticleBody> should render without crashing when there are tags 1`] = 
                 clapArticle={[Function]}
                 isLoggedIn={false}
                 loadUserClaps={[Function]}
-                token=""
                 userClaps={0}
               >
                 <Route>
@@ -486,7 +483,6 @@ exports[`<ArticleBody> should render without crashing when there are tags 1`] = 
                         "url": "/",
                       }
                     }
-                    token=""
                     userClaps={0}
                     userId={null}
                   >
