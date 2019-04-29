@@ -4,7 +4,7 @@
   "description": "Authors Haven - A Social platform for the creative at heart. =======",
   "main": "index.jsx",
   "scripts": {
-    "test": "jest --coverage --colors",
+    "test": "jest --coverage --colors --maxWorkers=2",
     "test:watch": "jest --watchAll --coverage --colors",
     "test:cypress": "jest & npm run start:dev & wait-on http://localhost:8092 & ./node_modules/.bin/cypress run",
     "coverage": "nyc report --reporter=text-lcov",
