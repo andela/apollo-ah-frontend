@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Redirect } from 'react-router-dom';
 import propTypes from 'prop-types';
 import { toast } from 'react-toastify';
 import { reportArticle, clearErrors } from '../actions/reportArticleAction';
@@ -18,8 +18,15 @@ class ReportArticle extends React.Component {
       type: '',
       comment: '',
     };
-    const { clearErrors } = props;
-    clearErrors();
+  }
+
+  componentDidMount() {
+    const { success } = this.props;
+    if (success) {
+      return (
+        <Redirect to="/" />
+      );
+    }
   }
 
   /**
@@ -30,13 +37,12 @@ class ReportArticle extends React.Component {
 
   handleSubmit = () => {
     const { type, comment } = this.state;
-    const { reportArticle, token } = this.props;
-    const articleId = '65';
+    const { reportArticle, match: { params } } = this.props;
+    const articleId = params.id;
     const reportData = {
       reportType: type,
       comment,
       articleId,
-      userToken: token,
     };
     reportArticle(reportData);
   }
@@ -52,9 +58,12 @@ class ReportArticle extends React.Component {
     if (success) {
       toast.success('Article successfully reported');
       clearErrors();
+      return (
+        <Redirect to="/" />
+      );
     }
     return (
-      <section>
+      <section className="space">
         <div className="row">
           <div className="col-md-6 offset-md-3">
             <form>
@@ -63,7 +72,7 @@ class ReportArticle extends React.Component {
                   <option value="">Report category</option>
                   <option value="spam">Spam</option>
                   <option value="plagiarism">Plagiarism</option>
-                  <option value="other">Other</option>
+                  <option value="others">Others</option>
                 </select>
               </div>
               <div className="form-group">
@@ -81,7 +90,7 @@ class ReportArticle extends React.Component {
             </form>
           </div>
         </div>
-        <section />
+        <section className="space" />
       </section>
     );
   }
@@ -93,7 +102,7 @@ ReportArticle.propTypes = {
   loading: propTypes.bool,
   error: propTypes.string,
   success: propTypes.bool,
-  token: propTypes.string.isRequired,
+  match: propTypes.object.isRequired
 };
 ReportArticle.defaultProps = {
   loading: false,
@@ -102,7 +111,6 @@ ReportArticle.defaultProps = {
 };
 
 const mapStateToProps = state => ({
-  token: state.user.token,
   loading: state.reportArticleReducer.loading,
   error: state.reportArticleReducer.error,
   success: state.reportArticleReducer.success

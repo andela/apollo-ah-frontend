@@ -7,7 +7,7 @@ import Footer from '../views/Footer';
 import Navbar from '../components/NavbarContainer';
 import ConnectedLogin from '../components/Login';
 import Article from '../components/Article';
-import ReportArticle from '../components/ReportArticle';
+
 
 /**
  * @function Routes - A JSX wrapper for all the app's routes
@@ -25,7 +25,6 @@ function Routes() {
           <Route path="/user" component={ProtectedRoutes} />
           <Route path="/" component={ConnectedHomePage} exact />
           <Route path="/article/:slug" component={Article} exact />
-          <Route path="/article/:slug/report" component={ReportArticle} />
           <Route path="*" component={NotFound} />
         </Switch>
         <Footer />

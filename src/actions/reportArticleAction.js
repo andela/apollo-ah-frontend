@@ -27,7 +27,6 @@ export const reportArticle = reportData => async (dispatch) => {
       route: `/articles/${reportData.articleId}/report`,
       method: 'post',
       payload: reportData,
-      token: reportData.userToken
     });
     return dispatch({
       type: reportArticleType.success,

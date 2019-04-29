@@ -10,6 +10,7 @@ import SettingsContainer from '../components/SettingsContainer';
 import DashboardContainer from '../components/DashboardContainer';
 import { getIsLoggedIn } from '../selectors/navbarSelector';
 import CreateArticleContainer from '../components/CreateArticles';
+import ReportArticle from '../components/ReportArticle';
 
 
 /**
@@ -31,6 +32,7 @@ class ProtectedContainer extends Component {
           <Route path="/user/dashboard" component={DashboardContainer} />
           <Route path="/user/settings" component={SettingsContainer} />
           <Route path="/user/create-article" component={CreateArticleContainer} />
+          <Route path="/user/article/:id/report" component={ReportArticle} />
         </Switch>
       </Wrapper>
     );
