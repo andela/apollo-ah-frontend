@@ -1,4 +1,3 @@
-/* eslint-disable no-shadow */
 import React from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
@@ -100,9 +99,10 @@ export class Login extends React.Component {
    * @method {userLogin} - a function that calls the login endpoint and dispatches an action
    * @memberof Login
    */
-  handleLogin = () => {
+  handleLogin = (e) => {
     const { processLogin } = this.props;
     const { email, password } = this.state;
+    e.preventDefault();
     if (this.validateInput(email, password)) return processLogin({ email, password });
   };
 

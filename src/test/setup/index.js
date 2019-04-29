@@ -28,6 +28,11 @@ export const mockState = {
       message: '',
     }
   },
+  bookmarkedList: {
+    bookmarked: [],
+    isLoading: false,
+    message: '',
+  },
   article: {
     newComments: {
       body: 'Hello world',

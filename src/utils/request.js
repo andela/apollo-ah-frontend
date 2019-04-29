@@ -1,8 +1,4 @@
 import axios from 'axios';
-
-/** Get token from the session storage */
-const token = sessionStorage.getItem('token');
-
 /**
  * Helper function that configures axios requests
  * @param {object} config The configuration data.
@@ -20,6 +16,10 @@ const request = async (
     payload,
   }
 ) => {
+  // let userToken;
+  const persisted = JSON.parse(localStorage.getItem('persist:root'));
+  const { token } = JSON.parse(persisted.user);
+
   method = method || 'get';
   const headers = {
     Authorization: `Bearer ${token}`,

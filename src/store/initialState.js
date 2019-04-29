@@ -6,7 +6,7 @@ const initialState = {
   articles: [],
   user: {
     token: '',
-    id: 5,
+    id: '',
     isLoggedIn: false,
     profile: {
       username: '',
@@ -24,6 +24,24 @@ const initialState = {
     }
   },
   article: {
+    id: '',
+    title: '',
+    slug: '',
+    body: '',
+    image: '',
+    description: '',
+    createdAt: '',
+    updatedAt: '',
+    deletedAt: '',
+    auhtorId: '',
+    categoryId: '',
+    isLoading: false,
+    message: '',
+    User: {},
+    tagList: [],
+    articleCategory: {},
+    ratings: [],
+    readTime: '',
     newComments: [],
     postingComment: false,
     gettingComments: false,
@@ -31,7 +49,12 @@ const initialState = {
     oldComments: [],
     hasMoreComments: false,
     commentPage: {}
-  }
+  },
+  bookmarkedList: {
+    bookmarked: [],
+    isLoading: false,
+    message: '',
+  },
 };
 
 export default initialState;

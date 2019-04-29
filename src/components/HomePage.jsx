@@ -25,7 +25,7 @@ export class HomePage extends Component {
 
   async componentDidMount() {
     const { getArticles, getArticlesCategory } = this.props;
-    await Promise.all([getArticles(), getArticlesCategory()]);
+    await Promise.all([getArticles(12), getArticlesCategory()]);
   }
 
   /**
