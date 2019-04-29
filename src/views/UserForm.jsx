@@ -1,6 +1,3 @@
-/* eslint-disable react/jsx-no-bind */
-/* eslint-disable jsx-a11y/label-has-for */
-/* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -53,12 +50,7 @@ function UserForm(props) {
                 )}
                 <div className="login__input__section">
                   <form
-                    onSubmit={
-                      (e) => {
-                        e.preventDefault();
-                        handleLogin();
-                      }
-                    }
+                    onSubmit={handleLogin}
                   >
                     <div className="form-group">
                       <div className="login__input__field">
@@ -70,7 +62,7 @@ function UserForm(props) {
                           value={email}
                           className="form-control"
                           autoComplete="true"
-                          onChange={(e) => { handleChange(e); }}
+                          onChange={handleChange}
                         />
                       </div>
                       {usernameInput}
@@ -93,9 +85,7 @@ function UserForm(props) {
                           value={password}
                           autoComplete="true"
                           className="form-control"
-                          onChange={
-                            e => handleChange(e)
-                          }
+                          onChange={handleChange}
                         />
                       </div>
                       <div>

@@ -133,6 +133,7 @@ exports[`<NotFound /> should render the component 1`] = `
                 </header>
                 <Articles
                   articles={Array []}
+                  showHeader={false}
                 >
                   <div
                     className="container"
