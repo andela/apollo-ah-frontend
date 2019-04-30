@@ -1,0 +1,154 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<NotFound /> should render the component 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <BrowserRouter>
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "createHref": [Function],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <Connect(NotFound)
+        getArticles={[MockFunction]}
+      >
+        <NotFound
+          getArticles={[Function]}
+        >
+          <main
+            className="main-body"
+          >
+            <section
+              className="wrapper min-vh-100 not-found"
+            >
+              <div
+                className="not-found-intro"
+              >
+                <div
+                  className="container"
+                >
+                  <header>
+                    <p>
+                      <span
+                        aria-label="Smiley"
+                        role="image"
+                      >
+                        😔
+                      </span>
+                    </p>
+                    <h1>
+                      404 - PAGE NOT FOUND
+                    </h1>
+                    <p>
+                      It looks like you are trying to access a page that has been deleted or never existed.
+                    </p>
+                    <p>
+                      You can find more impactful articles  on our
+                       
+                      <Link
+                        replace={false}
+                        to="/"
+                      >
+                        <a
+                          href="/"
+                          onClick={[Function]}
+                        >
+                          home page.
+                        </a>
+                      </Link>
+                    </p>
+                  </header>
+                  <form
+                    action="/search"
+                    className="form"
+                    method="get"
+                  >
+                    <div
+                      className="input-group"
+                    >
+                      <div
+                        className="input-group-prepend"
+                      >
+                        <i
+                          className="fas fa-search"
+                        />
+                      </div>
+                      <input
+                        autoComplete="off"
+                        className="form-control"
+                        name="q"
+                        placeholder="Search Authors Haven"
+                        type="text"
+                      />
+                      <div
+                        className="input-group-prepend"
+                      >
+                        <button
+                          className="btn"
+                          type="submit"
+                        >
+                          Search
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div
+                className="container"
+              >
+                <header
+                  className="page-header"
+                >
+                  <h2>
+                    Try these articles
+                  </h2>
+                </header>
+                <Articles
+                  articles={Array []}
+                  showHeader={false}
+                >
+                  <div
+                    className="container"
+                  >
+                    <div
+                      className="row"
+                    />
+                  </div>
+                </Articles>
+              </div>
+            </section>
+          </main>
+        </NotFound>
+      </Connect(NotFound)>
+    </Router>
+  </BrowserRouter>
+</Provider>
+`;

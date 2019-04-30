@@ -43,11 +43,25 @@ const user = {
   password: '123456789o'
 };
 
+const bookmarkSuccess = {
+  code: 201,
+  data: {
+    id: 31,
+    userId: 12,
+    articleId: 23,
+    updatedAt: '2019-04-19T17:01:10.866Z',
+    createdAt: '2019-04-19T17:01:10.866Z'
+  },
+  message: 'successfully bookmarked this article',
+  status: true
+};
+
 export default {
   success,
   failure,
   user,
   loading,
   profile,
-  data
+  data,
+  bookmarkSuccess,
 };

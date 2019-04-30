@@ -1,3 +1,4 @@
+import jwt from 'jsonwebtoken';
 import request from '../utils/request';
 import typeGenerator from './typeGenerator';
 
@@ -24,10 +25,12 @@ export const signUpUser = userData => async (dispatch) => {
     });
     const { data: { data } } = response;
     sessionStorage.setItem('token', data.token);
+    const user = jwt.decode(data.token);
     dispatch(signupAction(signupType.success, {
       loading: false,
       success: true,
-      token: data.token
+      token: data.token,
+      profile: user.user
     }));
   } catch (err) {
     let errors;

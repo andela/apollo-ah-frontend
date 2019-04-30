@@ -34,6 +34,8 @@ const LoginReducer = (state = initialState.user, action) => {
         isLoading: false,
         isLoggedIn: false,
         loginStatus: false,
+        profile: {},
+        resetPassword: {}
       };
     case authenticationType.success:
       return {
