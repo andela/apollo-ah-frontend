@@ -13,16 +13,31 @@ import * as selectors from '../selectors/navbarSelector';
  * @extends {Component}
  */
 class NavbarContainer extends Component {
+  state = {
+    showSearch: false,
+  }
+
+  revealSearchBar = (e) => {
+    const { showSearch } = this.state;
+    e.preventDefault();
+    this.setState({ showSearch: !showSearch });
+  }
+
   render() {
     const { isLoggedIn, profile } = this.props;
+    const { showSearch } = this.state;
     return (
       <>
-        <Navbar isLoggedIn={isLoggedIn} profile={profile} />
+        <Navbar
+          isLoggedIn={isLoggedIn}
+          profile={profile}
+          revealSearchBar={this.revealSearchBar}
+          showSearch={showSearch}
+        />
       </>
     );
   }
 }
-
 
 const mapStateToProps = createStructuredSelector(
   {
