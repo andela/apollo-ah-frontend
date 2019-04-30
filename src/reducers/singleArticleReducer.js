@@ -1,5 +1,6 @@
 import initialState from '../store/initialState';
 import { getArticleType } from '../actions/singleArticleActions';
+import { clapArticleType } from '../actions/clapsAction';
 
 /**
  *
@@ -43,6 +44,16 @@ const getArticleReducer = (state = initialState.article, action) => {
         tagList: [],
         articleCategory: {},
         ratings: [],
+      };
+    case clapArticleType.success:
+      return {
+        ...state,
+        claps: action.payload.claps
+      };
+    case clapArticleType.failure:
+      return {
+        ...state,
+        error: action.payload
       };
     default:
       return state;

@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ClapButton /> renders without crashing given the required props 1`] = `
+<span
+  className="clap-icon"
+>
+  <button
+    className="btn"
+    onClick={[Function]}
+    type="button"
+  >
+    <img
+      alt=""
+      src={Object {}}
+    />
+  </button>
+  0
+   
+  claps
+</span>
+`;

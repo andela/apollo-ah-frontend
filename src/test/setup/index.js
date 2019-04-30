@@ -26,7 +26,13 @@ export const mockState = {
     resetPassword: {
       loading: false,
       message: '',
-    }
+    },
+  },
+  userClaps: { claps: 0 },
+  bookmarkedList: {
+    bookmarked: [],
+    isLoading: false,
+    message: '',
   },
   bookmarkedList: {
     bookmarked: [],
@@ -34,6 +40,9 @@ export const mockState = {
     message: '',
   },
   article: {
+    slug: 'article-slug',
+    claps: 10,
+    authorId: 1,
     newComments: {
       body: 'Hello world',
       id: 1,

@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 /**
  * Helper function that configures axios requests
  * @param {object} config The configuration data.
@@ -8,7 +9,6 @@ import axios from 'axios';
  * token - The authorization token to use if any
  * @returns {Promise} The axios promise
  */
-
 const request = async (
   {
     route,
@@ -16,7 +16,6 @@ const request = async (
     payload,
   }
 ) => {
-  // let userToken;
   const persisted = JSON.parse(localStorage.getItem('persist:root'));
   const { token } = JSON.parse(persisted.user);
 

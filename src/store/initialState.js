@@ -60,6 +60,7 @@ const initialState = {
     isLoading: false,
     message: '',
   },
+  userClaps: { claps: 0 }
 };
 
 export default initialState;
