@@ -1,34 +1,43 @@
-import singleArticleReducer from '../../reducers/singleArticleReducer';
-import { clapArticleType } from '../../actions/clapsAction';
+import { getArticleType } from '../../actions/singleArticleActions';
+import initialState from '../../store/initialState';
+import mockArticleData from '../__mocks__/mockSingleArticleData';
+import getArticleReducer from '../../reducers/singleArticleReducer';
 import { mockState } from '../setup';
 
-const { article: testState } = mockState;
+const initialArticleState = initialState.article;
+const article = mockArticleData;
+article.User = mockArticleData.author;
+delete article.author;
 
-describe('Profile Reducer', () => {
+describe('Testimng getArticle reducer', () => {
   it('should return the initial state', () => {
-    expect(singleArticleReducer(mockState, {})).toEqual(mockState);
+    expect(getArticleReducer(mockState, {})).toEqual(mockState);
   });
-  it('should handle clap article failure state', () => {
-    const errorData = { message: 'some error' };
-    const action = {
-      type: clapArticleType.failure,
-      payload: [errorData]
-    };
-    const result = singleArticleReducer(testState, action);
-    const expected = {
-      ...testState,
-      error: [errorData]
-    };
-    expect(result).toEqual(expected);
+  it('getArticle reducer to return default state', () => {
+    expect(getArticleReducer(undefined, {})).toEqual({ ...initialArticleState });
   });
-  it('should handle clap article success state', () => {
-    const article = { ...testState };
-    const action = {
-      type: clapArticleType.success,
-      payload: article
-    };
-    const result = singleArticleReducer(testState, action);
-    const expected = { ...testState };
-    expect(result).toEqual(expected);
+  it('should handle a getArticleType.loading dispatch successfully', () => {
+    const expectedResponse = { ...initialArticleState, isLoading: true };
+    const result = getArticleReducer(
+      { ...initialArticleState, isLoading: true }, getArticleType.loading
+    );
+    expect(result).toEqual({ ...expectedResponse });
+  });
+  it('should handle a getArticleType.success dispatch successfully', () => {
+    const expectedResponse = article;
+    expect(getArticleReducer(
+      { ...expectedResponse }, getArticleType.success
+    )).not.toEqual({ ...initialArticleState });
+    expect(getArticleReducer({ ...article, message: article.message }, getArticleType.success))
+      .toEqual({ ...expectedResponse });
+  });
+  it('should return a message with a getArticleType.failure dispatch', () => {
+    const expectedResponse = { ...initialArticleState, message: 'no article with slug: yuvwe found' };
+    expect(getArticleReducer(
+      { ...expectedResponse }, getArticleType.failure
+    )).not.toEqual({ ...initialArticleState });
+    expect(getArticleReducer(
+      { ...initialArticleState, message: expectedResponse.message }, getArticleType.failure
+    )).toEqual({ ...expectedResponse });
   });
 });

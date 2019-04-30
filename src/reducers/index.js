@@ -11,6 +11,7 @@ import createArticleReducer from './createArticleReducer';
 import profileReducer from './profileReducer';
 import singleArticleReducer from './singleArticleReducer';
 import clapsReducer from './clapsReducer';
+import bookmarkArticleReducer from './bookmarkArticleReducer';
 import { postCommentReducer, getCommentsReducer } from './commentsReducer';
 
 
@@ -40,5 +41,6 @@ export default combineReducers({
   articlesReducer,
   articlesCategoryReducer,
   userClaps: clapsReducer,
+  bookmarkedList: bookmarkArticleReducer,
   signupReducer,
 });

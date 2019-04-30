@@ -1,15 +1,50 @@
-import { clapArticleType } from '../actions/clapsAction';
 import initialState from '../store/initialState';
+import { getArticleType } from '../actions/singleArticleActions';
+import { clapArticleType } from '../actions/clapsAction';
 
 /**
- * Claps reducer function
  *
- * @param {object} [state=initialState] - The initial state to load
- * @param {object} action - The action to dispatch
- * @returns {object} - Returns the mutated state object
+ *
+ * @param {*} [state=initialState.article] - The initial article state
+ * @param {*} action - The action being dispatched
+ * @returns {Object} - The current article state
  */
-export default (state = initialState.article, action) => {
+const getArticleReducer = (state = initialState.article, action) => {
   switch (action.type) {
+    case getArticleType.success:
+      return {
+        ...state,
+        ...action.data,
+        message: action.message,
+        isLoading: false,
+      };
+    case getArticleType.loading:
+      return {
+        ...state,
+        isLoading: action.status,
+      };
+    case getArticleType.failure:
+      return {
+        ...state,
+        message: action.message,
+        isLoading: false,
+        User: {},
+        id: '',
+        slug: '',
+        title: '',
+        body: '',
+        image: '',
+        description: '',
+        readTime: '',
+        createdAt: '',
+        updatedAt: '',
+        deletedAt: '',
+        authorId: '',
+        categoryId: '',
+        tagList: [],
+        articleCategory: {},
+        ratings: [],
+      };
     case clapArticleType.success:
       return {
         ...state,
@@ -24,3 +59,5 @@ export default (state = initialState.article, action) => {
       return state;
   }
 };
+
+export default getArticleReducer;

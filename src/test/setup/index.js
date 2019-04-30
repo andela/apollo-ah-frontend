@@ -29,6 +29,11 @@ export const mockState = {
     },
   },
   userClaps: { claps: 0 },
+  bookmarkedList: {
+    bookmarked: [],
+    isLoading: false,
+    message: '',
+  },
   article: {
     slug: 'article-slug',
     claps: 10,
