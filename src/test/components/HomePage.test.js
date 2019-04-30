@@ -1,12 +1,9 @@
+import '@babel/polyfill';
 import React from 'react';
-import { MemoryRouter } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import { shallow, mount } from 'enzyme';
-import reduxStore from '../../store';
+import { shallow } from 'enzyme';
 import setup, { mockState } from '../setup';
 import ConnectedHomePage, { HomePage } from '../../components/HomePage';
 
-const { store } = reduxStore;
 const props = {
   getArticles: jest.fn(),
   getArticlesCategory: jest.fn(),
