@@ -34,6 +34,11 @@ export const mockState = {
     isLoading: false,
     message: '',
   },
+  bookmarkedList: {
+    bookmarked: [],
+    isLoading: false,
+    message: '',
+  },
   article: {
     slug: 'article-slug',
     claps: 10,
@@ -86,5 +91,13 @@ const setup = (component, initailState = mockState) => {
   );
   return connectedWrapper;
 };
+
+window.matchMedia = jest.fn().mockImplementation(query => ({
+  matches: false,
+  media: query,
+  onchange: null,
+  addListener: jest.fn(),
+  removeListener: jest.fn(),
+}));
 
 export default setup;
