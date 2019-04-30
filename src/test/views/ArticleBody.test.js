@@ -1,40 +1,52 @@
 import React from 'react';
-import { mount } from 'enzyme';
-import ArticleTag from '../../views/ArticleBody';
-import setup from '../setup';
+import { shallow } from 'enzyme';
+import ArticleBody from '../../views/ArticleBody';
+import mockArticle from '../__mocks__/mockSingleArticleData';
 
-const props = {
-  bookmarkArticle: jest.fn(),
-  bookmarked: false,
-  article: {
-    title: 'title',
-    description: 'description',
-    body: 'body',
-    image: 'image.jpg',
-    tagList: []
-  }
-};
+// eslint-disable-next-line no-undef
+const mockFn = jest.fn();
+jest.useFakeTimers();
 
-describe('<ArticleBody>', () => {
-  it('should render without crashing when there are no tags', () => {
-    const wrapper = mount(<ArticleTag
-        bookmarkArticle={props.bookmarkArticle}
-        bookmarked={props.bookmarked}
-        article={props.article}
-        />);
+
+describe('<ArticleBody />', () => {
+  it('should take a snapshot of the component', () => {
+    const wrapper = shallow(
+      <ArticleBody
+        article={mockArticle}
+        bookmarkArticle={mockFn}
+        token="4566"
+        bookmarked={false}
+        isLoggedin
+      />
+    );
     expect(wrapper).toMatchSnapshot();
   });
-  it('should render without crashing when there are tags', () => {
-    props.article.tagList = [
-      {
-        tagName: 'tech',
-      }
-    ];
-    const wrapper = setup(<ArticleTag
-        bookmarkArticle={props.bookmarkArticle}
-        bookmarked={props.bookmarked}
-        article={props.article}
-        />);
-    expect(wrapper).toMatchSnapshot();
+  it('should call bookmarkArticle & debounce when button is clicked', () => {
+    // const dummyFn = mockFn;
+    const wrapper = shallow(
+      <ArticleBody
+        article={mockArticle}
+        bookmarkArticle={mockFn}
+        token="4566"
+        bookmarked={false}
+        isLoggedin
+      />
+    );
+    wrapper.find('.bookmark-btn').first().simulate('click', { bookmarkArticle: f => f });
+    jest.advanceTimersByTime(3000);
+    expect(mockFn).toHaveBeenCalled();
+    // expect(dummyFn).toHaveBeenCalled();
+  }, 2000);
+  it('should change bookmark icon color changes if article is bookmarked', () => {
+    const wrapper = shallow(
+      <ArticleBody
+        article={mockArticle}
+        bookmarkArticle={mockFn}
+        bookmarked
+        token="4566"
+        isLoggedin
+      />
+    );
+    expect(wrapper.findWhere(span => span.hasClass('bookmarked')).exists()).toBe(true);
   });
 });

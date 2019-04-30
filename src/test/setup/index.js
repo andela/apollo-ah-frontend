@@ -7,6 +7,7 @@ import Adapter from 'enzyme-adapter-react-16';
 import thunk from 'redux-thunk';
 import configMockStore from 'redux-mock-store';
 import { BrowserRouter } from 'react-router-dom';
+import articlesReducer from '../../reducers/articleReducer';
 
 
 export const mockState = {
@@ -26,6 +27,11 @@ export const mockState = {
       loading: false,
       message: '',
     }
+  },
+  bookmarkedList: {
+    bookmarked: [],
+    isLoading: false,
+    message: '',
   },
   article: {
     newComments: {
@@ -55,6 +61,7 @@ export const mockState = {
   },
   articlesCategoryReducer: []
 };
+mockState.articlesReducer = articlesReducer;
 
 
 export const createMockStore = () => {
@@ -75,5 +82,13 @@ const setup = (component, initailState = mockState) => {
   );
   return connectedWrapper;
 };
+
+window.matchMedia = jest.fn().mockImplementation(query => ({
+  matches: false,
+  media: query,
+  onchange: null,
+  addListener: jest.fn(),
+  removeListener: jest.fn(),
+}));
 
 export default setup;

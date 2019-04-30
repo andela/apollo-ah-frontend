@@ -1,0 +1,686 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SingleArticle /> Should render and display article 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <BrowserRouter>
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "createHref": [Function],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <Connect(Article)
+        getArticle={[MockFunction]}
+        history={
+          Object {
+            "push": [MockFunction],
+          }
+        }
+        match={
+          Object {
+            "params": Object {
+              "slug": "whatpelotonmeansforthefutureoffitnesspt3-bb9473a0-5b4d-4267-ad08-cdaff14cc57d",
+            },
+          }
+        }
+      >
+        <Article
+          author={
+            Object {
+              "Profile": Object {
+                "bio": "I am in the refrigeratorrrrr!!! Free my homie, butter, doing life in a box. let's go!!",
+                "firstname": "Anonymous",
+                "image": "https://res.cloudinary.com/dvnrltpfi/image/upload/v1555521780/authors-haven/lekan.3ac3eca_nxdmac.jpg",
+                "lastname": "Lekan",
+                "username": "lekanon",
+              },
+              "id": 12,
+            }
+          }
+          body="Instead of mounting the company’s signature indoor cycling bike, I prop my iPhone on the family media console, tap into the Peloton app, and start streaming a 30-minute Pop Yoga Flow class.
+
+It’s a bit like a silent disco: Ariana Grande’s breakup bop “Thank U, Next” pours into my AirPods while Anna Greenberg, a cheerful instructor wearing red lipstick, her blonde hair in a topknot, leads me onto my knees and into spine-curving cat and cow poses. Following Greenberg, I balance on one knee, swivel to the side, and stretch my right arm overhead, just as Grande’s chorus — “I’m so fuckin’ grateful for my ex” — drops.
+
+This is how Peloton does yoga — with the same high-energy, telegenic instructors and catchy playlists, minus the pricey hardware. According to my stream, seven other Peloton users are also taking Greenberg’s class at the same time I am. I could “high-five” any of them if I felt like it.
+
+“Peloton makes yoga so much more accessible,” Kristin McGee, another Peloton yoga instructor, tells Elemental. “You can practice with all-star instructors and still have a sense of community without leaving your house.”
+
+While the fitness industry was caught up in the luxe brick-and-mortar boutique fitness boom of the early to mid-aughts — creating endorphin cults around SoulCycle, Flywheel, and Barry’s Boot Camp — Peloton was pedal strokes ahead. The company built a $2,000 indoor cycling machine — referred to by one blogger as “the fucking Acura of spinning bikes” — and launched a high-tech, at-home workout revolution. People in a given class can follow each other, share virtual high-fives, and even video chat while riding together in real time. By new industry estimates, Peloton now has more riders nationwide than SoulCycle—data the latter company disputes. The company has raised close to $1 billion in financing, in part from tech growth equity firm TCV — the same company that counts Facebook, Netflix, and AirBnB among its clients — and is considered a financial “unicorn” that’s worth an estimated $4 billion, sparking murmurs of an upcoming IPO.
+
+“Peloton’s main contribution is not getting a stationary bike in your home. It’s getting a stationary bike that’s connected to this virtual network.”
+Peloton emerged at a time when everything is available on demand. We can get a 12-pack of family-size toilet paper, a three-month supply of diapers, and a new bra delivered to our doorsteps by end of day tomorrow. We can Skype into work meetings instead of making business trips. That kind of ultra convenience is part of the Peloton origin story. According to CEO and co-founder John Foley, getting to SoulCycle or Flywheel became too hard after he and his wife, Jill, had kids. It opened his eyes to an underserved section of the increasingly fitness-obsessed market: all the people without the time, access, money, or motivation to trek to a trendy boutique class.
+
+After the success of Peloton’s stationary bike — it has sold hundreds of thousands, though the company won’t provide specifics — Peloton is aggressively expanding to become a full-body, full-service fitness and technology company, and it’s forcing the rest of the industry to follow suit or fall behind.
+
+“I think this is the wave of the future,” McGee says."
+          bookmarkArticleGenerators={[Function]}
+          bookmarkedList={
+            Array [
+              Object {
+                "articleId": 23,
+                "createdAt": "2019-04-19T17:01:10.866Z",
+                "id": 31,
+                "updatedAt": "2019-04-19T17:01:10.866Z",
+                "userId": 12,
+              },
+            ]
+          }
+          createdAt="2019-04-17T16:10:54.033Z"
+          description="After the success of Peloton’s stationary bike — it has sold hundreds of thousands, though the company won’t provide specifics — Peloton is aggressively expanding to become a full-body, full-service fitness and technology company"
+          getArticle={[Function]}
+          getArticles={[Function]}
+          history={
+            Object {
+              "push": [MockFunction],
+            }
+          }
+          id={23}
+          image="https://images.unsplash.com/photo-1555339990-18e05015e062?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
+          isLoggedin={false}
+          match={
+            Object {
+              "params": Object {
+                "slug": "whatpelotonmeansforthefutureoffitnesspt3-bb9473a0-5b4d-4267-ad08-cdaff14cc57d",
+              },
+            }
+          }
+          message="article was successfully fetched"
+          ratings={Array []}
+          readTime="2 minutes read"
+          slug="whatpelotonmeansforthefutureoffitnesspt3-bb9473a0-5b4d-4267-ad08-cdaff14cc57d"
+          tagList={
+            Array [
+              Object {
+                "ArticleTag": Object {
+                  "articleId": 23,
+                  "tagName": "life",
+                },
+                "tagName": "life",
+              },
+              Object {
+                "ArticleTag": Object {
+                  "articleId": 23,
+                  "tagName": "tech",
+                },
+                "tagName": "tech",
+              },
+            ]
+          }
+          title="What Peloton Means for the Future of Fitness pt 3"
+          updatedAt="2019-04-17T16:10:54.033Z"
+        >
+          <div>
+            <withRouter(ScrollToTopOnMount)>
+              <Route>
+                <ScrollToTopOnMount
+                  history={
+                    Object {
+                      "action": "POP",
+                      "block": [Function],
+                      "createHref": [Function],
+                      "go": [Function],
+                      "goBack": [Function],
+                      "goForward": [Function],
+                      "length": 1,
+                      "listen": [Function],
+                      "location": Object {
+                        "hash": "",
+                        "pathname": "/",
+                        "search": "",
+                        "state": undefined,
+                      },
+                      "push": [Function],
+                      "replace": [Function],
+                    }
+                  }
+                  location={
+                    Object {
+                      "hash": "",
+                      "pathname": "/",
+                      "search": "",
+                      "state": undefined,
+                    }
+                  }
+                  match={
+                    Object {
+                      "isExact": true,
+                      "params": Object {},
+                      "path": "/",
+                      "url": "/",
+                    }
+                  }
+                />
+              </Route>
+            </withRouter(ScrollToTopOnMount)>
+            <main
+              className="main-article"
+            >
+              <section
+                className="min-vh-100"
+              >
+                <div
+                  className="pg-empty-placeholder single-hero"
+                  style={
+                    Object {
+                      "backgroundImage": "url(https://images.unsplash.com/photo-1555339990-18e05015e062?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60)",
+                    }
+                  }
+                />
+                <div
+                  className="container"
+                >
+                  <div
+                    className="single-container"
+                  >
+                    <ArticleBody
+                      article={
+                        Object {
+                          "author": Object {
+                            "Profile": Object {
+                              "bio": "I am in the refrigeratorrrrr!!! Free my homie, butter, doing life in a box. let's go!!",
+                              "firstname": "Anonymous",
+                              "image": "https://res.cloudinary.com/dvnrltpfi/image/upload/v1555521780/authors-haven/lekan.3ac3eca_nxdmac.jpg",
+                              "lastname": "Lekan",
+                              "username": "lekanon",
+                            },
+                            "id": 12,
+                          },
+                          "body": "Instead%20of%20mounting%20the%20company%E2%80%99s%20signature%20indoor%20cycling%20bike%2C%20I%20prop%20my%20iPhone%20on%20the%20family%20media%20console%2C%20tap%20into%20the%20Peloton%20app%2C%20and%20start%20streaming%20a%2030-minute%20Pop%20Yoga%20Flow%20class.%0A%0AIt%E2%80%99s%20a%20bit%20like%20a%20silent%20disco%3A%20Ariana%20Grande%E2%80%99s%20breakup%20bop%20%E2%80%9CThank%20U%2C%20Next%E2%80%9D%20pours%20into%20my%20AirPods%20while%20Anna%20Greenberg%2C%20a%20cheerful%20instructor%20wearing%20red%20lipstick%2C%20her%20blonde%20hair%20in%20a%20topknot%2C%20leads%20me%20onto%20my%20knees%20and%20into%20spine-curving%20cat%20and%20cow%20poses.%20Following%20Greenberg%2C%20I%20balance%20on%20one%20knee%2C%20swivel%20to%20the%20side%2C%20and%20stretch%20my%20right%20arm%20overhead%2C%20just%20as%20Grande%E2%80%99s%20chorus%E2%80%8A%E2%80%94%E2%80%8A%E2%80%9CI%E2%80%99m%20so%20fuckin%E2%80%99%20grateful%20for%20my%20ex%E2%80%9D%E2%80%8A%E2%80%94%E2%80%8Adrops.%0A%0AThis%20is%20how%20Peloton%20does%20yoga%E2%80%8A%E2%80%94%E2%80%8Awith%20the%20same%20high-energy%2C%20telegenic%20instructors%20and%20catchy%20playlists%2C%20minus%20the%20pricey%20hardware.%20According%20to%20my%20stream%2C%20seven%20other%20Peloton%20users%20are%20also%20taking%20Greenberg%E2%80%99s%20class%20at%20the%20same%20time%20I%20am.%20I%20could%20%E2%80%9Chigh-five%E2%80%9D%20any%20of%20them%20if%20I%20felt%20like%20it.%0A%0A%E2%80%9CPeloton%20makes%20yoga%20so%20much%20more%20accessible%2C%E2%80%9D%20Kristin%20McGee%2C%20another%20Peloton%20yoga%20instructor%2C%20tells%20Elemental.%20%E2%80%9CYou%20can%20practice%20with%20all-star%20instructors%20and%20still%20have%20a%20sense%20of%20community%20without%20leaving%20your%20house.%E2%80%9D%0A%0AWhile%20the%20fitness%20industry%20was%20caught%20up%20in%20the%20luxe%20brick-and-mortar%20boutique%20fitness%20boom%20of%20the%20early%20to%20mid-aughts%E2%80%8A%E2%80%94%E2%80%8Acreating%20endorphin%20cults%20around%20SoulCycle%2C%20Flywheel%2C%20and%20Barry%E2%80%99s%20Boot%20Camp%E2%80%8A%E2%80%94%E2%80%8APeloton%20was%20pedal%20strokes%20ahead.%20The%20company%20built%20a%20%242%2C000%20indoor%20cycling%20machine%E2%80%8A%E2%80%94%E2%80%8Areferred%20to%20by%20one%20blogger%20as%20%E2%80%9Cthe%20fucking%20Acura%20of%20spinning%20bikes%E2%80%9D%E2%80%8A%E2%80%94%E2%80%8Aand%20launched%20a%20high-tech%2C%20at-home%20workout%20revolution.%20People%20in%20a%20given%20class%20can%20follow%20each%20other%2C%20share%20virtual%20high-fives%2C%20and%20even%20video%20chat%20while%20riding%20together%20in%20real%20time.%20By%20new%20industry%20estimates%2C%20Peloton%20now%20has%20more%20riders%20nationwide%20than%20SoulCycle%E2%80%94data%20the%20latter%20company%20disputes.%20The%20company%20has%20raised%20close%20to%20%241%20billion%20in%20financing%2C%20in%20part%20from%20tech%20growth%20equity%20firm%20TCV%E2%80%8A%E2%80%94%E2%80%8Athe%20same%20company%20that%20counts%20Facebook%2C%20Netflix%2C%20and%20AirBnB%20among%20its%20clients%E2%80%8A%E2%80%94%E2%80%8Aand%20is%20considered%20a%20financial%20%E2%80%9Cunicorn%E2%80%9D%20that%E2%80%99s%20worth%20an%20estimated%20%244%20billion%2C%20sparking%20murmurs%20of%20an%20upcoming%20IPO.%0A%0A%E2%80%9CPeloton%E2%80%99s%20main%20contribution%20is%20not%20getting%20a%20stationary%20bike%20in%20your%20home.%20It%E2%80%99s%20getting%20a%20stationary%20bike%20that%E2%80%99s%20connected%20to%20this%20virtual%20network.%E2%80%9D%0APeloton%20emerged%20at%20a%20time%20when%20everything%20is%20available%20on%20demand.%20We%20can%20get%20a%2012-pack%20of%20family-size%20toilet%20paper%2C%20a%20three-month%20supply%20of%20diapers%2C%20and%20a%20new%20bra%20delivered%20to%20our%20doorsteps%20by%20end%20of%20day%20tomorrow.%20We%20can%20Skype%20into%20work%20meetings%20instead%20of%20making%20business%20trips.%20That%20kind%20of%20ultra%20convenience%20is%20part%20of%20the%20Peloton%20origin%20story.%20According%20to%20CEO%20and%20co-founder%20John%20Foley%2C%20getting%20to%20SoulCycle%20or%20Flywheel%20became%20too%20hard%20after%20he%20and%20his%20wife%2C%20Jill%2C%20had%20kids.%20It%20opened%20his%20eyes%20to%20an%20underserved%20section%20of%20the%20increasingly%20fitness-obsessed%20market%3A%20all%20the%20people%20without%20the%20time%2C%20access%2C%20money%2C%20or%20motivation%20to%20trek%20to%20a%20trendy%20boutique%20class.%0A%0AAfter%20the%20success%20of%20Peloton%E2%80%99s%20stationary%20bike%E2%80%8A%E2%80%94%E2%80%8Ait%20has%20sold%20hundreds%20of%20thousands%2C%20though%20the%20company%20won%E2%80%99t%20provide%20specifics%E2%80%8A%E2%80%94%E2%80%8APeloton%20is%20aggressively%20expanding%20to%20become%20a%20full-body%2C%20full-service%20fitness%20and%20technology%20company%2C%20and%20it%E2%80%99s%20forcing%20the%20rest%20of%20the%20industry%20to%20follow%20suit%20or%20fall%20behind.%0A%0A%E2%80%9CI%20think%20this%20is%20the%20wave%20of%20the%20future%2C%E2%80%9D%20McGee%20says.",
+                          "bookmarkArticleGenerators": [Function],
+                          "bookmarkedList": Array [
+                            Object {
+                              "articleId": 23,
+                              "createdAt": "2019-04-19T17:01:10.866Z",
+                              "id": 31,
+                              "updatedAt": "2019-04-19T17:01:10.866Z",
+                              "userId": 12,
+                            },
+                          ],
+                          "createdAt": "2019-04-17T16:10:54.033Z",
+                          "description": "After the success of Peloton’s stationary bike — it has sold hundreds of thousands, though the company won’t provide specifics — Peloton is aggressively expanding to become a full-body, full-service fitness and technology company",
+                          "getArticles": [Function],
+                          "id": 23,
+                          "image": "https://images.unsplash.com/photo-1555339990-18e05015e062?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
+                          "isLoading": undefined,
+                          "message": "article was successfully fetched",
+                          "ratings": Array [],
+                          "readTime": "2 minutes read",
+                          "recommendations": undefined,
+                          "slug": "whatpelotonmeansforthefutureoffitnesspt3-bb9473a0-5b4d-4267-ad08-cdaff14cc57d",
+                          "tagList": Array [
+                            Object {
+                              "ArticleTag": Object {
+                                "articleId": 23,
+                                "tagName": "life",
+                              },
+                              "tagName": "life",
+                            },
+                            Object {
+                              "ArticleTag": Object {
+                                "articleId": 23,
+                                "tagName": "tech",
+                              },
+                              "tagName": "tech",
+                            },
+                          ],
+                          "title": "What Peloton Means for the Future of Fitness pt 3",
+                          "updatedAt": "2019-04-17T16:10:54.033Z",
+                        }
+                      }
+                      bookmarkArticle={[Function]}
+                      bookmarked={true}
+                      isLoggedin={false}
+                    >
+                      <div>
+                        <h1
+                          className="signle-title"
+                        >
+                          What Peloton Means for the Future of Fitness pt 3
+                        </h1>
+                        <p
+                          className="single-sub"
+                          style={
+                            Object {
+                              "color": "#9c9c9c",
+                              "fontSize": 21,
+                              "fontWeight": "bold",
+                            }
+                          }
+                        >
+                          After the success of Peloton’s stationary bike — it has sold hundreds of thousands, though the company won’t provide specifics — Peloton is aggressively expanding to become a full-body, full-service fitness and technology company
+                           
+                        </p>
+                        <div
+                          className="single__author__container"
+                        >
+                          <div
+                            className="article__author"
+                          >
+                            <div
+                              className="author__profile--mini"
+                            >
+                              <img
+                                alt="author"
+                                src="https://res.cloudinary.com/dvnrltpfi/image/upload/v1555521780/authors-haven/lekan.3ac3eca_nxdmac.jpg"
+                              />
+                              <div
+                                className="author__profile--details"
+                              >
+                                <h6>
+                                  Anonymous Lekan
+                                </h6>
+                                <span>
+                                  12 days ago
+                                </span>
+                                <span
+                                  className="article-author-dot"
+                                />
+                                <span>
+                                  2 minutes read
+                                </span>
+                              </div>
+                            </div>
+                            <div
+                              className="bookmark__div"
+                            >
+                              <button
+                                className="btn btn-link bookmark-btn"
+                                id="bookmark-btn"
+                                onClick={[Function]}
+                                type="button"
+                              >
+                                <span
+                                  className="fas fa-bookmark transition bookmarked"
+                                />
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          className="single-body"
+                        >
+                          Instead of mounting the company’s signature indoor cycling bike, I prop my iPhone on the family media console, tap into the Peloton app, and start streaming a 30-minute Pop Yoga Flow class.
+
+It’s a bit like a silent disco: Ariana Grande’s breakup bop “Thank U, Next” pours into my AirPods while Anna Greenberg, a cheerful instructor wearing red lipstick, her blonde hair in a topknot, leads me onto my knees and into spine-curving cat and cow poses. Following Greenberg, I balance on one knee, swivel to the side, and stretch my right arm overhead, just as Grande’s chorus — “I’m so fuckin’ grateful for my ex” — drops.
+
+This is how Peloton does yoga — with the same high-energy, telegenic instructors and catchy playlists, minus the pricey hardware. According to my stream, seven other Peloton users are also taking Greenberg’s class at the same time I am. I could “high-five” any of them if I felt like it.
+
+“Peloton makes yoga so much more accessible,” Kristin McGee, another Peloton yoga instructor, tells Elemental. “You can practice with all-star instructors and still have a sense of community without leaving your house.”
+
+While the fitness industry was caught up in the luxe brick-and-mortar boutique fitness boom of the early to mid-aughts — creating endorphin cults around SoulCycle, Flywheel, and Barry’s Boot Camp — Peloton was pedal strokes ahead. The company built a $2,000 indoor cycling machine — referred to by one blogger as “the fucking Acura of spinning bikes” — and launched a high-tech, at-home workout revolution. People in a given class can follow each other, share virtual high-fives, and even video chat while riding together in real time. By new industry estimates, Peloton now has more riders nationwide than SoulCycle—data the latter company disputes. The company has raised close to $1 billion in financing, in part from tech growth equity firm TCV — the same company that counts Facebook, Netflix, and AirBnB among its clients — and is considered a financial “unicorn” that’s worth an estimated $4 billion, sparking murmurs of an upcoming IPO.
+
+“Peloton’s main contribution is not getting a stationary bike in your home. It’s getting a stationary bike that’s connected to this virtual network.”
+Peloton emerged at a time when everything is available on demand. We can get a 12-pack of family-size toilet paper, a three-month supply of diapers, and a new bra delivered to our doorsteps by end of day tomorrow. We can Skype into work meetings instead of making business trips. That kind of ultra convenience is part of the Peloton origin story. According to CEO and co-founder John Foley, getting to SoulCycle or Flywheel became too hard after he and his wife, Jill, had kids. It opened his eyes to an underserved section of the increasingly fitness-obsessed market: all the people without the time, access, money, or motivation to trek to a trendy boutique class.
+
+After the success of Peloton’s stationary bike — it has sold hundreds of thousands, though the company won’t provide specifics — Peloton is aggressively expanding to become a full-body, full-service fitness and technology company, and it’s forcing the rest of the industry to follow suit or fall behind.
+
+“I think this is the wave of the future,” McGee says.
+                        </div>
+                        <div
+                          className="single-tags text-center"
+                        >
+                          <Tag
+                            key="life"
+                            tag={
+                              Object {
+                                "ArticleTag": Object {
+                                  "articleId": 23,
+                                  "tagName": "life",
+                                },
+                                "tagName": "life",
+                              }
+                            }
+                          >
+                            <Link
+                              className="badge"
+                              replace={false}
+                              to="/search?tag=life"
+                            >
+                              <a
+                                className="badge"
+                                href="/search?tag=life"
+                                onClick={[Function]}
+                              >
+                                life
+                              </a>
+                            </Link>
+                          </Tag>
+                          <Tag
+                            key="tech"
+                            tag={
+                              Object {
+                                "ArticleTag": Object {
+                                  "articleId": 23,
+                                  "tagName": "tech",
+                                },
+                                "tagName": "tech",
+                              }
+                            }
+                          >
+                            <Link
+                              className="badge"
+                              replace={false}
+                              to="/search?tag=tech"
+                            >
+                              <a
+                                className="badge"
+                                href="/search?tag=tech"
+                                onClick={[Function]}
+                              >
+                                tech
+                              </a>
+                            </Link>
+                          </Tag>
+                        </div>
+                        <div
+                          className="pg-empty-placeholder"
+                        />
+                        <div
+                          className="clap-grp"
+                        >
+                          <span
+                            className="clap-icon"
+                          >
+                            <img
+                              alt=""
+                              src={Object {}}
+                            />
+                            40k claps
+                          </span>
+                          <div
+                            className="share-grp"
+                          >
+                            <div
+                              className="share-group-child"
+                            >
+                              <a
+                                className="text-danger"
+                                href="mailto:?subject=Check out this article on Authors Haven&body=http://localhost/"
+                                rel="noopener noreferrer"
+                                target="_blank"
+                                title="Share via mail"
+                              >
+                                <i
+                                  className="fas fa-envelope"
+                                />
+                              </a>
+                            </div>
+                            <div
+                              className="share-group-child"
+                            >
+                              <a
+                                className="fb-xfbml-parse-ignore"
+                                href="https://www.facebook.com/sharer?u=http://localhost/"
+                                rel="noopener noreferrer"
+                                style={
+                                  Object {
+                                    "color": "#3b5998",
+                                  }
+                                }
+                                target="_blank"
+                              >
+                                <i
+                                  className="fab fa-facebook-square"
+                                />
+                              </a>
+                            </div>
+                            <div
+                              className="share-group-child"
+                            >
+                              <a
+                                data-show-count="false"
+                                href="https://twitter.com/intent/tweet?text=http://localhost/"
+                                rel="noopener noreferrer"
+                                style={
+                                  Object {
+                                    "color": "#38A1F3",
+                                  }
+                                }
+                                target="_blank"
+                              >
+                                <i
+                                  className="fab fa-twitter-square"
+                                />
+                              </a>
+                            </div>
+                            <div
+                              className="share-group-child"
+                            >
+                              <button
+                                className="btn btn-link bookmark-btn"
+                                onClick={[Function]}
+                                type="button"
+                              >
+                                <span
+                                  className="fas fa-bookmark transition bookmarked"
+                                />
+                              </button>
+                            </div>
+                            <div
+                              className="share-group-child"
+                            >
+                              <div
+                                className="dropdown article__options"
+                              >
+                                <button
+                                  aria-expanded="false"
+                                  aria-haspopup="true"
+                                  className="btn dropdown-toggle"
+                                  data-toggle="dropdown"
+                                  id="show-options"
+                                  type="button"
+                                >
+                                  <i
+                                    className="fas fa-ellipsis-h"
+                                  />
+                                </button>
+                                <div
+                                  aria-labelledby="show-options"
+                                  className="dropdown-menu dropdown-menu-right"
+                                >
+                                  <div
+                                    className="dropdown-item"
+                                  />
+                                  <div
+                                    className="dropdown-item"
+                                  >
+                                    <button
+                                      className="btn"
+                                      type="button"
+                                    >
+                                      <i
+                                        className="fas fa-flag text-danger"
+                                      />
+                                      Report Article
+                                    </button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          className="single-author-container single-article-author mb-5"
+                        >
+                          <div
+                            className="article-author"
+                          >
+                            <img
+                              alt="author"
+                              src="https://res.cloudinary.com/dvnrltpfi/image/upload/v1555521780/authors-haven/lekan.3ac3eca_nxdmac.jpg"
+                            />
+                            <div>
+                              <h6>
+                                Anonymous Lekan
+                              </h6>
+                              <p>
+                                I am in the refrigeratorrrrr!!! Free my homie, butter, doing life in a box. let's go!!
+                              </p>
+                              <button
+                                className="btn btn-light"
+                                type="button"
+                              >
+                                Follow
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </ArticleBody>
+                    <Connect(CommentsContainer)
+                      slug="whatpelotonmeansforthefutureoffitnesspt3-bb9473a0-5b4d-4267-ad08-cdaff14cc57d"
+                    >
+                      <CommentsContainer
+                        clearComments={[Function]}
+                        commentMessage="Done"
+                        fetchComment={[Function]}
+                        gettingComments={false}
+                        hasMoreComments={false}
+                        isLoggedIn={false}
+                        newCommentList={
+                          Object {
+                            "authorImage": "image.jpg",
+                            "authorName": "John",
+                            "body": "Hello world",
+                            "date": "July 4th 2018",
+                            "id": 1,
+                          }
+                        }
+                        oldCommentList={Array []}
+                        postingComment={false}
+                        profile={
+                          Object {
+                            "bio": "",
+                            "email": "",
+                            "errorData": Array [],
+                            "firstname": "",
+                            "image": "",
+                            "lastname": "",
+                            "loading": false,
+                            "username": "",
+                          }
+                        }
+                        remainingComments={0}
+                        sendComment={[Function]}
+                        slug="whatpelotonmeansforthefutureoffitnesspt3-bb9473a0-5b4d-4267-ad08-cdaff14cc57d"
+                        token=""
+                      >
+                        <div
+                          className="comment-grp card"
+                        />
+                        <PostComment
+                          body=""
+                          commentMessagef="Done"
+                          handleInputChange={[Function]}
+                          handlePostComment={[Function]}
+                          isLoggedIn={false}
+                          postingComment={false}
+                        >
+                          <div
+                            className="comment-grp card mt-3 relative"
+                          >
+                            <form
+                              className="form"
+                              onSubmit={[Function]}
+                            >
+                              <div
+                                className="form-group"
+                              >
+                                <input
+                                  autoComplete="off"
+                                  className="form-control"
+                                  disabled={false}
+                                  name="body"
+                                  onChange={[Function]}
+                                  placeholder="Leave a comment"
+                                  value=""
+                                />
+                                <button
+                                  className="btn btn-link"
+                                  disabled={false}
+                                  type="submit"
+                                >
+                                  <i
+                                    className="fas fa-paper-plane"
+                                  />
+                                  <span
+                                    className="spinner-grow text-dark"
+                                  />
+                                </button>
+                              </div>
+                            </form>
+                            <Link
+                              className="link-surface"
+                              replace={false}
+                              to="/login"
+                            >
+                              <a
+                                className="link-surface"
+                                href="/login"
+                                onClick={[Function]}
+                              />
+                            </Link>
+                          </div>
+                        </PostComment>
+                      </CommentsContainer>
+                    </Connect(CommentsContainer)>
+                  </div>
+                </div>
+                <div
+                  className="single-suggested-grp"
+                >
+                  <div
+                    className="row pg-empty-placeholder"
+                  />
+                  <Articles
+                    articles={Array []}
+                    showHeader={true}
+                  >
+                    <div
+                      className="container"
+                    >
+                      <h4>
+                        Recommended for you
+                      </h4>
+                      <div
+                        className="row"
+                      />
+                    </div>
+                  </Articles>
+                </div>
+              </section>
+            </main>
+          </div>
+        </Article>
+      </Connect(Article)>
+    </Router>
+  </BrowserRouter>
+</Provider>
+`;

@@ -17,7 +17,7 @@ exports[`<Articles Test Suite> <Articles> It should render succesfully 1`] = `
         <Link
           className="link-surface"
           replace={false}
-          to="article/undefined"
+          to="/article/undefined"
         />
         <div
           className="article-cover"
