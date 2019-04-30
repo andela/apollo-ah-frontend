@@ -7,8 +7,6 @@ import { toast } from 'react-toastify';
 import { followUserAction, fetchFollowersAction } from '../actions/followAction';
 import { getAuthUsername, getIsAuthenticated } from '../selectors/authSelector';
 import { getFollowing, getFollowIsLoading } from '../selectors/followersSelector';
-import { getToast } from '../selectors/commonSelector';
-import { clearToast } from '../actions/toastAction';
 
 /**
  * Class representing follow button
@@ -26,15 +24,12 @@ export class FollowButton extends Component {
     history: PropType.object.isRequired,
     following: PropType.array.isRequired,
     isLoading: PropType.bool.isRequired,
-    toaster: PropType.string,
-    clearToaster: PropType.func.isRequired,
     loadFollowers: PropType.func.isRequired,
   };
 
   static defaultProps = {
     authUsername: null,
     followId: null,
-    toaster: null,
   };
 
   /**
@@ -45,23 +40,6 @@ export class FollowButton extends Component {
   componentDidMount() {
     const { loadFollowers } = this.props;
     loadFollowers('following');
-  }
-
-  /**
-   * Is invoked immediately after updating occurs
-   *
-   * @param {object} prevProps - The previous props value
-   * @returns {void}
-   * @memberof FollowButton
-   */
-  componentDidUpdate(prevProps) {
-    const { toaster, clearToaster } = this.props;
-    if (toaster && (toaster !== prevProps.toaster)) {
-      toast.success(toaster);
-    }
-    if (toaster && (toaster === prevProps.toaster)) {
-      clearToaster();
-    }
   }
 
   /**
@@ -133,12 +111,10 @@ const mapStateToProps = createStructuredSelector({
   isLoggedIn: getIsAuthenticated,
   following: getFollowing,
   isLoading: getFollowIsLoading,
-  toaster: getToast,
 });
 
 const mapDispatchToProps = {
   followRequest: (type, username) => followUserAction(type, username),
-  clearToaster: () => clearToast(),
   loadFollowers: type => fetchFollowersAction(type),
 };
 

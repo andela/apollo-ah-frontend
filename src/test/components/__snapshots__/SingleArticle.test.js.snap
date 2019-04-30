@@ -549,7 +549,6 @@ After the success of Peloton’s stationary bike — it has sold hundreds of
                               >
                                 <withRouter(FollowButton)
                                   authUsername=""
-                                  clearToaster={[Function]}
                                   followId={12}
                                   followRequest={[Function]}
                                   following={Array []}
@@ -561,7 +560,6 @@ After the success of Peloton’s stationary bike — it has sold hundreds of
                                   <Route>
                                     <FollowButton
                                       authUsername=""
-                                      clearToaster={[Function]}
                                       followId={12}
                                       followRequest={[Function]}
                                       following={Array []}
@@ -604,7 +602,6 @@ After the success of Peloton’s stationary bike — it has sold hundreds of
                                           "url": "/",
                                         }
                                       }
-                                      toaster={null}
                                       username="lekanon"
                                     >
                                       <button
