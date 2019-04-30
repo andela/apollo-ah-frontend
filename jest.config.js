@@ -26,7 +26,7 @@ module.exports = {
 
   // The paths to modules that run some code to configure or
   // set up the testing environment before each test
-  setupFiles: ['<rootDir>/enzyme.config.js'],
+  setupFiles: ['<rootDir>/enzyme.config.js', 'jest-localstorage-mock'],
 
   // The test environment that will be used for testing
   testEnvironment: 'jsdom',

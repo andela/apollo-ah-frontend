@@ -1,416 +1,286 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<ArticleBody> should render without crashing when there are no tags 1`] = `
-<ArticleBody
-  article={
-    Object {
-      "body": "body",
-      "description": "description",
-      "image": "image.jpg",
-      "tagList": Array [],
-      "title": "title",
-    }
-  }
-  bookmarkArticle={[MockFunction]}
-  bookmarked={false}
->
-  <div>
-    <h1
-      className="signle-title"
-    >
-      title
-    </h1>
-    <p
-      className="single-sub"
-      style={
-        Object {
-          "color": "#9c9c9c",
-          "fontSize": 21,
-          "fontWeight": "bold",
-        }
+exports[`<ArticleBody /> should take a snapshot of the component 1`] = `
+<div>
+  <h1
+    className="signle-title"
+  >
+    What Peloton Means for the Future of Fitness pt 3
+  </h1>
+  <p
+    className="single-sub"
+    style={
+      Object {
+        "color": "#9c9c9c",
+        "fontSize": 21,
+        "fontWeight": "bold",
       }
-    >
-      description
-       
-    </p>
+    }
+  >
+    After the success of Peloton’s stationary bike — it has sold hundreds of thousands, though the company won’t provide specifics — Peloton is aggressively expanding to become a full-body, full-service fitness and technology company
+     
+  </p>
+  <div
+    className="single__author__container"
+  >
     <div
-      className="single__author__container"
+      className="article__author"
     >
       <div
-        className="article__author"
-      >
-        <div
-          className="author__profile--mini"
-        >
-          <img
-            alt=""
-            src="image.jpg"
-          />
-          <div
-            className="author__profile--details"
-          >
-            <h6>
-              Alexandra
-            </h6>
-            <span>
-              22 hrs ago
-            </span>
-            <span
-              className="article-author-dot"
-            />
-            <span>
-              4 min read
-            </span>
-          </div>
-        </div>
-        <div
-          className="bookmark__div"
-        >
-          <button
-            onClick={[MockFunction]}
-            type="button"
-          >
-            <span
-              className="fas fa-bookmark transition "
-            />
-          </button>
-        </div>
-      </div>
-    </div>
-    <div
-      className="single-body"
-    >
-      body
-    </div>
-    <div
-      className="single-tags text-center"
-    />
-    <div
-      className="pg-empty-placeholder"
-    />
-    <div
-      className="clap-grp"
-    >
-      <span
-        className="clap-icon"
+        className="author__profile--mini"
       >
         <img
-          alt=""
-          src={Object {}}
+          alt="author"
+          src="https://res.cloudinary.com/dvnrltpfi/image/upload/v1555521780/authors-haven/lekan.3ac3eca_nxdmac.jpg"
         />
-        40k claps
-      </span>
+        <div
+          className="author__profile--details"
+        >
+          <h6>
+            Anonymous Lekan
+          </h6>
+          <span>
+            10 days ago
+          </span>
+          <span
+            className="article-author-dot"
+          />
+          <span>
+            2 minutes read
+          </span>
+        </div>
+      </div>
       <div
-        className="share-grp"
+        className="bookmark__div"
+      >
+        <button
+          className="btn btn-link bookmark-btn"
+          id="bookmark-btn"
+          onClick={[Function]}
+          type="button"
+        >
+          <span
+            className="fas fa-bookmark transition "
+          />
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    className="single-body"
+  >
+    Instead of mounting the company’s signature indoor cycling bike, I prop my iPhone on the family media console, tap into the Peloton app, and start streaming a 30-minute Pop Yoga Flow class.
+
+It’s a bit like a silent disco: Ariana Grande’s breakup bop “Thank U, Next” pours into my AirPods while Anna Greenberg, a cheerful instructor wearing red lipstick, her blonde hair in a topknot, leads me onto my knees and into spine-curving cat and cow poses. Following Greenberg, I balance on one knee, swivel to the side, and stretch my right arm overhead, just as Grande’s chorus — “I’m so fuckin’ grateful for my ex” — drops.
+
+This is how Peloton does yoga — with the same high-energy, telegenic instructors and catchy playlists, minus the pricey hardware. According to my stream, seven other Peloton users are also taking Greenberg’s class at the same time I am. I could “high-five” any of them if I felt like it.
+
+“Peloton makes yoga so much more accessible,” Kristin McGee, another Peloton yoga instructor, tells Elemental. “You can practice with all-star instructors and still have a sense of community without leaving your house.”
+
+While the fitness industry was caught up in the luxe brick-and-mortar boutique fitness boom of the early to mid-aughts — creating endorphin cults around SoulCycle, Flywheel, and Barry’s Boot Camp — Peloton was pedal strokes ahead. The company built a $2,000 indoor cycling machine — referred to by one blogger as “the fucking Acura of spinning bikes” — and launched a high-tech, at-home workout revolution. People in a given class can follow each other, share virtual high-fives, and even video chat while riding together in real time. By new industry estimates, Peloton now has more riders nationwide than SoulCycle—data the latter company disputes. The company has raised close to $1 billion in financing, in part from tech growth equity firm TCV — the same company that counts Facebook, Netflix, and AirBnB among its clients — and is considered a financial “unicorn” that’s worth an estimated $4 billion, sparking murmurs of an upcoming IPO.
+
+“Peloton’s main contribution is not getting a stationary bike in your home. It’s getting a stationary bike that’s connected to this virtual network.”
+Peloton emerged at a time when everything is available on demand. We can get a 12-pack of family-size toilet paper, a three-month supply of diapers, and a new bra delivered to our doorsteps by end of day tomorrow. We can Skype into work meetings instead of making business trips. That kind of ultra convenience is part of the Peloton origin story. According to CEO and co-founder John Foley, getting to SoulCycle or Flywheel became too hard after he and his wife, Jill, had kids. It opened his eyes to an underserved section of the increasingly fitness-obsessed market: all the people without the time, access, money, or motivation to trek to a trendy boutique class.
+
+After the success of Peloton’s stationary bike — it has sold hundreds of thousands, though the company won’t provide specifics — Peloton is aggressively expanding to become a full-body, full-service fitness and technology company, and it’s forcing the rest of the industry to follow suit or fall behind.
+
+“I think this is the wave of the future,” McGee says.
+  </div>
+  <div
+    className="single-tags text-center"
+  >
+    <Tag
+      key="life"
+      tag={
+        Object {
+          "ArticleTag": Object {
+            "articleId": 23,
+            "tagName": "life",
+          },
+          "tagName": "life",
+        }
+      }
+    />
+    <Tag
+      key="tech"
+      tag={
+        Object {
+          "ArticleTag": Object {
+            "articleId": 23,
+            "tagName": "tech",
+          },
+          "tagName": "tech",
+        }
+      }
+    />
+  </div>
+  <div
+    className="pg-empty-placeholder"
+  />
+  <div
+    className="clap-grp"
+  >
+    <span
+      className="clap-icon"
+    >
+      <img
+        alt=""
+        src={Object {}}
+      />
+      40k claps
+    </span>
+    <div
+      className="share-grp"
+    >
+      <div
+        className="share-group-child"
       >
         <a
           className="text-danger"
-          href="you"
+          href="mailto:?subject=Check out this article on Authors Haven&body=http://localhost/"
+          rel="noopener noreferrer"
+          target="_blank"
+          title="Share via mail"
         >
           <i
             className="fas fa-envelope"
           />
         </a>
+      </div>
+      <div
+        className="share-group-child"
+      >
         <a
-          className="text-primary"
-          href="you"
+          className="fb-xfbml-parse-ignore"
+          href="https://www.facebook.com/sharer?u=http://localhost/"
+          rel="noopener noreferrer"
+          style={
+            Object {
+              "color": "#3b5998",
+            }
+          }
+          target="_blank"
         >
           <i
             className="fab fa-facebook-square"
           />
         </a>
+      </div>
+      <div
+        className="share-group-child"
+      >
         <a
-          className="text-white"
-          href="you"
+          data-show-count="false"
+          href="https://twitter.com/intent/tweet?text=http://localhost/"
+          rel="noopener noreferrer"
+          style={
+            Object {
+              "color": "#38A1F3",
+            }
+          }
+          target="_blank"
         >
           <i
-            className="fab fa-twitter-square text-info"
-          />
-        </a>
-        <a
-          className="text-muted"
-          href="you"
-        >
-          <i
-            className="fas fa-bookmark"
-          />
-        </a>
-        <a
-          className="text-muted"
-          href="you"
-        >
-          <i
-            className="fas fa-ellipsis-h"
+            className="fab fa-twitter-square"
           />
         </a>
       </div>
-    </div>
-    <div
-      className="single-author-container single-article-author"
-    >
       <div
-        className="article-author"
+        className="share-group-child"
       >
-        <img
-          alt=""
-          src="image.jpg"
-        />
-        <div>
-          <h6>
-            Alexandra
-          </h6>
-          <p>
-            Journalist, author, dad. Former TIME magazine editor and foreign correspondent. 
-          </p>
+        <button
+          className="btn btn-link bookmark-btn"
+          onClick={[Function]}
+          type="button"
+        >
+          <span
+            className="fas fa-bookmark transition "
+          />
+        </button>
+      </div>
+      <div
+        className="share-group-child"
+      >
+        <div
+          className="dropdown article__options"
+        >
           <button
-            className="btn btn-light"
+            aria-expanded="false"
+            aria-haspopup="true"
+            className="btn dropdown-toggle"
+            data-toggle="dropdown"
+            id="show-options"
             type="button"
           >
-            Follow
+            <i
+              className="fas fa-ellipsis-h"
+            />
           </button>
+          <div
+            aria-labelledby="show-options"
+            className="dropdown-menu dropdown-menu-right"
+          >
+            <div
+              className="dropdown-item"
+            >
+              <div>
+                <button
+                  className="btn"
+                  type="button"
+                >
+                  <i
+                    className="fas fa-trash text-danger"
+                  />
+                  Delete Article
+                </button>
+                <div
+                  className="dropdown-divider"
+                />
+              </div>
+            </div>
+            <div
+              className="dropdown-item"
+            >
+              <button
+                className="btn"
+                type="button"
+              >
+                <i
+                  className="fas fa-flag text-danger"
+                />
+                Report Article
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</ArticleBody>
-`;
-
-exports[`<ArticleBody> should render without crashing when there are tags 1`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <BrowserRouter>
-    <Router
-      history={
-        Object {
-          "action": "POP",
-          "block": [Function],
-          "createHref": [Function],
-          "go": [Function],
-          "goBack": [Function],
-          "goForward": [Function],
-          "length": 1,
-          "listen": [Function],
-          "location": Object {
-            "hash": "",
-            "pathname": "/",
-            "search": "",
-            "state": undefined,
-          },
-          "push": [Function],
-          "replace": [Function],
-        }
-      }
+  <div
+    className="single-author-container single-article-author mb-5"
+  >
+    <div
+      className="article-author"
     >
-      <ArticleBody
-        article={
-          Object {
-            "body": "body",
-            "description": "description",
-            "image": "image.jpg",
-            "tagList": Array [
-              Object {
-                "tagName": "tech",
-              },
-            ],
-            "title": "title",
-          }
-        }
-        bookmarkArticle={[MockFunction]}
-        bookmarked={false}
-      >
-        <div>
-          <h1
-            className="signle-title"
-          >
-            title
-          </h1>
-          <p
-            className="single-sub"
-            style={
-              Object {
-                "color": "#9c9c9c",
-                "fontSize": 21,
-                "fontWeight": "bold",
-              }
-            }
-          >
-            description
-             
-          </p>
-          <div
-            className="single__author__container"
-          >
-            <div
-              className="article__author"
-            >
-              <div
-                className="author__profile--mini"
-              >
-                <img
-                  alt=""
-                  src="image.jpg"
-                />
-                <div
-                  className="author__profile--details"
-                >
-                  <h6>
-                    Alexandra
-                  </h6>
-                  <span>
-                    22 hrs ago
-                  </span>
-                  <span
-                    className="article-author-dot"
-                  />
-                  <span>
-                    4 min read
-                  </span>
-                </div>
-              </div>
-              <div
-                className="bookmark__div"
-              >
-                <button
-                  onClick={[MockFunction]}
-                  type="button"
-                >
-                  <span
-                    className="fas fa-bookmark transition "
-                  />
-                </button>
-              </div>
-            </div>
-          </div>
-          <div
-            className="single-body"
-          >
-            body
-          </div>
-          <div
-            className="single-tags text-center"
-          >
-            <Tag
-              key="tech"
-              tag={
-                Object {
-                  "tagName": "tech",
-                }
-              }
-            >
-              <Link
-                className="badge"
-                replace={false}
-                to="/search?tag=tech"
-              >
-                <a
-                  className="badge"
-                  href="/search?tag=tech"
-                  onClick={[Function]}
-                >
-                  tech
-                </a>
-              </Link>
-            </Tag>
-          </div>
-          <div
-            className="pg-empty-placeholder"
-          />
-          <div
-            className="clap-grp"
-          >
-            <span
-              className="clap-icon"
-            >
-              <img
-                alt=""
-                src={Object {}}
-              />
-              40k claps
-            </span>
-            <div
-              className="share-grp"
-            >
-              <a
-                className="text-danger"
-                href="you"
-              >
-                <i
-                  className="fas fa-envelope"
-                />
-              </a>
-              <a
-                className="text-primary"
-                href="you"
-              >
-                <i
-                  className="fab fa-facebook-square"
-                />
-              </a>
-              <a
-                className="text-white"
-                href="you"
-              >
-                <i
-                  className="fab fa-twitter-square text-info"
-                />
-              </a>
-              <a
-                className="text-muted"
-                href="you"
-              >
-                <i
-                  className="fas fa-bookmark"
-                />
-              </a>
-              <a
-                className="text-muted"
-                href="you"
-              >
-                <i
-                  className="fas fa-ellipsis-h"
-                />
-              </a>
-            </div>
-          </div>
-          <div
-            className="single-author-container single-article-author"
-          >
-            <div
-              className="article-author"
-            >
-              <img
-                alt=""
-                src="image.jpg"
-              />
-              <div>
-                <h6>
-                  Alexandra
-                </h6>
-                <p>
-                  Journalist, author, dad. Former TIME magazine editor and foreign correspondent. 
-                </p>
-                <button
-                  className="btn btn-light"
-                  type="button"
-                >
-                  Follow
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </ArticleBody>
-    </Router>
-  </BrowserRouter>
-</Provider>
+      <img
+        alt="author"
+        src="https://res.cloudinary.com/dvnrltpfi/image/upload/v1555521780/authors-haven/lekan.3ac3eca_nxdmac.jpg"
+      />
+      <div>
+        <h6>
+          Anonymous Lekan
+        </h6>
+        <p>
+          I am in the refrigeratorrrrr!!! Free my homie, butter, doing life in a box. let's go!!
+        </p>
+        <button
+          className="btn btn-light"
+          type="button"
+        >
+          Follow
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
 `;
