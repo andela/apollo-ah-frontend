@@ -10,6 +10,7 @@ import signupReducer from './signupReducer';
 import createArticleReducer from './createArticleReducer';
 import profileReducer from './profileReducer';
 import singleArticleReducer from './singleArticleReducer';
+import clapsReducer from './clapsReducer';
 import bookmarkArticleReducer from './bookmarkArticleReducer';
 import { postCommentReducer, getCommentsReducer } from './commentsReducer';
 
@@ -18,12 +19,16 @@ import { postCommentReducer, getCommentsReducer } from './commentsReducer';
  * @function userReducer,artilceReducer reducers used to combine multiple reducers
  * to a single key in the redux store
  */
-const articleReducer = reduceReducers(postCommentReducer, getCommentsReducer, singleArticleReducer);
 const userReducer = reduceReducers(
   loginReducers,
   resetPasswordReducer,
   profileReducer,
   signupReducer
+);
+const articleReducer = reduceReducers(
+  postCommentReducer,
+  getCommentsReducer,
+  singleArticleReducer
 );
 
 /**
@@ -35,6 +40,7 @@ export default combineReducers({
   createArticle: createArticleReducer,
   articlesReducer,
   articlesCategoryReducer,
+  userClaps: clapsReducer,
   bookmarkedList: bookmarkArticleReducer,
   signupReducer,
 });

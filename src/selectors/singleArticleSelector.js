@@ -1,5 +1,11 @@
 import { createSelector } from 'reselect';
 
+const articleAuthorId = state => state.article.authorId;
+const articleClaps = state => state.article.claps;
+
+export const getArticleAuthorId = createSelector(articleAuthorId, author => author);
+export const getArticleClaps = createSelector(articleClaps, claps => claps);
+
 /**
  * @param {*} state - The initial state from the redux store
  */

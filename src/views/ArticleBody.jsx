@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import parser from 'html-react-parser';
+import ClapButtonComponent from '../components/ClapButton';
 import Tag from './ArticleTag';
-import clapImage from '../images/clap.svg';
 import time from '../utils/time';
 import debounceFn from '../utils/debounce';
 /**
@@ -58,10 +58,11 @@ function ArticleBody(props) {
       </div>
       <div className="pg-empty-placeholder" />
       <div className="clap-grp">
-        <span className="clap-icon">
-          <img src={clapImage} alt="" />
-          40k claps
-        </span>
+        <ClapButtonComponent
+          articleSlug={article.slug}
+          articleAuthorId={article.authorId}
+          articleClaps={article.claps}
+        />
         <div className="share-grp">
           <div className="share-group-child">
             <a
