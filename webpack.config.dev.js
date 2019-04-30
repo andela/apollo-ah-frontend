@@ -9,6 +9,7 @@ const htmlPlugin = new HtmlWebPackPlugin({
   filename: './index.html',
   title: 'Authors Haven',
 });
+
 const dotenvPlugin = new Dotenv();
 const envLoaderPlugin = new webpack.DefinePlugin({
   'process.env.APP_KEY': JSON.stringify(process.env.APP_KEY),
