@@ -8,6 +8,30 @@ exports[`<Navbar Test Suite> <Navbar> It should render succesfully when user is 
   <div
     className="container"
   >
+    <div
+      className="nav-search-bar"
+    >
+      <form
+        action="/search"
+        method="get"
+      >
+        <i
+          className="fas fa-search"
+          role="button"
+        />
+        <input
+          placeholder="Search"
+          type="text"
+        />
+      </form>
+      <button
+        className="btn btn-light"
+        onClick={[MockFunction]}
+        type="button"
+      >
+        CANCEL
+      </button>
+    </div>
     <Link
       className="navbar-brand"
       replace={false}
@@ -176,6 +200,7 @@ exports[`<Navbar Test Suite> <Navbar> It should render succesfully when user is 
         >
           <Link
             className="nav-link"
+            onClick={[MockFunction]}
             replace={false}
             to="/search"
           >
@@ -317,6 +342,30 @@ exports[`<Navbar Test Suite> <Navbar> It should render succesfully when user is 
   <div
     className="container"
   >
+    <div
+      className="nav-search-bar"
+    >
+      <form
+        action="/search"
+        method="get"
+      >
+        <i
+          className="fas fa-search"
+          role="button"
+        />
+        <input
+          placeholder="Search"
+          type="text"
+        />
+      </form>
+      <button
+        className="btn btn-light"
+        onClick={[MockFunction]}
+        type="button"
+      >
+        CANCEL
+      </button>
+    </div>
     <Link
       className="navbar-brand"
       replace={false}
@@ -485,6 +534,7 @@ exports[`<Navbar Test Suite> <Navbar> It should render succesfully when user is 
         >
           <Link
             className="nav-link"
+            onClick={[MockFunction]}
             replace={false}
             to="/search"
           >

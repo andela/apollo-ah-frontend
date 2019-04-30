@@ -28,6 +28,11 @@ export const mockState = {
       message: '',
     }
   },
+  bookmarkedList: {
+    bookmarked: [],
+    isLoading: false,
+    message: '',
+  },
   article: {
     newComments: {
       body: 'Hello world',
@@ -45,14 +50,14 @@ export const mockState = {
       current: 1,
       currentCount: 1,
       totalCount: 1,
-    },
+    }
   },
   createArticle: {
     loading: false,
     message: false,
   },
   articlesReducer: {
-    articles: []
+    articles: [],
   },
   articlesCategoryReducer: [],
   follow: {
@@ -83,5 +88,13 @@ const setup = (component, initailState = mockState) => {
   );
   return connectedWrapper;
 };
+
+window.matchMedia = jest.fn().mockImplementation(query => ({
+  matches: false,
+  media: query,
+  onchange: null,
+  addListener: jest.fn(),
+  removeListener: jest.fn(),
+}));
 
 export default setup;

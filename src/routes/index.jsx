@@ -6,7 +6,7 @@ import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import ConnectedHomePage from '../components/HomePage';
 import SignupPage from '../views/SignupPage';
-import Login from '../components/Login';
+import ConnectedLogin from '../components/Login';
 import ProtectedRoutes from './ProtectedRoutes';
 import Footer from '../views/Footer';
 import Navbar from '../components/NavbarContainer';
@@ -26,8 +26,8 @@ function Routes() {
         <Navbar />
         <Switch>
           <Route path="/" component={ConnectedHomePage} exact />
+          <Route path="/login" component={ConnectedLogin} />
           <Route path="/signup" component={SignupPage} />
-          <Route path="/login" component={Login} />
           <Route path="/user" component={ProtectedRoutes} />
           <Route path="/article/:slug" component={Article} />
           <Route path="*" component={NotFound} />

@@ -24,6 +24,24 @@ const initialState = {
     }
   },
   article: {
+    id: '',
+    title: '',
+    slug: '',
+    body: '',
+    image: '',
+    description: '',
+    createdAt: '',
+    updatedAt: '',
+    deletedAt: '',
+    auhtorId: '',
+    categoryId: '',
+    isLoading: false,
+    message: '',
+    User: {},
+    tagList: [],
+    articleCategory: {},
+    ratings: [],
+    readTime: '',
     newComments: [],
     postingComment: false,
     gettingComments: false,
@@ -36,7 +54,12 @@ const initialState = {
     followers: [],
     following: [],
     isLoading: false,
-  }
+  },
+  bookmarkedList: {
+    bookmarked: [],
+    isLoading: false,
+    message: '',
+  },
 };
 
 export default initialState;
