@@ -42,7 +42,6 @@ const Navbar = (props) => {
           aria-controls="navbarTogglerDemo01"
           aria-expanded="false"
           aria-label="Toggle navigation"
-
         >
           <span className="navbar-toggler-icon" />
         </button>
