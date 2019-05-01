@@ -88,7 +88,7 @@ export const followUserAction = (requestType, username) => async (dispatch) => {
       route: `profiles/${username}/${requestType}`,
       method: 'POST'
     });
-    const { data, message } = response.data;
+    const { data } = response.data;
     if (requestType === 'follow') {
       return dispatch(followSuccess(data));
     }
