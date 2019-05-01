@@ -1,13 +1,24 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { createMockStore } from '../setup';
 import Dashboard from '../../views/Dashboard';
 
-createMockStore();
+const dashboard = {
+  articles: [],
+  loading: false,
+  message: '',
+};
+
 
 describe('<Dashboard>', () => {
-  it('should render', () => {
-    const wrapper = shallow(<Dashboard />);
-    expect(wrapper).toBeDefined();
+  it('should render with empty articles', () => {
+    const wrapper = shallow(<Dashboard summary={{}} dashboard={dashboard} />);
+    expect(wrapper).toMatchSnapshot();
+  });
+  it('should render with articles', () => {
+    dashboard.articles = [{
+      id: 1,
+    }];
+    const wrapper = shallow(<Dashboard summary={{}} dashboard={dashboard} />);
+    expect(wrapper).toMatchSnapshot();
   });
 });

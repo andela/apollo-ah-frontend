@@ -13,7 +13,7 @@ import singleArticleReducer from './singleArticleReducer';
 import clapsReducer from './clapsReducer';
 import bookmarkArticleReducer from './bookmarkArticleReducer';
 import { postCommentReducer, getCommentsReducer } from './commentsReducer';
-
+import dashboardReducer from './dashboardReducer';
 
 /**
  * @function userReducer,artilceReducer reducers used to combine multiple reducers
@@ -43,4 +43,5 @@ export default combineReducers({
   userClaps: clapsReducer,
   bookmarkedList: bookmarkArticleReducer,
   signupReducer,
+  dashboard: dashboardReducer,
 });

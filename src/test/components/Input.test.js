@@ -8,7 +8,7 @@ describe('<Input  Test Suite>', () => {
       return true;
     }
     it('It should render Input field well', () => {
-      const wrapper = shallow(<Input name="email" onChange={onChange} display="Email" />);
+      const wrapper = shallow(<Input name="email" onChange={onChange} display="Email" type="text" />);
       expect(wrapper).toBeDefined();
       expect(wrapper).toMatchSnapshot();
     });

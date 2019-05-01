@@ -50,6 +50,11 @@ const initialState = {
     hasMoreComments: false,
     commentPage: {}
   },
+  dashboard: {
+    articles: [],
+    loading: false,
+    message: ''
+  },
   bookmarkedList: {
     bookmarked: [],
     isLoading: false,

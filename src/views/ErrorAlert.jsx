@@ -29,5 +29,9 @@ ErrorAlert.propTypes = {
   message: propTypes.object,
   close: propTypes.func
 };
+ErrorAlert.defaultProps = {
+  message: '',
+  close: f => f
+};
 
 export default ErrorAlert;

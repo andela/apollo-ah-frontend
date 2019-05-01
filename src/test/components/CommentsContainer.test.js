@@ -1,4 +1,3 @@
-import '@babel/polyfill';
 import React from 'react';
 import setup from '../setup';
 import ConnectedCommentsContainer from '../../components/CommentsContainer';
