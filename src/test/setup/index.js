@@ -75,6 +75,11 @@ export const mockState = {
     isLoading: false,
   },
   toast: '',
+  dashboard: {
+    articles: [],
+    loading: false,
+    message: '',
+  }
 };
 mockState.articlesReducer = articlesReducer;
 

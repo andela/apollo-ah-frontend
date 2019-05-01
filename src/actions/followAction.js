@@ -53,6 +53,28 @@ export const unFollowSuccess = payload => ({
 });
 
 /**
+ * Action creator that is dispatched when get followers is successful
+ *
+ * @param {object} payload - A list of followers
+ * @returns {object} - Returns an action object
+ */
+export const getFollowersSuccess = payload => ({
+  type: getFollowersType.success,
+  payload,
+});
+
+/**
+ * Action creator that is dispatched when get following is successful
+ *
+ * @param {object} payload - A list of following
+ * @returns {object} - Returns an action object
+ */
+export const getFollowingSuccess = payload => ({
+  type: getFollowingType.success,
+  payload,
+});
+
+/**
  * Follow action handler
  *
  * @export
@@ -78,28 +100,6 @@ export const followUserAction = (requestType, username) => async (dispatch) => {
     dispatch(followFailure(errorData));
   }
 };
-
-/**
- * Action creator that is dispatched when get followers is successful
- *
- * @param {object} payload - A list of followers
- * @returns {object} - Returns an action object
- */
-export const getFollowersSuccess = payload => ({
-  type: getFollowersType.success,
-  payload,
-});
-
-/**
- * Action creator that is dispatched when get following is successful
- *
- * @param {object} payload - A list of following
- * @returns {object} - Returns an action object
- */
-export const getFollowingSuccess = payload => ({
-  type: getFollowingType.success,
-  payload,
-});
 
 /**
  * Followers action handler

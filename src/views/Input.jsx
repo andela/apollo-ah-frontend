@@ -15,6 +15,6 @@ export default function Input(props) {
 Input.propTypes = {
   name: propTypes.string.isRequired,
   display: propTypes.string.isRequired,
-  onChange: propTypes.func,
-  type: propTypes.string,
+  onChange: propTypes.func.isRequired,
+  type: propTypes.string.isRequired,
 };

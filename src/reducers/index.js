@@ -16,6 +16,7 @@ import { postCommentReducer, getCommentsReducer } from './commentsReducer';
 import followerReducer from './followerReducer';
 import toastReducer from './toastReducer';
 
+import dashboardReducer from './dashboardReducer';
 
 /**
  * @function userReducer,artilceReducer reducers used to combine multiple reducers
@@ -47,4 +48,5 @@ export default combineReducers({
   signupReducer,
   follow: followerReducer,
   toast: toastReducer,
+  dashboard: dashboardReducer,
 });

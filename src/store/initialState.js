@@ -55,6 +55,11 @@ const initialState = {
     following: [],
     isLoading: false,
   },
+  dashboard: {
+    articles: [],
+    loading: false,
+    message: ''
+  },
   bookmarkedList: {
     bookmarked: [],
     isLoading: false,

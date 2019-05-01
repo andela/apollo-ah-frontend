@@ -18,7 +18,7 @@ const persistConfig = {
   key: 'root',
   storage,
   stateReconciler: autoMergeLevel2,
-  blacklist: ['createArticle']
+  blacklist: ['createArticle', 'dashboard']
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
