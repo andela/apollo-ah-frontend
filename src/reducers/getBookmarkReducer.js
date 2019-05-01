@@ -1,8 +1,17 @@
+
 import { getBookmarkType } from '../actions/getBookmark';
 
 const initialState = {
   loading: false,
   articles: [],
+  page: {
+    first: 1,
+    current: 1,
+    last: 1,
+    currentCount: 0,
+    totalCount: 0,
+    description: ''
+  },
   message: '',
 };
 
@@ -21,7 +30,12 @@ export default function getBookmarkReducer(state = initialState, action = {}) {
     case getBookmarkType.loading:
       return { ...state, loading: true };
     case getBookmarkType.success:
-      return { ...state, loading: false, articles: payload };
+      return {
+        ...state,
+        loading: false,
+        articles: payload,
+        page: payload.page,
+      };
     case getBookmarkType.failure:
       return { ...state, loading: false, message: payload };
     default:

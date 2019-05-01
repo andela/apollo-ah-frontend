@@ -31,11 +31,10 @@ export const getBookmarkedArticles = (page, size) => async (dispatch) => {
   dispatch(getBookmarkAction(getBookmarkType.loading, true));
 
   if (!page || !size) {
-    requestUrl = 'bookmarks?page=1&size=12';
+    requestUrl = 'bookmarks?page=1&size=6';
   } else {
     requestUrl = `/bookmarks?page=${page}&size=${size}`;
   }
-
   return request({
     route: requestUrl,
   }).then((response) => {

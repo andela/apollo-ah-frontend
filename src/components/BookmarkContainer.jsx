@@ -1,3 +1,4 @@
+/* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/jsx-indent */
 /* eslint-disable react/jsx-closing-tag-location */
 /* eslint-disable react/no-array-index-key */
@@ -7,6 +8,7 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import BookmarkItem from '../views/BookmarkItem';
 import { getBookmarkedArticles } from '../actions/getBookmark';
+import Pagination from './Pagination';
 import * as selectors from '../selectors/getBookmarkSelector';
 
 /**
@@ -16,10 +18,10 @@ import * as selectors from '../selectors/getBookmarkSelector';
 function BookmarkContainer(props) {
   const [viewType, setViewType] = useState('row view-row');
 
-  const { articles } = props;
+  const { articles, getBookmarkedArticles } = props;
 
   const getArticlesHandler = () => {
-    props.getBookmarkedArticles();
+    getBookmarkedArticles();
   };
 
   const changeViewToHorizontal = () => {
@@ -50,19 +52,20 @@ function BookmarkContainer(props) {
         </div>
       </header>
       {
-        articles.articles.length !== 0
+        articles && articles.length !== 0
           ? (
             <>
               <div className={viewType}>
                 {
                   // eslint-disable-next-line arrow-body-style
-                  articles.articles.map((article, indx) => {
+                  articles.map((article, indx) => {
                     return (
                       <BookmarkItem
                         key={indx}
                         category={article.Article.articleCategory.category}
                         image={article.Article.image}
                         articleTitle={article.Article.title}
+                        articleSlug={article.Article.slug}
                         articleDescription={article.Article.description}
                         authorsName={article.Article.User.Profile.firstname}
                         authorsImage={article.Article.User.Profile.image}
@@ -71,13 +74,17 @@ function BookmarkContainer(props) {
                     );
                   })
                 }
+                <Pagination />
               </div>
               {/** pagination support to be implemented later */}
               <div>Pagination is here</div>
             </>
           ) : <div>
             <i className="fas fa-book-open" style={{ fontSize: '70px', color: '#66008c' }} />
-            <p style={{ paddingTop: '30px' }}>*It looks like you have not bookmarked any article yet</p>
+            <p style={{ paddingTop: '30px' }}
+            >
+              *It looks like you have not bookmarked any article yet
+              </p>
           </div>
       }
     </>

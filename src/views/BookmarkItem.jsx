@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 /**
  * @description - returns a single bookmark item card
@@ -13,11 +14,13 @@ function BookmarkItem(props) {
     articleDescription,
     authorsName,
     authorsImage,
+    articleSlug,
     readTime,
   } = props;
 
   return (
     <div className="col-lg-4 col-sm-6">
+      <Link to={`/article/${articleSlug}`} className="link-surface" />
       <div className="article transition">
         <div className="article-cover">
           <img alt="" src={image} className="article-cover-img transition" />
