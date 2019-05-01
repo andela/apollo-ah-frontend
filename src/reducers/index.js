@@ -14,7 +14,6 @@ import clapsReducer from './clapsReducer';
 import bookmarkArticleReducer from './bookmarkArticleReducer';
 import { postCommentReducer, getCommentsReducer } from './commentsReducer';
 import followerReducer from './followerReducer';
-import toastReducer from './toastReducer';
 
 import dashboardReducer from './dashboardReducer';
 
@@ -47,6 +46,5 @@ export default combineReducers({
   bookmarkedList: bookmarkArticleReducer,
   signupReducer,
   follow: followerReducer,
-  toast: toastReducer,
   dashboard: dashboardReducer,
 });

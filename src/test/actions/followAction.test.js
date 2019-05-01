@@ -1,5 +1,4 @@
 import * as actions from '../../actions/followAction';
-import { NEW_TOAST } from '../../actions/actionTypes';
 import { mockState, createMockStore } from '../setup';
 import request from '../../utils/request';
 
@@ -40,9 +39,6 @@ describe('Follow action creators', () => {
       {
         type: followType.loading,
         payload: true,
-      },
-      {
-        type: NEW_TOAST,
       },
       {
         type: followType.success,

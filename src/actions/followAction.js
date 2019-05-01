@@ -1,7 +1,6 @@
 import typeGenerator from './typeGenerator';
 import request from '../utils/request';
 import exceptionHandler from '../utils/exceptionHandler';
-import { newToast } from './toastAction';
 
 export const followType = typeGenerator('FOLLOW_USER');
 export const unfollowType = typeGenerator('UNFOLLOW_USER');
@@ -90,7 +89,6 @@ export const followUserAction = (requestType, username) => async (dispatch) => {
       method: 'POST'
     });
     const { data, message } = response.data;
-    dispatch(newToast(message));
     if (requestType === 'follow') {
       return dispatch(followSuccess(data));
     }
