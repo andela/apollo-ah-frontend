@@ -190,7 +190,7 @@ exports[`<Navbar Test Suite> <Navbar> It should render succesfully when user is 
           <Link
             className="nav-link"
             replace={false}
-            to="/user/bookmark"
+            to="/user/bookmarks"
           >
             Bookmarks
           </Link>
@@ -524,7 +524,7 @@ exports[`<Navbar Test Suite> <Navbar> It should render succesfully when user is 
           <Link
             className="nav-link"
             replace={false}
-            to="/user/bookmark"
+            to="/user/bookmarks"
           >
             Bookmarks
           </Link>

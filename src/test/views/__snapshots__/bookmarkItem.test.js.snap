@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<BookmarkItem> should render without crashing 1`] = `
+<div
+  className="col-lg-4 col-sm-6"
+>
+  <Link
+    className="link-surface"
+    replace={false}
+    to="/article/undefined"
+  />
+  <div
+    className="article transition"
+  >
+    <div
+      className="article-cover"
+    >
+      <img
+        alt=""
+        className="article-cover-img transition"
+      />
+    </div>
+    <div
+      className="article-item"
+    >
+      <span
+        className="article-category"
+      />
+      <h4 />
+      <p />
+      <div
+        className="article-author"
+      >
+        <img
+          alt=""
+        />
+        <div>
+          <h6 />
+          <span
+            className="article-author-dot"
+          />
+          <span />
+          <i
+            className="fas fa-bookmark transition bookmarked"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

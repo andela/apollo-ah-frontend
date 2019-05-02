@@ -2,8 +2,10 @@
 import React, { Component } from 'react';
 import ReactPaginate from 'react-paginate';
 import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
 import PropTypes from 'prop-types';
-import { getArticles } from '../actions';
+import { getBookmarkedArticles } from '../actions/getBookmark';
+import * as selectors from '../selectors/getBookmarkSelector';
 
 /**
  * @description - paginates articles
@@ -11,26 +13,26 @@ import { getArticles } from '../actions';
  * @param {props} last - represets the last page after articles are splitted by pages
  * @return {JSX}
  */
-export class Pagination extends Component {
+class Pagination extends Component {
   /**
    * @description - handles each click in the pagination bar
    * @param {props} selected - represents the page we are selecting
    * @return {void}
    */
   handlePageClick = async ({ selected }) => {
-    const { getArticles } = this.props;
-    const articlesSize = 12;
+    const { getBookmarkedArticles } = this.props;
+    const articlesSize = 6;
     // adding 1 because selected start from 0 while our articles page start from 1
-    await getArticles(selected + 1, articlesSize);
+    await getBookmarkedArticles(selected + 1, articlesSize);
     // Scroll the window to the top/beginning of articles for better user experience
     window.scrollTo({
-      top: 1000,
+      top: 10,
       behavior: 'smooth',
     });
   }
 
   render() {
-    const { last } = this.props;
+    const { lastPage } = this.props;
     return (
       <div className="container">
         <ReactPaginate
@@ -39,7 +41,7 @@ export class Pagination extends Component {
           breakLabel="..."
           breakClassName="pagination-list"
           breakLinkClassName="pagination-anchor-tag"
-          pageCount={last}
+          pageCount={lastPage}
           marginPagesDisplayed={2}
           pageRangeDisplayed={5}
           containerClassName="pagination justify-content-center mt-5"
@@ -55,13 +57,14 @@ export class Pagination extends Component {
 }
 
 Pagination.propTypes = {
-  last: PropTypes.number.isRequired,
-  getArticles: PropTypes.func.isRequired,
+  lastPage: PropTypes.number.isRequired,
+  getBookmarkedArticles: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = state => ({
-  last: state.articlesReducer.page.last,
-  description: state.articlesReducer.page.description,
-});
+const mapStateToProps = createStructuredSelector(
+  {
+    lastPage: selectors.getLastPage,
+  }
+);
 
-export default connect(mapStateToProps, { getArticles })(Pagination);
+export default connect(mapStateToProps, { getBookmarkedArticles })(Pagination);

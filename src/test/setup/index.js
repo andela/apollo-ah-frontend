@@ -34,9 +34,17 @@ export const mockState = {
     isLoading: false,
     message: '',
   },
-  bookmarkedList: {
-    bookmarked: [],
-    isLoading: false,
+  bookmark: {
+    loading: false,
+    articles: [],
+    page: {
+      first: 1,
+      current: 1,
+      last: 1,
+      currentCount: 0,
+      totalCount: 0,
+      description: ''
+    },
     message: '',
   },
   article: {
