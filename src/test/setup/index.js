@@ -59,16 +59,22 @@ export const mockState = {
       current: 1,
       currentCount: 1,
       totalCount: 1,
-    },
+    }
   },
   createArticle: {
     loading: false,
     message: false,
   },
   articlesReducer: {
-    articles: []
+    articles: [],
   },
   articlesCategoryReducer: [],
+  follow: {
+    followers: [],
+    following: [],
+    isLoading: false,
+  },
+  toast: '',
   dashboard: {
     articles: [],
     loading: false,

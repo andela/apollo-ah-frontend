@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<FollowButton /> renders without crashing given the required props 1`] = `
+<button
+  className="btn btn-follow"
+  onClick={[Function]}
+  type="button"
+>
+  Follow
+</button>
+`;

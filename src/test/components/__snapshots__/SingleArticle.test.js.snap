@@ -297,7 +297,7 @@ After the success of Peloton’s stationary bike — it has sold hundreds of
                                   Anonymous Lekan
                                 </h6>
                                 <span>
-                                  13 days ago
+                                  14 days ago
                                 </span>
                                 <span
                                   className="article-author-dot"
@@ -414,6 +414,7 @@ After the success of Peloton’s stationary bike — it has sold hundreds of
                               isLoggedIn={false}
                               loadUserClaps={[Function]}
                               userClaps={0}
+                              userId={null}
                             >
                               <Route>
                                 <ClapButton
@@ -612,12 +613,78 @@ After the success of Peloton’s stationary bike — it has sold hundreds of
                               <p>
                                 I am in the refrigeratorrrrr!!! Free my homie, butter, doing life in a box. let's go!!
                               </p>
-                              <button
-                                className="btn btn-light"
-                                type="button"
+                              <Connect(withRouter(FollowButton))
+                                followId={12}
+                                username="lekanon"
                               >
-                                Follow
-                              </button>
+                                <withRouter(FollowButton)
+                                  authUsername=""
+                                  followId={12}
+                                  followRequest={[Function]}
+                                  following={Array []}
+                                  isLoading={false}
+                                  isLoggedIn={false}
+                                  loadFollowers={[Function]}
+                                  username="lekanon"
+                                >
+                                  <Route>
+                                    <FollowButton
+                                      authUsername=""
+                                      followId={12}
+                                      followRequest={[Function]}
+                                      following={Array []}
+                                      history={
+                                        Object {
+                                          "action": "POP",
+                                          "block": [Function],
+                                          "createHref": [Function],
+                                          "go": [Function],
+                                          "goBack": [Function],
+                                          "goForward": [Function],
+                                          "length": 1,
+                                          "listen": [Function],
+                                          "location": Object {
+                                            "hash": "",
+                                            "pathname": "/",
+                                            "search": "",
+                                            "state": undefined,
+                                          },
+                                          "push": [Function],
+                                          "replace": [Function],
+                                        }
+                                      }
+                                      isLoading={false}
+                                      isLoggedIn={false}
+                                      loadFollowers={[Function]}
+                                      location={
+                                        Object {
+                                          "hash": "",
+                                          "pathname": "/",
+                                          "search": "",
+                                          "state": undefined,
+                                        }
+                                      }
+                                      match={
+                                        Object {
+                                          "isExact": true,
+                                          "params": Object {},
+                                          "path": "/",
+                                          "url": "/",
+                                        }
+                                      }
+                                      username="lekanon"
+                                    >
+                                      <button
+                                        className="btn btn-follow"
+                                        onClick={[Function]}
+                                        type="button"
+                                      >
+                                        Follow
+                                      </button>
+                                    </FollowButton>
+                                  </Route>
+                                </withRouter(FollowButton)>
+                              </Connect(withRouter(FollowButton))>
                             </div>
                           </div>
                         </div>
