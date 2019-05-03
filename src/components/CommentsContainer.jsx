@@ -5,6 +5,7 @@ import { createStructuredSelector } from 'reselect';
 import CommentBox from '../views/CommentBox';
 import CommentForm from '../views/CommentForm';
 import { postComment, getComments, clearComments } from '../actions/commentsAction';
+import { postLikeComment, postDislikeComment } from '../actions/likeCommentsAction';
 import { getToken, getProfile } from '../selectors/profileSelector';
 import * as selectors from '../selectors/commentsSelector';
 import { getIsLoggedIn } from '../selectors/navbarSelector';
@@ -21,12 +22,18 @@ class CommentsContainer extends Component {
     oldComments: [],
     body: '',
     page: 1,
+    articleSlug: '',
   };
 
   componentDidMount() {
     const { clearComments: resetComments } = this.props;
     resetComments();
     this.handleGetComments();
+  }
+
+  static getDerivedStateFromProps(nextProps) {
+    const { slug } = nextProps;
+    return { articleSlug: slug };
   }
 
   /**
@@ -38,15 +45,22 @@ class CommentsContainer extends Component {
     const result = comments.map((comment) => {
       const date = getDisplayDate(comment.createdAt);
       const { Profile: { firstname, username, image } } = comment.author;
+      const { articleSlug } = this.state;
       return (
         <CommentBox
-      key={comment.id}
-      body={comment.body}
-      authorImage={image}
-      authorName={firstname || username}
-      date={date.short}
-      fullDate={date.long}
-       />
+          key={comment.id}
+          body={comment.body}
+          authorImage={image}
+          authorName={firstname || username}
+          date={date.short}
+          fullDate={date.long}
+          id={comment.id}
+          articleSlug={articleSlug}
+          handleLikes={this.handleLikes}
+          handleDislikes={this.handleDislikes}
+          likeCount={comment.likes}
+          dislikeCount={comment.dislikes}
+        />
       );
     });
     return result;
@@ -131,54 +145,69 @@ class CommentsContainer extends Component {
     });
   }
 
-/**
- * Binds the form input field to the local state values
- * @param {object} event event listener object
- * @memberof CommentsContainer
- * @returns {void}
- */
-handleInputChange = (event) => {
-  this.setState({
-    [event.target.name]: event.target.value,
-  });
-}
+  /**
+   * Binds the form input field to the local state values
+   * @param {object} event event listener object
+   * @memberof CommentsContainer
+   * @returns {void}
+   */
+  handleInputChange = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value,
+    });
+  }
 
-render() {
-  const {
-    postingComment, gettingComments, commentMessage, hasMoreComments, remainingComments, isLoggedIn
-  } = this.props;
-  const { newComments, oldComments, body } = this.state;
-  return (
-    <>
-      <div className="comment-grp card">
-        {oldComments}
-        {gettingComments && <CommentLoader />}
-        { (hasMoreComments && !gettingComments) && (
-        <button
-            onClick={this.handleGetComments}
-            type="button"
-            className="loadmore-grp btn btn-secondary">
-          <span className="text">
-              Load more(
-            {remainingComments}
+  handleLikes = ({ id, slug }) => {
+    const { postLikeComment: likeComment } = this.props;
+    likeComment({ id, slug });
+  }
+
+  handleDislikes = ({ id, slug }) => {
+    const { postDislikeComment: dislikeComment } = this.props;
+    dislikeComment({ id, slug });
+  }
+
+  render() {
+    const {
+      postingComment,
+      gettingComments,
+      commentMessage,
+      hasMoreComments,
+      remainingComments,
+      isLoggedIn
+    } = this.props;
+    const { newComments, oldComments, body } = this.state;
+    return (
+      <>
+        <div className="comment-grp card">
+          {oldComments}
+          {gettingComments && <CommentLoader />}
+          {(hasMoreComments && !gettingComments) && (
+            <button
+              onClick={this.handleGetComments}
+              type="button"
+              className="loadmore-grp btn btn-secondary">
+              <span className="text">
+                Load more(
+                {remainingComments}
                 )
-          </span>
-        </button>
-        )}
-        {newComments}
-      </div>
-      <CommentForm
+              </span>
+            </button>
+          )}
+          {newComments}
+        </div>
+        <CommentForm
           handlePostComment={this.handlePostComment}
           postingComment={postingComment}
           commentMessagef={commentMessage}
           handleInputChange={this.handleInputChange}
           body={body}
           isLoggedIn={isLoggedIn}
-          />
-    </>
+        />
+      </>
 
-  );
-}
+    );
+  }
 }
 
 /** Proptype validation */
@@ -195,6 +224,8 @@ CommentsContainer.propTypes = {
   fetchComment: PropTypes.func.isRequired,
   clearComments: PropTypes.func.isRequired,
   isLoggedIn: PropTypes.bool.isRequired,
+  postLikeComment: PropTypes.func.isRequired,
+  postDislikeComment: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = createStructuredSelector(
@@ -215,5 +246,7 @@ const mapDispatchToProps = dispatch => ({
   sendComment: payload => dispatch(postComment(payload)),
   fetchComment: payload => dispatch(getComments(payload)),
   clearComments: () => dispatch(clearComments()),
+  postLikeComment: payload => dispatch(postLikeComment(payload)),
+  postDislikeComment: payload => dispatch(postDislikeComment(payload))
 });
 export default connect(mapStateToProps, mapDispatchToProps)(CommentsContainer);

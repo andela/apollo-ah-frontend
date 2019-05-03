@@ -297,7 +297,7 @@ After the success of Peloton’s stationary bike — it has sold hundreds of
                                   Anonymous Lekan
                                 </h6>
                                 <span>
-                                  10 days ago
+                                  16 days ago
                                 </span>
                                 <span
                                   className="article-author-dot"
@@ -574,6 +574,8 @@ After the success of Peloton’s stationary bike — it has sold hundreds of
                           }
                         }
                         oldCommentList={Array []}
+                        postDislikeComment={[Function]}
+                        postLikeComment={[Function]}
                         postingComment={false}
                         profile={
                           Object {
