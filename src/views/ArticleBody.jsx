@@ -145,7 +145,12 @@ function ArticleBody(props) {
                     type="button"
                   >
                     <i className="fas fa-flag text-danger" />
+                    <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href={`/user/article/${article.id}/report`}>
                     Report Article
+                    </a>
                   </button>
                 </div>
               </div>
