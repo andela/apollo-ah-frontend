@@ -168,23 +168,6 @@ exports[`<DashboardContainer> should render with all components 1`] = `
                         </span>
                       </a>
                     </Link>
-                    <Link
-                      className="btn false"
-                      replace={false}
-                      to="settings"
-                    >
-                      <a
-                        className="btn false"
-                        href="/settings"
-                        onClick={[Function]}
-                      >
-                        <span
-                          className="relative"
-                        >
-                          Settings
-                        </span>
-                      </a>
-                    </Link>
                   </div>
                 </div>
               </ProfileHeader>
@@ -499,23 +482,6 @@ exports[`<DashboardContainer> should render with all components when loading 1`]
                           className="relative"
                         >
                           Edit profile
-                        </span>
-                      </a>
-                    </Link>
-                    <Link
-                      className="btn false"
-                      replace={false}
-                      to="settings"
-                    >
-                      <a
-                        className="btn false"
-                        href="/settings"
-                        onClick={[Function]}
-                      >
-                        <span
-                          className="relative"
-                        >
-                          Settings
                         </span>
                       </a>
                     </Link>

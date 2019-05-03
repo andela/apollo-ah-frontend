@@ -6,7 +6,6 @@ import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
 import Wrapper from '../views/common/Wrapper';
 import EditProfileContainer from '../components/EditProfileContainer';
-import SettingsContainer from '../components/SettingsContainer';
 import DashboardContainer from '../components/DashboardContainer';
 import { getIsLoggedIn } from '../selectors/navbarSelector';
 import CreateArticleContainer from '../components/CreateArticles';
@@ -29,7 +28,6 @@ class ProtectedContainer extends Component {
         <Switch>
           <Route path="/user/profile" component={EditProfileContainer} />
           <Route path="/user/dashboard" component={DashboardContainer} />
-          <Route path="/user/settings" component={SettingsContainer} />
           <Route path="/user/create-article" component={CreateArticleContainer} />
         </Switch>
       </Wrapper>

@@ -9,4 +9,6 @@ const typeGenerator = name => ({
   failure: `${name}_FAILURE`,
 });
 
+export const action = (type, data) => ({ type, data, });
+
 export default typeGenerator;

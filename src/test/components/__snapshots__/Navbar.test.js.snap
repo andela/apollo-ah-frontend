@@ -317,13 +317,6 @@ exports[`<Navbar Test Suite> <Navbar> It should render succesfully when user is 
         <Link
           className="dropdown-item"
           replace={false}
-          to="/user/settings"
-        >
-          Settings
-        </Link>
-        <Link
-          className="dropdown-item"
-          replace={false}
           to="/login"
         >
           Logout

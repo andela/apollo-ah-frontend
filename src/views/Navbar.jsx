@@ -198,9 +198,6 @@ const Navbar = (props) => {
                   Followers
                 </Link>
                 <div className="dropdown-divider" />
-                <Link className="dropdown-item" to="/user/settings">
-                  Settings
-                </Link>
                 <Link className="dropdown-item" to="/login">
                   Logout
                 </Link>
