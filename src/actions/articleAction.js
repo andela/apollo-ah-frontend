@@ -37,7 +37,6 @@ export const getArticlesFailure = error => ({
 
 let response;
 export const getArticles = (page, size) => async (dispatch) => {
-  console.log('wow');
   dispatch(getArticlesLoading());
   try {
     if (!page || !size) {

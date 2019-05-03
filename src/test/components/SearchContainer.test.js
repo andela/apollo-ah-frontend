@@ -5,7 +5,7 @@ import setup from '../setup';
 
 describe('<SearchContainer>', () => {
   it('should render', () => {
-    const wrapper = setup(<SearchContainer />);
+    const wrapper = setup(<SearchContainer location={{}} />);
     expect(wrapper).toMatchSnapshot();
   });
 });

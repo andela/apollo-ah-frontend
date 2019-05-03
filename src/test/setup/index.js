@@ -34,11 +34,7 @@ export const mockState = {
     isLoading: false,
     message: '',
   },
-  bookmarkedList: {
-    bookmarked: [],
-    isLoading: false,
-    message: '',
-  },
+  location: {},
   article: {
     slug: 'article-slug',
     claps: 10,
@@ -79,6 +75,12 @@ export const mockState = {
     articles: [],
     loading: false,
     message: '',
+  },
+  searchResult: {
+    articles: [],
+    page: {},
+    loading: false,
+    message: null,
   }
 };
 mockState.articlesReducer = articlesReducer;

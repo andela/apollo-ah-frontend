@@ -63,7 +63,13 @@ const initialState = {
     isLoading: false,
     message: '',
   },
-  userClaps: { claps: 0 }
+  userClaps: { claps: 0 },
+  searchResult: {
+    articles: [],
+    page: {},
+    loading: false,
+    message: null,
+  }
 };
 
 export default initialState;

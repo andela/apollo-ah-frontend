@@ -87,7 +87,6 @@ class Article extends React.Component {
     const { slug } = match.params;
     const { getArticle: fetchArticle } = prevProps;
     if (slug !== prevProps.slug) fetchArticle(slug);
-    // console.log('fired____');
     return this.state;
   }
 
