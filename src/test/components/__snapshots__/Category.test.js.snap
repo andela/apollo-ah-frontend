@@ -1,13 +1,32 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Category Test Suite> <Category> It should render succesfully 1`] = `
-<Fragment>
+<div
+  className="col-md-4 col-sm-6"
+>
   <div
-    className="container"
+    className="category-item overlay category-item-technology"
+    style={
+      Object {
+        "backgroundImage": "url([object Object])",
+      }
+    }
   >
-    <div
-      className="row"
+    <Link
+      className="link-surface"
+      replace={false}
+      to="/search?categoryId=1"
     />
+    <div
+      className="relative"
+    >
+      <h4>
+        tech
+      </h4>
+      <span>
+        Explore Articles
+      </span>
+    </div>
   </div>
-</Fragment>
+</div>
 `;

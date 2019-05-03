@@ -140,10 +140,10 @@ Signup.propTypes = {
   signUpUser: propTypes.func.isRequired,
   clearErrors: propTypes.func.isRequired,
   addError: propTypes.func.isRequired,
-  errors: propTypes.array,
-  success: propTypes.bool,
-  loading: propTypes.bool,
-  history: propTypes.object
+  errors: propTypes.array.isRequired,
+  success: propTypes.bool.isRequired,
+  loading: propTypes.bool.isRequired,
+  history: propTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({

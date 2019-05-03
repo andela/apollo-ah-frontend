@@ -1,0 +1,553 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<DashboardContainer> should render with all components 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <BrowserRouter>
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "createHref": [Function],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <Connect(DashboardContainer)>
+        <DashboardContainer
+          dashboard={
+            Object {
+              "articles": Array [],
+              "loading": false,
+              "message": "",
+            }
+          }
+          getDashboardArticles={[Function]}
+          profile={
+            Object {
+              "errorData": Array [],
+              "firstname": "John",
+              "image": "image.jpg",
+              "username": "johnny",
+            }
+          }
+          summary={
+            Object {
+              "articles": 0,
+              "claps": 0,
+              "comments": 0,
+            }
+          }
+        >
+          <Connect(ProfileHeaderContainer)
+            activePage="DASHBOARD"
+          >
+            <ProfileHeaderContainer
+              activePage="DASHBOARD"
+              errorData={Array []}
+              isLoading={false}
+              profile={
+                Object {
+                  "errorData": Array [],
+                  "firstname": "John",
+                  "image": "image.jpg",
+                  "username": "johnny",
+                }
+              }
+              showLoader={[Function]}
+              token=""
+              updateProfile={[Function]}
+            >
+              <ProfileHeader
+                activePage="DASHBOARD"
+                handleImageUpload={[Function]}
+                isLoading={false}
+                profile={
+                  Object {
+                    "errorData": Array [],
+                    "firstname": "John",
+                    "image": "image.jpg",
+                    "username": "johnny",
+                  }
+                }
+              >
+                <header
+                  className="page-header"
+                >
+                  <h1>
+                    My DASHBOARD
+                  </h1>
+                </header>
+                <div
+                  className="profile-box mt-n4"
+                >
+                  <div
+                    className="d-inline-block relative profile-img-cover"
+                  >
+                    <span
+                      className="spinner-border text-light align-middle"
+                    />
+                    <img
+                      alt="johnny"
+                      className="img-thumbnail"
+                      src="image.jpg"
+                    />
+                  </div>
+                  <div
+                    className="profile-wrapper"
+                  >
+                    <h4
+                      className="profile-name text-capitalize"
+                    >
+                      John
+                       
+                    </h4>
+                    <p
+                      className="profile-username"
+                    >
+                      @johnny
+                    </p>
+                  </div>
+                  <div
+                    className="profile-footer"
+                  >
+                    <Link
+                      className="btn active"
+                      replace={false}
+                      to="dashboard"
+                    >
+                      <a
+                        className="btn active"
+                        href="/dashboard"
+                        onClick={[Function]}
+                      >
+                        <span
+                          className="relative"
+                        >
+                          Dashboard
+                        </span>
+                      </a>
+                    </Link>
+                    <Link
+                      className="btn false"
+                      replace={false}
+                      to="profile"
+                    >
+                      <a
+                        className="btn false"
+                        href="/profile"
+                        onClick={[Function]}
+                      >
+                        <span
+                          className="relative"
+                        >
+                          Edit profile
+                        </span>
+                      </a>
+                    </Link>
+                    <Link
+                      className="btn false"
+                      replace={false}
+                      to="settings"
+                    >
+                      <a
+                        className="btn false"
+                        href="/settings"
+                        onClick={[Function]}
+                      >
+                        <span
+                          className="relative"
+                        >
+                          Settings
+                        </span>
+                      </a>
+                    </Link>
+                  </div>
+                </div>
+              </ProfileHeader>
+            </ProfileHeaderContainer>
+          </Connect(ProfileHeaderContainer)>
+          <Dashboard
+            dashboard={
+              Object {
+                "articles": Array [],
+                "loading": false,
+                "message": "",
+              }
+            }
+            summary={
+              Object {
+                "articles": 0,
+                "claps": 0,
+                "comments": 0,
+              }
+            }
+          >
+            <div>
+              <div
+                className="card-columns"
+                data-pg-collapsed={true}
+              >
+                <SummaryBox
+                  icon="file-alt"
+                  text="Articles"
+                  value={0}
+                >
+                  <div
+                    className="card"
+                  >
+                    <div
+                      className="card-body"
+                    >
+                      <div
+                        className="summary"
+                      >
+                        <h4
+                          className="font-weight-bold"
+                        >
+                          0
+                        </h4>
+                        <span>
+                          Articles
+                        </span>
+                        <i
+                          className="fas fa-file-alt"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </SummaryBox>
+                <SummaryBox
+                  icon="comments"
+                  text="Comments"
+                  value={0}
+                >
+                  <div
+                    className="card"
+                  >
+                    <div
+                      className="card-body"
+                    >
+                      <div
+                        className="summary"
+                      >
+                        <h4
+                          className="font-weight-bold"
+                        >
+                          0
+                        </h4>
+                        <span>
+                          Comments
+                        </span>
+                        <i
+                          className="fas fa-comments"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </SummaryBox>
+                <SummaryBox
+                  icon="sign-language"
+                  text="Claps"
+                  value={0}
+                >
+                  <div
+                    className="card"
+                  >
+                    <div
+                      className="card-body"
+                    >
+                      <div
+                        className="summary"
+                      >
+                        <h4
+                          className="font-weight-bold"
+                        >
+                          0
+                        </h4>
+                        <span>
+                          Claps
+                        </span>
+                        <i
+                          className="fas fa-sign-language"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </SummaryBox>
+              </div>
+              <div
+                className="dashboard-empty"
+              >
+                <i
+                  className="fas fa-book-open"
+                />
+                <h2>
+                  You don't have any articles yet
+                </h2>
+                <p>
+                  When you start publishing articles, you will be able to view statistics about the performance of your articles here.
+                </p>
+                <Link
+                  className="btn btn-brand"
+                  replace={false}
+                  to="/user/create-article"
+                >
+                  <a
+                    className="btn btn-brand"
+                    href="/user/create-article"
+                    onClick={[Function]}
+                  >
+                    Write your first article
+                  </a>
+                </Link>
+              </div>
+            </div>
+          </Dashboard>
+        </DashboardContainer>
+      </Connect(DashboardContainer)>
+    </Router>
+  </BrowserRouter>
+</Provider>
+`;
+
+exports[`<DashboardContainer> should render with all components when loading 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <BrowserRouter>
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "createHref": [Function],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <Connect(DashboardContainer)>
+        <DashboardContainer
+          dashboard={
+            Object {
+              "articles": Array [],
+              "loading": true,
+              "message": "",
+            }
+          }
+          getDashboardArticles={[Function]}
+          profile={
+            Object {
+              "errorData": Array [],
+              "firstname": "John",
+              "image": "image.jpg",
+              "username": "johnny",
+            }
+          }
+          summary={
+            Object {
+              "articles": 0,
+              "claps": 0,
+              "comments": 0,
+            }
+          }
+        >
+          <Connect(ProfileHeaderContainer)
+            activePage="DASHBOARD"
+          >
+            <ProfileHeaderContainer
+              activePage="DASHBOARD"
+              errorData={Array []}
+              isLoading={false}
+              profile={
+                Object {
+                  "errorData": Array [],
+                  "firstname": "John",
+                  "image": "image.jpg",
+                  "username": "johnny",
+                }
+              }
+              showLoader={[Function]}
+              token=""
+              updateProfile={[Function]}
+            >
+              <ProfileHeader
+                activePage="DASHBOARD"
+                handleImageUpload={[Function]}
+                isLoading={false}
+                profile={
+                  Object {
+                    "errorData": Array [],
+                    "firstname": "John",
+                    "image": "image.jpg",
+                    "username": "johnny",
+                  }
+                }
+              >
+                <header
+                  className="page-header"
+                >
+                  <h1>
+                    My DASHBOARD
+                  </h1>
+                </header>
+                <div
+                  className="profile-box mt-n4"
+                >
+                  <div
+                    className="d-inline-block relative profile-img-cover"
+                  >
+                    <span
+                      className="spinner-border text-light align-middle"
+                    />
+                    <img
+                      alt="johnny"
+                      className="img-thumbnail"
+                      src="image.jpg"
+                    />
+                  </div>
+                  <div
+                    className="profile-wrapper"
+                  >
+                    <h4
+                      className="profile-name text-capitalize"
+                    >
+                      John
+                       
+                    </h4>
+                    <p
+                      className="profile-username"
+                    >
+                      @johnny
+                    </p>
+                  </div>
+                  <div
+                    className="profile-footer"
+                  >
+                    <Link
+                      className="btn active"
+                      replace={false}
+                      to="dashboard"
+                    >
+                      <a
+                        className="btn active"
+                        href="/dashboard"
+                        onClick={[Function]}
+                      >
+                        <span
+                          className="relative"
+                        >
+                          Dashboard
+                        </span>
+                      </a>
+                    </Link>
+                    <Link
+                      className="btn false"
+                      replace={false}
+                      to="profile"
+                    >
+                      <a
+                        className="btn false"
+                        href="/profile"
+                        onClick={[Function]}
+                      >
+                        <span
+                          className="relative"
+                        >
+                          Edit profile
+                        </span>
+                      </a>
+                    </Link>
+                    <Link
+                      className="btn false"
+                      replace={false}
+                      to="settings"
+                    >
+                      <a
+                        className="btn false"
+                        href="/settings"
+                        onClick={[Function]}
+                      >
+                        <span
+                          className="relative"
+                        >
+                          Settings
+                        </span>
+                      </a>
+                    </Link>
+                  </div>
+                </div>
+              </ProfileHeader>
+            </ProfileHeaderContainer>
+          </Connect(ProfileHeaderContainer)>
+          <CommentLoader>
+            <div
+              className="comment-loader"
+            >
+              <div
+                className="pg-empty-placeholder comment-loader-img"
+              />
+              <div
+                className="pg-empty-placeholder comment-loader-name"
+              />
+              <div
+                className="pg-empty-placeholder comment-loader-name comment-loader-time"
+              />
+              <div
+                className="pg-empty-placeholder comment-loader-name comment-loader-text"
+              />
+              <div
+                className="pg-empty-placeholder comment-loader-name comment-loader-text comment-loader-text-sm"
+              />
+            </div>
+          </CommentLoader>
+        </DashboardContainer>
+      </Connect(DashboardContainer)>
+    </Router>
+  </BrowserRouter>
+</Provider>
+`;

@@ -120,15 +120,10 @@ After the success of Peloton’s stationary bike — it has sold hundreds of
   <div
     className="clap-grp"
   >
-    <span
-      className="clap-icon"
-    >
-      <img
-        alt=""
-        src={Object {}}
-      />
-      40k claps
-    </span>
+    <Connect(withRouter(ClapButton))
+      articleAuthorId={12}
+      articleSlug="whatpelotonmeansforthefutureoffitnesspt3-bb9473a0-5b4d-4267-ad08-cdaff14cc57d"
+    />
     <div
       className="share-grp"
     >
@@ -273,12 +268,10 @@ After the success of Peloton’s stationary bike — it has sold hundreds of
         <p>
           I am in the refrigeratorrrrr!!! Free my homie, butter, doing life in a box. let's go!!
         </p>
-        <button
-          className="btn btn-light"
-          type="button"
-        >
-          Follow
-        </button>
+        <Connect(withRouter(FollowButton))
+          followId={12}
+          username="lekanon"
+        />
       </div>
     </div>
   </div>

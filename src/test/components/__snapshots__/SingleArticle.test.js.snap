@@ -405,15 +405,85 @@ After the success of Peloton’s stationary bike — it has sold hundreds of
                         <div
                           className="clap-grp"
                         >
-                          <span
-                            className="clap-icon"
+                          <Connect(withRouter(ClapButton))
+                            articleSlug="whatpelotonmeansforthefutureoffitnesspt3-bb9473a0-5b4d-4267-ad08-cdaff14cc57d"
                           >
-                            <img
-                              alt=""
-                              src={Object {}}
-                            />
-                            40k claps
-                          </span>
+                            <withRouter(ClapButton)
+                              articleSlug="whatpelotonmeansforthefutureoffitnesspt3-bb9473a0-5b4d-4267-ad08-cdaff14cc57d"
+                              clapArticle={[Function]}
+                              isLoggedIn={false}
+                              loadUserClaps={[Function]}
+                              userClaps={0}
+                              userId={null}
+                            >
+                              <Route>
+                                <ClapButton
+                                  articleAuthorId={null}
+                                  articleClaps={0}
+                                  articleSlug="whatpelotonmeansforthefutureoffitnesspt3-bb9473a0-5b4d-4267-ad08-cdaff14cc57d"
+                                  clapArticle={[Function]}
+                                  history={
+                                    Object {
+                                      "action": "POP",
+                                      "block": [Function],
+                                      "createHref": [Function],
+                                      "go": [Function],
+                                      "goBack": [Function],
+                                      "goForward": [Function],
+                                      "length": 1,
+                                      "listen": [Function],
+                                      "location": Object {
+                                        "hash": "",
+                                        "pathname": "/",
+                                        "search": "",
+                                        "state": undefined,
+                                      },
+                                      "push": [Function],
+                                      "replace": [Function],
+                                    }
+                                  }
+                                  isLoggedIn={false}
+                                  loadUserClaps={[Function]}
+                                  location={
+                                    Object {
+                                      "hash": "",
+                                      "pathname": "/",
+                                      "search": "",
+                                      "state": undefined,
+                                    }
+                                  }
+                                  match={
+                                    Object {
+                                      "isExact": true,
+                                      "params": Object {},
+                                      "path": "/",
+                                      "url": "/",
+                                    }
+                                  }
+                                  userClaps={0}
+                                  userId={null}
+                                >
+                                  <span
+                                    className="clap-icon"
+                                  >
+                                    <button
+                                      className="btn"
+                                      onClick={[Function]}
+                                      type="button"
+                                    >
+                                      <img
+                                        alt=""
+                                        src={Object {}}
+                                      />
+                                    </button>
+                                    0
+                                     
+                                    claps
+                                  </span>
+                                </ClapButton>
+                              </Route>
+                            </withRouter(ClapButton)>
+                          </Connect(withRouter(ClapButton))>
                           <div
                             className="share-grp"
                           >
@@ -543,12 +613,78 @@ After the success of Peloton’s stationary bike — it has sold hundreds of
                               <p>
                                 I am in the refrigeratorrrrr!!! Free my homie, butter, doing life in a box. let's go!!
                               </p>
-                              <button
-                                className="btn btn-light"
-                                type="button"
+                              <Connect(withRouter(FollowButton))
+                                followId={12}
+                                username="lekanon"
                               >
-                                Follow
-                              </button>
+                                <withRouter(FollowButton)
+                                  authUsername=""
+                                  followId={12}
+                                  followRequest={[Function]}
+                                  following={Array []}
+                                  isLoading={false}
+                                  isLoggedIn={false}
+                                  loadFollowers={[Function]}
+                                  username="lekanon"
+                                >
+                                  <Route>
+                                    <FollowButton
+                                      authUsername=""
+                                      followId={12}
+                                      followRequest={[Function]}
+                                      following={Array []}
+                                      history={
+                                        Object {
+                                          "action": "POP",
+                                          "block": [Function],
+                                          "createHref": [Function],
+                                          "go": [Function],
+                                          "goBack": [Function],
+                                          "goForward": [Function],
+                                          "length": 1,
+                                          "listen": [Function],
+                                          "location": Object {
+                                            "hash": "",
+                                            "pathname": "/",
+                                            "search": "",
+                                            "state": undefined,
+                                          },
+                                          "push": [Function],
+                                          "replace": [Function],
+                                        }
+                                      }
+                                      isLoading={false}
+                                      isLoggedIn={false}
+                                      loadFollowers={[Function]}
+                                      location={
+                                        Object {
+                                          "hash": "",
+                                          "pathname": "/",
+                                          "search": "",
+                                          "state": undefined,
+                                        }
+                                      }
+                                      match={
+                                        Object {
+                                          "isExact": true,
+                                          "params": Object {},
+                                          "path": "/",
+                                          "url": "/",
+                                        }
+                                      }
+                                      username="lekanon"
+                                    >
+                                      <button
+                                        className="btn btn-follow"
+                                        onClick={[Function]}
+                                        type="button"
+                                      >
+                                        Follow
+                                      </button>
+                                    </FollowButton>
+                                  </Route>
+                                </withRouter(FollowButton)>
+                              </Connect(withRouter(FollowButton))>
                             </div>
                           </div>
                         </div>

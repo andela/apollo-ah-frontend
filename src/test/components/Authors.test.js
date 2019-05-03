@@ -1,8 +1,6 @@
-/* eslint-disable react/jsx-filename-extension */
-/* eslint-disable import/newline-after-import */
 import React from 'react';
 import { shallow } from 'enzyme';
-import Authors from '../../views/Category';
+import Authors from '../../views/Authors';
 
 const props = [{
   begin: 0,
@@ -18,12 +16,8 @@ const props = [{
 }];
 
 describe('<Authors Test Suite>', () => {
-  describe('<Authors>', () => {
-    it('It should render succesfully', () => {
-      const wrapper = shallow(<Authors {...props} />);
-      expect(wrapper).toBeDefined();
-      expect(wrapper.length).toBe(1);
-      expect(wrapper).toMatchSnapshot();
-    });
+  it('It should render succesfully', () => {
+    const wrapper = shallow(<Authors {...props} />);
+    expect(wrapper).toMatchSnapshot();
   });
 });

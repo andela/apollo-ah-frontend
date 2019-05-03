@@ -1,11 +1,8 @@
-import '@babel/polyfill';
 import { getArticleType } from '../../actions/singleArticleActions';
 import initialState from '../../store/initialState';
 import mockArticleData from '../__mocks__/mockSingleArticleData';
 import getArticleReducer from '../../reducers/singleArticleReducer';
 import { mockState } from '../setup';
-
-// const { article: testState } = mockState;
 
 const initialArticleState = initialState.article;
 const article = mockArticleData;

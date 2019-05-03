@@ -2,10 +2,10 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import ErrorAlert from '../../views/ErrorAlert';
 
-const props = [{
+const props = {
   message: { message: 'Email is required', field: 'email' },
-  close: () => true
-}];
+  close: () => true,
+};
 
 describe('<ErrorAlert Test Suite>', () => {
   describe('<ErrorAlert>', () => {

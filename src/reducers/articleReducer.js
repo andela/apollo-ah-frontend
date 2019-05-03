@@ -20,7 +20,6 @@ const initialState = {
  * @param {Function} action - Action to dispatch
  * @returns {object}
  */
-
 export default (state = initialState, action) => {
   const {
     type,

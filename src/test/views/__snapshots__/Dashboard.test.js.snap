@@ -1,0 +1,109 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Dashboard> should render with articles 1`] = `
+<div>
+  <div
+    className="card-columns"
+    data-pg-collapsed={true}
+  >
+    <SummaryBox
+      icon="file-alt"
+      text="Articles"
+      value={0}
+    />
+    <SummaryBox
+      icon="comments"
+      text="Comments"
+      value={0}
+    />
+    <SummaryBox
+      icon="sign-language"
+      text="Claps"
+      value={0}
+    />
+  </div>
+  <div
+    className="mt-3 card"
+    data-pg-collapsed={true}
+  >
+    <div
+      className="table-responsive-sm"
+    >
+      <table
+        className="table"
+      >
+        <thead>
+          <tr>
+            <th />
+            <th
+              className="text-center"
+            >
+              Comments
+            </th>
+            <th
+              className="text-center"
+            >
+              Claps
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <TableRow
+            item={
+              Object {
+                "id": 1,
+              }
+            }
+            key="1"
+          />
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Dashboard> should render with empty articles 1`] = `
+<div>
+  <div
+    className="card-columns"
+    data-pg-collapsed={true}
+  >
+    <SummaryBox
+      icon="file-alt"
+      text="Articles"
+      value={0}
+    />
+    <SummaryBox
+      icon="comments"
+      text="Comments"
+      value={0}
+    />
+    <SummaryBox
+      icon="sign-language"
+      text="Claps"
+      value={0}
+    />
+  </div>
+  <div
+    className="dashboard-empty"
+  >
+    <i
+      className="fas fa-book-open"
+    />
+    <h2>
+      You don't have any articles yet
+    </h2>
+    <p>
+      When you start publishing articles, you will be able to view statistics about the performance of your articles here.
+    </p>
+    <Link
+      className="btn btn-brand"
+      replace={false}
+      to="/user/create-article"
+    >
+      Write your first article
+    </Link>
+  </div>
+</div>
+`;

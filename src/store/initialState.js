@@ -6,7 +6,7 @@ const initialState = {
   articles: [],
   user: {
     token: '',
-    id: '',
+    id: null,
     isLoggedIn: false,
     profile: {
       username: '',
@@ -50,11 +50,22 @@ const initialState = {
     hasMoreComments: false,
     commentPage: {}
   },
+  follow: {
+    followers: [],
+    following: [],
+    isLoading: false,
+  },
+  dashboard: {
+    articles: [],
+    loading: false,
+    message: ''
+  },
   bookmarkedList: {
     bookmarked: [],
     isLoading: false,
     message: '',
   },
+  userClaps: { claps: 0 }
 };
 
 export default initialState;
