@@ -2,9 +2,12 @@ const initialState = {
   loading: false,
   error: null,
   success: false,
+  errors: null,
+  token: null,
+  articles: [],
   user: {
     token: '',
-    id: 5,
+    id: null,
     isLoggedIn: false,
     profile: {
       username: '',
@@ -20,7 +23,50 @@ const initialState = {
       loading: false,
       message: '',
     }
-  }
+  },
+  article: {
+    id: '',
+    title: '',
+    slug: '',
+    body: '',
+    image: '',
+    description: '',
+    createdAt: '',
+    updatedAt: '',
+    deletedAt: '',
+    auhtorId: '',
+    categoryId: '',
+    isLoading: false,
+    message: '',
+    User: {},
+    tagList: [],
+    articleCategory: {},
+    ratings: [],
+    readTime: '',
+    newComments: [],
+    postingComment: false,
+    gettingComments: false,
+    commentMessage: '',
+    oldComments: [],
+    hasMoreComments: false,
+    commentPage: {}
+  },
+  follow: {
+    followers: [],
+    following: [],
+    isLoading: false,
+  },
+  dashboard: {
+    articles: [],
+    loading: false,
+    message: ''
+  },
+  bookmarkedList: {
+    bookmarked: [],
+    isLoading: false,
+    message: '',
+  },
+  userClaps: { claps: 0 }
 };
 
 export default initialState;

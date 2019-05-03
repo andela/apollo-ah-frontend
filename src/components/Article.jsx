@@ -1,25 +1,46 @@
 import React from 'react';
-import axios from 'axios';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { createStructuredSelector } from 'reselect';
 import ArticleBody from '../views/ArticleBody';
-/*
- * @todo - Import comments component here
- */
+import getArticle from '../actions/singleArticleActions';
+import { bookmarkArticleGenerators } from '../actions/bookmarkActions';
+import * as articleSelector from '../selectors/singleArticleSelector';
+import bookmarkedList from '../selectors/bookmarkSelector';
+import { getUserIsLoggedIn } from '../selectors/loginSelector';
+import DummyArticleLoader from '../views/DummyArticleLoader';
+import SuggestedArticles from '../views/Articles';
+import { getArticles } from '../actions';
+import ScrollToTopOnMount from '../views/ScrollToTopOnMount';
+import ConnectedCommentsContainer from './CommentsContainer';
 
 /**
- *
- *
  * @class Article
  * @extends {React.Component}
  */
 class Article extends React.Component {
   /**
-   *
    * @static - Validating proptypes
    * @memberof Article
    */
   static propTypes = {
-    match: PropTypes.object.isRequired,
+    match: PropTypes.object,
+    getArticle: PropTypes.func,
+    slug: PropTypes.string,
+    history: PropTypes.object,
+    bookmarkArticleGenerators: PropTypes.func,
+    getArticles: PropTypes.func,
+    isLoggedin: PropTypes.bool,
+  }
+
+  static defaultProps = {
+    slug: '',
+    getArticle: f => f,
+    match: {},
+    history: {},
+    bookmarkArticleGenerators: f => f,
+    getArticles: f => f,
+    isLoggedin: false,
   }
 
   /**
@@ -32,19 +53,59 @@ class Article extends React.Component {
     this.state = {
       article: {},
       bookmarked: false,
+      isLoggedin: false,
+      recommendations: [],
     };
   }
 
   /**
+   * @static
+   * @param {*} nextProps - The new props received by the component
+   * @returns {Object} - The article object to display in the page
+   * @memberof Article
+   */
+  static getDerivedStateFromProps(nextProps) {
+    const {
+      token, recommendations, bookmarkedList: bookmarkedArticles, id,
+    } = nextProps;
+    const article = { ...nextProps };
+    delete article.match;
+    delete article.location;
+    delete article.history;
+    delete article.getArticle;
+    delete article.staticContext;
+    delete article.isLoggedin;
+    const alreadyBookmarked = bookmarkedArticles.findIndex(post => post.articleId === id);
+    const bookmarked = alreadyBookmarked !== -1;
+    return {
+      article, token, recommendations, bookmarked,
+    };
+  }
+
+  componentDidUpdate(prevProps) {
+    const { match } = this.props;
+    const { slug } = match.params;
+    const { getArticle: fetchArticle } = prevProps;
+    if (slug !== prevProps.slug) fetchArticle(slug);
+    // console.log('fired____');
+    return this.state;
+  }
+
+  /**
    *
-   * @todo - Move the fetch article functionality to redux store
+   * @method componentDidMount - A method called when the component mounts
    * @memberof Article
    */
   componentDidMount = async () => {
-    const { match } = this.props;
+    const {
+      match,
+      getArticle: fetchArticle,
+      slug: persistedSlug,
+      getArticles: getRecommendations
+    } = this.props;
     const { slug } = match.params;
-    const result = await axios.get(`${process.env.API_BASE_URL}/articles/${slug}`);
-    this.setState({ article: result.data.data });
+    if (slug !== persistedSlug) fetchArticle(slug);
+    await getRecommendations(1, 3);
   }
 
   /**
@@ -53,49 +114,81 @@ class Article extends React.Component {
    * @memberof Article
    */
   bookmarkArticle = () => {
-    const { bookmarked } = this.state;
+    const { bookmarkArticleGenerators: bookmarkFn, history, isLoggedin } = this.props;
+    const { bookmarked, article } = this.state;
+    if (!isLoggedin) history.push('/login');
+    const { slug } = article;
     this.setState({ bookmarked: !bookmarked });
+    bookmarkFn({ slug });
   };
 
   /**
-   *
-   *
    * @returns {JSX} The JSX representation of the Article component
    * @memberof Article
    */
   render() {
-    const { article, bookmarked } = this.state;
+    const {
+      article, bookmarked, isLoggedin, recommendations,
+    } = this.state;
+    const { match } = this.props;
+    const { slug } = match.params;
     return (
       <div>
-        <main className="main-body">
-          <section className="min-vh-100">
-            {article.image && (
-              <div
-                className="pg-empty-placeholder single-hero"
-                style={{ backgroundImage: `url(${article.image})` }}
-              />
-            )}
-            <div className="container">
-              <div className="single-container">
-                <ArticleBody
-                  article={article}
-                  bookmarkArticle={this.bookmarkArticle}
-                  bookmarked={bookmarked}
+        <ScrollToTopOnMount />
+        {!article.title ? <DummyArticleLoader /> : (
+          <main className={(article.image) ? 'main-article' : 'main-article-no-image'}>
+            <section className="min-vh-100">
+              {article.image && (
+                <div
+                  className="pg-empty-placeholder single-hero"
+                  style={{ backgroundImage: `url(${article.image})` }}
                 />
-                {/* Insert omment component here */}
-              </div>
-            </div>
-            <div className="single-suggested-grp">
+              )}
               <div className="container">
-                <h4>Recommended for you</h4>
-                <div className="row pg-empty-placeholder" />
+                <div className="single-container">
+                  <ArticleBody
+                    article={article}
+                    bookmarkArticle={this.bookmarkArticle}
+                    bookmarked={bookmarked}
+                    isLoggedin={isLoggedin}
+                  />
+                  <ConnectedCommentsContainer slug={slug} />
+                </div>
               </div>
-            </div>
-          </section>
-        </main>
+              <div className="single-suggested-grp">
+                <div className="row pg-empty-placeholder" />
+                <SuggestedArticles
+                  articles={recommendations}
+                  showHeader
+                />
+              </div>
+            </section>
+          </main>
+        )}
       </div>
     );
   }
 }
 
-export default Article;
+const mapStateToProps = createStructuredSelector({
+  id: articleSelector.getArticleId,
+  message: articleSelector.getArticleMessage,
+  author: articleSelector.getArticleAuthorProfile,
+  isLoading: articleSelector.getArticleIsLoading,
+  body: articleSelector.getArticleBody,
+  title: articleSelector.getArticleTitle,
+  slug: articleSelector.getArticleSlug,
+  description: articleSelector.getArticleDescription,
+  ratings: articleSelector.getArticleRatings,
+  image: articleSelector.getArticleImage,
+  readTime: articleSelector.getArticleReadTime,
+  createdAt: articleSelector.getArticleCreatedTime,
+  updatedAt: articleSelector.getArticleUpdatedTime,
+  tagList: articleSelector.getArticleTagList,
+  isLoggedin: getUserIsLoggedIn,
+  recommendations: articleSelector.getRecommendedArticles,
+  bookmarkedList,
+});
+const mapDispatchToProps = { getArticle, bookmarkArticleGenerators, getArticles };
+
+export default connect(mapStateToProps, mapDispatchToProps)(Article);

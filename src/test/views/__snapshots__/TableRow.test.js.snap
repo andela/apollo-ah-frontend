@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TableRow> should render 1`] = `
+<tr>
+  <td
+    className="align-middle"
+  >
+    <p
+      className="mb-n1 font-weight-bold"
+    />
+    <small>
+      Invalid Date
+    </small>
+    <div
+      className="dropdown d-inline-block"
+    >
+      <button
+        aria-expanded="false"
+        aria-haspopup="true"
+        className="btn dropdown-toggle btn-unfocused"
+        data-toggle="dropdown"
+        id="dropdownMenuButton"
+        type="button"
+      />
+      <div
+        aria-labelledby="dropdownMenuButton"
+        className="dropdown-menu"
+      >
+        <Link
+          className="dropdown-item"
+          replace={false}
+          target="_blank"
+          to="/article/undefined"
+        >
+          View article
+        </Link>
+        <Link
+          className="dropdown-item"
+          replace={false}
+          target="_blank"
+          to="/user/create-article/undefined"
+        >
+          Edit
+        </Link>
+      </div>
+    </div>
+  </td>
+  <td
+    className="text-center align-middle"
+  />
+  <td
+    className="text-center align-middle"
+  />
+</tr>
+`;

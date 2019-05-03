@@ -41,6 +41,9 @@
 .article-cover-img {
 	width: 100%;
 	transition: width 1.5s;
+	height: 100%;
+	object-fit: cover;
+	object-position: center;
 }
 .article-item {
 	padding: 10px 15px;
@@ -75,6 +78,7 @@
 		color: $colorpurple;
 		margin-top: 0;
 		margin-bottom: 5px;
+		text-transform: capitalize;
 	}
 	div {
 		margin-left: 40px;
@@ -92,7 +96,7 @@
 		position: relative;
 		right: -1px;
 		z-index: 40;
-		padding: 4px;
+		// padding: 4px;
 	}
 }
 .article-author-dot {

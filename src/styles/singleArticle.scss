@@ -1,4 +1,4 @@
-%extend1 {
+%extend_1 {
   background-color: $colorpurple;
   color: $white;
   border-color: $colormercury;
@@ -12,7 +12,7 @@
   text-align: center;
   padding-top: 10px;
   &.active {
-      @extend %extend1;
+      @extend %extend_1;
   }
   &:hover {
       color: $colorpurple;
@@ -80,30 +80,62 @@
   border-top: 1px solid $colorcloud;
   border-bottom: 1px solid $colorcloud;
   margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 150px;
 }
 .clap-icon {
   font-size: 14px;
   font-weight: bold;
   img {
-      margin-right: 5px;
-      width: 38px;
+    width: 38px;
+  }
+  button {
+    cursor: pointer;
+    padding: 6px;
+    transition: transform 250ms cubic-bezier(.73,1.62,.76,1.71);
+
+    &:active {
+      transform: scale(1.4);
+    }
   }
 }
+
 .share-grp {
-  float: right;
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  align-items: flex-end;
   position: relative;
   a {
     display: inline-block;
     padding: 0 5px 1px 6px;
     font-size: 18px;
     position: relative;
-    top: 7px;
+    text-decoration: none;
+    color: $colorcloud;
+  }
+  .socials-fb{
+    background-color: #3b5998;
+  }
+  .socials-twitter{
+    background-color: #38A1F3;
+  }
+}
+.share-group-child{
+  position: relative;
+  .btn-link{
+    height: 26px;
   }
 }
 .single__article--author {
   margin-bottom: 30px;
   margin-top: -20px;
   padding-right: 20px;
+  border-bottom: 1px solid #C4C4C4;
+  padding-bottom: 30px;
   p {
     max-width: 500px;
   }
@@ -118,51 +150,6 @@
     color: $white;
   }
 }
-.comment-grp {
-  margin-bottom: 50px;
-  margin-top: 0;
-  border-top: 1px solid $black20;
-  padding-top: 30px;
-  .article-author {
-    &:first-child {
-      border: none;
-    }
-    p {
-      max-width: 700px;
-    }
-  }
-  h4 {
-    margin-bottom: 15px;
-    font-weight: bold;
-    margin-top: 10px;
-  }
-  form {
-    margin-top: 30px;
-    .form-control {
-      vertical-align: middle;
-      height: 65px;
-      padding-left: 20px;
-      padding-right: 60px;
-    }
-    button {
-      position: absolute;
-      right: 0;
-      top: 0;
-      background-color: transparent;
-      color: $colortundora;
-      bottom: 0;
-      width: 60px;
-    }
-  }
-  .form-group {
-    position: relative;
-  }
-}
-.loadmore-grp {
-  margin-top: 30px;
-  border-top: 1px solid $black20;
-  padding-top: 30px;
-}
 .single-suggested-grp {
   background-color: $colorgraynurse;
   padding-top: 30px;
@@ -172,15 +159,21 @@
     margin-bottom: 50px;
   }
 }
+.main-article{
+  margin-top: 70px;
+}
+.main-article-no-image{
+  margin-top: 90px;
+}
 @media(min-width:450px) {
   .single-hero {
-    height: 400px;
+    height: 450px;
   }
 }
 .page-item.active {
   background-color: $colorgallery;
   .page-link {
-    @extend %extend1;
+    @extend %extend_1;
   }
 }
 .following .single__article--author button {
@@ -193,7 +186,7 @@
 .article__author{
   display: flex;
   align-items: center;
-  .bookmarkdiv{
+  .bookmark__div{
     margin-left: 30px;
     font-size: 20px;
     .bookmarked{
@@ -230,12 +223,56 @@
   }
   
 }
+.get-article__loader{
+  height: 100%;
+  padding-top: 90px;
+}
+.article__options{
+  .dropdown-toggle::after{
+    display: none;
+  }
+  .dropdown-item i{
+    margin-right: 10px;
+  }
+  #show-options{
+    height: 26px;
+    color: $colorcloud;
+  }
+  .btn:focus{
+    color: $colorvioleteggplant;
+  }
+}
+
 @media only screen and (min-device-width: 500px){
+  .main-article-no-image{
+    margin-top: 100px;
+  }
   .article__author{
     justify-content: space-between;
     .bookmark__div{
       margin-left: unset;
     }
   }
-  
+  .bookmark__div .fa-bookmark{
+    font-size: 20px;
+  }
+  .clap-grp{
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .share-grp{
+    width: 55%;
+  }
+}
+@media only screen and (min-device-width: 900px){
+  .main-article{
+    margin-top: 85px;
+  }
+  .main-article-no-image{
+    margin-top: 120px;
+  }
+  .bookmark__div .fa-bookmark{
+    font-size: 25px;
+  }
 }

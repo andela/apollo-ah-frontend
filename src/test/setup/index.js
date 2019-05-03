@@ -7,10 +7,10 @@ import Adapter from 'enzyme-adapter-react-16';
 import thunk from 'redux-thunk';
 import configMockStore from 'redux-mock-store';
 import { BrowserRouter } from 'react-router-dom';
+import articlesReducer from '../../reducers/articleReducer';
 
 
 export const mockState = {
-  articles: [],
   user: {
     token: '',
     isLoggedIn: false,
@@ -18,20 +18,71 @@ export const mockState = {
     message: '',
     isLoading: false,
     profile: {
-      username: '',
-      image: '',
+      firstname: 'John',
+      username: 'johnny',
+      image: 'image.jpg',
       errorData: [],
     },
     resetPassword: {
       loading: false,
       message: '',
+    },
+  },
+  userClaps: { claps: 0 },
+  bookmarkedList: {
+    bookmarked: [],
+    isLoading: false,
+    message: '',
+  },
+  bookmarkedList: {
+    bookmarked: [],
+    isLoading: false,
+    message: '',
+  },
+  article: {
+    slug: 'article-slug',
+    claps: 10,
+    authorId: 1,
+    newComments: {
+      body: 'Hello world',
+      id: 1,
+      authorName: 'John',
+      authorImage: 'image.jpg',
+      date: 'July 4th 2018',
+    },
+    postingComment: false,
+    commentMessage: 'Done',
+    gettingComments: false,
+    oldComments: [],
+    hasMoreComments: false,
+    commentPage: {
+      current: 1,
+      currentCount: 1,
+      totalCount: 1,
     }
   },
   createArticle: {
     loading: false,
     message: false,
+  },
+  articlesReducer: {
+    articles: [],
+  },
+  articlesCategoryReducer: [],
+  follow: {
+    followers: [],
+    following: [],
+    isLoading: false,
+  },
+  toast: '',
+  dashboard: {
+    articles: [],
+    loading: false,
+    message: '',
   }
 };
+mockState.articlesReducer = articlesReducer;
+
 
 export const createMockStore = () => {
   const mockStore = configMockStore([thunk]);
@@ -51,5 +102,13 @@ const setup = (component, initailState = mockState) => {
   );
   return connectedWrapper;
 };
+
+window.matchMedia = jest.fn().mockImplementation(query => ({
+  matches: false,
+  media: query,
+  onchange: null,
+  addListener: jest.fn(),
+  removeListener: jest.fn(),
+}));
 
 export default setup;

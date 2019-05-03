@@ -1,4 +1,7 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react/jsx-no-bind */
 import React, { useState, useRef } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { ClipLoader } from 'react-spinners';
 import { createStructuredSelector } from 'reselect';
@@ -71,14 +74,14 @@ function ResetPassword(props) {
       <div>
         {
           isLoading
-            && (
-              <div className="reset_spinner_box">
-                <ClipLoader
-                  size={40}
-                  color="purple"
-                />
-              </div>
-            )
+          && (
+            <div className="reset_spinner_box">
+              <ClipLoader
+                size={40}
+                color="purple"
+              />
+            </div>
+          )
         }
       </div>
       {
@@ -87,6 +90,20 @@ function ResetPassword(props) {
     </Modal>
   );
 }
+
+ResetPassword.propTypes = {
+  message: PropTypes.string,
+  isLoading: PropTypes.bool,
+  modalAction: PropTypes.func,
+  passwordResetRequest: PropTypes.func,
+};
+
+ResetPassword.defaultProps = {
+  message: '',
+  isLoading: false,
+  modalAction: f => f,
+  passwordResetRequest: f => f,
+};
 
 const mapStateToProps = createStructuredSelector(
   {

@@ -1,5 +1,6 @@
 import request from '../utils/request';
 import typeGenerator from './typeGenerator';
+import exceptionHandler from '../utils/exceptionHandler';
 
 export const profileTypes = typeGenerator('PROFILE');
 
@@ -48,11 +49,7 @@ export const updateUserProfile = payload => async (dispatch) => {
   }).then((response) => {
     dispatch(updateProfileSuccessful(response.data.data));
   }).catch((error) => {
-    let errorData = ['Please check your network connection'];
-    if (error.response) {
-      const { message, data } = error.response.data;
-      errorData = [message, data];
-    }
+    const errorData = exceptionHandler(error);
     dispatch(updateProfileFailure(errorData));
   });
 };

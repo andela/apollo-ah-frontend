@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ErrorAlert Test Suite> <ErrorAlert> It should render succesfully 1`] = `
+<div
+  className="alert alert-danger alert-dismissible fade show"
+  role="alert"
+>
+  <strong>
+    Error!    
+  </strong>
+  Email is required
+  <button
+    aria-label="Close"
+    className="close"
+    data-dismiss="alert"
+    onClick={[Function]}
+    type="button"
+  >
+    <span
+      aria-hidden="true"
+    >
+      ×
+    </span>
+  </button>
+</div>
+`;
