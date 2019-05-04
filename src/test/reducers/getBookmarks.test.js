@@ -3,7 +3,6 @@ import { getBookmarkType } from '../../actions/getBookmark';
 import { mockState } from '../setup/index';
 
 const { bookmark } = mockState;
-console.log('----', bookmark);
 
 describe('Get bookmark articles reducer: ', () => {
   it('should have the correct default state', () => {

@@ -14,7 +14,7 @@ export const getBookmarkAction = (type, payload) => ({
 });
 
 /**
- * reset password action creator
+ * get bookmarked articles action creator
  *
  * @export
  * @param string email - user's email address
@@ -23,7 +23,8 @@ export const getBookmarkAction = (type, payload) => ({
 
 /**
  * The action that is called when the user wants to get a list of bookmarked articles
- * @param {object} payload The payload to send with the request
+ * @param {number} page - The page number
+ * @param {number} size - The amount of bookmarked article to fetch
  * @returns {Promise} The promise returned from the request
  */
 let requestUrl;

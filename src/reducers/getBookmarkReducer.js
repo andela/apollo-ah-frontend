@@ -15,7 +15,7 @@ const initialState = {
 };
 
 /**
- * reset password action creator
+ * get bookmark reducer
  *
  * @export
  * @param {object} state - initial state
