@@ -64,17 +64,6 @@ exports[`<ProfileHeader> should highlight settings tab if settings page is selec
           Edit profile
         </span>
       </Link>
-      <Link
-        className="btn active"
-        replace={false}
-        to="settings"
-      >
-        <span
-          className="relative"
-        >
-          Settings
-        </span>
-      </Link>
     </div>
   </div>
 </Fragment>
@@ -153,17 +142,6 @@ exports[`<ProfileHeader> should render upload image button on edit profile page 
           Edit profile
         </span>
       </Link>
-      <Link
-        className="btn false"
-        replace={false}
-        to="settings"
-      >
-        <span
-          className="relative"
-        >
-          Settings
-        </span>
-      </Link>
     </div>
   </div>
 </Fragment>
@@ -231,17 +209,6 @@ exports[`<ProfileHeader> should render without crashing 1`] = `
           className="relative"
         >
           Edit profile
-        </span>
-      </Link>
-      <Link
-        className="btn false"
-        replace={false}
-        to="settings"
-      >
-        <span
-          className="relative"
-        >
-          Settings
         </span>
       </Link>
     </div>

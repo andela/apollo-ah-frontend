@@ -1,7 +1,3 @@
-/* eslint-disable import/extensions */
-/* eslint-disable import/no-named-as-default */
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable react/wrap-multilines */
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import ConnectedHomePage from '../components/HomePage';
@@ -12,7 +8,7 @@ import Footer from '../views/Footer';
 import Navbar from '../components/NavbarContainer';
 import Article from '../components/Article';
 import NotFound from '../components/NotFound';
-
+import SearchContainer from '../components/SearchContainer';
 
 /**
  * @function Routes - A JSX wrapper for all the app's routes
@@ -26,10 +22,11 @@ function Routes() {
         <Navbar />
         <Switch>
           <Route path="/" component={ConnectedHomePage} exact />
-          <Route path="/login" component={ConnectedLogin} />
-          <Route path="/signup" component={SignupPage} />
+          <Route path="/login" component={ConnectedLogin} exact />
+          <Route path="/signup" component={SignupPage} exact />
+          <Route path="/search" component={SearchContainer} exact />
           <Route path="/user" component={ProtectedRoutes} />
-          <Route path="/article/:slug" component={Article} />
+          <Route path="/article/:slug" component={Article} exact />
           <Route path="*" component={NotFound} />
         </Switch>
         <Footer />
