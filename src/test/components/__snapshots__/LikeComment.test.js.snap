@@ -1,0 +1,86 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<LikeComment /> Should render the component 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <BrowserRouter>
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "createHref": [Function],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <Connect(LikeComment)
+        dislikeCount={9}
+        id={2}
+        likeCount={3}
+        postDislikeComment={[MockFunction]}
+        postLikeComment={[MockFunction]}
+        slug="djsjhdskl-sdmnds"
+      >
+        <LikeComment
+          dislikeCount={9}
+          id={2}
+          likeCount={3}
+          postDislikeComment={[Function]}
+          postLikeComment={[Function]}
+          slug="djsjhdskl-sdmnds"
+        >
+          <div
+            className="like-comment-parent"
+          >
+            <div>
+              <i
+                aria-hidden={true}
+                className="fas fa-thumbs-up"
+                onClick={[Function]}
+                role="button"
+              />
+              <span>
+                3
+              </span>
+            </div>
+            <div>
+              <i
+                aria-hidden={true}
+                className="fas fa-thumbs-down"
+                onClick={[Function]}
+                role="button"
+              />
+              <span>
+                9
+              </span>
+            </div>
+          </div>
+        </LikeComment>
+      </Connect(LikeComment)>
+    </Router>
+  </BrowserRouter>
+</Provider>
+`;

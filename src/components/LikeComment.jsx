@@ -78,5 +78,5 @@ class LikeComment extends React.Component {
 
 const mapDispatchToProps = { postDislikeComment, postLikeComment };
 
-export default connect(() => { }, mapDispatchToProps)(LikeComment);
+export default connect(() => ({}), mapDispatchToProps)(LikeComment);
 // export default LikeComment;

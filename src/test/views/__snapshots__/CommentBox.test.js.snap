@@ -23,6 +23,11 @@ exports[`<CommentBox> should render without crashing 1`] = `
       text
     </p>
   </div>
-  <Connect(LikeComment) />
+  <Connect(LikeComment)
+    dislikeCount={0}
+    id={2}
+    likeCount={3}
+    slug="dfjhfd-weewo"
+  />
 </div>
 `;

@@ -8,10 +8,14 @@ describe('<CommentBox>', () => {
     const wrapper = shallow(<CommentBox
       authorName="john"
       authorImage="image.jpg"
-       body="text"
-       date="2hrs ago"
-       fullDate="July 4th 2019, 4:45pm"
-        />);
+      body="text"
+      date="2hrs ago"
+      fullDate="July 4th 2019, 4:45pm"
+      id={2}
+      articleSlug="dfjhfd-weewo"
+      likeCount={3}
+      dislikeCount={0}
+    />);
     expect(wrapper).toMatchSnapshot();
   });
 });
