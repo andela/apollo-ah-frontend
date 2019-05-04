@@ -50,28 +50,3 @@ export const getArticles = (page, size) => async (dispatch) => {
     dispatch(getArticlesFailure(error));
   }
 };
-
-
-// import request from '../utils/request';
-// import typeGenerator, { action } from './typeGenerator';
-
-// export const getArticlesType = typeGenerator('GET_ARTICLES');
-
-
-// /**
-//  * @description Request to the API to get only 12 latest published articles
-//  * @returns {object} dispatch object
-//  */
-
-// export const getArticles = () => async (dispatch) => {
-//   dispatch(action(getArticlesType.loading, true));
-//   return request({ route: 'articles?size=12', }).then((response) => {
-//     const { data: { data: { articles } } } = response;
-//     dispatch(action(getArticlesType.success, articles));
-//   }).catch((error) => {
-//     const message = error.response
-//       ? ''
-//       : 'Please check your network connection';
-//     dispatch(action(getArticlesType.failure, message));
-//   });
-// };
