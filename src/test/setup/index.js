@@ -47,6 +47,7 @@ export const mockState = {
     },
     message: '',
   },
+  location: {},
   article: {
     slug: 'article-slug',
     claps: 10,
@@ -87,6 +88,12 @@ export const mockState = {
     articles: [],
     loading: false,
     message: '',
+  },
+  searchResult: {
+    articles: [],
+    page: {},
+    loading: false,
+    message: null,
   }
 };
 mockState.articlesReducer = articlesReducer;

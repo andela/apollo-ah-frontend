@@ -1,0 +1,195 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SearchContainer> should render 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <BrowserRouter>
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "createHref": [Function],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <Connect(SearchContainer)
+        location={Object {}}
+      >
+        <SearchContainer
+          location={Object {}}
+          search={[Function]}
+          searchResult={
+            Object {
+              "articles": Array [],
+              "loading": false,
+              "message": null,
+              "page": Object {},
+            }
+          }
+        >
+          <Search
+            categoryId="0"
+            handleChange={[Function]}
+            handleSearch={[Function]}
+            q=""
+            result={
+              Object {
+                "articles": Array [],
+                "loading": false,
+                "message": null,
+                "page": Object {},
+              }
+            }
+          >
+            <main
+              className="main-body"
+            >
+              <section
+                className="search-cover"
+              >
+                <div
+                  className="container"
+                >
+                  <form
+                    className="search"
+                    noValidate={true}
+                    onSubmit={[Function]}
+                  >
+                    <div
+                      className="row"
+                    >
+                      <div
+                        className="col-sm-6 col-8"
+                      >
+                        <i
+                          className="fas fa-search search-icon"
+                        />
+                        <input
+                          className="search-input no-focus"
+                          name="q"
+                          onChange={[Function]}
+                          value=""
+                        />
+                      </div>
+                      <div
+                        className="col-sm-3 d-none d-sm-inline-block"
+                      >
+                        <select
+                          className="custom-select search-select no-focus"
+                          name="categoryId"
+                          onChange={[Function]}
+                          value="0"
+                        >
+                          <option
+                            value={0}
+                          >
+                            All categories
+                          </option>
+                          <option
+                            value={3}
+                          >
+                            Business
+                          </option>
+                          <option
+                            value={7}
+                          >
+                            Entertainment
+                          </option>
+                          <option
+                            value={4}
+                          >
+                            Fashion
+                          </option>
+                          <option
+                            value={6}
+                          >
+                            Food
+                          </option>
+                          <option
+                            value={5}
+                          >
+                            Health
+                          </option>
+                          <option
+                            value={8}
+                          >
+                            History
+                          </option>
+                          <option
+                            value={1}
+                          >
+                            Technology
+                          </option>
+                          <option
+                            value={2}
+                          >
+                            Sports
+                          </option>
+                          <option
+                            value={9}
+                          >
+                            Others
+                          </option>
+                        </select>
+                      </div>
+                      <div
+                        className="text-right col-sm-3 col-4"
+                      >
+                        <button
+                          className="btn btn-brand search-button shadow-none"
+                          type="submit"
+                        >
+                          Search
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </section>
+              <section
+                className="wrapper min-vh-100 "
+              >
+                <div
+                  className="container"
+                >
+                  <header
+                    className="page-header page-header-sm text-center"
+                  >
+                    <h4>
+                       No articles match your search result...
+                    </h4>
+                  </header>
+                </div>
+              </section>
+            </main>
+          </Search>
+        </SearchContainer>
+      </Connect(SearchContainer)>
+    </Router>
+  </BrowserRouter>
+</Provider>
+`;

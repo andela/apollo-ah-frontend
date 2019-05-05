@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ArticleBox> should render without crashing 1`] = `
+<div
+  className="col-sm-6 col-lg-4"
+>
+  <div
+    className="article"
+  >
+    <Link
+      className="link-surface"
+      replace={false}
+      to="/article/"
+    />
+    <div
+      className="article-cover"
+    >
+      <img
+        className="article-cover-img"
+      />
+    </div>
+    <div
+      className="article-item"
+    >
+      <span
+        className="article-category"
+      />
+      <h4 />
+      <p />
+      <div
+        className="article-author"
+      >
+        <img />
+        <div>
+          <h6 />
+          <span>
+            NaN years
+             
+            ago
+          </span>
+          <span
+            className="article-author-dot"
+          />
+          <span />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

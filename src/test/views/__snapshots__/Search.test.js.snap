@@ -1,0 +1,264 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Search> should render 1`] = `
+<main
+  className="main-body"
+>
+  <section
+    className="search-cover"
+  >
+    <div
+      className="container"
+    >
+      <form
+        className="search"
+        noValidate={true}
+        onSubmit={[MockFunction]}
+      >
+        <div
+          className="row"
+        >
+          <div
+            className="col-sm-6 col-8"
+          >
+            <i
+              className="fas fa-search search-icon"
+            />
+            <input
+              className="search-input no-focus"
+              name="q"
+              onChange={[MockFunction]}
+              value=""
+            />
+          </div>
+          <div
+            className="col-sm-3 d-none d-sm-inline-block"
+          >
+            <select
+              className="custom-select search-select no-focus"
+              name="categoryId"
+              onChange={[MockFunction]}
+              value="0"
+            >
+              <option
+                value={0}
+              >
+                All categories
+              </option>
+              <option
+                value={3}
+              >
+                Business
+              </option>
+              <option
+                value={7}
+              >
+                Entertainment
+              </option>
+              <option
+                value={4}
+              >
+                Fashion
+              </option>
+              <option
+                value={6}
+              >
+                Food
+              </option>
+              <option
+                value={5}
+              >
+                Health
+              </option>
+              <option
+                value={8}
+              >
+                History
+              </option>
+              <option
+                value={1}
+              >
+                Technology
+              </option>
+              <option
+                value={2}
+              >
+                Sports
+              </option>
+              <option
+                value={9}
+              >
+                Others
+              </option>
+            </select>
+          </div>
+          <div
+            className="text-right col-sm-3 col-4"
+          >
+            <button
+              className="btn btn-brand search-button shadow-none"
+              type="submit"
+            >
+              Search
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+  <section
+    className="wrapper min-vh-100 "
+  >
+    <div
+      className="container"
+    >
+      <header
+        className="page-header page-header-sm text-center"
+      >
+        <h4>
+           No articles match your search result...
+        </h4>
+      </header>
+    </div>
+  </section>
+</main>
+`;
+
+exports[`<Search> should render with non empty search result 1`] = `
+<main
+  className="main-body"
+>
+  <section
+    className="search-cover"
+  >
+    <div
+      className="container"
+    >
+      <form
+        className="search"
+        noValidate={true}
+        onSubmit={[MockFunction]}
+      >
+        <div
+          className="row"
+        >
+          <div
+            className="col-sm-6 col-8"
+          >
+            <i
+              className="fas fa-search search-icon"
+            />
+            <input
+              className="search-input no-focus"
+              name="q"
+              onChange={[MockFunction]}
+              value=""
+            />
+          </div>
+          <div
+            className="col-sm-3 d-none d-sm-inline-block"
+          >
+            <select
+              className="custom-select search-select no-focus"
+              name="categoryId"
+              onChange={[MockFunction]}
+              value="0"
+            >
+              <option
+                value={0}
+              >
+                All categories
+              </option>
+              <option
+                value={3}
+              >
+                Business
+              </option>
+              <option
+                value={7}
+              >
+                Entertainment
+              </option>
+              <option
+                value={4}
+              >
+                Fashion
+              </option>
+              <option
+                value={6}
+              >
+                Food
+              </option>
+              <option
+                value={5}
+              >
+                Health
+              </option>
+              <option
+                value={8}
+              >
+                History
+              </option>
+              <option
+                value={1}
+              >
+                Technology
+              </option>
+              <option
+                value={2}
+              >
+                Sports
+              </option>
+              <option
+                value={9}
+              >
+                Others
+              </option>
+            </select>
+          </div>
+          <div
+            className="text-right col-sm-3 col-4"
+          >
+            <button
+              className="btn btn-brand search-button shadow-none"
+              type="submit"
+            >
+              Search
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+  <section
+    className="wrapper min-vh-100 "
+  >
+    <div
+      className="container"
+    >
+      <header
+        className="page-header page-header-sm"
+      >
+        <h1>
+           
+          Showing
+           
+           
+        </h1>
+      </header>
+      <div
+        className="row"
+      >
+        <ArticleBox
+          article={
+            Object {
+              "id": 1,
+            }
+          }
+          key="1"
+        />
+      </div>
+    </div>
+  </section>
+</main>
+`;

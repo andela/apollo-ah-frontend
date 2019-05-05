@@ -50,7 +50,6 @@ const ProfileHeader = ({
         <div className="profile-footer">
           <Link to="dashboard" className={`btn ${activePage === 'DASHBOARD' && 'active'}`}><span className="relative">Dashboard</span></Link>
           <Link to="profile" className={`btn ${activePage === 'PROFILE' && 'active'}`}><span className="relative">Edit profile</span></Link>
-          <Link to="settings" className={`btn ${activePage === 'SETTINGS' && 'active'}`}><span className="relative">Settings</span></Link>
         </div>
       </div>
     </>

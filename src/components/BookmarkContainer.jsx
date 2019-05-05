@@ -1,8 +1,3 @@
-/* eslint-disable react/destructuring-assignment */
-/* eslint-disable react/jsx-indent */
-/* eslint-disable react/jsx-closing-tag-location */
-/* eslint-disable react/no-array-index-key */
-/* eslint-disable react/jsx-wrap-multilines */
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
@@ -58,10 +53,10 @@ function BookmarkContainer(props) {
               <div className={viewType}>
                 {
                   // eslint-disable-next-line arrow-body-style
-                  articles.map((article, indx) => {
+                  articles.map((article) => {
                     return (
                       <BookmarkItem
-                        key={indx}
+                        key={article.Article.id}
                         category={article.Article.articleCategory.category}
                         image={article.Article.image}
                         articleTitle={article.Article.title}
@@ -77,13 +72,16 @@ function BookmarkContainer(props) {
                 <Pagination />
               </div>
             </>
-          ) : <div>
-            <i className="fas fa-book-open" style={{ fontSize: '70px', color: '#66008c' }} />
-            <p style={{ paddingTop: '30px' }}
-            >
-              *It looks like you have not bookmarked any article yet
+          )
+          : (
+            <div>
+              <i className="fas fa-book-open" style={{ fontSize: '70px', color: '#66008c' }} />
+              <p style={{ paddingTop: '30px' }}
+              >
+                *It looks like you have not bookmarked any article yet
               </p>
-          </div>
+            </div>
+          )
       }
     </>
   );

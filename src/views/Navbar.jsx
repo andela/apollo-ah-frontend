@@ -21,7 +21,7 @@ const Navbar = (props) => {
         >
           <form action="/search" method="get">
             <i className="fas fa-search" role="button" />
-            <input type="text" placeholder="Search" />
+            <input type="text" placeholder="Search" name="q" />
           </form>
           <button
             type="button"
@@ -198,9 +198,6 @@ const Navbar = (props) => {
                   Followers
                 </Link>
                 <div className="dropdown-divider" />
-                <Link className="dropdown-item" to="/user/settings">
-                  Settings
-                </Link>
                 <Link className="dropdown-item" to="/login">
                   Logout
                 </Link>

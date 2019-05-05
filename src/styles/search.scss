@@ -1,0 +1,57 @@
+.search-cover {
+	padding-top: 170px;
+	padding-bottom: 60px;
+	background-image: $url1;
+	background-size: cover;
+	background-position: center center;
+}
+.search {
+	background-color: $white;
+	position: relative;
+	border-radius: 100px;
+	overflow: hidden;
+	height: 55px;
+	max-width: 900px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.search-icon {
+	color: $colormountainmist;
+	font-size: 20px;
+	position: absolute;
+	top: 18px;
+	left: 40px;
+}
+.search-input {
+	color: $colormountainmist;
+	font-size: 16px;
+	height: 55px;
+	width: 100%;
+	padding-left: 60px;
+	padding-right: 10px;
+	border: none;
+}
+.search-select {
+	border: none;
+	height: 40px;
+	margin-top: 7px;
+	border-left: 1px solid $colorgraynurse;
+}
+.search-button {
+	right: 5px;
+	border-radius: 50px;
+	width: 100%;
+	max-width: 200px;
+	top: 5px;
+	height: 45px;
+	padding-top: 10px;
+	position: relative;
+}
+.no-focus:focus {
+	box-shadow: none;
+	border: none;
+	outline: none;
+}
+.wrapper .page-header-sm h1 {
+	font-size: 18px;
+}

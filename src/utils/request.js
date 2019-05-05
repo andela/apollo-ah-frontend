@@ -14,11 +14,11 @@ const request = async (
     route,
     method,
     payload,
+    params,
   }
 ) => {
   const persisted = JSON.parse(localStorage.getItem('persist:root'));
   const { token } = JSON.parse(persisted.user);
-
   method = method || 'get';
   const headers = {
     Authorization: `Bearer ${token}`,
@@ -30,7 +30,8 @@ const request = async (
     data: payload,
     url: `${process.env.API_BASE_URL}/${route}`,
     method,
-    headers
+    headers,
+    params
   });
 };
 

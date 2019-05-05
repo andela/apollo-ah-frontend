@@ -1,11 +1,9 @@
 const initialState = {
-  loading: false,
-  errors: null,
-  success: false,
-  token: null,
-  articles: [],
   user: {
     token: '',
+    loading: false,
+    errors: null,
+    success: false,
     id: null,
     isLoggedIn: false,
     profile: {
@@ -65,7 +63,13 @@ const initialState = {
     isLoading: false,
     message: '',
   },
-  userClaps: { claps: 0 }
+  userClaps: { claps: 0 },
+  searchResult: {
+    articles: [],
+    page: {},
+    loading: false,
+    message: null,
+  }
 };
 
 export default initialState;

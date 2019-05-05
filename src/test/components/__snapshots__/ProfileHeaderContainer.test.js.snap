@@ -151,23 +151,6 @@ exports[`<ProfileHeaderContainer> should render without crashing 1`] = `
                     </span>
                   </a>
                 </Link>
-                <Link
-                  className="btn false"
-                  replace={false}
-                  to="settings"
-                >
-                  <a
-                    className="btn false"
-                    href="/settings"
-                    onClick={[Function]}
-                  >
-                    <span
-                      className="relative"
-                    >
-                      Settings
-                    </span>
-                  </a>
-                </Link>
               </div>
             </div>
           </ProfileHeader>

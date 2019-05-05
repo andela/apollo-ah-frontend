@@ -17,6 +17,7 @@ import followerReducer from './followerReducer';
 import getBookmarkReducer from './getBookmarkReducer';
 
 import dashboardReducer from './dashboardReducer';
+import searchReducer from './searchReducer';
 
 /**
  * @function userReducer,artilceReducer reducers used to combine multiple reducers
@@ -49,4 +50,5 @@ export default combineReducers({
   signupReducer,
   follow: followerReducer,
   dashboard: dashboardReducer,
+  searchResult: searchReducer,
 });
