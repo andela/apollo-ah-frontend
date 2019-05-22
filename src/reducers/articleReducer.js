@@ -43,7 +43,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         loading: false,
-        articles: '',
+        articles: [],
         error,
       };
     default:

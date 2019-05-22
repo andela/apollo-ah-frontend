@@ -48,13 +48,13 @@ describe('Reset password reducer: ', () => {
   it('should update the reducer state when unsuccessful', () => {
     const action = {
       type: getArticlesType.failure,
-      articles: '',
+      articles: [],
       error: '',
       loading: false
     };
     const result = articleReducer(articleState, action);
     const expected = {
-      ...articleState, loading: false, articles: '', error: ''
+      ...articleState, loading: false, articles: [], error: ''
     };
     expect(result).toEqual(expected);
   });
