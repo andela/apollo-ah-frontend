@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Navbar Test Suite> It should render succesfully when user is not logged in 1`] = `
+<Fragment>
+  <Redirect
+    push={false}
+    to="/login"
+  />
+  <Navbar
+    isLoggedIn={false}
+    logout={[Function]}
+    profile={
+      Object {
+        "image": "img.jpg",
+        "username": "demo",
+      }
+    }
+    revealSearchBar={[Function]}
+    showSearch={false}
+  />
+</Fragment>
+`;

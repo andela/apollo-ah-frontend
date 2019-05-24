@@ -25,4 +25,13 @@ describe('<Navbar Test Suite>', () => {
       expect(wrapper).toMatchSnapshot();
     });
   });
+  it('It should render succesfully when user is logged out', () => {
+    const wrapper = shallow(<Navbar
+      profile={{ username: '', image: '' }}
+      isLoggedIn
+      revealSearchBar={mockFn}
+      logout={mockFn}
+    />);
+    expect(wrapper).toMatchSnapshot();
+  });
 });
