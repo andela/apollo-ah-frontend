@@ -202,6 +202,7 @@ After the success of Peloton’s stationary bike — it has sold hundreds of
                     <ArticleBody
                       article={
                         Object {
+                          "articleClaps": undefined,
                           "author": Object {
                             "Profile": Object {
                               "bio": "I am in the refrigeratorrrrr!!! Free my homie, butter, doing life in a box. let's go!!",
@@ -223,6 +224,7 @@ After the success of Peloton’s stationary bike — it has sold hundreds of
                               "userId": 12,
                             },
                           ],
+                          "claps": undefined,
                           "createdAt": "2019-04-17T16:10:54.033Z",
                           "description": "After the success of Peloton’s stationary bike — it has sold hundreds of thousands, though the company won’t provide specifics — Peloton is aggressively expanding to become a full-body, full-service fitness and technology company",
                           "getArticles": [Function],
@@ -414,7 +416,6 @@ After the success of Peloton’s stationary bike — it has sold hundreds of
                               isLoggedIn={false}
                               loadUserClaps={[Function]}
                               userClaps={0}
-                              userId={null}
                             >
                               <Route>
                                 <ClapButton

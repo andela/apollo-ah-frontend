@@ -31,6 +31,7 @@ class Article extends React.Component {
     bookmarkArticleGenerators: PropTypes.func,
     getArticles: PropTypes.func,
     isLoggedin: PropTypes.bool,
+    articleClaps: PropTypes.number.isRequired,
   }
 
   static defaultProps = {
@@ -129,7 +130,7 @@ class Article extends React.Component {
     const {
       article, bookmarked, isLoggedin, recommendations,
     } = this.state;
-    const { match } = this.props;
+    const { match, articleClaps } = this.props;
     const { slug } = match.params;
     return (
       <div>
@@ -146,7 +147,7 @@ class Article extends React.Component {
               <div className="container">
                 <div className="single-container">
                   <ArticleBody
-                    article={article}
+                    article={Object.assign(article, { claps: articleClaps })}
                     bookmarkArticle={this.bookmarkArticle}
                     bookmarked={bookmarked}
                     isLoggedin={isLoggedin}
@@ -185,6 +186,7 @@ const mapStateToProps = createStructuredSelector({
   updatedAt: articleSelector.getArticleUpdatedTime,
   tagList: articleSelector.getArticleTagList,
   isLoggedin: getUserIsLoggedIn,
+  articleClaps: articleSelector.getArticleClaps,
   recommendations: articleSelector.getRecommendedArticles,
   bookmarkedList,
 });

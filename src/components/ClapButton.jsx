@@ -138,7 +138,7 @@ export class ClapButton extends Component {
    * @memberof ClapButton
    */
   render() {
-    const { articleClaps } = this.state;
+    const { articleClaps } = this.props;
 
     return (
       <span className="clap-icon">

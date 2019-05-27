@@ -76,7 +76,7 @@ export const getUserClapsSuccess = payload => ({
  * @returns {void}
  */
 export const fetchUserClaps = ({ slug, userId }) => async (dispatch) => {
-  const response = await request({ route: `articles/${slug}/claps/${userId}` });
+  const response = await request({ route: `articles/${slug}/claps/${userId}`, method: 'post' });
   const { data: { data: claps } } = response;
   dispatch(getUserClapsSuccess(claps));
 };
