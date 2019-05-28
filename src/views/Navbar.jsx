@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-bind */
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { PropTypes } from 'prop-types';
@@ -8,8 +9,9 @@ import { PropTypes } from 'prop-types';
  */
 const Navbar = (props) => {
   const {
-    isLoggedIn, profile, revealSearchBar, showSearch
+    isLoggedIn, profile, revealSearchBar, showSearch, logout
   } = props;
+
   return (
     <nav
       className={`navbar navbar-expand-lg fixed-top navbar-light ${isLoggedIn && 'navbar-logged'}`}
@@ -198,9 +200,13 @@ const Navbar = (props) => {
                   Followers
                 </Link>
                 <div className="dropdown-divider" />
-                <Link className="dropdown-item" to="/login">
-                  Logout
-                </Link>
+                <button
+                  type="button"
+                  className="logout"
+                  onClick={logout}
+                >
+                  LOG OUT
+                </button>
               </div>
             </div>
 
@@ -216,10 +222,12 @@ Navbar.propTypes = {
   profile: PropTypes.object.isRequired,
   revealSearchBar: PropTypes.func.isRequired,
   showSearch: PropTypes.bool,
+  logout: PropTypes.func,
 };
 
 Navbar.defaultProps = {
   showSearch: false,
+  logout: f => f,
 };
 
 export default Navbar;

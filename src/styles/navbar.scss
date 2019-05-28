@@ -32,6 +32,27 @@
 .show-nav-search{
   visibility: visible;
 }
+.logout {
+  text-align: center;
+	padding: 8px 16px 8px 15px;
+	display: inline-block;
+	color: $white;
+  font-size: 12px;
+  font-weight: bold;
+	background-color: $colorpurple;
+	border-radius: 5px;
+	text-decoration: none;
+  transition: background-color 300ms;
+  width: 40%;
+  margin-left: 1.3rem;
+
+	box-shadow: 0 5px 4px $black25;
+	&:hover {
+		color: $white;
+		background-color: $colorclairvoyant;
+		text-decoration: none;
+	}
+}
 @media only screen and (min-width: 358px){
   .nav-search-bar{
     input{
