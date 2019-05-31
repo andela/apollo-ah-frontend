@@ -81,6 +81,10 @@ export const mockState = {
     page: {},
     loading: false,
     message: null,
+  },
+  updatePassword: {
+    loading: false,
+    message: ''
   }
 };
 mockState.articlesReducer = articlesReducer;

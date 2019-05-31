@@ -67,7 +67,7 @@ function ResetPassword(props) {
         <div className="form-group">
           <input ref={input} type="email" autoComplete="true" className="reset_form_control btn-block" placeholder="Enter email" name="email" onChange={event => updateInput(event)} required />
           <span className="input-danger mt-2">A valid email is required</span>
-          <button type="submit" className="reset_btn btn-block mt-3">Request reset link</button>
+          <button type="submit" className="reset_btn btn-block mt-3">Request reset password link</button>
         </div>
 
       </form>

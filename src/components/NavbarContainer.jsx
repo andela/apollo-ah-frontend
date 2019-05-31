@@ -35,7 +35,7 @@ export class NavbarContainer extends Component {
     const { showSearch } = this.state;
     return (
       <>
-        {!isLoggedIn && <Redirect to="/login" />}
+        {!isLoggedIn && window.location.pathname !== '/reset-password' && <Redirect to="/login" />}
         <Navbar
           isLoggedIn={isLoggedIn}
           profile={profile}

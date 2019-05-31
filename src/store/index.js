@@ -14,6 +14,7 @@ import initialState from './initialState';
  * @constant store - created store
  * @exports object - An object of the persisted store and the persistor
  */
+
 const persistConfig = {
   key: 'root',
   storage,
@@ -25,4 +26,5 @@ const persistedReducer = persistReducer(persistConfig, rootReducer);
 const store = createStore(persistedReducer, initialState,
   composeWithDevTools(applyMiddleware(thunk)));
 const persistor = persistStore(store);
+
 export default { persistor, store };

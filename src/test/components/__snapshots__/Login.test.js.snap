@@ -146,7 +146,7 @@ exports[`<UserForm /> Should render all elements 1`] = `
                                   className="reset_btn btn-block mt-3"
                                   type="submit"
                                 >
-                                  Request reset link
+                                  Request reset password link
                                 </button>
                               </div>
                             </form>

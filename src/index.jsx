@@ -21,13 +21,13 @@ function App() {
       <PersistGate persistor={persistor}>
         <Routes />
         <ToastContainer
-          pauseOnFocusLoss={false}
-          transition={Flip}
-          className="toast-container"
-          toastClassName="default-toast"
-          autoClose={5000}
-          position="top-right"
-        />
+            pauseOnFocusLoss={false}
+            transition={Flip}
+            className="toast-container"
+            toastClassName="default-toast"
+            autoClose={5000}
+            position="top-right"
+          />
       </PersistGate>
     </Provider>
   );
