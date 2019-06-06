@@ -3,7 +3,6 @@ import { combineReducers } from 'redux';
 // Reducers
 import reduceReducers from 'reduce-reducers';
 import resetPasswordReducer from './resetPasswordReducer';
-import updatePasswordReducer from './updatePasswordReducer';
 import loginReducers from './loginReducers';
 import articlesReducer from './articleReducer';
 import articlesCategoryReducer from './articleCategoryReducer';
@@ -49,5 +48,4 @@ export default combineReducers({
   follow: followerReducer,
   dashboard: dashboardReducer,
   searchResult: searchReducer,
-  updatePassword: updatePasswordReducer
 });

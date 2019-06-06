@@ -69,12 +69,12 @@ exports[`<UserForm /> Should render all elements 1`] = `
             <div
               className="background min-vh-100"
             >
-              <Connect(ResetPassword)>
-                <ResetPassword
+              <Connect(RequestPasswordReset)>
+                <RequestPasswordReset
                   isLoading={false}
                   message=""
                   modalAction={[Function]}
-                  passwordResetRequest={[Function]}
+                  requestPasswordReset={[Function]}
                 >
                   <Modal
                     clearMessage={[Function]}
@@ -156,8 +156,8 @@ exports[`<UserForm /> Should render all elements 1`] = `
                       </div>
                     </div>
                   </Modal>
-                </ResetPassword>
-              </Connect(ResetPassword)>
+                </RequestPasswordReset>
+              </Connect(RequestPasswordReset)>
               <div
                 className="container-fluid"
               >

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import AlertMessage from './AlertMessage';
 import SocialLoginComponent from '../components/SocialLogin';
-import ResetPassword from '../components/ResetPassword';
+import RequestPasswordReset from '../components/RequestPasswordReset';
 
 /**
  * @param {*} {props} - Props supplied to the component from the Login component
@@ -26,7 +26,7 @@ function UserForm(props) {
   const notification = message;
   return (
     <div className="background min-vh-100">
-      <ResetPassword />
+      <RequestPasswordReset />
       <div className="container-fluid">
         <div className="row">
           <div className="login">

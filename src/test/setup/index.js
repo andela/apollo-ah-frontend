@@ -82,7 +82,7 @@ export const mockState = {
     loading: false,
     message: null,
   },
-  updatePassword: {
+  resetPassword: {
     loading: false,
     message: ''
   }

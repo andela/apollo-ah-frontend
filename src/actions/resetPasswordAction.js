@@ -39,10 +39,13 @@ export const resetPasswordFailure = message => ({
  * @returns {object}
  */
 
-const passwordResetRequest = email => async (dispatch) => {
+export const requestPasswordReset = email => async (dispatch) => {
   dispatch(resetPasswordLoading());
   try {
-    const { data } = await axios.post(`${process.env.API_BASE_URL}/users/forgot_password`, { email });
+    const { data } = await axios.post(
+      `${process.env.API_BASE_URL}/users/forgot_password`,
+      { email }
+    );
     dispatch(resetPasswordSuccess(data.message));
   } catch (error) {
     let info = 'Please check your network connection';
@@ -53,4 +56,24 @@ const passwordResetRequest = email => async (dispatch) => {
   }
 };
 
-export default passwordResetRequest;
+
+export const resetPassword = (
+  token,
+  password,
+  confirmPassword,
+  email
+) => async (dispatch) => {
+  dispatch(resetPasswordLoading());
+  try {
+    const { data } = await axios.patch(
+      `${process.env.API_BASE_URL}/users/reset_password?token=${token}`,
+      { password, confirmPassword, email }
+    );
+    dispatch(resetPasswordSuccess(data.message));
+  } catch (error) {
+    if (error.response.data.message) {
+      const info = error.response.data.message;
+      dispatch(resetPasswordFailure(info));
+    }
+  }
+};

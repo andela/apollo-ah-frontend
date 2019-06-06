@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-const UpdatePassword = ({
+export const ResetPasswordForm = ({
   handleSubmit,
   updateInput,
 }) => (
@@ -25,6 +25,7 @@ const UpdatePassword = ({
 
               <div className="login__input__section">
                 <form
+                    className="reset-password-form"
                     onSubmit={(event => handleSubmit(event))}
                   >
                   <div className="form-group">
@@ -82,9 +83,9 @@ const UpdatePassword = ({
   </div>
 );
 
-UpdatePassword.propTypes = {
+ResetPasswordForm.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   updateInput: PropTypes.func.isRequired
 };
 
-export default UpdatePassword;
+export default ResetPasswordForm;
