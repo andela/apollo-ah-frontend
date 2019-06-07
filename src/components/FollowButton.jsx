@@ -72,16 +72,18 @@ export class FollowButton extends Component {
 
     if (!isLoggedIn) {
       history.push('/login');
-      return false;
     }
 
     if (authUsername === username) {
       toast.info('Sorry, you cannot follow yourself');
-      return false;
     }
 
     if (!this.isFollowing(followId)) {
       followRequest('follow', username);
+    }
+
+    if (this.isFollowing(followId)) {
+      followRequest('Unfollow', username);
     }
   }
 
@@ -95,13 +97,24 @@ export class FollowButton extends Component {
     const { followId, isLoading } = this.props;
     const isFollowing = this.isFollowing(followId);
     return (
-      <button
-        type="button"
-        className={`btn btn-${isFollowing ? 'following' : 'follow'}`}
-        onClick={this.handleClick}>
-        {!isLoading && (isFollowing ? 'Following' : 'Follow')}
-        {isLoading && <span className="spinner-border text-light" />}
-      </button>
+      <>
+        <button
+          type="button"
+          className={`btn btn-${isFollowing ? 'following' : 'follow'}`}
+          onClick={this.handleClick}
+          >
+          {!isLoading && (isFollowing ? 'Following' : 'Follow')}
+          {isLoading && <span className="spinner-border text-light" />}
+        </button>
+        <button
+          type="button"
+          className={`btn btn-${isFollowing && 'unfollow'}`}
+          onClick={this.handleClick}
+        >
+          {!isLoading && (isFollowing && 'Unfollow')}
+          {isLoading && <span className="spinner-border text-light" />}
+        </button>
+      </>
     );
   }
 }

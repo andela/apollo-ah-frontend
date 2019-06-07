@@ -312,6 +312,19 @@ body {
 	}
 }
 
+.btn-unfollow {
+	margin-left: 1rem;
+	background: $colorsalmon;
+	color: $white;
+
+	&:hover {
+		background: lighten($colorsalmon, 10%);
+		color: $white;
+	}
+}
+
+
+
 .btn-following {
 	background: $colorgraynurse;
 	color: #777;
